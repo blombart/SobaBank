@@ -3,7 +3,8 @@ export class User  {
 	nom:String;
 	prenom:String;
 	email:String;
-	numTel:String
+	numTel:String;
+	password: String
 	
 	constructor(name: string, lastname: string, email: string, phoneNumber: string) {
 		this.nom = name;

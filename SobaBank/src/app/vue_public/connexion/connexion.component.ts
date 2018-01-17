@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { User } from '../forminscrition/user'
+ 
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  utilisateur: User;
+
+  constructor() {
+  this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
+  this.utilisateur.password = "123456";
+   }
 
   ngOnInit() {
+  	this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
+  	this.utilisateur.password = "123456";
+  }
+
+  ngOnSubmit(){
+  	console.log("Nom: "+ this.utilisateur.nom);
   }
 
 }
