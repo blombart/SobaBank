@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FinanceComponent } from './vue_public/finance/finance.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './vue_public/navbar/navbar.component';
 import { ForminscritionComponent } from './vue_public/forminscrition/forminscrition.component';
 
 import { provideRoutes} from '@angular/router';
