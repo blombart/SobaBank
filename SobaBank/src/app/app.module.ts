@@ -12,6 +12,10 @@ import { provideRoutes} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
+import { AccueilAgentComponent } from './vue_agent/accueil-agent/accueil-agent.component';
+import { ListeDemandesComponent } from './vue_agent/liste-demandes/liste-demandes.component';
+import { RechercheComponent } from './vue_agent/recherche/recherche.component';
+import { NavbarAgentComponent } from './vue_agent/navbar-agent/navbar-agent.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
     FinanceComponent,
     NavbarComponent,
     ForminscritionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    AccueilAgentComponent,
+    ListeDemandesComponent,
+    RechercheComponent,
+    NavbarAgentComponent
   ],
   imports: [
     BrowserModule,
