@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component'
-import {ForminscritionComponent} from './forminscrition/forminscrition.component'
-import {ConnexionComponent } from './connexion/connexion.component'
+import {ForminscritionComponent} from './vue_public/forminscrition/forminscrition.component'
+import {ConnexionComponent } from './vue_public/connexion/connexion.component'
 
 @NgModule({
   imports: [
