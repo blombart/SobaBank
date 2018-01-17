@@ -4,7 +4,7 @@ import {User} from './user'
 @Component({
   selector: 'app-forminscrition',
   templateUrl: './forminscrition.component.html',
-  styleUrls: ['../bootstrap/css/bootstrap.css']
+  styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
 export class ForminscritionComponent implements OnInit {
 
