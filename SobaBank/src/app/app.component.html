@@ -8,7 +8,9 @@
   <div class="title">{{title}}</div>
 </h1>
 
-<app-navbar></app-navbar>
+<p>{{utilisateur.nom}}</p>
+
+<app-navbar [role]="utilisateur.role"></app-navbar>
 
 <!-- <app-finance></app-finance>
 

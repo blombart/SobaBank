@@ -9,7 +9,7 @@ import {FinanceComponent } from './vue_public/finance/finance.component'
   imports: [
     RouterModule.forRoot([
       
-     /*{path: '', component: AppComponent, pathMatch: 'full'},*/
+     {path: '', component: FinanceComponent, pathMatch: 'full'},
      {path: 'finance', component: FinanceComponent, pathMatch: 'full'},
      {path: 'inscription', component: ForminscritionComponent, pathMatch: 'full'},
      {path: 'connexion', component: ConnexionComponent, pathMatch: 'full'}

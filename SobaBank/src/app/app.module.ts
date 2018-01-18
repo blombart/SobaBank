@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -13,19 +13,24 @@ import { provideRoutes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     FinanceComponent,
     NavbarComponent,
     ForminscritionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+
 
   ],
   providers: [],
