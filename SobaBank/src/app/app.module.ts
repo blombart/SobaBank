@@ -17,6 +17,11 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 import { NavbaroComponent } from './vue_client/navbaro/navbaro.component';
 import { VirementComponent } from './vue_client/virement/virement.component';
 import { CommandeComponent } from './vue_client/commande/commande.component';
+import { MdpComponent } from './vue_client/mdp/mdp.component';
+import { CourantComponent } from './vue_client/courant/courant.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,10 @@ import { CommandeComponent } from './vue_client/commande/commande.component';
     ConnexionComponent,
     NavbaroComponent,
     VirementComponent,
-    CommandeComponent
+    CommandeComponent,
+    MdpComponent,
+    CourantComponent,
+   
   ],
   imports: [
     BrowserModule,

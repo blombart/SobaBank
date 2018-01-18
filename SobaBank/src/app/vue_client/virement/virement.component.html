@@ -1,12 +1,34 @@
 <div class="wrapper">
     <form class="form-signin">       
-      <h2 class="form-signin-heading">Espace virement</h2>  
+      <h1 class="form-signin-heading">Espace virement</h1> 
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="inputPassword6">Compte à débiter</label>
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+  
+        <option value="1">Compte Courant</option>
+        <option value="1">Compte Epargne</option>
+       
+      </select>
+  </div></form>
+  <form class="form-inline"> <div class="form-group">
+    <label for="inputPassword6">Compte à créditer</label>
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option value="1">Compte Courant</option>
+        <option value="1">Compte Epargne</option>
+       
+      </select>
+  </div>
+</form>
+
+
       <label for="inputPassword6">Montant</label>   
       <input type="text" class="form-control" name="username" placeholder="montant" required="" autofocus="" /> <br/>
-      <label for="inputPassword6">Montant</label>   
-       <input type="text" class="form-control" name="username" placeholder="montant" required="" autofocus="" />  
+      <label for="inputPassword6">Libelle</label>   
+       <input type="text" class="form-control" name="username"  placeholder="Libelle" required="" autofocus="" />  
        <br/> <br/>
-       
+
      
       <button class="btn btn-lg btn-primary btn-block" type="submit">Effectuer virement</button>   
     </form>
