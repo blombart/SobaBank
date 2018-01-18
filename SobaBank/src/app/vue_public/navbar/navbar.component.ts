@@ -10,9 +10,9 @@ import {Item} from './item'
 export class NavbarComponent implements OnInit {
 
 	items  = [
-  new Item(1, 'inscription'),
-  new Item(2, 'connexion'),
-  new Item(3, 'infos')
+	new Item(1, 'finance','Accueil'),
+  new Item(2, 'inscription', 'Inscription'),
+  new Item(3, 'connexion', 'Connexion')
   
 ];;
 
