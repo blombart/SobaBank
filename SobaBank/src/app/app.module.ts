@@ -16,6 +16,7 @@ import { AccueilAgentComponent } from './vue_agent/accueil-agent/accueil-agent.c
 import { ListeDemandesComponent } from './vue_agent/liste-demandes/liste-demandes.component';
 import { RechercheComponent } from './vue_agent/recherche/recherche.component';
 import { NavbarAgentComponent } from './vue_agent/navbar-agent/navbar-agent.component';
+import { ListeClientComponent } from './vue_agent/liste-client/liste-client.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavbarAgentComponent } from './vue_agent/navbar-agent/navbar-agent.comp
     AccueilAgentComponent,
     ListeDemandesComponent,
     RechercheComponent,
-    NavbarAgentComponent
+    NavbarAgentComponent,
+    ListeClientComponent
   ],
   imports: [
     BrowserModule,
