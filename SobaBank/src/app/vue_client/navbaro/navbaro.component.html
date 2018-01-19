@@ -11,7 +11,7 @@
       </li>
       <li class="nav-item">
        <!--  <a class="nav-link" href="#">Créer un compte</a> -->
-       
+
        <li class="nav-item">
         <a class="nav-link" [routerLink]="['/client']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Client</a>
       </li>
@@ -37,9 +37,14 @@
 
        <a class="nav-link" [routerLink]="['/virement']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Effectuer virement</a>
       </li>
-      <li class="nav-item">
+     
         <!-- <a class="nav-link " href="#">Se connecter</a> -->
 
+        <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/agent']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Agent</a>
+      </li>
+
+        <li class="nav-item">
         <a class="nav-link" [routerLink]="['/déconnexion']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Se deconnecter</a>
       </li>
     </ul>

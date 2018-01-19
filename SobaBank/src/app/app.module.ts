@@ -19,6 +19,9 @@ import { VirementComponent } from './vue_client/virement/virement.component';
 import { CommandeComponent } from './vue_client/commande/commande.component';
 import { MdpComponent } from './vue_client/mdp/mdp.component';
 import { CourantComponent } from './vue_client/courant/courant.component';
+import { EpargneComponent } from './vue_client/epargne/epargne.component';
+import { AgentComponent } from './vue_client/agent/agent.component';
+
 
 
 
@@ -37,6 +40,8 @@ import { CourantComponent } from './vue_client/courant/courant.component';
     CommandeComponent,
     MdpComponent,
     CourantComponent,
+    EpargneComponent,
+    AgentComponent,
    
   ],
   imports: [

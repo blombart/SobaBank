@@ -8,14 +8,14 @@ import { Client} from './client';
 })
 export class ClientComponent implements OnInit {
 
-client: Client;
 
-  constructor() { 
-  	this.client= new Client("Hadjaz", "0123456",  "0626865421","moui@test.com")}
+
+
+    clients = [new Client('LILLE','0630451325','5','marié')  ,   new Client('Paris','0123456789','3','célibataire')];
+
+  constructor() { }
 
   ngOnInit() {
-  		this.client= new Client("Hadjaz", "0123456", "0626865421","moui@test.com")}
-
   }
 
 }

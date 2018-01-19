@@ -2,16 +2,16 @@
     <form class="form-signin">       
       <h1 class="form-signin-heading">Espace virement</h1> 
 
-<form class="form-inline">
-  <div class="form-group">
+<form class="form-inline"><div class="form-group">
     <label for="inputPassword6">Compte à débiter</label>
      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
   
         <option value="1">Compte Courant</option>
         <option value="1">Compte Epargne</option>
-       
+
       </select>
   </div></form>
+
   <form class="form-inline"> <div class="form-group">
     <label for="inputPassword6">Compte à créditer</label>
    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -20,10 +20,12 @@
        
       </select>
   </div>
-</form>
+   </form>
 
 
-      <label for="inputPassword6">Montant</label>   
+<div class="col-md-4">
+<form class="form-signin">            
+  <label for="inputPassword6">Montant</label>   
       <input type="text" class="form-control" name="username" placeholder="montant" required="" autofocus="" /> <br/>
       <label for="inputPassword6">Libelle</label>   
        <input type="text" class="form-control" name="username"  placeholder="Libelle" required="" autofocus="" />  
@@ -32,4 +34,5 @@
      
       <button class="btn btn-lg btn-primary btn-block" type="submit">Effectuer virement</button>   
     </form>
-  </div>
+    <div>
+  

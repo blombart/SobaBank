@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Operation} from './operation';
-
 
 @Component({
-  selector: 'app-comptes',
-  templateUrl: './comptes.component.html',
+  selector: 'app-epargne',
+  templateUrl: './epargne.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
-export class ComptesComponent implements OnInit {
-
-
+export class EpargneComponent implements OnInit {
 
   constructor() { }
 

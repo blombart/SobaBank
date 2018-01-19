@@ -9,6 +9,8 @@ import {MdpComponent } from './vue_client/mdp/mdp.component'
 import {ComptesComponent } from './vue_client/comptes/comptes.component'
 import {CourantComponent } from './vue_client/courant/courant.component'
 import {ClientComponent } from './vue_client/client/client.component'
+import {EpargneComponent } from './vue_client/epargne/epargne.component'
+import { AgentComponent } from './vue_client/agent/agent.component';
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import {ClientComponent } from './vue_client/client/client.component'
       {path: 'mdp', component: MdpComponent, pathMatch: 'full'},
        {path: 'comptes', component: ComptesComponent, pathMatch: 'full'},
        {path: 'courant', component: CourantComponent, pathMatch: 'full'},
-        {path: 'client', component: ClientComponent, pathMatch: 'full'}
+        {path: 'client', component: ClientComponent, pathMatch: 'full'},
+        {path: 'epargne', component: EpargneComponent, pathMatch: 'full'},
+         {path: 'agent', component: AgentComponent, pathMatch: 'full'}
+       
     ])
   ],
   exports: [RouterModule]
