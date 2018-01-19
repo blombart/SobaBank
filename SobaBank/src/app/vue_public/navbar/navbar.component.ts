@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, Directive } from '@angular/core';
 import {Item} from './item';
 import {User} from '../forminscrition/user'
 import {AppComponent} from '../../app.component'
-
+import {SharedService}  from '../../service/shared-service'
 
 
 
@@ -24,13 +24,18 @@ export class NavbarComponent implements OnInit {
 
 	
 
-  constructor() {
+  constructor(private _sharedService: SharedService) {
     //this.role =  "guest"
 
     
   	    //Definir le type de navbar (guest, client, agent, admin)
 
-      
+       _sharedService.changeEmitted$.subscribe(
+        text => {
+            console.log(text);
+            this.role = text;
+            this.ngOnInit();
+        });
 
 
 
@@ -61,8 +66,42 @@ if (this.role == "client"){
   new Item(3, 'deconnexion', 'Me déconnecter')
   
 ];
-    
-  }
+    }
+
+
+
+    if (this.role == "agent"){
+
+//console.log("Entré ds condition ngInit");
+
+         this.items  = [
+	new Item(1, 'finance','Clients'),
+  new Item(2, 'inscription', 'Demandes'),
+  new Item(3, 'deconnexion', 'Se deconnecter')
+  
+];
+
+
+
+}
+
+
+
+if (this.role == "admin"){
+
+//console.log("Entré ds condition ngInit");
+
+         this.items  = [
+	new Item(1, 'finance','Demandes'),
+  new Item(2, 'inscription', 'Agents'),
+  new Item(3, 'connexion', 'Clients'),
+    new Item(3, 'deconnexion', 'Se deconnecter')
+  
+];
+
+
+
+}
 }
 
 }

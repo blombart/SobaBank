@@ -13,7 +13,8 @@ import { provideRoutes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 
-
+import {SharedService}  from './service/shared-service';
+import { DeconnexionComponent } from './deconnexion/deconnexion.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
     NavbarComponent,
     ForminscritionComponent,
     ConnexionComponent,
+    DeconnexionComponent,
     
   ],
   imports: [
@@ -33,7 +35,7 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 
 
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
