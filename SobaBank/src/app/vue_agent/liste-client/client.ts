@@ -1,6 +1,7 @@
 
 export class Client {
 
+  private id: String;
   private numCompte: String;
 	private nom: String;
 	private prenom: String;
@@ -11,7 +12,8 @@ export class Client {
 
 
 
-  constructor(numCompte: String, nom: String, prenom: String, email: String, adresse : String, numTel: String, situation: String) {
+  constructor(id: String, numCompte: String, nom: String, prenom: String, email: String, adresse : String, numTel: String, situation: String) {
+    this.id = id;
     this.numCompte = numCompte;
     this.nom = nom;
     this.prenom = prenom;
