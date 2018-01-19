@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 import { AccueilAgentComponent } from './vue_agent/accueil-agent/accueil-agent.component';
 import { ListeDemandesComponent } from './vue_agent/liste-demandes/liste-demandes.component';
-import { RechercheComponent } from './vue_agent/recherche/recherche.component';
 import { NavbarAgentComponent } from './vue_agent/navbar-agent/navbar-agent.component';
 import { ListeClientComponent } from './vue_agent/liste-client/liste-client.component';
 import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
@@ -28,7 +27,6 @@ import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
     ConnexionComponent,
     AccueilAgentComponent,
     ListeDemandesComponent,
-    RechercheComponent,
     NavbarAgentComponent,
     ListeClientComponent,
     FilterPipe
