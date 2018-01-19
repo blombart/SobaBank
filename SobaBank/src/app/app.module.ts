@@ -18,6 +18,7 @@ import { NavbarAgentComponent } from './vue_agent/navbar-agent/navbar-agent.comp
 import { ListeClientComponent } from './vue_agent/liste-client/liste-client.component';
 import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-demandes.component';
+import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-demandes.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-dema
     NavbarAgentComponent,
     ListeClientComponent,
     FilterPipe,
-    NavbarDemandesComponent
+    NavbarDemandesComponent,
+    DetailsDemandesComponent
   ],
   imports: [
     BrowserModule,
