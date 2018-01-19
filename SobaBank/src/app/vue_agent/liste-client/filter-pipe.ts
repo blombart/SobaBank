@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+import { ListeClientComponent } from './liste-client.component';
 
 @Pipe({
   name: 'filter'
