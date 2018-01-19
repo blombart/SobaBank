@@ -1,19 +1,22 @@
 <!-- ajouter : une demande d'infos supplémentaires. -->
 
-
+<app-navbar-demandes></app-navbar-demandes>
 <input [(ngModel)]="searchText" placeholder="Rechercher">
+<!-- <div class="hidden" *ngIf ="chequier"> -->
+
   <div class="row">
     
         
         <div class="col-md-12">
         <div class="table-responsive">
 
-                
+<!--               <button (click) = "toggleShow()"> -->
               <table id="mytable" class="table table-bordred table-striped">
                    
                    <thead>
                    
-                   <th><input type="checkbox" id="checkall" /></th>
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                   <th>Identifiant</th>
                    <th>N° de Compte</th>
                    <th>Nom</th>
                     <th>Prénom</th>
@@ -23,8 +26,8 @@
     <tbody>
     
     <tr *ngFor = "let client of clients | filter : searchText">
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>{{client.numCompte}}</td>
+  <!--   <td><input type="checkbox" class="checkthis" /></td> -->
+    <td>{{client.id}}</td>
     <td>{{client.nom}}</td>
     <td>{{client.prenom}}</td>
     <td>{{client.numTel}}</td>
@@ -33,6 +36,8 @@
     </tr>
    </tbody>
 </table>
+<!-- </button> -->
 </div>
 </div>
 </div>
+<!-- </div> -->
