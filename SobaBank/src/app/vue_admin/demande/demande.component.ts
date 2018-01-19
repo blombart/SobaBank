@@ -4,9 +4,7 @@ import { Demande } from '../test_class/demande';
 @Component({
   selector: 'app-demande',
   templateUrl: './demande.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css',
-  '../../bootstrap/css/bootstrap-grid.css',
-  '../../bootstrap/css/bootstrap-reboot.css',
+  styleUrls: ['../../bootstrap/css/bootstrap.css'
   ]
 })
 export class DemandeComponent implements OnInit {
