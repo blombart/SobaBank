@@ -17,7 +17,7 @@ import {DemandeComponent} from './vue_admin/demande/demande.component'
      {path: 'connexion', component: ConnexionComponent, pathMatch: 'full'},
      {path: 'admin', component: AdminComponent, pathMatch: 'full'},
      {path: 'demandes', component: DemandeComponent, pathMatch: 'full'},
-     {path: 'creationAgents', component: FormAgentsComponent, pathMatch: 'full'}
+     {path: 'agents/:id', component: FormAgentsComponent, pathMatch: 'full'}
     ])
   ],
   exports: [RouterModule]

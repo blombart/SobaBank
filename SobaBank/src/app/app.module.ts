@@ -17,6 +17,9 @@ import { AdminComponent } from './vue_admin/admin/admin.component';
 import { FormAgentsComponent } from './vue_admin/form-agents/form-agents.component';
 import { NavbarAdminComponent } from './vue_admin/navbar-admin/navbar-admin.component';
 import { DemandeComponent } from './vue_admin/demande/demande.component';
+import { RechercheComponent } from './vue_admin/recherche/recherche.component';
+import { AgentRechercheComponent } from './vue_admin/agent-recherche/agent-recherche.component';
+import {AgentService} from './vue_admin/test_class/agent.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { DemandeComponent } from './vue_admin/demande/demande.component';
     AdminComponent,
     FormAgentsComponent,
     NavbarAdminComponent,
-    DemandeComponent
+    DemandeComponent,
+    RechercheComponent,
+    AgentRechercheComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { DemandeComponent } from './vue_admin/demande/demande.component';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [AgentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
