@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
 export class NavbarAdminComponent implements OnInit {
+	id: string = '0';
 
   constructor() { }
 
