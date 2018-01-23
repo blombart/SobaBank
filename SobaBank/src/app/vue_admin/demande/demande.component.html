@@ -30,6 +30,10 @@
     <tr *ngFor="let dem of demandes">
     <td><input type="checkbox" class="checkthis" /></td>
     <td>{{dem.id}}</td>
+    <td><select>
+      <option *ngFor="let ag of agents | async">{{ag.nom}}</option>
+
+    </select>
     <td>{{dem.agent}}</td>
     <td>{{dem.status}}</td>
     <td>{{dem.dateDem | date}}</td>
