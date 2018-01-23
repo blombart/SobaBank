@@ -11,38 +11,15 @@
       </li>
       <li class="nav-item">
        <!--  <a class="nav-link" href="#">Créer un compte</a> -->
-
+<li class="nav-item active">
+        <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+      </li>
        <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/client']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Client</a>
+        <a class="nav-link" [routerLink]="['/navcli']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Client</a>
       </li>
 
-      <li class="nav-item">
 
-         <a class="nav-link" [routerLink]="['/comptes']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Compte</a>
-      </li>
 
-      <li class="nav-item">
-
-       <a class="nav-link" [routerLink]="['/mdp']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Changer mot de passe</a>
-      </li>
-
-      <li class="nav-item">
-       <!--  <a class="nav-link" href="#">Créer un compte</a> -->
-
-       <a class="nav-link" [routerLink]="['/commande']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Commander Chéquier</a>
-      </li>
-
-      <li class="nav-item">
-       <!--  <a class="nav-link" href="#">Créer un compte</a> -->
-
-       <a class="nav-link" [routerLink]="['/virement']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Effectuer virement</a>
-      </li>
-     
-        <!-- <a class="nav-link " href="#">Se connecter</a> -->
-
-        <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/agent']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Agent</a>
-      </li>
 
         <li class="nav-item">
         <a class="nav-link" [routerLink]="['/déconnexion']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Se deconnecter</a>
