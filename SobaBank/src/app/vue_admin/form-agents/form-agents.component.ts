@@ -39,7 +39,8 @@ export class FormAgentsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
-    this.a1 = this.service.getAgent(this.id);
+    if(this.id != 0){
+    this.a1 = this.service.getAgent(this.id)};
   }
 
   onSubmit(){
