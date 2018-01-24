@@ -11,7 +11,7 @@ import { ForminscritionComponent } from './vue_public/forminscrition/forminscrit
 
 import { provideRoutes} from '@angular/router';
 import { AdminModule } from './vue_admin/admin/admin.module';
-
+import { AccueilAgentModule} from './vue_agent/accueil-agent/accueil-agent.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 
@@ -29,7 +29,7 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
   imports: [
     BrowserModule,
     HttpModule,
-    AdminModule,
+    AdminModule, AccueilAgentModule,
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
   ],
