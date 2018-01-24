@@ -1,33 +1,51 @@
 <div class="row">
     
         
-        <div class="col-md-10">
-        <div class="table-responsive">
-
-<table id="mytable" class="table table-bordred table-striped">
-  <thead class="thead-dark">
-    <tr>
-      
-     
+        <div class="col-sm-12">
+        <div class="table">
+<tr>
 
         <th scope="col"><a class="nav-link" [routerLink]="['/courant']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Compte Courant</a></th>
     
 
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Mon solde</th>
-      <th>textarea</th>
-     
-    
-    </tr>
-    
-  </tbody>
-</table>
+  
 
-<table class="table" class="table table-bordred table-striped">
-  <thead class="thead-light">
+          <a class="nav-link active" >
+                
+              <table id="mytable" class="table table-hover">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                  
+                    <th>Numero de Compte</th>
+                    <th>Montant</th>
+                     <th></th>
+                   </thead>
+    <tbody>
+    
+    <tr *ngFor = "let compte of comptes">
+   
+    <td>{{compte.numCompte}}</td>
+    <td>{{compte.montantCompte}}</td>
+ <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+
+    </tr>
+   </tbody>
+</table></a>
+</div></div>
+
+</div>
+
+
+<div class="row">
+    
+        
+        <div class="col-sm-12">
+        <div class="table">
+
+
      <tr>
       
      
@@ -36,17 +54,34 @@
     
 
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">solde</th>
-      <th>textarea</th>
-      
-    </tr>
+
+
+          <a class="nav-link active" >
+                
+              <table id="mytable" class="table table-hover">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                  
+                    <th>Numero de Compte</th>
+                    <th>Montant</th>
+                     <th></th>
+                   </thead>
+    <tbody>
     
-  </tbody>
-</table>
-</div></div></div>
+    <tr *ngFor = "let epargne of epargnes">
+   
+    <td>{{epargne.numEpargne}}</td>
+    <td>{{epargne.montantEpargne}}</td>
+ <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+
+    </tr>
+   </tbody>
+</table></a>
+</div></div>
+
+</div>
 
 
 

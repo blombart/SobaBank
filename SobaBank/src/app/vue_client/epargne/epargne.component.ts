@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Epargne} from './epargne';
 
 @Component({
   selector: 'app-epargne',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
 export class EpargneComponent implements OnInit {
+
+	
 
   constructor() { }
 

@@ -9,7 +9,7 @@ import { Agent} from './agent';
 })
 export class AgentComponent implements OnInit {
 
-	 agents = [new Agent('bertolomi','marcostas','063251645','mail') ];
+	 agents = [new Agent('berto','marco','063251645','mail@gmail.com')];
 
   constructor() { }
 
