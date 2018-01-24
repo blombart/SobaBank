@@ -1,3 +1,5 @@
+//fichier qui contient l'ensemble des routes necessaire au composant admin
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

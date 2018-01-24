@@ -1,3 +1,5 @@
+//fichier qui contient l'import de l'ensemble des composant necessaire pour la vue admin
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
