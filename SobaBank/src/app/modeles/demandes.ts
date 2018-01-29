@@ -15,7 +15,7 @@ export class DemandeClient extends Demande{
 	constructor(dateDemande: Date,
 		libelle: String,
 		estAffecte: boolean,
-		status: String,
+		status: Status,
 		estValide: boolean,
 		agent: Agent,
 		client: Client){
