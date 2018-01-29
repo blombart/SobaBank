@@ -11,7 +11,7 @@ import {NavbarAdminComponent} from '../../vue_admin/navbar-admin/navbar-admin.co
 import {RechercheComponent} from '../../vue_admin/recherche/recherche.component';
 import {AgentRechercheComponent} from '../../vue_admin/agent-recherche/agent-recherche.component'
 import {AgentService} from '../../vue_admin/test_class/agent.service'
-
+import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-agents.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +23,7 @@ import {AgentService} from '../../vue_admin/test_class/agent.service'
   DemandeComponent,
   NavbarAdminComponent,
   RechercheComponent,
-  AgentRechercheComponent],
+  AgentRechercheComponent,GestionAgentsComponent],
   providers: [AgentService]
 
 })
