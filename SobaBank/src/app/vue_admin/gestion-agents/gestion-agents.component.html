@@ -1,4 +1,4 @@
-<app-recherche></app-recherche>
+<app-recherche (stringChange)="maRecherche($event);"></app-recherche>
 <button type="button" class="btn btn-default" (click)="setAgent()">Ajouter un agent</button>
 
 <div class="container">
@@ -10,18 +10,19 @@
         <div class="table-responsive">
 
                 
-    <table id="mytable" class="table table-bordred table-striped">
+    <table id="mytable" class="table table-bordered table-striped">
                    
  		<thead>
 			<th>Nom</th>
 			<th>Matricule</th>
+			<th>Modification</th>
     	</thead>
 
 		<tbody>
-    		<tr *ngFor="let agent of agents | async">
+    		<tr *ngFor="let agent of agents | async ">
     			<td>{{agent.nom}}</td>
     			<td>{{agent.matricule}}</td>
-    			<td>
+    			<td >
     				<button type="button" class="btn btn-default" (click)="modifierAgent()">Editer</button>
     			</td>
     		</tr>

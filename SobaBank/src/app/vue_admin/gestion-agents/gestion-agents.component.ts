@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { AgentService} from '../../Service/agent.service';
@@ -12,6 +14,7 @@ import { AgentService} from '../../Service/agent.service';
 export class GestionAgentsComponent implements OnInit {
 
 	agents : Observable<Agent[]>;
+	searchText: string;
   constructor(private agentService: AgentService) { }
 
   ngOnInit() {
@@ -20,4 +23,10 @@ export class GestionAgentsComponent implements OnInit {
 
   setAgent(){	
   }
+
+  maRecherche (event) {
+  	this.searchText = event.value;
+  	this.agents = this.agents.map((agents) => agents.filter(agent => agent.nom.includes(this.searchText) || agent.matricule.includes(this.searchText)));
+}
+
 }
