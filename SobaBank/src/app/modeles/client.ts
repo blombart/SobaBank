@@ -24,7 +24,7 @@ export class Client extends User{
 //TODO creer plusieurs clients
 
 export const clients: Client[] = [
-new Client(1,
+/*new Client(1,
 	"omar",
 	"ramo",
 	"foo@foo.fr",
@@ -40,5 +40,5 @@ new Client(1,
 		new Compte()
 		]
 		),
-
+*/
 ]
