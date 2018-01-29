@@ -4,13 +4,13 @@ import {Demande} from './demandes';
 
 export class Agent extends User{
 constructor(
-	id: number,
-	nom: String,
-	prenom: String,
-	email: String,
+	public id: number,
+	public nom: String,
+	public prenom: String,
+	public email: String,
 	mdp: String,
 	role: String,
-	matricule: String,
+	public matricule: String,
 	dateDebutContrat: Date,
 	numTel: String,
 	clients: Client[],
@@ -21,4 +21,54 @@ constructor(
 }
 
 //TODO creer plusieurs agents
-export const agents : Agent[] = []
+export const agents : Agent[] = [
+	new Agent(1,
+		"allon",
+		"levy",
+		"allon.levy@sobabank.com",
+		"azerty",
+		"agent",
+		"A0001",
+		new Date(),
+		"0321546589",
+		[null, null],
+		[null,null]
+		),
+	new Agent(2,
+		"bacard",
+		"hugo",
+		"bacard.hugo@sobabank.com",
+		"qsdfgh",
+		"agent",
+		"A0002",
+		new Date(),
+		"0321651254",
+		[null, null],
+		[null,null]
+		),
+	new Agent(3,
+		"baker",
+		"matthew",
+		"baker.matthew@sobabank.com",
+		"wxcvbn",
+		"agent",
+		"A0003",
+		new Date(),
+		"0321659487",
+		[null, null],
+		[null,null]
+		),
+	new Agent(4,
+		"balwe",
+		"chetan",
+		"balwe.chetan@sobabank.com",
+		"poiuyt",
+		"agent",
+		"A0004",
+		new Date(),
+		"0321320121",
+		[null, null],
+		[null,null]
+		),
+
+]
