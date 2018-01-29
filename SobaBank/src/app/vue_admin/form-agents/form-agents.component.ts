@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
-import { Agent } from '../test_class/agent';
+import { Agent } from '../../modeles/agent';
 import { ActivatedRoute } from '@angular/router';
-import { AgentService} from '../test_class/agent.service';
+import { AgentService} from '../../Service/agent.service';
 @Component({
   selector: 'app-form-agents',
   templateUrl: './form-agents.component.html',
@@ -12,7 +12,7 @@ export class FormAgentsComponent implements OnInit {
   //TEST EN DUR AVEC UN AGENT
 	 // clients : String[] = ["cli1","cli2"];
   //  demandes : String[] = ["dem1","dem2"];
-	 a1 = new Agent(null,"","","","","",null,null);
+	 a1 = new Agent(null,"","","","","","",null,"",null,null);
   id: number;
 
   agentForm: FormGroup;

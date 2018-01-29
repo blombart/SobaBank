@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup} from '@angular/forms';
-import { agents } from '../test_class/modelAgents'
-import { Agent } from '../test_class/agent'
+import { agents } from '../../modeles/agent';
+import { Agent } from '../../modeles/agent';
 
 @Component({
   selector: 'app-recherche',
