@@ -1,2 +1,34 @@
 <app-recherche></app-recherche>
-<button type="button" class="btn btn-default" (click)="setAgent()">Modifier Agent</button>
+<button type="button" class="btn btn-default" (click)="setAgent()">Ajouter un agent</button>
+
+<div class="container">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h4 class="center">Liste des agents</h4>
+        <div class="table-responsive">
+
+                
+    <table id="mytable" class="table table-bordred table-striped">
+                   
+ 		<thead>
+			<th>Nom</th>
+			<th>Matricule</th>
+    	</thead>
+
+		<tbody>
+    		<tr *ngFor="let agent of agents | async">
+    			<td>{{agent.nom}}</td>
+    			<td>{{agent.matricule}}</td>
+    			<td>
+    				<button type="button" class="btn btn-default" (click)="modifierAgent()">Editer</button>
+    			</td>
+    		</tr>
+		</tbody>
+        
+</table>
+
+        </div>
+	</div>
+</div>
