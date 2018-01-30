@@ -8,14 +8,14 @@ export class Agent extends User{
 constructor(
 
 	public id: number,
-	public nom: String,
-	public prenom: String,
-	public email: String,
-	public mdp: String,
-	public role: String,
-	public matricule: String,
+	public nom: string,
+	public prenom: string,
+	public email: string,
+	public mdp: string,
+	public role: string,
+	public matricule: string,
 	public dateDebutContrat: Date,
-	public numTel: String,
+	public numTel: string,
 
 	clients: Client[],
 	demandes: Demande[])

@@ -19,7 +19,7 @@ export class UserService {
   		return of(Users);
   	}
 
-getUserByName(name: string){
+getUserByName(name: String){
   for (let user of this.users) {
      if (user.nom == name){
             console.log(user.email);
