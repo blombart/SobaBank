@@ -1,5 +1,6 @@
 export class User{
 	constructor(
+
 	public id: number,
 	public nom: string,
 	public prenom: string,
@@ -7,8 +8,10 @@ export class User{
 	public mdp: string,
 	public role: string){
 
+
 	}
 }
+
 
 //TODO Creer plusieurs utilisateur    OK
 export const Users: User[] = [
@@ -17,3 +20,4 @@ export const Users: User[] = [
 			new User(3,"NomSeb","Sebastien","sb@test.com","1234","agent"),
 			new User(4,"Lombart","Benjamanin","benj@test.com","1234","admin")
 ] ;
+

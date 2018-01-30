@@ -13,6 +13,7 @@ export class Client extends User{
 	numTel: string,
 	nbEnfants: number,
 	situationMatrimonial:string,
+
 	agent: Agent,
 	comptes: Compte[],
 	)

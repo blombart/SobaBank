@@ -24,6 +24,7 @@ export class ConnexionComponent implements OnInit {
 
   }
 
+
   onClick(){
 
     this.role = this.userService.getUserByName(this.nom);
@@ -31,3 +32,4 @@ export class ConnexionComponent implements OnInit {
 }
 
 }
+

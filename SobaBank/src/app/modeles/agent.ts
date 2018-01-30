@@ -4,6 +4,7 @@ import {Demande} from './demandes';
 
 export class Agent extends User{
 constructor(
+
 	public id: number,
 	public nom: string,
 	public prenom: string,
@@ -13,6 +14,7 @@ constructor(
 	public matricule: string,
 	dateDebutContrat: Date,
 	numTel: string,
+
 	clients: Client[],
 	demandes: Demande[])
 {
@@ -21,6 +23,7 @@ constructor(
 }
 
 //TODO creer plusieurs agents
+
 export const agents : Agent[] = [
 	new Agent(1,
 		"allon",
@@ -72,3 +75,4 @@ export const agents : Agent[] = [
 		),
 
 ]
+

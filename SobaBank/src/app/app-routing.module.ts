@@ -4,14 +4,18 @@ import { AppComponent } from './app.component';
 
 import {ConnexionComponent } from './vue_public/connexion/connexion.component';
 import {ForminscritionComponent} from './vue_public/forminscrition/forminscrition.component';
+
 import {FinanceComponent } from './vue_public/finance/finance.component';
+
 
 //import des composant principal pour chaque vue
 import {AccueilAgentComponent} from './vue_agent/accueil-agent/accueil-agent.component';
 import {AdminComponent } from './vue_admin/admin/admin.component';
 import {MainClientComponent} from './vue_client/main-client/main-client.component';
 
+
 import {DeconnexionComponent} from './deconnexion/deconnexion.component';
+
 
 @NgModule({
   imports: [
@@ -22,12 +26,15 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
      {path: 'admin', component: AdminComponent, pathMatch: 'full'},
      {path:'client', component: MainClientComponent, pathMatch:'full'},
      {path: 'inscription', component: ForminscritionComponent, pathMatch: 'full'},
+
      {path: 'finance', component: FinanceComponent, pathMatch: 'full'},
      {path: 'connexion', component: ConnexionComponent, pathMatch: 'full'},
      {path: 'deconnexion', component: DeconnexionComponent, pathMatch: 'full'},
+
 
     ])
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

@@ -19,9 +19,11 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 
 
 import { AppRoutingModule } from './app-routing.module';
+
 import {SharedService}  from './service/shared-service';
 
 import {DeconnexionComponent} from './deconnexion/deconnexion.component';
+
 
 
 
@@ -33,6 +35,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     ForminscritionComponent,
     ConnexionComponent,
     DeconnexionComponent
+
   ],
   imports: [
     BrowserModule,
