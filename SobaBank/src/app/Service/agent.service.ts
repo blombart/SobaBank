@@ -22,4 +22,5 @@ agents = agents;
   	addAgent(agent: Agent){
   		this.agents.push(agent);
   	}
+  }
 
