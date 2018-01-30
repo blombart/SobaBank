@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -10,7 +11,10 @@ import { ForminscritionComponent } from './vue_public/forminscrition/forminscrit
 
 import { provideRoutes} from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
+//import des modules des diffentes vue qui contiennent l'import de tous les composant necessaire
+import { AdminModule } from './vue_admin/admin/admin.module';
+import { AccueilAgentModule} from './vue_agent/accueil-agent/accueil-agent.module';
+import { MainClientModule } from './vue_client/main-client/main-client.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 import { AccueilAgentComponent } from './vue_agent/accueil-agent/accueil-agent.component';
 import { ListeDemandesComponent } from './vue_agent/liste-demandes/liste-demandes.component';
@@ -20,6 +24,17 @@ import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-demandes.component';
 import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-demandes.component';
 
+
+import { AppRoutingModule } from './app-routing.module';
+
+import {SharedService}  from './service/shared-service';
+
+import {DeconnexionComponent} from './deconnexion/deconnexion.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,22 +42,19 @@ import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-d
     NavbarComponent,
     ForminscritionComponent,
     ConnexionComponent,
-    AccueilAgentComponent,
-    ListeDemandesComponent,
-    NavbarAgentComponent,
-    ListeClientComponent,
-    FilterPipe,
-    NavbarDemandesComponent,
-    DetailsDemandesComponent
+
+    DeconnexionComponent
+
+
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
-    AppRoutingModule
-
+    AdminModule, AccueilAgentModule, MainClientModule,
+    FormsModule, ReactiveFormsModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
