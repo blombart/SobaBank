@@ -4,15 +4,16 @@ import {Compte} from './compte';
 export class Client extends User{
 	constructor(
 	id: number,
-	nom: String,
-	prenom: String,
-	email: String,
-	mdp: String,
-	role: String,
-	adresse: String,
-	numTel: String,
+	nom: string,
+	prenom: string,
+	email: string,
+	mdp: string,
+	role: string,
+	adresse: string,
+	numTel: string,
 	nbEnfants: number,
-	situationMatrimonial:String,
+	situationMatrimonial:string,
+
 	agent: Agent,
 	comptes: Compte[],
 	)

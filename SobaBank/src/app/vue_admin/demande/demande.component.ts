@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Demande } from '../test_class/demande';
-import { agents } from '../test_class/modelAgents';
-import { Agent } from '../test_class/agent';
-import { AgentService} from '../test_class/agent.service';
+
+import { agents } from '../../modeles/agent';
+import { Agent } from '../../modeles/agent';
+import { AgentService} from '../../Service/agent.service';
+
 
 @Component({
   selector: 'app-demande',
