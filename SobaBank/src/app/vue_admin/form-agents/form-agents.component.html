@@ -31,8 +31,15 @@
 
 		<div class="form-group">
 			<label>Matricule</label>
-			<input type="text" class="form-control" formControlName="mat" [(ngModel)]="a1.mat" required>
-		<div [hidden]="mat.valid" class="alert alert-danger"> le matricule est requis
+			<input type="text" class="form-control" formControlName="matricule" [(ngModel)]="a1.matricule" required>
+		<div [hidden]="matricule.valid" class="alert alert-danger"> le matricule est requis
+		</div>
+		</div>
+
+		<div class="form-group">
+			<label>Numero tel</label>
+			<input type="text" class="form-control" formControlName="numTel" [(ngModel)]="a1.numTel" required>
+		<div [hidden]="numTel.valid" class="alert alert-danger"> le numero de telephone est requis
 		</div>
 		</div>
 

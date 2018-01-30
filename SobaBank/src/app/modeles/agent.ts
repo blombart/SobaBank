@@ -3,20 +3,24 @@ import {Client} from './client';
 import {Demande} from './demandes';
 
 export class Agent extends User{
+	static compteur : number = 0;
+
 constructor(
 	public id: number,
 	public nom: String,
 	public prenom: String,
 	public email: String,
-	mdp: String,
-	role: String,
+	public mdp: String,
+	public role: String,
 	public matricule: String,
-	dateDebutContrat: Date,
-	numTel: String,
+	public dateDebutContrat: Date,
+	public numTel: String,
 	clients: Client[],
 	demandes: Demande[])
 {
-		super(id,nom,prenom,email,mdp,role)
+		super(id,nom,prenom,email,mdp,role);
+		Agent.compteur++;
+
 	}
 }
 
