@@ -1,5 +1,7 @@
+
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { Validators, FormControl, FormGroup} from '@angular/forms';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ export class RechercheComponent implements OnInit {
   searchText: String;
   @Output() stringChange = new EventEmitter();
 
+
   constructor() {
   	
   }
@@ -27,8 +30,10 @@ export class RechercheComponent implements OnInit {
   }
 
   onSubmit(){
+
     this.stringChange.emit({value: this.formRecherche.get('recherche').value})
   }
+
 
 
   }

@@ -10,12 +10,17 @@ import {DemandeComponent} from '../../vue_admin/demande/demande.component';
 import {RechercheComponent} from '../../vue_admin/recherche/recherche.component';
 import {GestionAgentsComponent} from '../gestion-agents/gestion-agents.component';
 
+import {GestionAgentsComponent} from '../gestion-agents/gestion-agents.component';
+
+
 const routes: Routes = [
 {
     path: 'admin',
     component: AdminComponent,
     children: [
+
     	{path: '', component: GestionAgentsComponent, pathMatch: 'full'},
+
       {path: 'demandes', component: DemandeComponent, pathMatch: 'full'},
      {path: 'agents/:id', component: FormAgentsComponent, pathMatch: 'full'}
     ]

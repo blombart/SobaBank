@@ -1,5 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
+
 import {Agent } from '../../modeles/agent';
+
 
 @Component({
   selector: 'app-agent-recherche',

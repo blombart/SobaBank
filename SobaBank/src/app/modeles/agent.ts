@@ -6,6 +6,7 @@ export class Agent extends User{
 	static compteur : number = 0;
 
 constructor(
+
 	public id: number,
 	public nom: String,
 	public prenom: String,
@@ -15,6 +16,7 @@ constructor(
 	public matricule: String,
 	public dateDebutContrat: Date,
 	public numTel: String,
+
 	clients: Client[],
 	demandes: Demande[])
 {
@@ -24,7 +26,7 @@ constructor(
 	}
 }
 
-//TODO creer plusieurs agents
+
 export const agents : Agent[] = [
 	new Agent(1,
 		"allon",
@@ -75,4 +77,6 @@ export const agents : Agent[] = [
 		[null,null]
 		),
 
+
 ]
+

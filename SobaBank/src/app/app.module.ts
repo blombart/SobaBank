@@ -20,6 +20,11 @@ import { ConnexionComponent } from './vue_public/connexion/connexion.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import {SharedService}  from './service/shared-service';
+
+import {DeconnexionComponent} from './deconnexion/deconnexion.component';
+
+
 
 
 
@@ -30,6 +35,8 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     ForminscritionComponent,
     ConnexionComponent,
+    DeconnexionComponent
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
