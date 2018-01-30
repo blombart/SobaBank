@@ -8,6 +8,7 @@ import {AdminComponent } from '../../vue_admin/admin/admin.component';
 import {FormAgentsComponent} from '../../vue_admin/form-agents/form-agents.component';
 import {DemandeComponent} from '../../vue_admin/demande/demande.component';
 import {RechercheComponent} from '../../vue_admin/recherche/recherche.component';
+import {GestionAgentsComponent} from '../gestion-agents/gestion-agents.component';
 
 import {GestionAgentsComponent} from '../gestion-agents/gestion-agents.component';
 

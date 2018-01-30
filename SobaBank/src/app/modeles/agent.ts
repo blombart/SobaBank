@@ -3,26 +3,29 @@ import {Client} from './client';
 import {Demande} from './demandes';
 
 export class Agent extends User{
+	static compteur : number = 0;
+
 constructor(
 
 	public id: number,
-	public nom: string,
-	public prenom: string,
-	public email: string,
-	mdp: string,
-	role: string,
-	public matricule: string,
-	dateDebutContrat: Date,
-	numTel: string,
+	public nom: String,
+	public prenom: String,
+	public email: String,
+	public mdp: String,
+	public role: String,
+	public matricule: String,
+	public dateDebutContrat: Date,
+	public numTel: String,
 
 	clients: Client[],
 	demandes: Demande[])
 {
-		super(id,nom,prenom,email,mdp,role)
+		super(id,nom,prenom,email,mdp,role);
+		Agent.compteur++;
+
 	}
 }
 
-//TODO creer plusieurs agents
 
 export const agents : Agent[] = [
 	new Agent(1,
@@ -73,6 +76,7 @@ export const agents : Agent[] = [
 		[null, null],
 		[null,null]
 		),
+
 
 ]
 

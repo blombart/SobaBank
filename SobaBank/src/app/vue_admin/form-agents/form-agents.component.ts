@@ -19,6 +19,8 @@ export class FormAgentsComponent implements OnInit {
 
   id: number;
 
+  nouvelAgent: Agent;
+
   agentForm: FormGroup;
 
   constructor(private _fb: FormBuilder, private route: ActivatedRoute, private service: AgentService) {
@@ -34,7 +36,8 @@ export class FormAgentsComponent implements OnInit {
       prenom: ['', Validators.required],
       email: ['',Validators.required],
       mdp: ['', Validators.required],
-      mat: ['', Validators.required]
+      matricule: ['', Validators.required],
+      numTel: ['',Validators.required]
     });
   }
 
@@ -48,7 +51,19 @@ export class FormAgentsComponent implements OnInit {
   }
 
   onSubmit(){
-//TODO Ajouter une méthode pour creer le nouvel agent du form
+     this.nouvelAgent = new Agent(Agent.compteur,
+       this.a1.nom,
+       this.a1.prenom,
+       this.a1.email,
+       this.a1.mdp,
+       "agent",
+       this.a1.matricule,
+       new Date(),
+       this.a1.numTel,
+       null
+       ,null);
+     this.service.addAgent(this.nouvelAgent);
+     console.log("agent ajouté");
   }
 
 //GETTER POUR LES FORMCONTROL
@@ -56,10 +71,8 @@ export class FormAgentsComponent implements OnInit {
   get prenom(){ return this.agentForm.get('prenom');}
   get email(){ return this.agentForm.get('email');}
   get mdp(){ return this.agentForm.get('mdp');}
-  get mat(){ return this.agentForm.get('mat');}
-
-  setAgent(){
-   //  //TODO modifier les valeurs de l'agents
-  	// this.a1 = new Agent("toto",'','','','',this.clients,this.demandes);
-  }
+  get matricule(){ return this.agentForm.get('matricule');}
+  get numTel(){ return this.agentForm.get('numTel')};
 }
+
+

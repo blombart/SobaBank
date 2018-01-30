@@ -18,4 +18,8 @@ agents = agents;
   	getAgents(): Observable<Agent[]>{
   		return of(agents);
   	}
-}
+
+  	addAgent(agent: Agent){
+  		this.agents.push(agent);
+  	}
+

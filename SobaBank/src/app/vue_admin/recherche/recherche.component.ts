@@ -34,6 +34,7 @@ export class RechercheComponent implements OnInit {
     this.stringChange.emit({value: this.formRecherche.get('recherche').value})
   }
 
- 	
+
+
   }
 

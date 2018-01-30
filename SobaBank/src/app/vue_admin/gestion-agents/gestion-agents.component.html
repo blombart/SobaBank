@@ -1,5 +1,7 @@
 <app-recherche (stringChange)="maRecherche($event);"></app-recherche>
-<button type="button" class="btn btn-default" (click)="setAgent()">Ajouter un agent</button>
+
+<button type="button" class="btn btn-default" (click)="ajoutAgent()">Ajouter un agent</button>
+
 
 <div class="container">
 	<div class="row">
@@ -23,7 +25,9 @@
     			<td>{{agent.nom}}</td>
     			<td>{{agent.matricule}}</td>
     			<td >
-    				<button type="button" class="btn btn-default" (click)="modifierAgent()">Editer</button>
+
+    				<button type="button" class="btn btn-default" (click)="modifierAgent(agent.id)">Editer</button>
+
     			</td>
     		</tr>
 		</tbody>
