@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from '../service/shared-service'
+
 
 @Component({
   selector: 'app-deconnexion',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeconnexionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _sharedService: SharedService) { }
 
   ngOnInit() {
+this._sharedService.emitChange("guest");
+
   }
 
 }

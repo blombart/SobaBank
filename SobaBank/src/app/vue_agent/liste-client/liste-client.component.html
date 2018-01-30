@@ -1,0 +1,91 @@
+<!-- <form class="form-inline my-2 my-lg-0">
+
+<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+</form> -->
+
+<input [(ngModel)]="searchText" placeholder="Rechercher">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                   <th>Identifiant</th>
+                   <th>N° de Compte</th>
+                   <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                     <th>Adresse</th>
+                     <th>N°.tel</th>
+                     <th>Situation de famille</th>
+                     <th>Documents fournis</th>
+                     <th>Editer fiche client</th>
+                     
+                     <th></th>
+                   </thead>
+    <tbody>
+    
+    <tr *ngFor = "let client of clients | filter : searchText">
+    <!-- <td><input type="checkbox" class="checkthis" /></td> -->
+    <td>{{client.id}}</td>
+    <td>{{client.numCompte}}</td>
+    <td>{{client.nom}}</td>
+    <td>{{client.prenom}}</td>
+    <td>{{client.email}}</td>
+    <td>{{client.adresse}}</td>
+    <td>{{client.numTel}}</td>
+    <td>{{client.situation}}</td>
+    <td><button type="button" class="btn btn-default">Voir documents</button></td>
+    <td><button type="button" class="btn btn-info">Editer</button></td>
+<!--     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td> -->
+    </tr>
+   </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+<h5>Liste de vos clients</h5>
+	<div class="row">
+		
+		<div class="col-sm-2">Nom</div>
+		<div class="col-sm-3">Prénom</div>
+		<div class="col-sm-3">Adresse</div>
+		<div class="col-sm-3">N° de tél.</div>
+		
+	</div>
+	<div class="row">
+      <li *ngFor = "let client of clients">
+      
+      <td class="col-sm-3">{{client.nom}}</td>
+      <td class="col-sm-3">{{client.prenom}}</td>
+      <td class="col-sm-3">{{client.adresse}}</td>
+      <td class="col-sm-2">{{client.numTel}}</td>
+
+  
+      </li>
+</div>
+</div>
+ -->

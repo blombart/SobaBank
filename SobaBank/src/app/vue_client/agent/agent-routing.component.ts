@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FinanceComponent } from './finance.component';
+import { AgentComponent } from './agent.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: '/finance', component: FinanceComponent }
+      { path: '/agent', component: AgentComponent }
     ])
   ],
   exports: [RouterModule]
 })
-export class InscriptionRoutingModule { }
-
+export class AgentRoutingModule { }

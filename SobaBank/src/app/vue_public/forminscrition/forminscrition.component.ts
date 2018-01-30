@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {User} from './user'
 
 @Component({
@@ -8,21 +8,21 @@ import {User} from './user'
 })
 export class ForminscritionComponent implements OnInit {
 
-	@Input() utilisateur: any;
+  utilisateur: User;
 
   constructor() {
-  		 this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421", "guest")
-       this.utilisateur.password = "1234";
+      this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
+
    }
 
   ngOnInit() {
 
-  this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421", "guest")
-  this.utilisateur.password = "1234";
+this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
+
   }
 
   ngOnSubmit(){
-  	//console.log("L'utilisateur est" + this.utilisateur.nom+" " + this.utilisateur.prenom)
+    console.log("L'utilisateur est" + this.utilisateur.nom+" " + this.utilisateur.prenom)
   }
 
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, Directive } from '@angular/core';
 import {Item} from './item';
-import {User} from '../forminscrition/user'
-import {AppComponent} from '../../app.component'
-import {SharedService}  from '../../service/shared-service'
+import {User} from '../forminscrition/user';
+import {AppComponent} from '../../app.component';
+import {SharedService}  from '../../service/shared-service';
+
 
 
 
@@ -12,22 +13,22 @@ import {SharedService}  from '../../service/shared-service'
   styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
 export class NavbarComponent implements OnInit {
-    
-    
 
-    @Input() role: any;
 
+
+    //@Input() role: any;
+     role = "guest";
 
     /*role: String;*/
-    items: Item[] 
+    items: Item[]
 
 
-	
+
 
   constructor(private _sharedService: SharedService) {
-    //this.role =  "guest"
 
-    
+
+
   	    //Definir le type de navbar (guest, client, agent, admin)
 
        _sharedService.changeEmitted$.subscribe(
@@ -44,6 +45,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
 
+
+
 if (this.role == "guest"){
 
 //console.log("Entré ds condition ngInit");
@@ -52,7 +55,7 @@ if (this.role == "guest"){
 	new Item(1, 'finance','Accueil'),
   new Item(2, 'inscription', 'Inscription'),
   new Item(3, 'connexion', 'Connexion')
-  
+
 ];
 
 
@@ -61,10 +64,9 @@ if (this.role == "guest"){
 
 if (this.role == "client"){
          this.items  = [
-	new Item(1, 'finance','Accueil'),
-  new Item(2, 'mesComptes', 'Mes comptes'),
-  new Item(3, 'deconnexion', 'Me déconnecter')
-  
+	new Item(1, 'client','Espace client'),
+     new Item(3, 'deconnexion', 'Se deconnecter')
+
 ];
     }
 
@@ -75,10 +77,10 @@ if (this.role == "client"){
 //console.log("Entré ds condition ngInit");
 
          this.items  = [
-	new Item(1, 'finance','Clients'),
-  new Item(2, 'inscription', 'Demandes'),
+	new Item(1, 'agent','Espace agent'),
+
   new Item(3, 'deconnexion', 'Se deconnecter')
-  
+
 ];
 
 
@@ -92,11 +94,9 @@ if (this.role == "admin"){
 //console.log("Entré ds condition ngInit");
 
          this.items  = [
-	new Item(1, 'finance','Demandes'),
-  new Item(2, 'inscription', 'Agents'),
-  new Item(3, 'connexion', 'Clients'),
-    new Item(3, 'deconnexion', 'Se deconnecter')
-  
+	new Item(1, 'admin','Espace administrateur'),
+  new Item(3, 'deconnexion', 'Se deconnecter')
+
 ];
 
 
@@ -105,4 +105,3 @@ if (this.role == "admin"){
 }
 
 }
-

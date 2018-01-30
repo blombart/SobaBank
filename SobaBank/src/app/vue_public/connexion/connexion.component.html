@@ -1,34 +1,19 @@
-
-
-<div class="wrapper col-md-5">
-    <form  class="form-signin">       
+<div class="wrapper">
+    <form class="form-signin">
       <h2 class="form-signin-heading">Veuillez vous connecter</h2>
-      <input  type="text" class="form-control" id="nom" name="nom" placeholder="Email Address" required="" autofocus=""  />
-      
-      <input type="password" class="form-control" name="password" placeholder="Password" required=""  />      
-      
-
-
+      <input type="text" class="form-control" name="username" placeholder="nom" required="" autofocus="" [(ngModel)]="nom" />
+      <input type="password" class="form-control" name="mot de passe" placeholder="Password" required="" [(ngModel)]="mdp"/>
       <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
       </label>
-
-      <button   class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick()">Se connecter</button>   
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick()">Se connecter</button>
     </form>
-
-    <button (click)="onClick()">Tester</button> 
-
-<div class="form-row align-items-center">
-    <div class="col-auto my-1">
-      <label class="mr-sm-2" for="inlineFormCustomSelect">Role</label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="role">
-        
-        <option  value="guest" selected>guest</option>
-        <option value="client">client</option>
-        <option value="agent">agent</option>
-        <option value="admin">admin</option>
-      </select>
-    </div>
-
-
   </div>
+
+  <p>
+    Nom: {{nom}}
+  </p>
+
+  <p>
+    mdp: {{mdp}}
+  </p>

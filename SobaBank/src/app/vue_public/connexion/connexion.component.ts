@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { User } from '../forminscrition/user'
+import { Component, OnInit } from '@angular/core';
 
-import {SharedService} from '../../service/shared-service'
+import {SharedService} from '../../service/shared-service';
 
- 
+import {UserService} from '../../Service/user.service'
+
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -11,45 +11,23 @@ import {SharedService} from '../../service/shared-service'
 })
 export class ConnexionComponent implements OnInit {
 
-     utilisateur: User;
-     role: String;
-   
-    //@Input() role: any;
+   userService = new UserService();
 
-   //@Output()  changeUser = new EventEmitter;
+   nom: string;
+   mdp: string;
 
+   role = "guest";
 
- 
-
-  constructor(  private _sharedService: SharedService) {
- /*this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421","")
-  this.utilisateur.password = "123456";
-  this.utilisateur.role = this.role;*/
-
-
-
-   }
+  constructor(private _sharedService: SharedService) { }
 
   ngOnInit() {
-  	/*this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421","")
 
-  	this.utilisateur.password = "123456";
-  	this.utilisateur.role = this.role;*/
-  	/*this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421", "guest")
-  	this.utilisateur.password = "123456";
-  	this.utilisateur.role ="guest";*/
   }
 
   onClick(){
-  this._sharedService.emitChange(this.role);
 
- }
-
-  ngOnSubmit(){
-  	//console.log("Nom: "+ this.utilisateur.nom);
-      //this.EditUser.emit(this.utilisateur);
-      
-    
-  }
+    this.role = this.userService.getUserByName(this.nom);
+    this._sharedService.emitChange(this.role);
+}
 
 }

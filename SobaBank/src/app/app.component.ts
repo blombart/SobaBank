@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Directive } from '@angular/core';
-import {User} from './vue_public/forminscrition/user';
+import {User} from './modeles/user';
 import {NavbarComponent} from './vue_public/navbar/navbar.component'
 import {SharedService}  from './service/shared-service'
+
 
 
 @Component({
@@ -14,9 +15,9 @@ import {SharedService}  from './service/shared-service'
 export class AppComponent  implements OnInit{
     title = 'SOBA Bank.';
 
-    //@Input() 
-    utilisateur = new User("Abder", "Hadjaz","moi@gog.com","0554123211", "guest");
-     role="guest"
+    //@Input()
+    //utilisateur = new User("Abder", "Hadjaz","moi@gog.com","0554123211", "guest");
+    role: "guest";
 
 constructor(private _sharedService: SharedService){
 //this.utilisateur = new User("Abder", "Hadjaz","moi@gog.com","0554123211", "client");
@@ -26,8 +27,9 @@ constructor(private _sharedService: SharedService){
         text => {
             console.log(text);
             this.role = text;
+            this.ngOnInit();
         });
-//this.role= "guest"
+this.role= "guest"
 
 }
 
@@ -36,8 +38,6 @@ constructor(private _sharedService: SharedService){
 
 
 ngOnInit(){
-this.role= "guest"
-
 
 }
 }
