@@ -30,7 +30,7 @@
     
     <tr *ngFor="let dem of demandes | async">
     <td>{{dem.dateDemande | date}}</td>
-    <td>{{dem.estAffecte}}</td>
+    <td><input type="checkbox" [checked]="dem.estAffecte" (click)="false"></td>
     <td>{{dem.dateAffectation | date}}</td>
     <td><p *ngIf="dem.agent">{{dem.agent.nom}}</p></td>
     <td>{{dem.status}}</td>
