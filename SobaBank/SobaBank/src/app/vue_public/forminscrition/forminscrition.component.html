@@ -1,0 +1,43 @@
+
+<form (ngSubmit)="onSubmit()">
+<div class="form-group">
+    <label >Nom</label>
+    <input type="text" class="form-control" id="nom" name="nom"[(ngModel)]="utilisateur.nom">
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <input type="text" class="form-control" id="prenom"  name="prenom"[(ngModel)]="utilisateur.prenom">
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="mail"[(ngModel)]="utilisateur.email">
+  </div>
+
+
+  <div class="form-group">
+    <label for="numtel">Numero Telephone</label>
+    <input type="texte" class="form-control" id="numtel" name="numTel"[(ngModel)]="utilisateur.numTel">
+  </div>
+
+
+   <div class="form-group">
+    <label for="pieceidentite">Piece d'identité</label>
+    <input type="file" class="form-control" id="pieceidentite">
+  </div>
+
+  <div class="form-group">
+    <label for="justificatifsalaire">Justificatif de salaire</label>
+    <input type="file" class="form-control" id="justificatifsalaire">
+  </div>
+
+   <div class="form-group">
+    <label for="justificatifdomicile">Justificatif de domicile</label>
+    <input type="file" class="form-control" id="justificatifdomicile">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
