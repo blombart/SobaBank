@@ -4,6 +4,8 @@ import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 import { Agent } from '../../modeles/agent';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AgentService} from '../../Service/agent.service';
+import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
+import { Demande } from '../../modeles/demandes';
 
 @Component({
   selector: 'app-form-agents',
@@ -13,11 +15,13 @@ import { AgentService} from '../../Service/agent.service';
 export class FormAgentsComponent implements OnInit {
 
   //Creation d'un agent null pour pouvoir afficher un formulaire vide
-	 a1 = new Agent(null,"","","","","","",null,"",null,null);
+	 a1 = new Agent(null,"","","","","","",null,"",[],[]);
 
   id: number;
 
-
+  //liste des demandes
+  demandes: Demande[];
+  afficheDemande: boolean = false;
   nouvelAgent: Agent;
   agentForm: FormGroup;
 
@@ -45,7 +49,13 @@ export class FormAgentsComponent implements OnInit {
       this.id = +params['id'];
     });
     if(this.id != 0){
-    this.a1 = this.service.getAgent(this.id)};
+    this.a1 = this.service.getAgent(this.id);
+    this.demandes = this.a1.demandes;
+    if(this.demandes.length !=0){
+      this.afficherDemande();
+      console.log("dans form agent id demande : " + this.a1.demandes[0].id);
+    }}
+    
   }
 
   onSubmit(){
@@ -65,8 +75,8 @@ export class FormAgentsComponent implements OnInit {
        this.a1.matricule,
        new Date(),
        this.a1.numTel,
-       null
-       ,null);
+       []
+       ,[]);
      this.service.addAgent(this.nouvelAgent);
    } 
    // si c'est en edition on part dans cette condition
@@ -95,6 +105,10 @@ export class FormAgentsComponent implements OnInit {
 
   doSomething(){
     console.log("edition agent");
+  }
+
+  afficherDemande(){
+    this.afficheDemande = true;
   }
 }
 

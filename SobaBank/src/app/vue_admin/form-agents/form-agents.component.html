@@ -53,8 +53,8 @@
 
 		<div class="form-group">
 			<label for="demandes">Liste des demandes</label>
-			<select class="form-control">
-				<option *ngFor="let dem of demandes" [value]="dem">{{dem}}
+			<select *ngIf="afficheDemande" class="form-control">
+				<option  *ngFor="let dem of demandes" [value]="dem">{{dem.id}}
 				</option>
 			</select>
 		</div>

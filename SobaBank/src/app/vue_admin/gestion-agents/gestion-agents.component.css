@@ -1,0 +1,20 @@
+.recherche{
+	background-color:LavenderBlush;
+}
+
+form{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	width: 300px;
+}
+
+form button{
+	margin-bottom: 10px;
+	margin-left: 81px;
+}
+
+form input{
+	margin-top:10px;
+	margin-left: 50px;
+}
