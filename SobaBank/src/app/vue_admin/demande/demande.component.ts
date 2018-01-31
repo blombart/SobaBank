@@ -5,7 +5,7 @@ import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { DemandeService} from '../../Service/demande.service';
 import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte'
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-demande',
@@ -15,13 +15,15 @@ import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte'
 })
 export class DemandeComponent implements OnInit {
 	demandes :  Observable<DemandeOuvertureCompte[]>;
-
-  constructor(private demandeService: DemandeService) {
+  liste: boolean
+  constructor(private demandeService: DemandeService, private _router: Router) {
    }
 
   ngOnInit() {
   	this.demandes= this.demandeService.getDemandesOuverture();
   }
 
-
+  test(){
+    this.liste = true;
+  }
   }

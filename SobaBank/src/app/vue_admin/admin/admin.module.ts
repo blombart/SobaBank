@@ -11,7 +11,7 @@ import {NavbarAdminComponent} from '../../vue_admin/navbar-admin/navbar-admin.co
 import {AgentService} from '../../Service/agent.service';
 import {DemandeService} from '../../Service/demande.service';
 import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-agents.component';
-
+import {AffectationAgentComponent} from '../affectation-agent/affectation-agent.component';
 
 @NgModule({
   imports: [
@@ -23,7 +23,8 @@ import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-a
   FormAgentsComponent,
   DemandeComponent,
   NavbarAdminComponent,
-  GestionAgentsComponent],
+  GestionAgentsComponent,
+  AffectationAgentComponent],
 
   providers: [AgentService, DemandeService]
 

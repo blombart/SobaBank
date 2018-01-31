@@ -8,7 +8,7 @@ import {AdminComponent } from '../../vue_admin/admin/admin.component';
 import {FormAgentsComponent} from '../../vue_admin/form-agents/form-agents.component';
 import {DemandeComponent} from '../../vue_admin/demande/demande.component';
 import {GestionAgentsComponent} from '../gestion-agents/gestion-agents.component';
-
+import {AffectationAgentComponent} from '../affectation-agent/affectation-agent.component';
 
 
 const routes: Routes = [
@@ -20,7 +20,8 @@ const routes: Routes = [
     	{path: '', component: GestionAgentsComponent, pathMatch: 'full'},
 
       {path: 'demandes', component: DemandeComponent, pathMatch: 'full'},
-     {path: 'agents/:id', component: FormAgentsComponent, pathMatch: 'full'}
+     {path: 'agents/:id', component: FormAgentsComponent, pathMatch: 'full'},
+     {path: 'affectation', component: AffectationAgentComponent, pathMatch:'full'}
     ]
   }
 
