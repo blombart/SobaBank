@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import {SharedService} from '../../service/shared-service';
+
+import {UserService} from '../../Service/user.service'
+
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+   userService = new UserService();
+
+   nom: string;
+   mdp: string;
+
+   role = "guest";
+
+  constructor(private _sharedService: SharedService) { }
 
   ngOnInit() {
+
   }
 
+
+  onClick(){
+
+    this.role = this.userService.getUserByName(this.nom);
+    this._sharedService.emitChange(this.role);
 }
+
+}
+

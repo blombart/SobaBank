@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { MdpComponent } from './mdp.component';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [
+];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild([
-      { path: '/mdp', component: MdpComponent }
-    ])
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class MdpRoutingModule { }

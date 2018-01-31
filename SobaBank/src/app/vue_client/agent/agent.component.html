@@ -1,4 +1,5 @@
-
+<div class="card" style="width: 20rem;">
+  <div class="card-block">
 
 
 	<div class="row">
@@ -8,62 +9,102 @@
         <div class="table-responsive">
 
                 
-              <table id="mytable" class="table">
+              <table id="mytable" class="table table-hover">
                    
+                   <thead>
                    
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                   <th>Nom</th>
+                   <th>Prenom</th>
+                  
+
+                   </thead>
     <tbody>
     
     <tr *ngFor = "let agent of agents" >
-      <thead class="thead-light">
-    <th>Nom</th>
-     <th>Prenom</th>
-  </thead>
-  <tbody>
+   
     <td>{{agent.nom}}</td>
     <td>{{agent.prenom}}</td>
-    </tbody>
+   
 <!--     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td> -->
     </tr>
-   
-</table>
-
-
- <table id="mytable" class="table">
-                   
-                   
-    
-    
-    <tr *ngFor = "let agent of agents" >
-   <thead class="thead-dark">
-    <th>Numero de telephone</th>
-  </thead>
-    <tbody>
-    <td>{{agent.numTel}}</td>
    </tbody>
-<!--     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td> -->
-    </tr>
-  
 </table>
+</div>
+</div>
+</div>
 
-<table id="mytable" class="table">
-                   
-                   
+
+
+
+
+  <div class="row">
+    
         
+        <div class="col-md-10">
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-hover">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+               
+     
+                    <th>Numero de telephone</th>
+                
+
+                   </thead>
+    <tbody>
+    
     <tr *ngFor = "let agent of agents" >
    
-   <thead class="thead-dark">
-    <th>Email</th>
-    </thead>
-<tbody>
-    <td>{{agent.mail}}</td>
- </tbody>
+    <td>{{agent.numTel}}</td>
+  
 <!--     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td> -->
     </tr>
-  
+   </tbody>
 </table>
 </div>
 </div>
 </div>
+
+
+
+  <div class="row">
+    
+        
+        <div class="col-md-10">
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-hover">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+               
+    
+                     <th>Mail</th>
+
+                   </thead>
+    <tbody>
+    
+    <tr *ngFor = "let agent of agents" >
+  
+     <td>{{agent.mail}}</td>
+<!--     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td> -->
+    </tr>
+   </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<a href="#" class="btn btn-primary">Contact</a>
+
+</div></div>
