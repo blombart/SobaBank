@@ -1,5 +1,5 @@
 .recherche{
-	background-color:LavenderBlush;
+	background-color:DimGray;
 }
 
 form{
@@ -18,3 +18,13 @@ form input{
 	margin-top:10px;
 	margin-left: 50px;
 }
+
+.tableau{
+	margin-top: 20px;
+}
+
+.tableau h4{
+	margin-left: auto;
+	margin-right: auto;
+}
+
