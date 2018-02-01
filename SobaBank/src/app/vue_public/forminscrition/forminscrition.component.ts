@@ -21,7 +21,7 @@ this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "06268654
 
   }
 
-  ngOnSubmit(){
+  onSubmit(){
     console.log("L'utilisateur est" + this.utilisateur.nom+" " + this.utilisateur.prenom)
   }
 

@@ -22,8 +22,7 @@ export class GestionAgentsComponent implements OnInit {
   formRecherche : FormGroup;
   submitted: boolean;
 
-  formRecherche : FormGroup;
-  submitted: boolean;
+
 
 
 	agents : Observable<Agent[]>;
