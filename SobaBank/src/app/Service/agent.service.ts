@@ -45,7 +45,9 @@ agents = agents;
   }
 
   //On recherche l'index de l'agent dans le tableau pour un id donné
+
   private findIndexOfCurrentAgent(agentBis: Agent){
+
     let i: number =0;
     let finalIndex: number;
 

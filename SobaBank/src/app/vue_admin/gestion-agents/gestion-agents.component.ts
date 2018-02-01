@@ -3,7 +3,9 @@ import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import {Router} from '@angular/router';
+
 import { Validators, FormControl, FormGroup} from '@angular/forms';
+
 
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
@@ -20,6 +22,10 @@ export class GestionAgentsComponent implements OnInit {
   formRecherche : FormGroup;
   submitted: boolean;
 
+  formRecherche : FormGroup;
+  submitted: boolean;
+
+
 	agents : Observable<Agent[]>;
 	searchText: string;
 
@@ -28,8 +34,10 @@ export class GestionAgentsComponent implements OnInit {
 
   ngOnInit() {
   	this.agents = this.agentService.getAgents();
+
     this.formRecherche = new FormGroup({
     'recherche' : new FormControl('',[Validators.required])
+
 
     });
     this.submitted= false;
@@ -42,12 +50,14 @@ export class GestionAgentsComponent implements OnInit {
   }
 
   supprimerAgent(i: number){
+
     let agentASuppr: Agent = this.agentService.getAgent(i);
     //On verifie que l'agent ne possede pas de client pour le supprimer
     if(agentASuppr.clients.length == 0){
       this.agentService.supprimerAgent(agentASuppr)}
     else{
       console.log("impossible de supprimer, l'agent a des clients");}
+
 
   }
 

@@ -13,6 +13,7 @@ demandesOuverture = demandesOuverture
   constructor() { }
 
 
+
 	getDemandeOuverture(id) {
     for(let dem of demandesOuverture){
       if(dem.id ===id){
@@ -20,6 +21,7 @@ demandesOuverture = demandesOuverture
       }
     }
   }
+
 
   	getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
   		return of(demandesOuverture);
