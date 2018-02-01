@@ -30,4 +30,21 @@ getUserByName(name: String){
 
 }
 
+
+addUser(user: User){
+  this.users.push(user);
+}
+
+removeUserByName(user: User){
+  for (let user of this.users) {
+     if (user.nom == name){
+             
+             //TODO supprimer du tableau
+            
+            return "Utilisateur supprimé";
+     }
+}
+
+}
+
 }
