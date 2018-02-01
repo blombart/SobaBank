@@ -3,6 +3,7 @@ import {Client} from './client';
 import {Demande} from './demandes';
 
 export class Agent extends User{
+	static compteur : number = 0;
 
 constructor(
 
@@ -20,6 +21,7 @@ constructor(
 	demandes: Demande[])
 {
 		super(id,nom,prenom,email,mdp,role);
+		Agent.compteur++;
 
 	}
 }

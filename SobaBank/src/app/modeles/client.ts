@@ -36,10 +36,41 @@ export const clients: Client[] = [
 	3,
 	"marié",
 	//TODO instancier l'agent et le compte
+	null,
+	[null,null]
+	),
+*/
+
+/*new Client(2,
+	"seb",
+	"radius",
+	"xoxo@foo.fr",
+	"qwerty",
+	"client",
+	"02 rue victor hugo",
+	"0243760626",
+	0,
+	"pacsé",
+	//TODO instancier l'agent et le compte
 	new Agent(),
 	[new Compte(),
 		new Compte()
 		]
 		),
 */
+
+/*new Client(3,
+	"durant",
+	"patrick",
+	"abc@xxx.com", 
+	"azerty",
+	"client", 
+	"16 rue de la liberté 59000 Lille", 
+	"0102030405",
+	"1", 
+	"célibataire"), 
+	//TODO instancier l'agent et le compte
+	null,
+	[null,null]),*/
+     
 ]
