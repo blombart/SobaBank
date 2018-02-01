@@ -15,7 +15,7 @@ import { Demande } from '../../modeles/demandes';
 export class FormAgentsComponent implements OnInit {
 
   //Creation d'un agent null pour pouvoir afficher un formulaire vide
-	 a1 = new Agent(null,"","","","","","",null,"",[],[]);
+	 a1 : Agent ;
 
   id: number;
 
@@ -29,7 +29,7 @@ export class FormAgentsComponent implements OnInit {
 
 //Appelle de la méthode pour creer le formulaire
   this.createForm();
-
+  
   }
 
   createForm(){
@@ -49,14 +49,19 @@ export class FormAgentsComponent implements OnInit {
       this.id = +params['id'];
     });
     if(this.id != 0){
-    this.a1 = this.service.getAgent(this.id);
-    this.demandes = this.a1.demandes;
-    if(this.demandes.length !=0){
-      this.afficherDemande();
-      console.log("dans form agent id demande : " + this.a1.demandes[0].id);
-    }}
-    
+      this.a1 = this.service.getAgent(this.id);
+      this.demandes = this.a1.demandes;
+      if(this.demandes.length !=0){
+        this.afficherDemande();
+        console.log("dans form agent id demande : " + this.a1.demandes[0].id);
+      }
+    } else{
+      console.log(this.id);
+        this.a1 = new Agent(null,"","","","","","",null,"",[],[]);
+    }  
   }
+
+
 
   onSubmit(){
     //On verifie que le formulaire est valide
