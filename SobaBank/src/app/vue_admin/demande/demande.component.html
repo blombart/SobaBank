@@ -18,21 +18,25 @@
                    
                    <thead>
                    
+
                     <th>Date Demande</th>
                     <th>Affectation</th>
                     <th>Date affectation</th>
                     <th>Status</th>
                     <th>Fiche info</th>
 
+
                    </thead>
     <tbody>
     
+
     <tr *ngFor="let dem of demandes | async">
     <td>{{dem.dateDemande | date}}</td>
     <td>{{dem.estAffecte}}</td>
     <td>{{dem.dateAffectation | date}}</td>
     <td>{{dem.status}}</td>
     <td>{{dem.ficheInfo}}</td>
+
     <td><p data-placement="top" data-toggle="tooltip" title="Affecter"><button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" (click)="test()">Affecter</button></p></td>
     </tr>
     

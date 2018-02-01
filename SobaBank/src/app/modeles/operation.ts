@@ -1,4 +1,6 @@
+
 import {Compte} from './compte';
+
 
 export class Operation{
 	constructor(
@@ -10,6 +12,7 @@ export class Operation{
 }
 
 //TODO Creer plusieurs operations
+
 export const operations : Operation[] = [
 
 	new Operation (150,new Date(),"debit"),
@@ -20,3 +23,4 @@ export const operations : Operation[] = [
 	new Operation (40,new Date(),"debit")
 
 ]
+

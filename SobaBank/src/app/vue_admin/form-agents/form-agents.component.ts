@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 
 import { Agent } from '../../modeles/agent';
+
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { AgentService} from '../../Service/agent.service';
 
 @Component({
@@ -12,16 +14,20 @@ import { AgentService} from '../../Service/agent.service';
 })
 export class FormAgentsComponent implements OnInit {
 
+
   //Creation d'un agent null pour pouvoir afficher un formulaire vide
+
 	 a1 = new Agent(null,"","","","","","",null,"",null,null);
 
   id: number;
+
 
 
   nouvelAgent: Agent;
   agentForm: FormGroup;
 
   constructor(private _fb: FormBuilder, private route: ActivatedRoute, private service: AgentService, private router: Router) {
+
 
 //Appelle de la méthode pour creer le formulaire
   this.createForm();
@@ -39,7 +45,9 @@ export class FormAgentsComponent implements OnInit {
     });
   }
 
+
 //On recupere l'id passer en parametre de l'url, si id !=0 on va appeler la page de l'agent en question
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
@@ -49,6 +57,7 @@ export class FormAgentsComponent implements OnInit {
   }
 
   onSubmit(){
+
     //On verifie que le formulaire est valide
     if(this.agentForm.valid){
       //Si on creer un agent on part dans cette condition
@@ -57,6 +66,7 @@ export class FormAgentsComponent implements OnInit {
     let id = this.service.getMaxId() +1;
       //on cree le nouvel agent qu'on ajoute dans le tableau et on retourne sur la page d'accueil
      this.nouvelAgent = new Agent(id,
+
        this.a1.nom,
        this.a1.prenom,
        this.a1.email,
@@ -68,6 +78,7 @@ export class FormAgentsComponent implements OnInit {
        null
        ,null);
      this.service.addAgent(this.nouvelAgent);
+
    } 
    // si c'est en edition on part dans cette condition
    else {
@@ -76,6 +87,7 @@ export class FormAgentsComponent implements OnInit {
 
      this.router.navigate(["./admin"]);}
      
+
   }
 
 //GETTER POUR LES FORMCONTROL
@@ -85,6 +97,7 @@ export class FormAgentsComponent implements OnInit {
   get mdp(){ return this.agentForm.get('mdp');}
   get matricule(){ return this.agentForm.get('matricule');}
   get numTel(){ return this.agentForm.get('numTel')};
+
 
   //Methode pour afficher soit le bouton d'ajout soit le bouton d'edition
   newAgent(){
@@ -96,6 +109,7 @@ export class FormAgentsComponent implements OnInit {
   doSomething(){
     console.log("edition agent");
   }
+
 }
 
 

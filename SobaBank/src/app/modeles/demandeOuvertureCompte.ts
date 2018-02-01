@@ -2,6 +2,7 @@ import {Demande, Status} from './demandes';
 import {Agent} from './agent';
 import {FicheInfo} from './ficheInfo';
 
+
 export class DemandeOuvertureCompte extends Demande{
 	constructor(public dateDemande: Date,
 		public libelle: String,
@@ -54,3 +55,4 @@ export const demandesOuverture: DemandeOuvertureCompte[] = [
 		null
 		)
 ]
+

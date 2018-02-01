@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { DemandeService} from '../../Service/demande.service';
 import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte'
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte'
   ]
 })
 export class DemandeComponent implements OnInit {
+
 	demandes :  Observable<DemandeOuvertureCompte[]>;
 
   constructor(private demandeService: DemandeService) {
@@ -25,3 +28,4 @@ export class DemandeComponent implements OnInit {
 
 
   }
+

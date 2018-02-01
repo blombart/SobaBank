@@ -3,7 +3,9 @@ import { Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import {Router} from '@angular/router';
+
 import { Validators, FormControl, FormGroup} from '@angular/forms';
+
 
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
@@ -15,8 +17,10 @@ import { AgentService} from '../../Service/agent.service';
   styleUrls: ['../../bootstrap/css/bootstrap.css','../../bootstrap/css/bootstrap-grid.css']
 })
 export class GestionAgentsComponent implements OnInit {
+
   formRecherche : FormGroup;
   submitted: boolean;
+
 
 	agents : Observable<Agent[]>;
 	searchText: string;
@@ -26,6 +30,7 @@ export class GestionAgentsComponent implements OnInit {
 
   ngOnInit() {
   	this.agents = this.agentService.getAgents();
+
     this.formRecherche = new FormGroup({
     'recherche' : new FormControl('',[Validators.required])
 
@@ -51,6 +56,7 @@ export class GestionAgentsComponent implements OnInit {
   	this.searchText = this.formRecherche.get('recherche').value;
   	this.agents = this.agents.map((agents) => agents.filter(agent => agent.nom.includes(this.searchText) || agent.matricule.includes(this.searchText)));
 }
+
 
 //Renvoie vers le formulaire vide pour ajouter un agent
 
