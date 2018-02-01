@@ -5,9 +5,7 @@
         <div class="table">
 <tr>
 
-
         <th scope="col" class="nav-link" [routerLink]="['../courant']">Compte Courant</th>
-
     
 
     </tr>
@@ -32,10 +30,9 @@
     <tr *ngFor = "let compte of comptes">
    
     <td>{{compte.numCompte}}</td>
-    <td>{{compte.dateCreation | date:"dd/MM/yy hh:mm"}}</td>
+    <td>{{compte.dateCreation| date:"dd/MM/yy hh:mm"}}</td>
     <td>{{compte.solde}}</td>
     <td>{{compte.rib}}</td>
-
  <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
 
     </tr>
@@ -57,7 +54,7 @@
       
      
 
-       <th scope="col" class="nav-link">Compte Epargne</th>
+        <th scope="col" class="nav-link">Compte Epargne</th>
     
 
     </tr>
@@ -72,15 +69,18 @@
                    <!-- <th><input type="checkbox" id="checkall" /></th> -->
                   
                     <th>Numero de Compte</th>
-                    <th>Montant</th>
-                     <th></th>
+                    <th>date de creation</th>
+                    <th>solde</th>
+                    <th>rib</th>
                    </thead>
     <tbody>
     
     <tr *ngFor = "let epargne of epargnes">
    
-    <td>{{epargne.numEpargne}}</td>
-    <td>{{epargne.montantEpargne}}</td>
+    <td>{{epargne.numCompte}}</td>
+    <td>{{epargne.solde}}</td>
+    <td>{{compte.dateCreation| date:"dd/MM/yy hh:mm"}}</td>
+    <td>{{compte.rib}}</td>
  <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
 
     </tr>
