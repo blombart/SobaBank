@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 
 import {ConnexionComponent } from './vue_public/connexion/connexion.component';
@@ -17,9 +18,11 @@ import {MainClientComponent} from './vue_client/main-client/main-client.componen
 import {DeconnexionComponent} from './deconnexion/deconnexion.component';
 
 
+
 @NgModule({
   imports: [
     RouterModule.forRoot([
+
 
      //path pour acceder au different vue  http://localhost:4200/x ou x=admin ou client ou agent
      { path: 'agent', component: AccueilAgentComponent, pathMatch: 'full'},
