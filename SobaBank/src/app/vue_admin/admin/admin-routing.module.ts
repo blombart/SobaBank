@@ -18,7 +18,9 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
 
-    	{path: '', component: GestionAgentsComponent, pathMatch: 'full'},
+
+      {path: '', component: GestionAgentsComponent, pathMatch: 'full'},
+
 
       {path: 'demandes', component: DemandeComponent, pathMatch: 'full'},
      {path: 'agents/:id', component: FormAgentsComponent, pathMatch: 'full'}

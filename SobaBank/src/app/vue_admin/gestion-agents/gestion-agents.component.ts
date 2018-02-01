@@ -4,6 +4,8 @@ import 'rxjs/add/operator/map';
 
 import {Router} from '@angular/router';
 
+import { Validators, FormControl, FormGroup} from '@angular/forms';
+
 
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
@@ -16,6 +18,10 @@ import { AgentService} from '../../Service/agent.service';
 })
 export class GestionAgentsComponent implements OnInit {
 
+  formRecherche : FormGroup;
+  submitted: boolean;
+
+
 	agents : Observable<Agent[]>;
 	searchText: string;
 
@@ -24,18 +30,30 @@ export class GestionAgentsComponent implements OnInit {
 
   ngOnInit() {
   	this.agents = this.agentService.getAgents();
-  }
 
+    this.formRecherche = new FormGroup({
+    'recherche' : new FormControl('',[Validators.required])
+
+    });
+    this.submitted= false;
+  }
 
 
   modifierAgent(i: number){
     this._router.navigate(["./admin/agents",i]);
-    console.log(i);
+    
   }
 
+  supprimerAgent(i: number){
+    
+    console.log(i);
+    console.log(this.agentService.getAgent(i).nom);
+    this.agentService.supprimerAgent(this.agentService.getAgent(i));
+  }
 
-  maRecherche (event) {
-  	this.searchText = event.value;
+//on recupere le champ input et on filtre le tableau d'agent selon si le nom ou matricule correspond a la recherche
+  onSubmit() {
+  	this.searchText = this.formRecherche.get('recherche').value;
   	this.agents = this.agents.map((agents) => agents.filter(agent => agent.nom.includes(this.searchText) || agent.matricule.includes(this.searchText)));
 }
 

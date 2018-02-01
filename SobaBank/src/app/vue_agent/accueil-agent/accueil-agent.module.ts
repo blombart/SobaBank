@@ -11,9 +11,11 @@ import { FilterPipe} from '../../vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from '../../vue_agent/navbar-demandes/navbar-demandes.component';
 import { DetailsDemandesComponent } from '../../vue_agent/details-demandes/details-demandes.component';
 
+
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
 import { VirementComponent } from '../../vue_agent/liste-demandes/virement/virement.component';
+
 
 
 @NgModule({
@@ -29,10 +31,12 @@ import { VirementComponent } from '../../vue_agent/liste-demandes/virement/virem
     FilterPipe,
     NavbarDemandesComponent,
 
+
     DetailsDemandesComponent,
     ChequierComponent,
     NewCompteComponent,
     VirementComponent],
+
 
   providers: []
 
