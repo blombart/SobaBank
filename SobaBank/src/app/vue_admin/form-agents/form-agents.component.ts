@@ -31,11 +31,6 @@ export class FormAgentsComponent implements OnInit {
   agentForm: FormGroup;
 
   constructor(private _fb: FormBuilder, private route: ActivatedRoute, private service: AgentService, private router: Router) {
-
-
-//Appelle de la méthode pour creer le formulaire
-  this.createForm();
-  
   }
 
   createForm(){
@@ -56,16 +51,24 @@ export class FormAgentsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
+
+    //Appelle de la méthode pour creer le formulaire
+  this.createForm();
+
     if(this.id != 0){
       this.a1 = this.service.getAgent(this.id);
       this.demandes = this.a1.demandes;
       if(this.demandes.length !=0){
         this.afficherDemande();
-        console.log("dans form agent id demande : " + this.a1.demandes[0].id);
       }
-    } else{
-      console.log(this.id);
-        this.a1 = new Agent(null,"","","","","","",null,"",[],[]);
+      this.agentForm.patchValue({
+        nom: this.a1.nom,
+      prenom: this.a1.prenom,
+      email: this.a1.email,
+      mdp: this.a1.mdp,
+      matricule: this.a1.matricule,
+      numTel: this.a1.numTel 
+      });
     }  
   }
 
@@ -81,15 +84,14 @@ export class FormAgentsComponent implements OnInit {
     let id = this.service.getMaxId() +1;
       //on cree le nouvel agent qu'on ajoute dans le tableau et on retourne sur la page d'accueil
      this.nouvelAgent = new Agent(id,
-
-       this.a1.nom,
-       this.a1.prenom,
-       this.a1.email,
-       this.a1.mdp,
+       this.agentForm.controls['nom'].value,
+        this.agentForm.controls['prenom'].value,
+        this.agentForm.controls['email'].value,
+        this.agentForm.controls['mdp'].value,
        "agent",
-       this.a1.matricule,
+        this.agentForm.controls['matricule'].value,
        new Date(),
-       this.a1.numTel,
+        this.agentForm.controls['numTel'].value,
        []
        ,[]);
      this.service.addAgent(this.nouvelAgent);
@@ -97,7 +99,12 @@ export class FormAgentsComponent implements OnInit {
    } 
    // si c'est en edition on part dans cette condition
    else {
-     this.doSomething();
+  this.a1.nom = this.agentForm.controls['nom'].value;
+  this.a1.prenom= this.agentForm.controls['prenom'].value;
+  this.a1.email=this.agentForm.controls['email'].value;
+  this.a1.mdp=this.agentForm.controls['mdp'].value;
+  this.a1.matricule=this.agentForm.controls['matricule'].value;
+  this.a1.numTel=this.agentForm.controls['numTel'].value;
    }
 
      this.router.navigate(["./admin"]);}
