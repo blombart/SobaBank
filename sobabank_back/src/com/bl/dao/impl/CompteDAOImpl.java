@@ -25,4 +25,16 @@ public class CompteDAOImpl implements ICompteDAO{
 		return null;
 	}
 
+	@Override
+	public Compte getCompteByID(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Compte getCompteByRIB(String rib) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

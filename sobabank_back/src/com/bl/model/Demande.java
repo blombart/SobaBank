@@ -9,14 +9,13 @@ public class Demande {
 	private boolean isAffected;
 	private String status;
 	private boolean isValid;
-	private Agent agent;
 
 	public Demande(){
 		
 	}
 	
 	public Demande(Long id, Date dateDemande, String libelle,
-			Boolean isAffected, String status, Boolean isValid, Agent agent) {
+			Boolean isAffected, String status, Boolean isValid) {
 		super();
 		this.id = id;
 		this.dateDemande = dateDemande;
@@ -24,7 +23,6 @@ public class Demande {
 		this.isAffected = isAffected;
 		this.status = status;
 		this.isValid = isValid;
-		this.agent = agent;
 	}
 
 	public Long getId() {
@@ -65,14 +63,6 @@ public class Demande {
 	
 	public void setIsValid(boolean isValid) {
 		this.isValid = isValid;
-	}
-	
-	public Agent getAgent() {
-		return agent;
-	}
-	
-	public void setAgent(Agent agent) {
-		this.agent = agent;
 	}
 
 	public Date getDateDemande() {

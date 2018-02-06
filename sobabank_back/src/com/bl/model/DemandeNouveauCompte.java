@@ -5,8 +5,6 @@ package com.bl.model;
 public class DemandeNouveauCompte extends Demande {
 	private Compte newCompte;
 	
-
-
 	public DemandeNouveauCompte() {
 		super();
 	}

@@ -2,13 +2,56 @@ package com.bl.model;
 
 import java.util.Date;
 
-public class DemandeOuvertureCompte extends Demande {
+public class DemandeOuvertureCompte {
+	private Long id;
+	private Date dateDemande;
+	private Boolean isAffected;
+	private String Status;
+	private Boolean isValid;
 	private Date dateAffectation;
 	private Client client;
 	
 	public DemandeOuvertureCompte() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDateDemande() {
+		return dateDemande;
+	}
+
+	public void setDateDemande(Date dateDemande) {
+		this.dateDemande = dateDemande;
+	}
+
+	public Boolean getIsAffected() {
+		return isAffected;
+	}
+
+	public void setIsAffected(Boolean isAffected) {
+		this.isAffected = isAffected;
+	}
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	public Boolean getIsValid() {
+		return isValid;
+	}
+
+	public void setIsValid(Boolean isValid) {
+		this.isValid = isValid;
 	}
 
 	public Date getDateAffectation() {
@@ -26,6 +69,7 @@ public class DemandeOuvertureCompte extends Demande {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+
 
 
 }

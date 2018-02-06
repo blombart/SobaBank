@@ -11,4 +11,8 @@ public interface ICompteDAO {
 	
 	public Compte updateCompte(Compte compte);
 	
+	public Compte getCompteByID(Long id);
+	
+	public Compte getCompteByRIB(String rib);
+	
 }
