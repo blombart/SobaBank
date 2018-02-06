@@ -1,6 +1,7 @@
 package com.bl.model;
 
 import java.io.File;
+import java.util.List;
 
 public class Client extends User {
 	private String adresse;
@@ -8,16 +9,17 @@ public class Client extends User {
 	private int nbEnfants;
 	private String situationMatrimonial;
 	private Agent monAgent;
-	private Compte[] comptes;
-	private Demande[] demandes;
-	private File[] files;
+	private List<Compte>comptes;
+	private List<Demande> demandes;
+	private List<File> files;
 	private boolean isClient;
 	
-	public File[] getFiles() {
+
+	public List<File> getFiles() {
 		return files;
 	}
 
-	public void setFiles(File[] files) {
+	public void setFiles(List<File> files) {
 		this.files = files;
 	}
 
@@ -35,9 +37,9 @@ public class Client extends User {
 	
 
 
-	public Client(String adresse, String numTel, int nbEnfants,
-			String situationMatrimonial, Agent monAgent, Compte[] comptes,
-			Demande[] demandes, File[] files) {
+
+	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial, Agent monAgent,
+			List<Compte> comptes, List<Demande> demandes, List<File> files, boolean isClient) {
 		super();
 		this.adresse = adresse;
 		this.numTel = numTel;
@@ -47,7 +49,7 @@ public class Client extends User {
 		this.comptes = comptes;
 		this.demandes = demandes;
 		this.files = files;
-		this.isClient = false;
+		this.isClient = isClient;
 	}
 
 	public String getAdresse() {
@@ -90,20 +92,24 @@ public class Client extends User {
 		this.monAgent = monAgent;
 	}
 
-	public Compte[] getComptes() {
+	public List<Compte> getComptes() {
 		return comptes;
 	}
 
-	public void setComptes(Compte[] comptes) {
+	public void setComptes(List<Compte> comptes) {
 		this.comptes = comptes;
 	}
 
-	public Demande[] getDemandes() {
+	public List<Demande> getDemandes() {
 		return demandes;
 	}
 
-	public void setDemandes(Demande[] demandes) {
+	public void setDemandes(List<Demande> demandes) {
 		this.demandes = demandes;
+	}
+
+	public void setClient(boolean isClient) {
+		this.isClient = isClient;
 	}
 	
 	

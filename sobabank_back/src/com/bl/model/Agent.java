@@ -1,12 +1,15 @@
 package com.bl.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Agent extends User {
 	private String matricule;
 	private Date dateDebutContrat;
 	private String numTel;
-	private Client[] clients;
+	private List<Client> clients = new ArrayList<Client>();
+	private List<DemandeOuvertureCompte> demandesOuverture = new ArrayList<DemandeOuvertureCompte>();
 
 	public Agent() {
 		super();
@@ -51,15 +54,25 @@ public class Agent extends User {
 		this.numTel = numTel;
 	}
 
-	public Client[] getClients() {
+	public List<Client> getClients() {
 		return clients;
 	}
 
-	public void setClients(Client[] clients) {
+	public void setClients(List<Client> clients) {
 		this.clients = clients;
 	}
 
-	
+	public List<DemandeOuvertureCompte> getDemandesOuverture() {
+		return demandesOuverture;
+	}
+
+	public void setDemandesOuverture(List<DemandeOuvertureCompte> demandesOuverture) {
+		this.demandesOuverture = demandesOuverture;
+	}
+
+	public void addDemande(DemandeOuvertureCompte dem) {
+		
+	}
 	
 	
 	

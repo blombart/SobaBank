@@ -1,6 +1,7 @@
 package com.bl.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Compte {
 	private Long id;
@@ -10,15 +11,17 @@ public class Compte {
 	private String rib;
 	private float decouvertAutorise;
 	private float tauxAgios;
-	private Operation[] operations;
+	private List<Operation> operations;
 	
 	public Compte(){
 		
 	}
 	
-	public Compte(Long id, int numCompte, Date dateCreation, float solde,
-			String rib, float decouvertAutorise, float tauxAgios,
-			Operation[] operations) {
+
+
+	public Compte(Long id, int numCompte, Date dateCreation, float solde, String rib, float decouvertAutorise,
+			float tauxAgios, List<Operation> operations) {
+		super();
 		this.id = id;
 		this.numCompte = numCompte;
 		this.dateCreation = dateCreation;
@@ -28,6 +31,8 @@ public class Compte {
 		this.tauxAgios = tauxAgios;
 		this.operations = operations;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -85,13 +90,19 @@ public class Compte {
 		this.tauxAgios = tauxAgios;
 	}
 
-	public Operation[] getOperations() {
+
+
+	public List<Operation> getOperations() {
 		return operations;
 	}
 
-	public void setOperations(Operation[] operations) {
+
+
+	public void setOperations(List<Operation> operations) {
 		this.operations = operations;
 	}
+
+
 	
 	
 	
