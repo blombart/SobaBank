@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from './user'
+import {User} from '../../modeles/user';
 import { DemandeService} from '../../Service/demande.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
@@ -14,14 +14,12 @@ export class ForminscritionComponent implements OnInit {
 
   utilisateur: User;
   userForm: FormGroup;
-  demande: demandeOuvertureCompte;
+  demande: DemandeOuvertureCompte;
 
   constructor(private _fb: FormBuilder,private demandeService:DemandeService) {
    }
 
   ngOnInit() {
-   
-    this.demandesOuverture = this.demandeService.getDemandesOuverture();
     this.createForm();
   }
 
@@ -36,11 +34,11 @@ export class ForminscritionComponent implements OnInit {
 
   onSubmit(){
     //On cree un nouvel utilisateur
-   this.utilisateur = new User(
+   this.utilisateur = new User(5,
      this.userForm.controls['nom'].value,
      this.userForm.controls['prenom'].value,
      this.userForm.controls['mail'].value,
-     this.userForm.controls['numTel'].value
+     this.userForm.controls['numTel'].value,""
      )
 
    this.demande = new DemandeOuvertureCompte(5,

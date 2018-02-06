@@ -20,7 +20,7 @@ export class ComptesComponent implements OnInit {
 	private compteService = new CompteService();
 
 
-comptes = [new Compte(500.00,1) ,   new Compte(750.00,2)];
+/*comptes = [new Compte(500.00,1) ,   new Compte(750.00,2)];*/
 
 epargnes = [new Epargne(1,10000)];
 
