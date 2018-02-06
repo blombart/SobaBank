@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Epargne} from './epargne';
+import {epargnes} from '../../modeles/compte';
 
 @Component({
   selector: 'app-epargne',
@@ -8,7 +8,7 @@ import {Epargne} from './epargne';
 })
 export class EpargneComponent implements OnInit {
 
-	
+  
 
   constructor() { }
 

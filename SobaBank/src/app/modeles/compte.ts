@@ -33,7 +33,7 @@ export class CompteEpargne extends Compte{
 
 
 //TODO Creer plusieurs comptes
-export const compte : Compte[] = [
+export const comptes : Compte[] = [
 			{numCompte:1,dateCreation: new Date(),solde:506,rib:"sam",decouverteAutorise:20,tauxAgios:10,operations:{montant: 14,
 		date: new Date(),
 		libelle: "azer"}},
@@ -51,7 +51,7 @@ export const compte : Compte[] = [
 
 
 //TODO Creer plusieurs comptes
-export const epargne : CompteEpargne[] = [
+export const epargnes : CompteEpargne[] = [
 			{numCompte:1,dateCreation: new Date(),solde:506,rib:"sam",decouverteAutorise:20,tauxAgios:10,operations:{montant: 14,
 		date: new Date(),libelle: "azer"},tauxInteret:12,montantRemuneration:10},
 			

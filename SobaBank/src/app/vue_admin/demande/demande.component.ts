@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { DemandeService} from '../../Service/demande.service';
-import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte'
+import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 
 
 
