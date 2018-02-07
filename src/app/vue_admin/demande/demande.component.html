@@ -1,0 +1,57 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<div class="container">
+
+
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h4>Gestion des demandes d'ouvertures de compte</h4>
+        <div class="table-responsive">
+
+                
+
+              <table id="mytable" class="table table-bordered ">
+
+                   
+                   <thead>
+                   
+
+                    <th>Date Demande</th>
+                    <th>Affectation</th>
+                    <th>Date affectation</th>
+                    <th>Agent</th>
+                    <th>Status</th>
+                    <th>Fiche info</th>
+                    <th></th>
+                   </thead>
+    <tbody>
+    
+    <tr *ngFor="let dem of demandes | async">
+    <td>{{dem.dateDemande | date}}</td>
+    <td><input type="checkbox" [checked]="dem.estAffecte" (click)="false"></td>
+    <td>{{dem.dateAffectation | date}}</td>
+    <td><p *ngIf="dem.agent">{{dem.agent.nom}}</p></td>
+    <td>{{dem.status}}</td>
+    <td>{{dem.ficheInfo}}</td>
+    <td><button class="btn btn-primary btn-sm" (click)="affecter(dem.id)" >Affecter</button></td>
+
+    </tr>
+    
+
+    </tbody>
+        
+</table>
+
+        </div>
+	</div>
+
+    <!-- On envoie l'id de la demande au composant et on recoit la nouvelle valeur du boolean affected pour remettre a false et cacher le composant -->
+  <app-affectation-agent *ngIf="affectation" [demId]="idDemAffect" (affected)="resetAffectation($event)">
+      
+  </app-affectation-agent>
+</div>
+
+

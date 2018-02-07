@@ -1,0 +1,40 @@
+
+<div *ngIf="role=='guest'">
+<div class="wrapper">
+    <form class="form-signin">
+      <h2 class="form-signin-heading">Veuillez vous connecter</h2>
+      <input type="text" class="form-control" name="username" placeholder="nom" required="" autofocus="" [(ngModel)]="nom" />
+      <input type="password" class="form-control" name="mot de passe" placeholder="Password" required="" [(ngModel)]="mdp"/>
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick()">Se connecter</button>
+    </form>
+  </div>
+
+  <p>
+    Nom: {{nom}}
+  </p>
+
+  <p>
+    mdp: {{mdp}}
+  </p>
+
+
+  </div>
+
+
+  <div *ngIf="role!='guest'">
+<div class="wrapper">
+   
+  </div>
+
+  <p>
+    Bonjour {{nom}} Bienvenue sur votre espace {{role}}
+  </p>
+
+  <p>Cliquez sur le lien dans la navbar pour accéder à votre espace.</p>
+
+
+  </div>
+
