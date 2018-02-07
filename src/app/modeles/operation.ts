@@ -12,11 +12,15 @@ export class Operation{
 }
 
 //TODO Creer plusieurs operations
+
 export const operations : Operation[] = [
-	{ montant : 100, date : new Date(), libelle : "Retrait"},
-	{ montant : 200, date : new Date(), libelle : "Retrait"},
-	{ montant : 300, date : new Date(), libelle : "debit"},
-	{ montant : 400, date : new Date(), libelle : "debit"},
-	{ montant : 500, date : new Date(), libelle : "Retrait"},
-	{ montant : 600, date : new Date(), libelle : "Retrait"}
+
+	new Operation (150,new Date(),"debit"),
+	new Operation (300,new Date(),"credit"),
+	new Operation (400,new Date(),"debit"),
+	new Operation (50,new Date(),"debit"),
+	new Operation (30,new Date(),"credit"),
+	new Operation (40,new Date(),"debit")
+
 ]
+

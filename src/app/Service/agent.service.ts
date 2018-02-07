@@ -12,7 +12,7 @@ agents = agents;
   constructor() {
   }
 
-  getAgentById(id) {
+	getAgent(id) {
     for(let agent of agents){
       if(agent.id ===id){
         return agent;
@@ -21,12 +21,12 @@ agents = agents;
   }
 
   getAgents(): Observable<Agent[]>{
-      return of(agents);
-    }
+  		return of(agents);
+  	}
 
   addAgent(agent: Agent){
-      this.agents.push(agent);
-    }
+  		this.agents.push(agent);
+  	}
 
 
   supprimerAgent(agent: Agent){
@@ -45,7 +45,9 @@ agents = agents;
   }
 
   //On recherche l'index de l'agent dans le tableau pour un id donné
-  findIndexOfCurrentAgent(agentBis: Agent){
+
+  private findIndexOfCurrentAgent(agentBis: Agent){
+
     let i: number =0;
     let finalIndex: number;
 
@@ -60,6 +62,6 @@ agents = agents;
     
     return finalIndex;
   }
-  }
 
+  }
 

@@ -10,40 +10,47 @@ import {notifications} from './notification';
 
 export class Client extends User{
 	
-	id: number;
-	nom: string;
-	prenom: string;
-	email: string;
-	mdp: string;
-	role: string;
-	adresse: string;
-	numTel: string;
-	nbEnfants: number;
-	situationMatrimonial:string;
-	notifications : Notification[];
-	agent: Agent[];
-	comptes: Compte[];
+constructor(
+
+	public id: number,
+	public nom: string,
+	public prenom: string,
+	public email: string,
+	public mdp: string,
+	public role: string,
+	public adresse: string,
+	public numTel: string,
+	public nbEnfants: number,
+	public situationMatrimonial:string,
+
+	public notifications : Notification[],
+	public agent: Agent[],
+	public comptes: Compte[])
 	
+	{
+		super(id,nom,prenom,email,mdp,role);
+
+	}
 	
 }
 
 //TODO creer plusieurs clients
-export const clients: Client= {
 
-    id: 12,
-	nom: "omar",
-	prenom: "omar",
-	email: "omar",
-	mdp: "omar",
-	role: "omar",
-	adresse: "omar",
-	numTel: "omar",
-	nbEnfants: 12,
-	situationMatrimonial:"omar",
-	notifications : notifications,
-	agent: agents,
-	comptes: comptes
-	
+export const clients: Client[]= [
 
+    new Client(1,
+	"leg",
+	"seb",
+	"seb@xxx.fr",
+	"coucou",
+	"client",
+	"rue lille 59000",
+	"0611121314",
+	2,
+	"pacsé",
+	[],
+	[],
+	[]
+	),
 
-}
+]

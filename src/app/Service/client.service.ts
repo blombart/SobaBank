@@ -8,24 +8,59 @@ import {clients} from '../modeles/client';
 @Injectable()
 export class ClientService {
 
-   clients = clients;
-  constructor() { }
-
-	getClient(id) {
-    return this.clients[id-1];
+clients = clients;
+  constructor() {
   }
 
-  	getClients(): Observable<Client[]>{
+	getClient(id) {
+    for(let client of clients){
+      if(client.id ===id){
+        return client;
+      }
+    }
+  }
+
+  getClients(): Observable<Client[]>{
   		return of(clients);
   	}
 
-  	addClient(client: Client){
+  addClient(client: Client){
   		this.clients.push(client);
   	}
 
 
-    getAllClients() {
-      return [new Client(1,"nom", "prenom","dfhdfh","zezet","sdfgsdg","qqdgqdgqdg","dsdgsdgqsdgg",2,"sdkjjghksjdgh", 
-      null, null  )];
+  supprimerClient(client: Client){
+    this.clients.splice(this.findIndexOfCurrentClient(client)-1,1);
+  }
+
+  getMaxId(){
+   let tempId: number;
+   let maxId: number =0;
+   for(let client of clients){
+     tempId = client.id;
+     if(tempId>maxId){
+       maxId = client.id;
+     }
+   } return maxId;
+  }
+
+  //On recherche l'index de l'client dans le tableau pour un id donné
+
+  private findIndexOfCurrentClient(clientBis: Client){
+
+    let i: number =0;
+    let finalIndex: number;
+
+    for(let client of clients){
+      i++;
+      
+      if(client.id === clientBis.id){
+        finalIndex = i ;
+        break;
+      }
     }
+    
+    return finalIndex;
+  }
+
   }

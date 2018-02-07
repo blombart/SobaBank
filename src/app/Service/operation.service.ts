@@ -7,17 +7,8 @@ import {operations} from '../modeles/operation';
 
 @Injectable()
 export class OperationService {
-  //operationService = new OperationService();
-  operations= operations;
 
 
-constructor() { }
-
-
-	 getAllOperations(){
-
-  return this.operations;
-    
-  }
+	
 
 }

@@ -1,6 +1,7 @@
 import {Demande, Status} from './demandes';
 import {Agent} from './agent';
-import { User } from './user';
+import {FicheInfo} from './ficheInfo';
+
 
 export class DemandeOuvertureCompte extends Demande{
 	constructor(public id: number,
@@ -11,7 +12,7 @@ export class DemandeOuvertureCompte extends Demande{
 		public estValide: boolean,
 		public agent: Agent,
 		public dateAffectation: Date,
-		public user : User
+		public ficheInfo: FicheInfo
 		){
 		super(id,dateDemande,libelle,estAffecte,status,estValide,agent)
 	}
