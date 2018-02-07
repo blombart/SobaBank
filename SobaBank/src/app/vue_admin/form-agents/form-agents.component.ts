@@ -53,7 +53,7 @@ export class FormAgentsComponent implements OnInit {
       this.id = +params['id'];
     });
     if(this.id != 0){
-    this.a1 = this.service.getAgent(this.id)};
+    this.a1 = this.service.getAgentById(this.id)};
   }
 
   onSubmit(){

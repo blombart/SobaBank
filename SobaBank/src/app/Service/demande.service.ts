@@ -8,6 +8,9 @@ import {demandeModificationMdp} from '../modeles/demandes';
 import {DemandeModificationMdp} from '../modeles/demandes';
 import {Compte} from '../modeles/compte';
 import {comptes} from '../modeles/compte';
+import {DemandeChequier} from '../modeles/demandes';
+import {demandeChequier} from '../modeles/demandes';
+
 
 @Injectable()
 export class DemandeService {
@@ -15,7 +18,8 @@ export class DemandeService {
 demandesOuverture = demandesOuverture
 
 demandeModificationMdp= demandeModificationMdp
-comptes = comptes
+demandes = demandeChequier
+
 
   constructor() { }
 
@@ -31,5 +35,10 @@ comptes = comptes
       return of(comptes);
     }
 
+
+addDemandeChequier(demande: DemandeChequier){
+  this.demandes.push(demande);
+
+}
   }
 

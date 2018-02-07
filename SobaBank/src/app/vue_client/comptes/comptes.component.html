@@ -40,7 +40,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let operation of selectedCompte.operation | async">
+          <tr *ngFor="let operation of operations">
             <td>{{ operation.libelle }}</td><td>{{ operation.montant }} €</td><td>{{ operation.date | date : "dd/MM/yy hh:mm" }}</td>
           </tr>
         </tbody>

@@ -47,8 +47,8 @@ export class GestionAgentsComponent implements OnInit {
   supprimerAgent(i: number){
     
     console.log(i);
-    console.log(this.agentService.getAgent(i).nom);
-    this.agentService.supprimerAgent(this.agentService.getAgent(i));
+    console.log(this.agentService.getAgentById(i).nom);
+    this.agentService.supprimerAgent(this.agentService.getAgentById(i));
   }
 
 //on recupere le champ input et on filtre le tableau d'agent selon si le nom ou matricule correspond a la recherche
