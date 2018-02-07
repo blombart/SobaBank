@@ -2,7 +2,9 @@ package com.bl.dao.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import com.bl.dao.IAgentDAO;
 import com.bl.model.Agent;
@@ -48,6 +50,23 @@ public class AgentDAOImpl implements IAgentDAO{
 	@Override
 	public Agent getAgentById(Long id) {
 		Agent agent = agentsMap.get(id);
+		return agent;
+	}
+
+	@Override
+	public Agent getAgentByMatricule(String matricule) {
+		Agent agent = null;
+		
+		Set<Long> keys = agentsMap.keySet();
+		Iterator<Long> it = keys.iterator();
+		
+		while(it.hasNext()){
+			Long id = it.next();
+			if(matricule == agentsMap.get(id).getMatricule()){
+				agent = agentsMap.get(id);
+			}
+		}
+		
 		return agent;
 	}
 

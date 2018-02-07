@@ -16,4 +16,10 @@ public interface IAdminService {
 	
 	public void affecterDemande(Long idAgent, Long idDemOuv);
 	
+	public Agent getAgentById(Long id);
+	
+	public Agent getAgentByMatricule(String matricule);
+	
+	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte();
+	
 }

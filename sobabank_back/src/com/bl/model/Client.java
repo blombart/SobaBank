@@ -12,7 +12,7 @@ public class Client extends User {
 	private List<Compte>comptes;
 	private List<Demande> demandes;
 	private List<File> files;
-	private boolean isClient;
+	private Boolean isClient;
 	
 
 	public List<File> getFiles() {
@@ -39,7 +39,7 @@ public class Client extends User {
 
 
 	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial, Agent monAgent,
-			List<Compte> comptes, List<Demande> demandes, List<File> files, boolean isClient) {
+			List<Compte> comptes, List<Demande> demandes, List<File> files, Boolean isClient) {
 		super();
 		this.adresse = adresse;
 		this.numTel = numTel;
@@ -108,10 +108,6 @@ public class Client extends User {
 		this.demandes = demandes;
 	}
 
-	public void setClient(boolean isClient) {
-		this.isClient = isClient;
-	}
-	
 	
 	
 	

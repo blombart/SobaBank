@@ -14,4 +14,6 @@ public interface IAgentDAO {
 	public void deleteAgent(Long id);
 	
 	public Agent getAgentById(Long id);
+	
+	public Agent getAgentByMatricule(String matricule);
 }

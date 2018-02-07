@@ -48,6 +48,7 @@ public class AdminServiceImpl implements IAdminService {
 		dem.setDateAffectation(new Date());
 		dem.setIsAffected(true);
 		dem.setStatus("NON TRAITEE");
+		dem.setAgent(agent);
 		
 		//On ajoute la demande a l'agent
 		agent.getDemandesOuverture().add(dem);
@@ -61,6 +62,24 @@ public class AdminServiceImpl implements IAdminService {
 	public Agent addAgent(Agent agent) {
 		Agent _agent = agentDAO.addAgent(agent);
 		return _agent;
+	}
+
+	@Override
+	public Agent getAgentById(Long id) {
+		Agent agent = agentDAO.getAgentById(id);
+		return agent;
+	}
+
+	@Override
+	public Agent getAgentByMatricule(String matricule) {
+		Agent agent = agentDAO.getAgentByMatricule(matricule);
+		return agent;
+	}
+
+	@Override
+	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte() {
+		List<DemandeOuvertureCompte> demandes = demOuvDAO.getAllDemande();
+		return demandes;
 	}
 
 

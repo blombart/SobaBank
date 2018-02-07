@@ -10,6 +10,7 @@ public class DemandeOuvertureCompte {
 	private Boolean isValid;
 	private Date dateAffectation;
 	private Client client;
+	private Agent agent;
 	
 	public DemandeOuvertureCompte() {
 	}
@@ -69,6 +70,16 @@ public class DemandeOuvertureCompte {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+	
+	
 
 
 

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.bl.dao.IDemandeOuvertureDAO;
-import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
 
 public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {

@@ -16,15 +16,16 @@ public class Main {
 		IAdminService adminServ = new AdminServiceImpl();
 		IDemandeOuvertureDAO demDAO = new DemandeOuvertureDAOImpl();
 		
-		Agent agent = new Agent();
+		Agent agent = new Agent(new Date());
 		agent.setId(0L);
+		agent.setMatricule("A001");
 		
 		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
 		dem.setDateDemande(new Date());
 		dem.setId(0L);
 		
 
-		adminServ.addAgent(new Agent());
+		adminServ.addAgent(agent);
 		demDAO.addDemande(dem);
 		adminServ.affecterDemande(0L, 0L);
 		

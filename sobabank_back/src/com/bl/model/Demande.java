@@ -6,21 +6,18 @@ public class Demande {
 	private Long id;
 	private Date dateDemande;
 	private String libelle;
-	private boolean isAffected;
 	private String status;
-	private boolean isValid;
+	private Boolean isValid;
 
 	public Demande(){
 		
 	}
 	
-	public Demande(Long id, Date dateDemande, String libelle,
-			Boolean isAffected, String status, Boolean isValid) {
+	public Demande(Long id, Date dateDemande, String libelle, String status, Boolean isValid) {
 		super();
 		this.id = id;
 		this.dateDemande = dateDemande;
 		this.libelle = libelle;
-		this.isAffected = isAffected;
 		this.status = status;
 		this.isValid = isValid;
 	}
@@ -41,13 +38,6 @@ public class Demande {
 		this.libelle = libelle;
 	}
 	
-	public boolean getIsAffected() {
-		return isAffected;
-	}
-	
-	public void setIsAffected(boolean isAffected) {
-		this.isAffected = isAffected;
-	}
 	
 	public String getStatus() {
 		return status;
@@ -57,11 +47,11 @@ public class Demande {
 		this.status = status;
 	}
 	
-	public boolean getIsValid() {
+	public Boolean getIsValid() {
 		return isValid;
 	}
 	
-	public void setIsValid(boolean isValid) {
+	public void setIsValid(Boolean isValid) {
 		this.isValid = isValid;
 	}
 
