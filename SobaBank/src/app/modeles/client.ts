@@ -1,5 +1,6 @@
 import {User} from './user';
 import {Agent} from './agent';
+import {Demande} from './demandes'
 import {Compte} from './compte';
 export class Client extends User{
 	constructor(
@@ -13,9 +14,11 @@ export class Client extends User{
 	numTel: string,
 	nbEnfants: number,
 	situationMatrimonial:string,
-
 	agent: Agent,
 	comptes: Compte[],
+	demandes: Demande[],
+	files: File[],
+	isClient: boolean
 	)
 	{
 		super(id,nom,prenom,email,mdp,role)

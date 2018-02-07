@@ -8,11 +8,11 @@ export class Demande{
 		public estAffecte: boolean,
 		public status: string,
 		public estValide: boolean,
-		public agent: Agent
 		){}
 }
 
-export class DemandeClient extends Demande{
+
+export class DemandeChequier extends Demande{
 	constructor(public id: number,
 		public dateDemande: Date,
 		public libelle: string,
@@ -21,15 +21,22 @@ export class DemandeClient extends Demande{
 		public estValide: boolean,
 		public agent: Agent,
 		public client: Client){
-		super(id,dateDemande,libelle,estAffecte,status,estValide,agent)
+		super(id,dateDemande,libelle,estAffecte,status,estValide)
 	}
-}
-
-export class DemandeChequier extends DemandeClient{
 
 }
 
-export class DemandeModificationMdp extends DemandeClient{
+export class DemandeModificationMdp extends Demande{
+	constructor(public id: number,
+		public dateDemande: Date,
+		public libelle: string,
+		public estAffecte: boolean,
+		public status: string,
+		public estValide: boolean,
+		public agent: Agent,
+		public client: Client){
+		super(id,dateDemande,libelle,estAffecte,status,estValide)
+	}
 
 }
 

@@ -4,7 +4,7 @@
 		<div class="formulaire">
 		<div class="form-group">
 			<label>Nom</label>
-			<input type="text" class="form-control" formControlName="nom"  required>
+			<input type="text" class="form-control" formControlName="nom" autocomplete='family-name' required>
 		<div [hidden]="nom.valid" class="alert alert-danger warn"> le nom est requis
 		</div>
 		</div>

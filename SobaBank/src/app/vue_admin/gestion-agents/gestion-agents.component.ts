@@ -10,29 +10,29 @@ import { Validators, FormControl, FormGroup} from '@angular/forms';
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { AgentService} from '../../Service/agent.service';
+/*import {AdminService} from '../../Service/adminService';*/
 
 @Component({
   selector: 'app-gestion-agents',
   templateUrl: './gestion-agents.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css',
   '../../bootstrap/css/bootstrap-grid.css',
-  './gestion-agents.component.css']
+  './gestion-agents.component.css'],
+  /*providers: [AdminService]*/
 })
 export class GestionAgentsComponent implements OnInit {
   formRecherche : FormGroup;
   submitted: boolean;
-
-
-
-
+  /*private agents: Agent[];*/
 	agents : Observable<Agent[]>;
 	searchText: string;
 
-  constructor(private agentService: AgentService, private _router: Router) { }
+  constructor(private agentService: AgentService, private _router: Router, /*private adminService: AdminService*/) { }
 
 
   ngOnInit() {
   	this.agents = this.agentService.getAgents();
+    /*this.getAllAgents();*/
 
     this.formRecherche = new FormGroup({
     'recherche' : new FormControl('',[Validators.required])
@@ -42,6 +42,17 @@ export class GestionAgentsComponent implements OnInit {
     this.submitted= false;
   }
 
+  getAllAgents(){
+    this.adminService.findAll().subscribe(
+      agents => {
+        this.agents = agents;
+      },
+      err => {
+        console.log(err);
+      }
+      );
+      
+    }
 
   modifierAgent(i: number){
     this._router.navigate(["./admin/agents",i]);
