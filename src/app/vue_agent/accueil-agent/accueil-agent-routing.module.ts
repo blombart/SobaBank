@@ -5,11 +5,9 @@ import {ListeDemandesComponent} from '../../vue_agent/liste-demandes/liste-deman
 import {ListeClientComponent } from '../../vue_agent/liste-client/liste-client.component';
 import {DetailsDemandesComponent} from '../../vue_agent/details-demandes/details-demandes.component';
 
-
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
 import { VirementComponent } from '../../vue_agent/liste-demandes/virement/virement.component';
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
-
 
 
 const routes: Routes = [
@@ -18,7 +16,6 @@ const routes: Routes = [
     component: AccueilAgentComponent,
     children: [
  /*        {path: 'agent', component: AccueilAgentComponent, pathMatch: 'full'},*/
-
 
      {
        path: 'listeDemandes', 

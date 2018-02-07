@@ -11,15 +11,13 @@ export class UserService {
   users = Users;
   constructor() { }
 
-
-  getUser(id) {
+	getUser(id) {
     return this.users[id-1];
   }
 
-    getUsers(): Observable<User[]>{
-      return of(Users);
-    }
-
+  	getUsers(): Observable<User[]>{
+  		return of(Users);
+  	}
 
 getUserByName(name: String){
   for (let user of this.users) {
@@ -49,6 +47,4 @@ removeUserByName(user: User){
 
 }
 
-
 }
-

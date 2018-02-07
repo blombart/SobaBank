@@ -12,7 +12,7 @@ agents = agents;
   constructor() {
   }
 
-	getAgent(id) {
+  getAgent(id) {
     for(let agent of agents){
       if(agent.id ===id){
         return agent;
@@ -21,12 +21,12 @@ agents = agents;
   }
 
   getAgents(): Observable<Agent[]>{
-  		return of(agents);
-  	}
+      return of(agents);
+    }
 
   addAgent(agent: Agent){
-  		this.agents.push(agent);
-  	}
+      this.agents.push(agent);
+    }
 
 
   supprimerAgent(agent: Agent){
@@ -64,4 +64,3 @@ agents = agents;
   }
 
   }
-

@@ -34,6 +34,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +42,8 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     NavbarComponent,
     ForminscritionComponent,
     ConnexionComponent,
-    DeconnexionComponent
 
+    DeconnexionComponent
 
 
   ],

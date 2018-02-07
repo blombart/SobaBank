@@ -2,26 +2,24 @@ import {Agent} from './agent';
 import {Client} from './client';
 
 export class Demande{
-	constructor(public id: number,
-		public dateDemande: Date,
-		public libelle: string,
-		public estAffecte: boolean,
-		public status: string,
-		public estValide: boolean,
-		public agent: Agent
+	constructor(dateDemande: Date,
+		libelle: String,
+		estAffecte: boolean,
+		status: Status,
+		estValide: boolean,
+		agent: Agent
 		){}
 }
 
 export class DemandeClient extends Demande{
-	constructor(public id: number,
-		public dateDemande: Date,
-		public libelle: string,
-		public estAffecte: boolean,
-		public status: string,
-		public estValide: boolean,
-		public agent: Agent,
-		public client: Client){
-		super(id,dateDemande,libelle,estAffecte,status,estValide,agent)
+	constructor(dateDemande: Date,
+		libelle: String,
+		estAffecte: boolean,
+		status: Status,
+		estValide: boolean,
+		agent: Agent,
+		client: Client){
+		super(dateDemande,libelle,estAffecte,status,estValide,agent)
 	}
 }
 
@@ -33,5 +31,5 @@ export class DemandeModificationMdp extends DemandeClient{
 
 }
 
-export enum Status {EN_COURS, TRAITEE, NON_TRAITEE};
+export enum Status {EN_COURS, TRAITEE};
 
