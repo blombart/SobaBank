@@ -3,6 +3,7 @@ package com.bl.model;
 import java.util.Date;
 
 public class Operation {
+	private Long id;
 	private float montant;
 	private Date date;
 	private String libelle;
@@ -41,7 +42,16 @@ public class Operation {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
 	
 	
 	

@@ -22,4 +22,5 @@ public interface IAdminService {
 	
 	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte();
 	
+	public void modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
 }

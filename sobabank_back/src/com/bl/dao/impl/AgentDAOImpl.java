@@ -28,18 +28,9 @@ public class AgentDAOImpl implements IAgentDAO{
 
 	@Override
 	public Agent updateAgent(Agent agent) {
-		if(agentsMap.get(agent.getId()) != null){
-			agentsMap.get(agent.getId()).setEmail(agent.getEmail());
-			agentsMap.get(agent.getId()).setMatricule(agent.getMatricule());
-			agentsMap.get(agent.getId()).setMdp(agent.getMdp());
-			agentsMap.get(agent.getId()).setNom(agent.getNom());
-			agentsMap.get(agent.getId()).setPrenom(agent.getPrenom());
-			agentsMap.get(agent.getId()).setNumTel(agent.getNumTel());
-			agentsMap.get(agent.getId()).setClients(agent.getClients());
-		}else{
-			agentsMap.put(agent.getId(), agent);
-		}
-		return agentsMap.get(agent.getId());
+		Long id = agent.getId();
+		agentsMap.put(id, agent);
+		return agentsMap.get(id);
 	}
 
 	@Override

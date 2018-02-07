@@ -1,40 +1,46 @@
 package com.bl.dao.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.bl.dao.IClientDAO;
+
 import com.bl.model.Client;
 
 public class ClientDAOImpl implements IClientDAO{
-
+	static HashMap<Long, Client> clientsMap = new HashMap<Long, Client>();
+	
 	@Override
 	public List<Client> getAllClients() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Client> clients = new ArrayList<Client>(clientsMap.values());
+		return clients;
 	}
 
 	@Override
 	public Client createClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		Long id = client.getId();
+		clientsMap.put(id, client);
+		return clientsMap.get(id);
 	}
 
 	@Override
 	public Client updateClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		Long id = client.getId();
+		clientsMap.put(id, client);
+		return clientsMap.get(id);
 	}
 
 	@Override
 	public void deleteClient(Long id) {
-		// TODO Auto-generated method stub
+		clientsMap.remove(id);
 		
 	}
 
 	@Override
 	public Client GetClientById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Client client = clientsMap.get(id);
+		return client;
 	}
 	
 	
