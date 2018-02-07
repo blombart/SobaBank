@@ -12,7 +12,7 @@ agents = agents;
   constructor() {
   }
 
-  getAgent(id) {
+  getAgentById(id) {
     for(let agent of agents){
       if(agent.id ===id){
         return agent;
@@ -45,9 +45,7 @@ agents = agents;
   }
 
   //On recherche l'index de l'agent dans le tableau pour un id donné
-
-  private findIndexOfCurrentAgent(agentBis: Agent){
-
+  findIndexOfCurrentAgent(agentBis: Agent){
     let i: number =0;
     let finalIndex: number;
 
@@ -62,5 +60,6 @@ agents = agents;
     
     return finalIndex;
   }
-
   }
+
+

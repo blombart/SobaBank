@@ -1,5 +1,4 @@
 //fichier qui contient l'import de l'ensemble des composant necessaire pour la vue admin
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +10,7 @@ import {NavbarAdminComponent} from '../../vue_admin/navbar-admin/navbar-admin.co
 import {RechercheComponent} from '../../vue_admin/recherche/recherche.component';
 
 import {AgentRechercheComponent} from '../../vue_admin/agent-recherche/agent-recherche.component';
-// import {AgentService} from '../../vue_admin/test_class/agent.service';
+import {DemandeService} from '../../Service/demande.service';
 import {AgentService} from '../../Service/agent.service';
 import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-agents.component';
 
@@ -29,7 +28,7 @@ import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-a
   RechercheComponent,
   AgentRechercheComponent,GestionAgentsComponent],
 
-  providers: [AgentService]
+  providers: [AgentService, DemandeService]
 
 })
 export class AdminModule { }
