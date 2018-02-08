@@ -7,13 +7,13 @@
                     <div class="header">
                         <h4 class="title">Notifications</h4>
                     </div>
-                    <div class="content table-responsive table-full-width" *ngIf='(getUnreadNotificationsCount() == 0)'>
+                    <div class="content table-responsive table-full-width">
                           <table class="table table-hover">
                                 <p>Aucune nouvelle notification.</p>
                           </table>
 
                     </div>
-                     <div class="content table-responsive table-full-width" *ngIf='(getUnreadNotificationsCount() > 0)'>
+                     <div class="content table-responsive table-full-width">
                           <table class="table table-hover ">
                                 <thead>
                                     <tr>                                        
@@ -21,7 +21,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr [routerLink]="['../client-notifications']" *ngFor="let notif of getUnreadNotifications()" >
+                                    <tr [routerLink]="['../client_notifications']" *ngFor="let notif of notifications" >
                                         <td>{{ notif.libelle }}</td><td>{{ notif.date | date:"dd/MM/yy hh:mm" }}</td>
                                     </tr>
                                 </tbody>
@@ -43,7 +43,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let compte of client.comptes" >
+                                    <tr *ngFor="let compte of comptes" >
                                         <td>{{ compte.numCompte }}</td><td>{{ compte.solde }}</td><td>{{ compte.rib }}</td>
                                     </tr>
                                 </tbody>

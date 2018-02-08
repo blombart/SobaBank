@@ -31,9 +31,9 @@ demandes = demandeChequier
   	getDemandeModificationMdp(): Observable<Demande[]>{
   		return of(demandeModificationMdp);
   	}
- getcomptes(): Observable<Compte[]>{
-      return of(comptes);
-    }
+ //getcomptes(): Observable<Compte[]>{
+    //  return of(comptes);
+   // }
 
 
 addDemandeChequier(demande: DemandeChequier){

@@ -7,12 +7,15 @@ import { Compte} from '../../modeles/compte';
 import { Client } from '../../modeles/client';
 import { clients } from '../../modeles/client';
 import { CompteService} from '../../Service/compte.service';
+import { Observable} from 'rxjs/Observable';
+import{NotificationService} from '../../Service/notification.service';
+
 
 @Component({
   selector: 'app-client-accueil',
   templateUrl: './client-accueil.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers:[CompteService]
+  providers:[ClientService,CompteService, NotificationService]
 
 })
 
@@ -20,28 +23,25 @@ import { CompteService} from '../../Service/compte.service';
 export class ClientAccueilComponent implements OnInit {
 	
 
-   private compteService = new CompteService();
+   //private compteService = new CompteService();
 
+//comptes :Compte; 
+    notifications:Notification;
+    //notif :Notification;
+      comptes : Compte; 
+   client :Client;
 
-    comptes: Compte= comptes;
-    
-   client : Client[];
-
-  constructor() { }
+  constructor(private clientService: ClientService, private compteService:CompteService, private notificationService: NotificationService) { }
 
   ngOnInit() {
 
 
    this.comptes= this.compteService.getAllComptes();
 
+   this.notifications=this.notificationService.getUnreadNotifications();
+
+//this.notif=this.notificationService.getUnreadNotificationsCount();
   }
 
-  getUnreadNotificationsCount() {
-   return this.getUnreadNotifications().length;
-  }
   
-  getUnreadNotifications() : Notification[] {
-      return this.client.notifications.filter(notif => !notif.isRead);
-  }
-
 }

@@ -1,8 +1,8 @@
 //Dummy Notification
 export class Notification {
-	libelle : String;
-	date : Date;
-	isRead : Boolean;
+	constructor(libelle : string,
+	date : Date,
+	isRead : boolean){}
 }
 
 
