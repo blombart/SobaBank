@@ -1,10 +1,10 @@
 export class FicheInfo{
 
 
-constructor(private nom: string, 
-				private prenom: string,
-				private email: string,
-				private numTel: string){
+constructor(public nom: string, 
+				public prenom: string,
+				public email: string,
+				public numTel: string){
 
 	}
 

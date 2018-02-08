@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from './user'
+import {User} from './user';
+import {FicheInfo} from '../../modeles/ficheInfo';
+import {fichesInfos} from '../../modeles/ficheInfo'
+import {FicheInfoService} from '../../Service/ficheInfo.service'
+
 
 @Component({
   selector: 'app-forminscrition',
@@ -9,6 +13,14 @@ import {User} from './user'
 export class ForminscritionComponent implements OnInit {
 
   utilisateur: User;
+
+  //allFiches = fichesInfos;
+
+  fiche = new FicheInfo("","","","");
+
+  ficheService =  new FicheInfoService();
+
+
 
   constructor() {
       this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
@@ -23,6 +35,18 @@ this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "06268654
 
   ngOnSubmit(){
     console.log("L'utilisateur est" + this.utilisateur.nom+" " + this.utilisateur.prenom)
+
+
+    this.fiche.nom = this.utilisateur.nom;
+    this.fiche.prenom = this.utilisateur.prenom;
+    this.fiche.email = this.utilisateur.email;
+    this.fiche.numTel = this.utilisateur.numTel;
+
+    this.ficheService.addFicheInfo(this.fiche);
+
+    console.log("Nom fiche info : " + this.fiche.nom);
+
+
   }
 
 }

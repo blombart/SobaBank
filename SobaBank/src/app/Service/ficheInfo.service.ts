@@ -6,9 +6,10 @@ import {fichesInfos} from '../modeles/ficheInfo';
 
 
 @Injectable()
-export class AgentService {
+export class FicheInfoService {
 
-fichesInfos = fichesInfos;
+  fichesInfos = fichesInfos;
+
   constructor() { }
 
 	getFicheInfo(id) {
@@ -19,11 +20,15 @@ fichesInfos = fichesInfos;
   		return of(fichesInfos);
   	}
 
-
+    getAllFichesInfo(){
+    	return this.fichesInfos;
+    }
 
   	addFicheInfo(fiche: FicheInfo){
 
   		this.fichesInfos.push(fiche);
 
   	}
+
+
 }
