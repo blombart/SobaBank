@@ -26,7 +26,7 @@ export class ComptesComponent implements OnInit {
 
     //epargnes : CompteEpargne[];
     
-    client : Client = clients;
+    client : Client = clients[0];
   selectedCompte : Compte;
 
   constructor() { }

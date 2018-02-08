@@ -17,12 +17,12 @@ export class ListeDemandesComponent implements OnInit {
 private compteService = new CompteService();
   
 
-    comptes: Compte= comptes;
+/*    comptes: Compte= comptes;
    
 
     
     
-    client : Client = clients;
+    client : Client = clients;*/
  
 
   constructor() { }
@@ -30,7 +30,7 @@ private compteService = new CompteService();
   ngOnInit() {
 
 
-   this.comptes= this.compteService.getAllComptes();
+/*   this.comptes= this.compteService.getAllComptes();*/
 
  }
 }

@@ -17,7 +17,6 @@ import {OperationService} from '../Service/operation.service'
 export class ClientService {
 
 
-  //operationService = new OperationService();
 
     clients = clients;
    
@@ -25,14 +24,6 @@ export class ClientService {
 
   constructor() { }
 
-  getClient(id) {
-    return this.clients[id];
-  }
-
-
-   /* addClient(client: Client){
-      this.clients.push(client);
-    }*/
 
      getAllclients(){
 
@@ -40,6 +31,18 @@ export class ClientService {
     }
 
   
+  getClient(id) {
+    for(let client of clients){
+      if(client.id ===id){
+        return client;
+      }
+    }
+  }
+
+
+addClient(client: Client){
+      this.clients.push(client);
+    }
     
   }
 

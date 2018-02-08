@@ -5,46 +5,49 @@ import {agents} from './agent';
 import {comptes} from './compte';
 import {CompteEpargne} from './compte';
 import {epargnes} from './compte';
+import {Demande} from './demandes';
 import {Notification} from './notification';
 import {notifications} from './notification';
 
 export class Client extends User{
-	
-	id: number;
-	nom: string;
-	prenom: string;
-	email: string;
-	mdp: string;
-	role: string;
-	adresse: string;
-	numTel: string;
-	nbEnfants: number;
-	situationMatrimonial:string;
-	notifications : Notification[];
-	agent: Agent[];
-	comptes: Compte[];
-	
-	
+	constructor(
+	public id: number,
+	public nom: string,
+	public prenom: string,
+	public email: string,
+	public mdp: string,
+	public role: string,
+	public adresse: string,
+	public numTel: string,
+	public nbEnfants: number,
+	public situationMatrimonial:string,
+	public notifications : Notification[],
+	public agent: Agent[],
+	public demandes: Demande[],
+	public comptes: Compte[]
+	)
+
+	{super(id,nom,prenom,email,mdp,role);
+	}
 }
 
 //TODO creer plusieurs clients
 
-export const clients: Client= {
+export const clients: Client [] = [
+	new Client(
+		12,
+	"omar",
+	"omar",
+	"omar",
+	"omar",
+	"omar",
+	"omar",
+	"omar",
+	12,
+	"omar",
+	[],
+	[],
+	[],
+	[])
+	]
 
-    id: 12,
-	nom: "omar",
-	prenom: "omar",
-	email: "omar",
-	mdp: "omar",
-	role: "omar",
-	adresse: "omar",
-	numTel: "omar",
-	nbEnfants: 12,
-	situationMatrimonial:"omar",
-	notifications : notifications,
-	agent: agents,
-	comptes: comptes
-	
-
-
-}
