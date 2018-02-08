@@ -24,7 +24,8 @@ demandes: DemandeModificationMdp
   	
   }
 
-onClick(){
+onSubmit(id: number){
+  
 	this.demandes= this.demandeService.getDemandeModificationMdp();
   console.log(this.demandes);
   }
