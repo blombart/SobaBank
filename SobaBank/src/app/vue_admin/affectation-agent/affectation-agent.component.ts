@@ -10,7 +10,7 @@ import {Status} from '../../modeles/demandes';
 @Component({
   selector: 'app-affectation-agent',
   templateUrl: './affectation-agent.component.html',
-  styleUrls: ['./affectation-agent.component.css']
+  styleUrls: ['./affectation-agent.component.css'],
 })
 export class AffectationAgentComponent implements OnInit {
 

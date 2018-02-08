@@ -42,7 +42,7 @@ export class GestionAgentsComponent implements OnInit {
     this.submitted= false;
   }
 
-  getAllAgents(){
+ /* getAllAgents(){
     this.adminService.findAll().subscribe(
       agents => {
         this.agents = agents;
@@ -52,7 +52,7 @@ export class GestionAgentsComponent implements OnInit {
       }
       );
       
-    }
+    }*/
 
   modifierAgent(i: number){
     this._router.navigate(["./admin/agents",i]);

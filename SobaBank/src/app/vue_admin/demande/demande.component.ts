@@ -8,12 +8,12 @@ import { DemandeService} from '../../Service/demande.service';
 
 import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {Router} from '@angular/router';
-
+/*import {AdminService} from '../../Service/admin.service';*/
 
 @Component({
   selector: 'app-demande',
   templateUrl: './demande.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css'
+  styleUrls: ['../../bootstrap/css/bootstrap.css']
   ]
 })
 export class DemandeComponent implements OnInit {
@@ -23,7 +23,7 @@ export class DemandeComponent implements OnInit {
 
   idDemAffect : number;
 
-  constructor(private demandeService: DemandeService, private _router: Router) {
+  constructor(private demandeService: DemandeService, private _router: Router, /*private adminService: AdminService*/) {
 
    }
 
@@ -34,6 +34,7 @@ export class DemandeComponent implements OnInit {
 
   //on initialise l'id de la demande a affecter avec l'id de la demande selectionner
   affecter(i: number){
+
     this.idDemAffect = i;
 
     //On met la valeur a true pour afficher le composant liste agent
