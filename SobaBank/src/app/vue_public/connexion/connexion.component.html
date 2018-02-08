@@ -1,3 +1,4 @@
+<div *ngIf="role=='guest'">
 <div class="wrapper">
     <form class="form-signin">
       <h2 class="form-signin-heading">Veuillez vous connecter</h2>
@@ -17,3 +18,20 @@
   <p>
     mdp: {{mdp}}
   </p>
+
+  </div>
+
+
+  <div *ngIf="role!='guest'">
+<div class="wrapper">
+   
+  </div>
+
+  <p>
+    Bonjour {{nom}} Bienvenue sur votre espace {{role}}
+  </p>
+
+  <p>Cliquez sur le lien dans la navbar pour accéder à votre espace.</p>
+
+
+  </div>
