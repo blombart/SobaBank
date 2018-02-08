@@ -23,9 +23,9 @@ export class AdminService {
   		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
   
-  affecterDemande(idAgent: number, idDemande: number): void {
+/*  affecterDemande(idAgent: number, idDemande: number): void {
     return this.http.post(this.apiUrl +"affecte/" + idAgent +"/"+idDemande);
-  }
+  }*/
   
 
 
