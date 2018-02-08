@@ -1,4 +1,11 @@
 export class FicheInfo{
 
-	//TODO creer la classe fiche info
+
+constructor(private nom: string, 
+				private prenom: string,
+				private email: string,
+				private numTel: string){
+
+	}
+
 }
