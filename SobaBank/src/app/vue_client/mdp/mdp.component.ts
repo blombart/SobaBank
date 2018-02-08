@@ -29,4 +29,14 @@ onSubmit(id: number){
 	this.demandes= this.demandeService.getDemandeModificationMdp();
   console.log(this.demandes);
   }
+
+  onClick(id: number){
+
+  	this.client= this.clientService.getClientById()
+  	this.demandes= this.demandeService.getDemandeModificationMdp(this.demId);
+  	dem.client = this.clientSelected;
+
+  	this.clientSelected.demandes.push(demandes);
+  	console.log(this.demandes);
+  }
 }
