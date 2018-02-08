@@ -53,4 +53,18 @@ export const clients: Client[]= [
 	[]
 	),
 
+    new Client(2,
+	"kick",
+	"abde",
+	"abde@xxx.fr",
+	"kikoo",
+	"client",
+	"rue Arras 62000",
+	"0612131415",
+	0,
+	"marié",
+	[],
+	[],
+	[]
+	),
 ]

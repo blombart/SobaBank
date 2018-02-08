@@ -3,14 +3,23 @@ import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../modeles/demandeOuvertureCompte';
 import {demandesOuverture} from '../modeles/demandeOuvertureCompte';
+import {DemandeChequier} from '../modeles/demandes';
+import {demandesChequier} from '../modeles/demandes';
 
 
 @Injectable()
 export class DemandeService {
 
-demandesOuverture = demandesOuverture
+demandesOuverture = demandesOuverture;
+demandesChequier = demandesChequier;
 
   constructor() { }
+
+     getDemandesChequier(){
+
+  return this.demandesChequier;
+    }
+
 
 
 
@@ -26,6 +35,7 @@ demandesOuverture = demandesOuverture
   	getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
   		return of(demandesOuverture);
   	}
+
 
   }
 
