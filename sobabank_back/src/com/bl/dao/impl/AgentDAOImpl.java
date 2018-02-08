@@ -12,6 +12,11 @@ import com.bl.model.Agent;
 public class AgentDAOImpl implements IAgentDAO{
 	static HashMap<Long, Agent> agentsMap = new HashMap<Long, Agent>();
 	
+//	public AgentDAOImpl() {
+//		Agent agent = new Agent();
+//		agent.setId(0L);
+//		agentsMap.put(0L, agent);
+//	}
 	
 	@Override
 	public List<Agent> getAllAgents() {

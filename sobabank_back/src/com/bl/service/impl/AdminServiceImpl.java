@@ -42,7 +42,7 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public void affecterDemande(Long idAgent, Long idDemOuv) {
+	public Boolean affecterDemande(Long idAgent, Long idDemOuv) {
 		// TODO Auto-generated method stub
 		// On recupere l'agent et la demande a lier
 		Agent agent = agentDAO.getAgentById(idAgent);
@@ -60,6 +60,8 @@ public class AdminServiceImpl implements IAdminService {
 		// On update agent et demande
 		agentDAO.updateAgent(agent);
 		demOuvDAO.updateDemande(dem);
+		
+		return true;
 	}
 
 	@Override
@@ -87,7 +89,7 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public void modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem) {
+	public Boolean modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem) {
 		Agent newAgent = agentDAO.getAgentById(idNewAgent);
 		Agent oldAgent = agentDAO.getAgentById(idOldAgent);
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
@@ -109,6 +111,8 @@ public class AdminServiceImpl implements IAdminService {
 		agentDAO.updateAgent(newAgent);
 		clientDAO.updateClient(client);
 		demOuvDAO.updateDemande(dem);
+		
+		return true;
 
 	}
 

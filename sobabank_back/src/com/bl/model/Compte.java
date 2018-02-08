@@ -14,7 +14,8 @@ public class Compte {
 	private List<Operation> operations;
 	
 	public Compte(){
-		
+		this.decouvertAutorise = 0f;
+		this.tauxAgios = 18f;
 	}
 	
 
@@ -90,18 +91,33 @@ public class Compte {
 		this.tauxAgios = tauxAgios;
 	}
 
-
-
 	public List<Operation> getOperations() {
 		return operations;
 	}
 
-
-
 	public void setOperations(List<Operation> operations) {
 		this.operations = operations;
 	}
+	
+	private void crediter(float montant){
+		this.solde += montant;
+	}
+	
+	private void debiter(float montant){
+		//Si le compte a un decouvert
+		if(decouvertAutorise !=0){
+			//on debite seulement si le solde ne depasse pas le decouvert
+			if((this.solde - montant) > decouvertAutorise){
+				this.solde -= montant ;
+			}
+		}else{
+			if((this.solde - montant) >=0){
+				this.solde -= montant ;
+			}
+		}
+	}
 
+	
 
 	
 	

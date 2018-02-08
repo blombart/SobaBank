@@ -14,7 +14,7 @@ public interface IAdminService {
 	
 	public void deleteAgent(Long id);
 	
-	public void affecterDemande(Long idAgent, Long idDemOuv);
+	public Boolean affecterDemande(Long idAgent, Long idDemOuv);
 	
 	public Agent getAgentById(Long id);
 	
@@ -22,5 +22,5 @@ public interface IAdminService {
 	
 	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte();
 	
-	public void modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
+	public Boolean modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
 }

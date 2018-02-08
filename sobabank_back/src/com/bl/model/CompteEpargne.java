@@ -9,6 +9,7 @@ public class CompteEpargne extends Compte {
 	
 	public CompteEpargne() {
 		super();
+		this.tauxInteret = 2f;
 	}
 
 

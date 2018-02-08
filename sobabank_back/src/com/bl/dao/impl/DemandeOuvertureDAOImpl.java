@@ -10,6 +10,12 @@ import com.bl.model.DemandeOuvertureCompte;
 public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {
 	static HashMap<Long, DemandeOuvertureCompte> demOuvMap = new HashMap<Long, DemandeOuvertureCompte>();
 	
+//	public DemandeOuvertureDAOImpl() {
+//		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+//		dem.setId(0L);
+//		demOuvMap.put(0L, dem);
+//	}
+	
 	@Override
 	public List<DemandeOuvertureCompte> getAllDemande() {
 		List<DemandeOuvertureCompte> demOuv = new ArrayList<DemandeOuvertureCompte>(demOuvMap.values());
@@ -25,17 +31,9 @@ public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {
 
 	@Override
 	public DemandeOuvertureCompte updateDemande(DemandeOuvertureCompte dem) {
-		if(demOuvMap.get(dem.getId()) != null){
-			demOuvMap.get(dem.getId()).setDateDemande(dem.getDateDemande());
-			demOuvMap.get(dem.getId()).setIsAffected(dem.getIsAffected());
-			demOuvMap.get(dem.getId()).setStatus(dem.getStatus());
-			demOuvMap.get(dem.getId()).setIsValid(dem.getIsValid());
-			demOuvMap.get(dem.getId()).setDateAffectation(dem.getDateAffectation());
-			demOuvMap.get(dem.getId()).setClient(dem.getClient());
-		}else{
-			demOuvMap.put(dem.getId(), dem);
-		}
-		return demOuvMap.get(dem.getId());
+		Long id = dem.getId();
+		demOuvMap.put(id, dem);
+		return demOuvMap.get(id);
 	}
 
 	@Override
