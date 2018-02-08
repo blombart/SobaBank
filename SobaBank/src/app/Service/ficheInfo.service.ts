@@ -14,6 +14,7 @@ export class FicheInfoService {
 
 	getFicheInfo(id) {
     return this.fichesInfos[id-1];
+
   }
 
   	getFichesInfos(): Observable<FicheInfo[]>{
@@ -26,6 +27,7 @@ export class FicheInfoService {
 
   	addFicheInfo(fiche: FicheInfo){
 
+//Ajout de la fiche info au tableau des fiches
   		this.fichesInfos.push(fiche);
 
   	}

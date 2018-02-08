@@ -1,4 +1,4 @@
-<div *ngIf="role=='guest'">
+<div *ngIf="role=='guest' || role==undefined">
 <div class="wrapper">
     <form class="form-signin">
       <h2 class="form-signin-heading">Veuillez vous connecter</h2>
@@ -22,7 +22,7 @@
   </div>
 
 
-  <div *ngIf="role!='guest'">
+  <div *ngIf="role!='guest' && role!=undefined">
 <div class="wrapper">
 
 </div>
