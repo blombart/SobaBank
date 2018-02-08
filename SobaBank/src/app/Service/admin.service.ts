@@ -22,11 +22,24 @@ export class AdminService {
   		.map((res: Response) => res.json())
   		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  saveAgent(): Observable<Agent>{
+    return this.http.post(this.apiUrl + "/agents")
+    .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  updateAgent(): Observable<Agent>{
+    return this.http.put(this.apiUrl + "/agents")
+    .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
   
   affecterDemande(idAgent: number, idDemande: number): void {
     return this.http.post(this.apiUrl +"affecte/" + idAgent +"/"+idDemande);
   }
   
+  deleteAgentById(:
 
 
   }
