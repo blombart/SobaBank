@@ -13,6 +13,7 @@ import {DemandeService} from '../../Service/demande.service';
 import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-agents.component';
 import {AffectationAgentComponent} from '../affectation-agent/affectation-agent.component';
 import {AdminService} from '../../Service/admin.service';
+
 @NgModule({
   imports: [
     CommonModule,

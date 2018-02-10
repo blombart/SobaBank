@@ -42,9 +42,6 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     ForminscritionComponent,
     ConnexionComponent,
     DeconnexionComponent
-
-
-
   ],
   imports: [
     BrowserModule,

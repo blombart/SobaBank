@@ -18,28 +18,35 @@ export class AdminService {
   }
 
   findById(id: number): Observable<Agent> {
-  	return this.http.get(this.apiUrl +"/agents/" + id)
+  	return this.http.get(this.apiUrl +"agents/" + id)
   		.map((res: Response) => res.json())
   		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  saveAgent(): Observable<Agent>{
-    return this.http.post(this.apiUrl + "/agents")
+  saveAgent(agent: Agent): Observable<Agent>{
+    return this.http.post(this.apiUrl + "agents", agent)
     .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  updateAgent(): Observable<Agent>{
-    return this.http.put(this.apiUrl + "/agents")
+  updateAgent(agent: Agent): Observable<Agent>{
+    return this.http.put(this.apiUrl + "agents", agent)
     .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
   
-/*  affecterDemande(idAgent: number, idDemande: number): void {
-    return this.http.post(this.apiUrl +"affecte/" + idAgent +"/"+idDemande);
-  }*/
+  affecterDemande(idAgent: number, idDemande: number): Observable<boolean> {
+    return this.http.post(this.apiUrl + "agents/" +idAgent+"/demandes/"+idDemande+"/affecte",null)
+    .map((res: Response) => Boolean)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
   
-  deleteAgentById(:
+  
+  deleteAgentById(id: number): Observable<boolean>{
+    return this.http.delete(this.apiUrl + "agents/"+id,null)
+    .map((res: Response) => Boolean)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
 
   }
