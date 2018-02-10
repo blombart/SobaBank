@@ -8,6 +8,7 @@ import java.util.Set;
 
 import com.bl.dao.IAgentDAO;
 import com.bl.model.Agent;
+import com.bl.model.DemandeOuvertureCompte;
 
 public class AgentDAOImpl implements IAgentDAO{
 	static HashMap<Long, Agent> agentsMap = new HashMap<Long, Agent>();
@@ -27,6 +28,8 @@ public class AgentDAOImpl implements IAgentDAO{
 	@Override
 	public Agent addAgent(Agent agent) {
 		Long id = agent.getId();
+		agent.setDemandesOuverture(new ArrayList<DemandeOuvertureCompte>());
+		
 		agentsMap.put(id, agent);
 		return agentsMap.get(id);
 	}

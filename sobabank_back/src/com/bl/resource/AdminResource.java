@@ -3,6 +3,7 @@ package com.bl.resource;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -10,7 +11,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
@@ -54,6 +54,13 @@ public class AdminResource {
 	public Agent updateAgent(Agent agent){
 		Agent agentResponse = adminService.updateAgent(agent);
 		return agentResponse;
+	}
+	
+	@DELETE
+	@Path("/agents/{id}")
+	public Boolean deleteAgent(@PathParam("id") Long id) {
+		Boolean b = adminService.deleteAgent(id);
+		return b;
 	}
 	
 	@POST

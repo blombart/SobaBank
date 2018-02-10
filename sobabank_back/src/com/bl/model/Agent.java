@@ -70,11 +70,4 @@ public class Agent extends User {
 		this.demandesOuverture = demandesOuverture;
 	}
 
-	public void addDemande(DemandeOuvertureCompte dem) {
-		
-	}
-	
-	
-	
-
 }

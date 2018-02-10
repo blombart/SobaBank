@@ -12,7 +12,7 @@ public interface IAdminService {
 	
 	public Agent updateAgent(Agent agent);
 	
-	public void deleteAgent(Long id);
+	public Boolean deleteAgent(Long id);
 	
 	public Boolean affecterDemande(Long idAgent, Long idDemOuv);
 	
