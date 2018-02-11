@@ -19,6 +19,8 @@ export class FormAgentsComponent implements OnInit {
   //Creation d'un agent null pour pouvoir afficher un formulaire vide
 	private a1 : Agent ;
 
+  private a2 : Agent;
+
   id: number;
   //liste des demandes
   demandes: DemandeOuvertureCompte[];
@@ -60,18 +62,11 @@ export class FormAgentsComponent implements OnInit {
     this.adminService.findById(this.id).subscribe(
       agent => {
         this.a1 = agent;
-        console.log(this.a1.nom);
-      },
-      err => {
-        console.log(err);
-      }
-    );
-      
-/*      this.demandes = this.a1.demandes;
-      if(this.demandes.length !=0){
+             this.demandes = this.a1.demandes;
+/*      if(this.demandes.length !=0){
         this.afficherDemande();
       }*/
-      this.agentForm.patchValue({
+    this.agentForm.patchValue({
         nom: this.a1.nom,
       prenom: this.a1.prenom,
       email: this.a1.email,
@@ -79,6 +74,8 @@ export class FormAgentsComponent implements OnInit {
       matricule: this.a1.matricule,
       numTel: this.a1.numTel 
       });
+      }
+    );
     }
   }
 

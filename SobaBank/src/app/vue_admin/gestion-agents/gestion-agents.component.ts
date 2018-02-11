@@ -6,8 +6,6 @@ import {Router} from '@angular/router';
 
 import { Validators, FormControl, FormGroup} from '@angular/forms';
 
-
-import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { AgentService} from '../../Service/agent.service';
 import {AdminService} from '../../Service/admin.service';
@@ -68,7 +66,7 @@ export class GestionAgentsComponent implements OnInit {
 //on recupere le champ input et on filtre le tableau d'agent selon si le nom ou matricule correspond a la recherche
   onSubmit() {
   	this.searchText = this.formRecherche.get('recherche').value;
-  	this.agents = agents.filter(agent => agent.nom.includes(this.searchText) || agent.matricule.includes(this.searchText));
+  	this.agents.filter(agent => agent.nom.includes(this.searchText) || agent.matricule.includes(this.searchText));
 }
 
 //Renvoie vers le formulaire vide pour ajouter un agent
