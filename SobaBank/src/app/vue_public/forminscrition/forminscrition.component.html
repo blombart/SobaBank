@@ -1,26 +1,26 @@
 
 <form (ngSubmit)="onSubmit()">
 <div class="form-group">
-    <label >Nom</label>
-    <input type="text" class="form-control" id="nom" name="nom"[(ngModel)]="utilisateur.nom">
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control" id="nom" name="nom">
   </div>
 
   <div class="form-group">
     <label for="prenom">Prenom</label>
-    <input type="text" class="form-control" id="prenom"  name="prenom"[(ngModel)]="utilisateur.prenom">
+    <input type="text" class="form-control" id="prenom"  name="prenom">
   </div>
 
 
 
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="mail"[(ngModel)]="utilisateur.email">
+    <input type="email" class="form-control" id="email" name="mail">
   </div>
 
 
   <div class="form-group">
     <label for="numtel">Numero Telephone</label>
-    <input type="texte" class="form-control" id="numtel" name="numTel"[(ngModel)]="utilisateur.numTel">
+    <input type="tel" class="form-control" id="numtel" name="numTel">
   </div>
 
 

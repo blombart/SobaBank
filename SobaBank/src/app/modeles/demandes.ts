@@ -40,4 +40,49 @@ export class DemandeModificationMdp extends Demande{
 
 }
 
-export enum Status {EN_COURS, TRAITEE, NON_TRAITEE};
+	export const demandeModificationMdp: DemandeModificationMdp[] = [
+	new DemandeModificationMdp(1,new Date(),
+		"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		)
+
+]
+
+export const demandeChequier: DemandeChequier[] = [
+
+	new DemandeChequier(1,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		),
+
+	new DemandeChequier(2,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		),
+
+	new DemandeChequier(3,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		),
+
+	new DemandeChequier(4,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		)
+]
