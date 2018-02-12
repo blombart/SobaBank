@@ -20,8 +20,10 @@ import {AdminService} from '../../Service/admin.service';
 export class GestionAgentsComponent implements OnInit {
   formRecherche : FormGroup;
   submitted: boolean;
+
   private agents: Agent[];
 	
+
 	searchText: string;
 
   constructor(private agentService: AgentService, private _router: Router, private adminService: AdminService) { }

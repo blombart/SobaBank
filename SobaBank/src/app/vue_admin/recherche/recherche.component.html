@@ -1,0 +1,18 @@
+<div class="container ">
+	
+	<div [hidden]="submitted">
+	<form [formGroup]="formRecherche" (ngSubmit)="onSubmit()" novalidate>
+		<div class="form-group ">
+			<input type="text" class="form-control" formControlName="recherche" required >
+		</div>
+
+
+		<button type="submit" class="btn btn-success">RECHERCHE</button>
+	</form>
+</div>
+
+
+		<!-- <app-agent-recherche *ngIf="submitted" [agentRecherche]="agentRecherche"></app-agent-recherche>
+ -->
+
+</div>

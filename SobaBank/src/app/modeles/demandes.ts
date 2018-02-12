@@ -41,4 +41,3 @@ export class DemandeModificationMdp extends Demande{
 }
 
 export enum Status {EN_COURS, TRAITEE, NON_TRAITEE};
-

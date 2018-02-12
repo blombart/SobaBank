@@ -3,16 +3,35 @@ import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../modeles/demandeOuvertureCompte';
 import {demandesOuverture} from '../modeles/demandeOuvertureCompte';
-
+import {DemandeChequier} from '../modeles/demandeChequier';
+import {demandeChequier} from '../modeles/demandeChequier';
 
 @Injectable()
 export class DemandeService {
 
-demandesOuverture = demandesOuverture
+demandeChequier = demandeChequier;
+demandesOuverture = demandesOuverture;
+
 
   constructor() { }
 
 
+
+  getDemandeChequier(id) {
+    for(let dem of demandeChequier){
+      if(dem.id ===id){
+        return dem;
+      }
+    }
+  }
+
+
+    getDemandesChequier(): Observable<DemandeChequier[]>{
+      return of(demandeChequier);
+    }
+
+
+ 
 
 	getDemandeOuverture(id) {
     for(let dem of demandesOuverture){
@@ -27,9 +46,11 @@ demandesOuverture = demandesOuverture
   		return of(demandesOuverture);
   	}
 
+
   addDemandeOuverture(dem: DemandeOuvertureCompte){
       this.demandesOuverture.push(dem);
     }
+
 
   }
 
