@@ -8,8 +8,8 @@ import {demandeModificationMdp} from '../modeles/demandes';
 import {DemandeModificationMdp} from '../modeles/demandes';
 import {Compte} from '../modeles/compte';
 import {comptes} from '../modeles/compte';
-import {DemandeChequier} from '../modeles/demandeChequier';
-import {demandeChequier} from '../modeles/demandeChequier';
+import {DemandeChequier} from '../modeles/demandes';
+import {demandeChequier} from '../modeles/demandes';
 
 @Injectable()
 export class DemandeService {
