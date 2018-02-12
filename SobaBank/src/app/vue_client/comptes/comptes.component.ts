@@ -18,6 +18,7 @@ export class ComptesComponent implements OnInit {
 
     comptes: Compte[];
 
+
     epargnes : CompteEpargne[];
 
   constructor() { }
@@ -25,7 +26,7 @@ export class ComptesComponent implements OnInit {
   ngOnInit() {
 
 
-   this.comptes = this.compteService.getAllComptes();
+/*   this.comptes = this.compteService.getAllComptes();*/
 
    this.epargnes = this.compteService.getAllComptesEpargne();
 

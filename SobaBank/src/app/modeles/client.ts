@@ -1,5 +1,6 @@
 import {User} from './user';
 import {Agent} from './agent';
+import {Demande} from './demandes'
 import {Compte} from './compte';
 import {agents} from './agent';
 import {comptes} from './compte';
@@ -9,24 +10,25 @@ import {Notification} from './notification';
 import {notifications} from './notification';
 
 export class Client extends User{
-	
-constructor(
 
-	public id: number,
-	public nom: string,
-	public prenom: string,
-	public email: string,
-	public mdp: string,
-	public role: string,
-	public adresse: string,
-	public numTel: string,
-	public nbEnfants: number,
-	public situationMatrimonial:string,
+	constructor(
+	id: number,
+	nom: string,
+	prenom: string,
+	email: string,
+	mdp: string,
+	role: string,
+	adresse: string,
+	numTel: string,
+	nbEnfants: number,
+	situationMatrimonial:string,
+	agent: Agent,
+	comptes: Compte[],
+	demandes: Demande[],
+	files: File[],
+	isClient: boolean
+	)
 
-	public notifications : Notification[],
-	public agent: Agent[],
-	public comptes: Compte[])
-	
 	{
 		super(id,nom,prenom,email,mdp,role);
 

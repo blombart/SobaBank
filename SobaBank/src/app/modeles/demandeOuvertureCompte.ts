@@ -1,6 +1,8 @@
 import {Demande, Status} from './demandes';
 import {Agent} from './agent';
-import {Client} from './client';
+
+import {Client} from './client'
+
 import { User } from './user';
 
 export class DemandeOuvertureCompte{
