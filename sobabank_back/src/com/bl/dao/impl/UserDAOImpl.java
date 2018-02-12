@@ -1,16 +1,17 @@
-package com.bl.dao;
+package com.bl.dao.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.bl.dao.IUserDAO;
 import com.bl.model.User;
 
-public class UserDAO {
+public class UserDAOImpl implements IUserDAO{
 	static HashMap<String, User> usersMap =  new HashMap<String, User>();
 	static int cpt;
 	
-	public UserDAO() {
+	public UserDAOImpl() {
 		User user1 = new User(1,"Hadjaz","Abderrahmane","1234","habder@test.com","guest");
 		User user2 = new User(2,"Sta","Omar","1234","omar@test.com","client");
 		User user3 = new User(3,"Legay","Sebastien","1234","sb@test.com","agent");

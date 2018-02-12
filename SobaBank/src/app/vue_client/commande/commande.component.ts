@@ -56,6 +56,7 @@ comptes: Compte= comptes;
   }
 
   
+
 /*onSubmit(id: number){
   
 	this.demandes= this.demandeService.getDemandeModificationMdp();
@@ -73,6 +74,7 @@ comptes: Compte= comptes;
   	console.log("Avant ajout demande, taille tableau : " + this.client.demandes.length);
   	//Pour le client on recupere son tableau de demande et on lui insert (via la methode push) la demande qui a été recupere
   	this.client.demandes.push(this.demandechequier);
+
 
   	//Comme test on affiche la taille du tableau de demande des clients . doit etre egale à 1 si l'ajout a bien été fait
   	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);

@@ -50,6 +50,7 @@ export class ForminscritionComponent implements OnInit {
      null,
      null,
      null
+
      )
    this.demandeService.addDemandeOuverture(this.demande);
    console.log("demande enregistré");
