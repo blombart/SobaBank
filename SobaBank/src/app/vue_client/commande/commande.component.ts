@@ -5,7 +5,7 @@ import {comptes} from '../../modeles/compte';
 import {Demande} from '../../modeles/demandes';
 import { Observable } from 'rxjs/Observable';
 import {DemandeChequier} from '../../modeles/demandes';
-import {demandeChequier} from '../../modeles/demandeChequier';
+import {demandeChequier} from '../../modeles/demandes';
 import {CompteService} from '../../Service/compte.service';
 
 

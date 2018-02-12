@@ -51,3 +51,38 @@ export class DemandeModificationMdp extends Demande{
 		)
 
 ]
+
+export const demandeChequier: DemandeChequier[] = [
+
+	new DemandeChequier(1,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		),
+
+	new DemandeChequier(2,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		),
+
+	new DemandeChequier(3,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		),
+
+	new DemandeChequier(4,new Date(),"demande chequier",
+		false,
+		null,
+		false,
+		null,
+		null
+		)
+]

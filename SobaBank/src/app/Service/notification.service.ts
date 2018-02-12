@@ -11,7 +11,7 @@ import {Compte} from '../modeles/compte';
 import {comptes} from '../modeles/compte';
 
 import {DemandeChequier} from '../modeles/demandes';
-import {demandeChequier} from '../modeles/demandeChequier';
+import {demandeChequier} from '../modeles/demandes';
 
 import {Client} from '../modeles/client';
 import {clients} from '../modeles/client';
