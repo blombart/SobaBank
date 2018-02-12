@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Agent} from '../modeles/agent';
-import { Http, Response } from "@angular/http";
+import { Http, Response, URLSearchParams} from "@angular/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class AdminService {
-	private apiUrl = "http://localhost:8080/sobabank/admin/";
+	private apiUrl = "http://localhost:8080/sobabank/";
 
   constructor(private http: Http) { }
 
@@ -35,10 +35,13 @@ export class AdminService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
   
-  affecterDemande(idAgent: number, idDemande: number): Observable<boolean> {
-    return this.http.post(this.apiUrl + "agents/" +idAgent+"/demandes/"+idDemande+"/affecte",null)
-    .map((res: Response) => Boolean)
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  affecterDemande(idAgent, idDemande): Observable<boolean> {
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('idAgent', idAgent);
+    urlSearchParams.append('idDemande', idDemande);
+    return this.http.post(this.apiUrl + "affecte", urlSearchParams)
+    .map((res: Response) => res.json());
+    
   }
   
   
