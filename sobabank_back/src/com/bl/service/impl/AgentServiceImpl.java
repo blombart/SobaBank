@@ -10,7 +10,7 @@ import com.bl.service.IAgentService;
 public class AgentServiceImpl implements IAgentService {
 
 	@Override
-	public List<Client> getAllClient() {
+	public List<Client> getAllClient(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
