@@ -24,7 +24,9 @@ export class Client extends User{
 	situationMatrimonial:string,
 	agent: Agent,
 	comptes: Compte[],
-	demandes: Demande[],
+
+	public demandes: Demande[],
+
 	files: File[],
 	isClient: boolean
 	)

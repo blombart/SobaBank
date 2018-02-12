@@ -18,12 +18,14 @@
 
 </div>
 	<div class="col-md-4">
-			<form>
+			
+				<div *ngIf="(selectCompte)" class="card card-plain">
 				
+
+				 <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick(12)">Confirmer</button>  
+
 				
-				 <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="addDemandeChequier(this.demande)">Confirmer</button>  
-				
-			</form>
+			</div>
 		</div>
 
   <div id="nav-placeholder">

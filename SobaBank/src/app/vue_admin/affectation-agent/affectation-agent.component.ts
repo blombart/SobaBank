@@ -6,7 +6,6 @@ import { DemandeService} from '../../Service/demande.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 
-
 @Component({
   selector: 'app-affectation-agent',
   templateUrl: './affectation-agent.component.html',
