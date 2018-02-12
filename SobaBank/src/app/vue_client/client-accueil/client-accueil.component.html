@@ -32,24 +32,30 @@
                     <!--TABLEAU MES COMPTES-->
                 <div class="card">
                     <div class="header">
-                        <h4 class="title" [routerLink]="['../comptes']">Mes comptes</h4>
+                        <h4 class="title" >Mes comptes</h4>
                         <p class="category"></p>
                     </div>
-                    <div class="content table-responsive table-full-width">
-                          <table class="table table-hover ">
-                                <thead>
-                                    <tr>                                        
-                                        <th>Numero de compte</th><th>Solde</th><th>rib</th>
-                                    </tr>
-                                </thead>
+                   
+<div class="list-group">
+ 
+  <a  class="list-group-item list-group-item-action"> <table class="table table-hover ">
+                               
                                 <tbody>
-                                    <tr *ngFor="let compte of comptes" >
-                                        <td>{{ compte.numCompte }}</td><td>{{ compte.solde }}</td><td>{{ compte.rib }}</td>
+                                    <tr [routerLink]="['../comptes']" *ngFor="let compte of comptes" >
+                                        <td>Compte Courant{{compte.numCompte}}</td><td>{{ compte.solde }}</td>
                                     </tr>
                                 </tbody>
-                          </table>
-
-                    </div>
+                          </table></a>
+  <a  class="list-group-item list-group-item-action"><table class="table table-hover ">
+                               
+                                <tbody>
+                                    <tr  [routerLink]="['../epargne']" *ngFor="let epargne of epargnes" >
+                                        <td>Compte Epargne</td><td>{{ epargne.solde }}</td>
+                                    </tr>
+                                </tbody>
+                          </table></a>
+ 
+</div>
                 </div>
             </div>
         </div>

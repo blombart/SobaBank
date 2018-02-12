@@ -9,6 +9,8 @@ import { clients } from '../../modeles/client';
 import { CompteService} from '../../Service/compte.service';
 import { Observable} from 'rxjs/Observable';
 import{NotificationService} from '../../Service/notification.service';
+import { epargnes} from '../../modeles/compte';
+import { CompteEpargne} from '../../modeles/compte';
 
 
 @Component({
@@ -30,6 +32,8 @@ export class ClientAccueilComponent implements OnInit {
     //notif :Notification;
       comptes : Compte; 
    client :Client;
+    epargnes:CompteEpargne=epargnes;
+
 
   constructor(private clientService: ClientService, private compteService:CompteService, private notificationService: NotificationService) { }
 
@@ -41,6 +45,10 @@ export class ClientAccueilComponent implements OnInit {
    this.notifications=this.notificationService.getUnreadNotifications();
 
 //this.notif=this.notificationService.getUnreadNotificationsCount();
+
+
+   this.epargnes=this.compteService.getAllComptesEpargne();
+
   }
 
   

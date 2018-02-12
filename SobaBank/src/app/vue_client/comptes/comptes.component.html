@@ -4,13 +4,13 @@
   <div class="card">
     <div class="header">
       <h4 class="title">Mes comptes</h4>
-      <p class="category"></p>
+      <p class="category">Compte Courant</p>
     </div>
     <div class="content table-responsive table-full-width">
       <table class="table table-hover ">
         <thead>
           <tr>                                        
-            <th>Numero de compte</th><th>Type</th><th>Solde</th>
+            <th>Numero de compte</th><th>Date</th><th>Solde</th><th>Rib</th>
           </tr>
         </thead>
         <tbody>
@@ -25,11 +25,14 @@
     </div>
   </div>
 
+
+  
+
   <!--TABLEAU D'OPERATIONS (SI UN COMPTE EST SELECTIONNÉ)-->
   <div *ngIf="(selectedCompte)" class="card card-plain">
     <div class="header">
       <h4 class="title">Compte N° {{ selectedCompte.numCompte }}</h4>
-      <p class="category">Compte {{ selectedCompte.rib }} - Dernières opérations</p>
+      <p class="category"> </p>
     </div>
     <div class="content table-responsive table-full-width">
       <table class="table table-hover">
@@ -46,8 +49,12 @@
         </tbody>
       </table>
     </div>
+  
+
+
   </div>
-</div>
+
+
 
 
 

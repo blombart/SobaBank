@@ -23,6 +23,7 @@ export class ComptesComponent implements OnInit {
 
     comptes: Compte= comptes;
     operations:Operation= operations;
+    epargnes:CompteEpargne=epargnes;
 
     //epargnes : CompteEpargne[];
     
@@ -38,6 +39,7 @@ export class ComptesComponent implements OnInit {
 
    //this.epargnes = this.compteService.getAllComptesEpargne();
    this.operations = this.operationService.getAllOperations();
+
 
   }
 
