@@ -7,15 +7,18 @@ import { Observable } from 'rxjs/Observable';
 import {DemandeChequier} from '../../modeles/demandes';
 import {demandeChequier} from '../../modeles/demandes';
 import {CompteService} from '../../Service/compte.service';
+
 import {ClientService} from '../../Service/client.service';
 import { Client} from '../../modeles/client';
 import { clients} from '../../modeles/client';
+
 
 
 @Component({
   selector: 'app-commande',
   templateUrl: './commande.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
+
     providers: [DemandeService,CompteService, ClientService]
 })
 export class CommandeComponent implements OnInit {
@@ -86,3 +89,4 @@ comptes: Compte= comptes;
     this.selectedCompte = compte;
   }
 }
+
