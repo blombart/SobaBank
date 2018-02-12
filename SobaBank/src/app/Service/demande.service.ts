@@ -24,6 +24,16 @@ demandes = demandeChequier
   constructor() { }
 
 
+
+	getDemandeOuverture(id) {
+    for(let dem of demandesOuverture){
+      if(dem.id ===id){
+        return dem;
+      }
+    }
+  }
+
+
   	getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
   		return of(demandesOuverture);
   	}

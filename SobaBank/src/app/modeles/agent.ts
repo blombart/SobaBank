@@ -3,7 +3,6 @@ import {Client} from './client';
 import {Demande} from './demandes';
 
 export class Agent extends User{
-	static compteur : number = 0;
 
 constructor(
 
@@ -17,11 +16,10 @@ constructor(
 	public dateDebutContrat: Date,
 	public numTel: string,
 
-	clients: Client[],
-	demandes: Demande[])
+	public clients: Client[],
+	public demandes: Demande[])
 {
 		super(id,nom,prenom,email,mdp,role);
-		Agent.compteur++;
 
 	}
 }
@@ -37,8 +35,8 @@ export const agents : Agent[] = [
 		"A0001",
 		new Date(),
 		"0321546589",
-		[null, null],
-		[null,null]
+		[],
+		[]
 		),
 	new Agent(2,
 		"bacard",
@@ -49,8 +47,8 @@ export const agents : Agent[] = [
 		"A0002",
 		new Date(),
 		"0321651254",
-		[null, null],
-		[null,null]
+		[null],
+		[]
 		),
 	new Agent(3,
 		"baker",
@@ -61,8 +59,8 @@ export const agents : Agent[] = [
 		"A0003",
 		new Date(),
 		"0321659487",
-		[null, null],
-		[null,null]
+		[],
+		[]
 		),
 	new Agent(4,
 		"balwe",
@@ -73,8 +71,8 @@ export const agents : Agent[] = [
 		"A0004",
 		new Date(),
 		"0321320121",
-		[null, null],
-		[null,null]
+		[],
+		[]
 		),
 
 

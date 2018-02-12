@@ -3,8 +3,6 @@ import {Operation} from './operation';
 
 export class Compte{
 
-
-
 	constructor(
 		numCompte: number,
 		dateCreation: Date,
@@ -33,6 +31,7 @@ export class CompteEpargne extends Compte{
 
 
 //TODO Creer plusieurs comptes
+
 export const comptes : Compte[] = [
 			{numCompte:1,dateCreation: new Date(),solde:506,rib:"sam",decouverteAutorise:20,tauxAgios:10,operations:{montant: 14,
 		date: new Date(),
@@ -69,4 +68,5 @@ export const epargnes : CompteEpargne[] = [
 
 
 			]
+
 

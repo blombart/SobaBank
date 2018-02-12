@@ -14,12 +14,15 @@ import { AgentService} from '../../Service/agent.service';
 @Component({
   selector: 'app-gestion-agents',
   templateUrl: './gestion-agents.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css','../../bootstrap/css/bootstrap-grid.css']
+  styleUrls: ['../../bootstrap/css/bootstrap.css',
+  '../../bootstrap/css/bootstrap-grid.css',
+  './gestion-agents.component.css']
 })
 export class GestionAgentsComponent implements OnInit {
-
   formRecherche : FormGroup;
   submitted: boolean;
+
+
 
 
 	agents : Observable<Agent[]>;
@@ -34,6 +37,7 @@ export class GestionAgentsComponent implements OnInit {
     this.formRecherche = new FormGroup({
     'recherche' : new FormControl('',[Validators.required])
 
+
     });
     this.submitted= false;
   }
@@ -45,10 +49,12 @@ export class GestionAgentsComponent implements OnInit {
   }
 
   supprimerAgent(i: number){
+
     
     console.log(i);
     console.log(this.agentService.getAgentById(i).nom);
     this.agentService.supprimerAgent(this.agentService.getAgentById(i));
+
   }
 
 //on recupere le champ input et on filtre le tableau d'agent selon si le nom ou matricule correspond a la recherche
@@ -57,11 +63,12 @@ export class GestionAgentsComponent implements OnInit {
   	this.agents = this.agents.map((agents) => agents.filter(agent => agent.nom.includes(this.searchText) || agent.matricule.includes(this.searchText)));
 }
 
-
 //Renvoie vers le formulaire vide pour ajouter un agent
 
   ajoutAgent(){
     this._router.navigate(["./admin/agents/0"]);
   }
+
+
 
 }

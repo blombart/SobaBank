@@ -10,6 +10,7 @@ import { Client} from '../../modeles/client';
 import { clients } from '../../modeles/client';
 import { operations} from '../../modeles/operation';
 
+
 @Component({
   selector: 'app-comptes',
   templateUrl: './comptes.component.html',
@@ -17,6 +18,7 @@ import { operations} from '../../modeles/operation';
   providers: [CompteService, OperationService]
 })
 export class ComptesComponent implements OnInit {
+
 
 	 private compteService = new CompteService();
    private operationService = new OperationService();
@@ -30,6 +32,7 @@ export class ComptesComponent implements OnInit {
     client : Client[] = clients;
   selectedCompte : Compte;
 
+
   constructor() { }
 
   ngOnInit() {
@@ -40,11 +43,14 @@ export class ComptesComponent implements OnInit {
    //this.epargnes = this.compteService.getAllComptesEpargne();
    this.operations = this.operationService.getAllOperations();
 
+   this.epargnes = this.compteService.getAllComptesEpargne();
+
 
   }
 
    selectCompte(compte) {
     console.log("Compte selectionné");
     this.selectedCompte = compte;
+
   }
 }
