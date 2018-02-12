@@ -8,9 +8,11 @@ import {DemandeChequier} from '../../modeles/demandes';
 import {demandeChequier} from '../../modeles/demandes';
 import {CompteService} from '../../Service/compte.service';
 
+
 import {ClientService} from '../../Service/client.service';
 import { Client} from '../../modeles/client';
 import { clients} from '../../modeles/client';
+
 
 
 
@@ -18,6 +20,7 @@ import { clients} from '../../modeles/client';
   selector: 'app-commande',
   templateUrl: './commande.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
+
 
     providers: [DemandeService,CompteService, ClientService]
 })
@@ -82,6 +85,7 @@ comptes: Compte= comptes;
   	//Comme test on affiche la taille du tableau de demande des clients . doit etre egale à 1 si l'ajout a bien été fait
   	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);
   }
+
 
 
     selectCompte(compte) {
