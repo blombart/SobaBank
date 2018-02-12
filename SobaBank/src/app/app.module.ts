@@ -23,11 +23,9 @@ import { ListeClientComponent } from './vue_agent/liste-client/liste-client.comp
 import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-demandes.component';
 import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-demandes.component';
-
+import {SharedService}  from './service/shared-service';
 
 import { AppRoutingModule } from './app-routing.module';
-
-import {SharedService}  from './service/shared-service';
 
 import {DeconnexionComponent} from './deconnexion/deconnexion.component';
 
