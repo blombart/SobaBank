@@ -5,12 +5,13 @@ import {agents} from './agent';
 import {comptes} from './compte';
 import {CompteEpargne} from './compte';
 import {epargnes} from './compte';
-import {Demande} from './demandes';
 import {Notification} from './notification';
 import {notifications} from './notification';
 
 export class Client extends User{
-	constructor(
+	
+constructor(
+
 	public id: number,
 	public nom: string,
 	public prenom: string,
@@ -21,33 +22,49 @@ export class Client extends User{
 	public numTel: string,
 	public nbEnfants: number,
 	public situationMatrimonial:string,
+
 	public notifications : Notification[],
 	public agent: Agent[],
-	public demandes: Demande[],
-	public comptes: Compte[]
-	)
+	public comptes: Compte[])
+	
+	{
+		super(id,nom,prenom,email,mdp,role);
 
-	{super(id,nom,prenom,email,mdp,role);
 	}
+	
 }
 
 //TODO creer plusieurs clients
 
-export const clients: Client [] = [
-	new Client(
-		12,
-	"omar",
-	"omar",
-	"omar",
-	"omar",
-	"omar",
-	"omar",
-	"omar",
-	12,
-	"omar",
-	[],
-	[],
-	[],
-	[])
-	]
+export const clients: Client[]= [
 
+    new Client(1,
+	"leg",
+	"seb",
+	"seb@xxx.fr",
+	"coucou",
+	"client",
+	"rue lille 59000",
+	"0611121314",
+	2,
+	"pacsé",
+	[],
+	[],
+	[]
+	),
+
+    new Client(2,
+	"kick",
+	"abde",
+	"abde@xxx.fr",
+	"kikoo",
+	"client",
+	"rue Arras 62000",
+	"0612131415",
+	0,
+	"marié",
+	[],
+	[],
+	[]
+	),
+]

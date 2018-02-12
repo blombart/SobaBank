@@ -57,6 +57,16 @@ export class FormAgentsComponent implements OnInit {
       this.id = +params['id'];
     });
     if(this.id != 0){
+      this.a1 = this.service.getAgent(this.id);
+      this.demandes = this.a1.demandes;
+      if(this.demandes.length !=0){
+        this.afficherDemande();
+        console.log("dans form agent id demande : " + this.a1.demandes[0].id);
+      }
+    } else{
+      console.log(this.id);
+        this.a1 = new Agent(null,"","","","","","",null,"",[],[]);
+    }  
   }
 
 

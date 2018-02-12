@@ -1,58 +1,95 @@
-<div class="main-content" >
+<div class="row">
+    
+        
+        <div class="col-sm-12">
+        <div class="table">
+<tr>
+
+
+        <th scope="col" class="nav-link" [routerLink]="['../courant']">Compte Courant</th>
+
+    
+
+    </tr>
   
-<!--TABLEAU DE COMPTES-->
-  <div class="card">
-    <div class="header">
-      <h4 class="title">Mes comptes</h4>
-      <p class="category">Compte Courant</p>
-    </div>
-    <div class="content table-responsive table-full-width">
-      <table class="table table-hover ">
-        <thead>
-          <tr>                                        
-            <th>Numero de compte</th><th>Date</th><th>Solde</th><th>Rib</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let compte of comptes" (click)="selectCompte(compte)">
-             <td>{{compte.numCompte}}</td>
-    <td>{{compte.dateCreation| date:"dd/MM/yy hh:mm"}}</td>
+
+          <a class="nav-link active" >
+                
+              <table id="mytable" class="table table-hover">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                  
+                    <th>Numero de Compte</th>
+                    <th>date de creation</th>
+                    <th>solde</th>
+                    <th>rib</th>
+                     <th></th>
+                   </thead>
+    <tbody>
+  
+    <tr *ngFor = "let compte of comptes">
+   
+    <td>{{compte.numCompte}}</td>
+    <td>{{compte.dateCreation | date:"dd/MM/yy hh:mm"}}</td>
     <td>{{compte.solde}}</td>
     <td>{{compte.rib}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+
+ <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+
+    </tr>
+   </tbody>
+</table></a>
+</div></div>
+
+</div>
 
 
-  
-
-  <!--TABLEAU D'OPERATIONS (SI UN COMPTE EST SELECTIONNÉ)-->
-  <div *ngIf="(selectedCompte)" class="card card-plain">
-    <div class="header">
-      <h4 class="title">Compte N° {{ selectedCompte.numCompte }}</h4>
-      <p class="category"> </p>
-    </div>
-    <div class="content table-responsive table-full-width">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Libelle</th><th>Montant</th><th>Date</th>
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let operation of operations">
-            <td>{{ operation.libelle }}</td><td>{{ operation.montant }} €</td><td>{{ operation.date | date : "dd/MM/yy hh:mm" }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
+<div class="row">
+    
+        
+        <div class="col-sm-12">
+        <div class="table">
 
 
-  </div>
+     <tr>
+      
+     
+
+       <th scope="col" class="nav-link">Compte Epargne</th>
+    
+
+    </tr>
+
+
+          <a class="nav-link active" >
+                
+              <table id="mytable" class="table table-hover">
+                   
+                   <thead>
+                   
+                   <!-- <th><input type="checkbox" id="checkall" /></th> -->
+                  
+                    <th>Numero de Compte</th>
+                    <th>Montant</th>
+                     <th></th>
+                   </thead>
+    <tbody>
+    
+    <tr *ngFor = "let epargne of epargnes">
+   
+    <td>{{epargne.numEpargne}}</td>
+    <td>{{epargne.montantEpargne}}</td>
+ <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+
+    </tr>
+   </tbody>
+</table></a>
+</div></div>
+
+</div>
+
 
 
 

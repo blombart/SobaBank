@@ -5,21 +5,18 @@
 <form class="form-inline"><div class="form-group">
     <label for="inputPassword6">Compte à débiter</label>
      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
- <option selected>Open this select menu</option>
-    <option value="1">compte courant</option>
-   
-    <option value="2">compte Epargne</option>
-       
+  
+        <option value="1">Compte Courant</option>
+        <option value="1">Compte Epargne</option>
+
       </select>
   </div></form>
 
   <form class="form-inline"> <div class="form-group">
     <label for="inputPassword6">Compte à créditer</label>
    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-      <option selected>Open this select menu</option>
-    <option value="1">compte courant</option>
-   
-    <option value="2">compte Epargne</option>
+        <option value="1">Compte Courant</option>
+        <option value="1">Compte Epargne</option>
        
       </select>
   </div>
@@ -34,7 +31,21 @@
        <input type="text" class="form-control" name="username"  placeholder="Libelle" required="" autofocus="" />  
        <br/> <br/>
 
-
+<div class="col-md-10">
+      <form>
+        <h3>Type de virement</h3>
+        <div class="form-check">
+          <label>
+            <input type="radio" name="radio" checked> <span class="label-text">Ponctuel</span>
+          </label>
+        </div>
+        <div class="form-check">
+          <label>
+            <input type="radio" name="radio"> <span class="label-text">Permanent</span>
+          </label>
+        </div> 
+      </form>
+  </div>
      
       <button class="btn btn-lg btn-primary btn-block" type="submit">Effectuer virement</button>   
     </form>

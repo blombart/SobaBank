@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Operation} from '../../modeles/operation';
+import {Operation} from '../comptes/operation';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {Operation} from '../../modeles/operation';
 
 export class CourantComponent implements OnInit {
 
- //operations = [new Operation('12/01/18','debit',500.00,1) ,   new Operation('12/01/18','debit',750.00,2)];
+ operations = [new Operation('12/01/18','debit',500.00,1) ,   new Operation('12/01/18','debit',750.00,2)];
 
 
   constructor() { }

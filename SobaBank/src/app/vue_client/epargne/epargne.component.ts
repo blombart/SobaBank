@@ -1,24 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {epargnes} from '../../modeles/compte';
-import { CompteEpargne} from '../../modeles/compte';
-import { CompteService} from '../../Service/compte.service';
+import {Epargne} from './epargne';
 
 @Component({
   selector: 'app-epargne',
   templateUrl: './epargne.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers:[CompteService]
+  styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
 export class EpargneComponent implements OnInit {
 
-  
-    epargnes:CompteEpargne=epargnes;
+	
 
-  constructor(private compteService:CompteService) { }
+  constructor() { }
 
   ngOnInit() {
-  
-   this.epargnes=this.compteService.getAllComptesEpargne();
+  }
 
-}
 }
