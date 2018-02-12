@@ -6,12 +6,16 @@ import { Observable } from 'rxjs/Observable';
 import {Demande} from '../modeles/demandes';
 import {demandeModificationMdp} from '../modeles/demandes';
 import {DemandeModificationMdp} from '../modeles/demandes';
+
 import {Compte} from '../modeles/compte';
 import {comptes} from '../modeles/compte';
+
 import {DemandeChequier} from '../modeles/demandes';
-import {demandeChequier} from '../modeles/demandes';
+import {demandeChequier} from '../modeles/demandeChequier';
+
 import {Client} from '../modeles/client';
 import {clients} from '../modeles/client';
+
 import {Notification} from '../modeles/notification';
 import {notifications} from '../modeles/notification';
 

@@ -28,7 +28,7 @@ export class ClientAccueilComponent implements OnInit {
    //private compteService = new CompteService();
 
 //comptes :Compte; 
-    notifications:Notification;
+    notifications:Notification[];
     //notif :Notification;
       comptes : Compte; 
    client :Client;

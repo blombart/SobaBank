@@ -1,6 +1,6 @@
 import {User} from './user';
 import {Client} from './client';
-import {Demande} from './demandes';
+import {DemandeOuvertureCompte} from './demandeOuvertureCompte';
 
 export class Agent extends User{
 
@@ -17,7 +17,7 @@ constructor(
 	public numTel: string,
 
 	public clients: Client[],
-	public demandes: Demande[])
+	public demandes: DemandeOuvertureCompte[])
 {
 		super(id,nom,prenom,email,mdp,role);
 

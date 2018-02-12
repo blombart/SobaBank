@@ -1,9 +1,11 @@
-import {Demande, Status} from './demandes';
+import {Demande} from './demandes';
 import {Agent} from './agent';
-import {FicheInfo} from './ficheInfo';
 
+import {Client} from './client'
 
-export class DemandeOuvertureCompte extends Demande{
+import { User } from './user';
+
+export class DemandeOuvertureCompte{
 	constructor(public id: number,
 		public dateDemande: Date,
 		public libelle: string,
@@ -12,9 +14,8 @@ export class DemandeOuvertureCompte extends Demande{
 		public estValide: boolean,
 		public agent: Agent,
 		public dateAffectation: Date,
-		public ficheInfo: FicheInfo
+		public client: Client
 		){
-		super(id,dateDemande,libelle,estAffecte,status,estValide,agent)
 	}
 }
 
@@ -60,4 +61,3 @@ export const demandesOuverture: DemandeOuvertureCompte[] = [
 		null
 		)
 ]
-

@@ -5,6 +5,7 @@ import { DemandeModificationMdp} from '../../modeles/demandes';
 import { DemandeService} from '../../Service/demande.service';
 import { ClientService} from '../../Service/client.service';
 import { demandeModificationMdp} from '../../modeles/demandes';
+
 import { Client} from '../../modeles/client';
 import { clients} from '../../modeles/client';
 
@@ -54,12 +55,12 @@ export class MdpComponent implements OnInit {
   	//ON initialise la demande de modification en allant chercher la premiere occurence (position 0) de la demande dans le tableau de demandes
   	this.demandeMdp = this.allDemande[0];
 
-  	//taille du tableau de demandes pour le client doit etre egale a 0
+/*  	//taille du tableau de demandes pour le client doit etre egale a 0
   	console.log("Avant ajout demande, taille tableau : " + this.client.demandes.length);
   	//Pour le client on recupere son tableau de demande et on lui insert (via la methode push) la demande qui a été recupere
   	this.client.demandes.push(this.demandeMdp);
 
   	//Comme test on affiche la taille du tableau de demande des clients . doit etre egale à 1 si l'ajout a bien été fait
-  	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);
+  	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);*/
   }
 }

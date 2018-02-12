@@ -8,22 +8,35 @@ import {demandeModificationMdp} from '../modeles/demandes';
 import {DemandeModificationMdp} from '../modeles/demandes';
 import {Compte} from '../modeles/compte';
 import {comptes} from '../modeles/compte';
-import {DemandeChequier} from '../modeles/demandes';
-import {demandeChequier} from '../modeles/demandes';
-
+import {DemandeChequier} from '../modeles/demandeChequier';
+import {demandeChequier} from '../modeles/demandeChequier';
 
 @Injectable()
 export class DemandeService {
 
-demandesOuverture = demandesOuverture
-
+demandeChequier = demandeChequier;
+demandesOuverture = demandesOuverture;
 demandeModificationMdp= demandeModificationMdp
-demandes = demandeChequier
-
 
   constructor() { }
 
 
+
+  getDemandeChequier(id) {
+    for(let dem of demandeChequier){
+      if(dem.id ===id){
+        return dem;
+      }
+    }
+  }
+
+
+    getDemandesChequier(): Observable<DemandeChequier[]>{
+      return of(demandeChequier);
+    }
+
+
+ 
 
 	getDemandeOuverture(id) {
     for(let dem of demandesOuverture){
@@ -34,21 +47,28 @@ demandes = demandeChequier
   }
 
 
-  	getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
+  getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
   		return of(demandesOuverture);
   	}
 
-  	getDemandeModificationMdp(): Observable<Demande[]>{
-  		return of(demandeModificationMdp);
-  	}
+
+  addDemandeOuverture(dem: DemandeOuvertureCompte){
+      this.demandesOuverture.push(dem);
+    }
+
+  getDemandeModificationMdp(): Observable<Demande[]>{
+      return of(demandeModificationMdp);
+    }
  //getcomptes(): Observable<Compte[]>{
     //  return of(comptes);
    // }
 
 
-addDemandeChequier(demande: DemandeChequier){
-  this.demandes.push(demande);
+  addDemandeChequier(demande: DemandeChequier){
+  this.demandeChequier.push(demande);
 
-}
+}  
+
+
   }
 
