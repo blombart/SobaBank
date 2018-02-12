@@ -50,13 +50,10 @@ export class GestionAgentsComponent implements OnInit {
 
   supprimerAgent(i: number){
 
-    let agentASuppr: Agent = this.agentService.getAgent(i);
-    //On verifie que l'agent ne possede pas de client pour le supprimer
-    if(agentASuppr.clients.length == 0){
-      this.agentService.supprimerAgent(agentASuppr)}
-    else{
-      console.log("impossible de supprimer, l'agent a des clients");}
-
+    
+    console.log(i);
+    console.log(this.agentService.getAgentById(i).nom);
+    this.agentService.supprimerAgent(this.agentService.getAgentById(i));
 
   }
 

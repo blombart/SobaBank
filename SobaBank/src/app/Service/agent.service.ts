@@ -12,7 +12,7 @@ agents = agents;
   constructor() {
   }
 
-	getAgent(id) {
+	getAgentById(id) {
     for(let agent of agents){
       if(agent.id ===id){
         return agent;

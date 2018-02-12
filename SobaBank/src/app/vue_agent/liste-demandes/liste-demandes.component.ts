@@ -1,29 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Client} from '../liste-client/client';
+import{Compte} from'../../modeles/compte';
+import{comptes} from'../../modeles/compte';
+import{clients} from'../../modeles/client';
+import { Client} from '../../modeles/client';
+import { CompteService} from '../../Service/compte.service';
 
 @Component({
   selector: 'app-liste-demandes',
   templateUrl: './liste-demandes.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css']
+  styleUrls: ['../../bootstrap/css/bootstrap.css'],
+providers: [CompteService]
 })
 export class ListeDemandesComponent implements OnInit {
 
 
-/*	chequier : boolean;
-	nouveauCompte : boolean;*/
+private compteService = new CompteService();
+  
 
+/*    comptes: Compte= comptes;
+   
 
-/*     clients = [new Client('001',"01","durant","patrick", "abc@xxx.com", "16 rue de la liberté 59000 Lille", "0102030405", "marié"), 
-     new Client('002',"01", "dant","paick" , "abc@xxx.com", "17 rue de la liberté 59000 Lille", "0102030406", "pacsé"),
-     new Client('003',"01" , "devant","luc" , "abc@xxx.com", "98 rue du pont d'avignon 62000 Arras", "0102030407" , "célibataire")]
-*/
+    
+    
+    client : Client = clients;*/
+ 
 
   constructor() { }
 
   ngOnInit() {
-/*  	this.chequier = true;
-  	this.nouveauCompte = true;*/
-  }
 
 
+/*   this.comptes= this.compteService.getAllComptes();*/
+
+ }
 }
