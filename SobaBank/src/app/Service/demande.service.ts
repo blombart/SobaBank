@@ -42,9 +42,14 @@ demandesOuverture = demandesOuverture;
   }
 
 
-  	getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
+  getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
   		return of(demandesOuverture);
   	}
+
+
+  addDemandeOuverture(dem: DemandeOuvertureCompte){
+      this.demandesOuverture.push(dem);
+    }
 
 
   }
