@@ -8,7 +8,7 @@ import com.bl.model.DemandeOuvertureCompte;
 
 public interface IAgentService {
 
-	public List<Client> getAllClient();
+	public List<Client> getAllClient(Long id);
 	
 	public List<Demande> getAllDemandeByType(String type);
 	

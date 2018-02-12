@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.bl.model.Agent;
@@ -17,7 +19,7 @@ import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAdminService;
 import com.bl.service.impl.AdminServiceImpl;
 
-@Path("/admin")
+@Path("")
 public class AdminResource {
 
 	IAdminService adminService = new AdminServiceImpl();
@@ -25,7 +27,7 @@ public class AdminResource {
 	@GET
 	@Path("/agents")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Agent> listAllAgents(){
+	public List<Agent> getAllAgents(){
 		List<Agent> agents = adminService.getAllAgent();
 		return agents;
 	}
@@ -64,16 +66,17 @@ public class AdminResource {
 	}
 	
 	@POST
-	@Path("/agents/{idAgent}/demandes/{idDemande}/affecte")
-	public Boolean affecterDemande(@PathParam("idAgent") Long idAgent, @PathParam("idDemande") Long idDemOuv){
+	@Path("/affecte")
+	public Boolean affecterDemande(@FormParam("idAgent")Long idAgent, @FormParam("idDemande")Long idDemOuv){
+		System.out.println(idAgent+ idDemOuv);
 		Boolean response = adminService.affecterDemande(idAgent, idDemOuv);
-		return response;
+		return true;
 	}
 	
 	@POST
-	@Path("/agents/{idNewAgent}/{idOldAgent}/demandes/{idDemande}/affecte")
-	public Boolean modifierAffectation(@PathParam("idNewAgent") Long idNewAgent,@PathParam("idOldAgent") Long idOldAgent,
-			@PathParam("idDemande") Long idDemande){
+	@Path("/affecte/modification")
+	public Boolean modifierAffectation(@FormParam("idNewAgent") Long idNewAgent,@FormParam("idOldAgent") Long idOldAgent,
+			@FormParam("idDemande") Long idDemande){
 		Boolean response = adminService.modifierAffectation(idNewAgent, idOldAgent, idDemande);
 		return response;
 	}
@@ -81,7 +84,7 @@ public class AdminResource {
 	@GET
 	@Path("/demandes")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<DemandeOuvertureCompte> listAllDemandeOuverture(){
+	public List<DemandeOuvertureCompte> getAllDemandesOuverture(){
 		List<DemandeOuvertureCompte> demandes = adminService.getAllDemandeOuvertureCompte();
 		return demandes;
 	}
