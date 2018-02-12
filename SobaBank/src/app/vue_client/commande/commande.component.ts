@@ -5,7 +5,7 @@ import {comptes} from '../../modeles/compte';
 import {Demande} from '../../modeles/demandes';
 import { Observable } from 'rxjs/Observable';
 import {DemandeChequier} from '../../modeles/demandes';
-import {demandeChequier} from '../../modeles/demandes';
+import {demandeChequier} from '../../modeles/demandeChequier';
 import {CompteService} from '../../Service/compte.service';
 
 
@@ -31,7 +31,7 @@ comptes: Compte= comptes;
   ngOnInit() {
   	this.comptes = this.compteService.getAllComptes();
   
-this.demandeService.addDemandeChequier(this.demande);
+this.demandeService.addDemandeChequier(this.demande[0]);
 
 }
 

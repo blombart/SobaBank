@@ -1,4 +1,4 @@
-import {Demande, Status} from './demandes';
+import {Demande} from './demandes';
 import {Agent} from './agent';
 import {Client} from './client';
 import { User } from './user';
