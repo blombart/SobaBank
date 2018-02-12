@@ -50,9 +50,11 @@ export const clients: Client[]= [
 	"0611121314",
 	2,
 	"pacsé",
+	null,
 	[],
 	[],
-	[]
+	[],
+	true
 	),
 
     new Client(2,
@@ -65,8 +67,10 @@ export const clients: Client[]= [
 	"0612131415",
 	0,
 	"marié",
+	null,
 	[],
 	[],
-	[]
+	[],
+	true
 	),
 ]
