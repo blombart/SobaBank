@@ -10,11 +10,9 @@ import { ListeClientComponent } from '../../vue_agent/liste-client/liste-client.
 import { FilterPipe} from '../../vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from '../../vue_agent/navbar-demandes/navbar-demandes.component';
 import { DetailsDemandesComponent } from '../../vue_agent/details-demandes/details-demandes.component';
-
-
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
-import { VirementComponent } from '../../vue_agent/liste-demandes/virement/virement.component';
+
 
 
 
@@ -34,8 +32,7 @@ import { VirementComponent } from '../../vue_agent/liste-demandes/virement/virem
 
     DetailsDemandesComponent,
     ChequierComponent,
-    NewCompteComponent,
-    VirementComponent],
+    NewCompteComponent],
 
 
   providers: []

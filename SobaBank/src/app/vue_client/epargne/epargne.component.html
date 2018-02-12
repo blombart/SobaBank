@@ -12,18 +12,14 @@
                    <thead>
                    
                    <!-- <th><input type="checkbox" id="checkall" /></th> -->
-                  <th scope="col"><a class="nav-link "  >Compte Epargne</a></th>
-
-                   <tr>
-            <th>Numero</th><th>Solde</th><th>Date</th>
-           
-          </tr>
+                  <th scope="col"><a class="nav-link" >Compte Epargne</a></th>
                    </thead>
     <tbody>
     
-    <tr *ngFor="let epargne of epargnes">
-            <td>{{ epargne.numCompte }}</td><td>{{ epargne.solde }} €</td><td>{{ epargne.rib }}</td>
-          </tr>
+    <tr>
+      <th scope="row">solde</th>
+    
+    </tr>
    </tbody>
 </table></a>
 </div></div>

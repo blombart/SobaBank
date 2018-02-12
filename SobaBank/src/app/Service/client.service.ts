@@ -4,34 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import {Client} from '../modeles/client';
 import {clients} from '../modeles/client';
 
-import {CompteEpargne} from '../modeles/compte';
-import {Operation} from '../modeles/operation';
-import {operations} from '../modeles/operation';
-import {OperationService} from '../Service/operation.service'
-
 
 @Injectable()
-
-
-
 export class ClientService {
 
+clients = clients;
+  constructor() {
+  }
 
-
-    clients = clients;
-   
-    
-
-  constructor() { }
-
-
-     getAllclients(){
-
-  return this.clients;
-    }
-
-  
-  getClient(id) {
+	getClient(id) {
     for(let client of clients){
       if(client.id ===id){
         return client;
@@ -39,11 +20,47 @@ export class ClientService {
     }
   }
 
+  getClients(): Observable<Client[]>{
+  		return of(clients);
+  	}
 
-addClient(client: Client){
-      this.clients.push(client);
-    }
-    
+  addClient(client: Client){
+  		this.clients.push(client);
+  	}
+
+
+  supprimerClient(client: Client){
+    this.clients.splice(this.findIndexOfCurrentClient(client)-1,1);
   }
 
+  getMaxId(){
+   let tempId: number;
+   let maxId: number =0;
+   for(let client of clients){
+     tempId = client.id;
+     if(tempId>maxId){
+       maxId = client.id;
+     }
+   } return maxId;
+  }
 
+  //On recherche l'index de l'client dans le tableau pour un id donné
+
+  private findIndexOfCurrentClient(clientBis: Client){
+
+    let i: number =0;
+    let finalIndex: number;
+
+    for(let client of clients){
+      i++;
+      
+      if(client.id === clientBis.id){
+        finalIndex = i ;
+        break;
+      }
+    }
+    
+    return finalIndex;
+  }
+
+  }

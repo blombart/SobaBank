@@ -7,7 +7,6 @@ import {DetailsDemandesComponent} from '../../vue_agent/details-demandes/details
 
 
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
-import { VirementComponent } from '../../vue_agent/liste-demandes/virement/virement.component';
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
 
 
@@ -25,7 +24,6 @@ const routes: Routes = [
        component: ListeDemandesComponent,
        children: [
                 {path: 'newCompte', component: NewCompteComponent, pathMatch: 'full'},
-                {path: 'virement', component: VirementComponent, pathMatch: 'full'},
                 {path: 'chequier', component: ChequierComponent, pathMatch: 'full'}
      ]},
 

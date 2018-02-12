@@ -13,13 +13,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.bl.model.User;
-import com.bl.service.UserService;
+import com.bl.service.IUserService;
+import com.bl.service.impl.UserServiceImpl;
 
 
 @Path("/users")
 public class UserResource {
 	
-	UserService userService = new UserService();
+	IUserService userService = new UserServiceImpl();
 		
 		@GET
 		@Produces(MediaType.APPLICATION_JSON)

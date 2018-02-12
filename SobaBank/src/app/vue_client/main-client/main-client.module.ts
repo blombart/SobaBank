@@ -12,10 +12,6 @@ import {EpargneComponent } from '../../vue_client/epargne/epargne.component';
 import { AgentComponent } from '../../vue_client/agent/agent.component';
 import {MainClientComponent} from './main-client.component';
 import {NavcliComponent} from '../../vue_client/navcli/navcli.component';
-import { ClientAccueilComponent } from '../../vue_client/client-accueil/client-accueil.component';
-import { ClientNotificationsComponent } from '../../vue_client/client-notifications/client-notifications.component';
-
-
 @NgModule({
   imports: [
     CommonModule,
@@ -30,9 +26,6 @@ import { ClientNotificationsComponent } from '../../vue_client/client-notificati
     MdpComponent,
     CourantComponent,
     EpargneComponent,
-    AgentComponent,
-    ClientAccueilComponent,
-    ClientNotificationsComponent
-    ]
+    AgentComponent]
 })
 export class MainClientModule { }
