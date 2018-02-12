@@ -27,8 +27,6 @@ import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-d
 
 import { AppRoutingModule } from './app-routing.module';
 
-import {SharedService}  from './service/shared-service';
-
 import {DeconnexionComponent} from './deconnexion/deconnexion.component';
 
 
@@ -53,7 +51,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [SharedService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
