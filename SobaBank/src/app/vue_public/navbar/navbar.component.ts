@@ -3,7 +3,9 @@ import { Component, OnInit, Input, Output, Directive } from '@angular/core';
 import {Item} from './item';
 import {User} from '../forminscrition/user';
 import {AppComponent} from '../../app.component';
-import {SharedService}  from '../../service/shared-service';
+
+import {SharedService}  from '../../service/shared-service';  //Ne pas mettre dans les providers sinon ne fonctionnera pas.
+
 
 
 @Component({

@@ -12,34 +12,32 @@
         <div class="table-responsive">
 
                 
-              <table id="mytable" class="table table-bordered table-striped">
+
+              <table id="mytable" class="table table-bordered ">
 
                    
                    <thead>
                    
-                   <th><input type="checkbox" id="checkall" /></th>
-                   <th>N°</th>
-                    <th>Agent</th>
-                     <th>Statuts</th>
-                     <th>Date de la demande</th>
-                     <th>Date affectation</th>
-                      <th>Affectation</th>
 
+                    <th>Date Demande</th>
+                    <th>Affectation</th>
+                    <th>Date affectation</th>
+                    <th>Agent</th>
+                    <th>Status</th>
+                    <th>Fiche info</th>
+                    <th></th>
                    </thead>
     <tbody>
     
-    <tr *ngFor="let dem of demandes">
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>{{dem.id}}</td>
-    <td><select>
-      <option *ngFor="let ag of agents | async">{{ag.nom}}</option>
-
-    </select>
-    <td>{{dem.agent}}</td>
+    <tr *ngFor="let dem of demandes | async">
+    <td>{{dem.dateDemande | date}}</td>
+    <td><input type="checkbox" [checked]="dem.estAffecte" (click)="false"></td>
+    <td>{{dem.dateAffectation | date}}</td>
+    <td><p *ngIf="dem.agent">{{dem.agent.nom}}</p></td>
     <td>{{dem.status}}</td>
-    <td>{{dem.dateDem | date}}</td>
-    <td>null</td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Affecter"><button class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" (click)="test()">Affecter</button></p></td>
+    <td>{{dem.ficheInfo}}</td>
+    <td><button class="btn btn-primary btn-sm" (click)="affecter(dem.id)" >Affecter</button></td>
+
     </tr>
     
 
@@ -49,7 +47,11 @@
 
         </div>
 	</div>
-</div>
 
+    <!-- On envoie l'id de la demande au composant et on recoit la nouvelle valeur du boolean affected pour remettre a false et cacher le composant -->
+  <app-affectation-agent *ngIf="affectation" [demId]="idDemAffect" (affected)="resetAffectation($event)">
+      
+  </app-affectation-agent>
+</div>
 
 

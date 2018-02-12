@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
-import {SharedService} from '../../service/shared-service';
+
+import {SharedService} from '../../service/shared-service'; //Ne pas mettre dans les providers sinon ne fonctionne pas
+
 
 import {UserService} from '../../Service/user.service'
 
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css']
+  styleUrls: ['../../bootstrap/css/bootstrap.css'],
+  providers: [UserService]
 })
 export class ConnexionComponent implements OnInit {
 

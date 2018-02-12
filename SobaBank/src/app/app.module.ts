@@ -16,6 +16,13 @@ import { AdminModule } from './vue_admin/admin/admin.module';
 import { AccueilAgentModule} from './vue_agent/accueil-agent/accueil-agent.module';
 import { MainClientModule } from './vue_client/main-client/main-client.module';
 import { ConnexionComponent } from './vue_public/connexion/connexion.component';
+import { AccueilAgentComponent } from './vue_agent/accueil-agent/accueil-agent.component';
+import { ListeDemandesComponent } from './vue_agent/liste-demandes/liste-demandes.component';
+import { NavbarAgentComponent } from './vue_agent/navbar-agent/navbar-agent.component';
+import { ListeClientComponent } from './vue_agent/liste-client/liste-client.component';
+import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
+import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-demandes.component';
+import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-demandes.component';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +42,8 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     ForminscritionComponent,
     ConnexionComponent,
     DeconnexionComponent
+
+
 
   ],
   imports: [

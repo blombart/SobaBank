@@ -1,16 +1,29 @@
-<app-recherche (stringChange)="maRecherche($event);"></app-recherche>
-<button type="button" class="btn btn-default" (click)="setAgent()">Ajouter un agent</button>
 
+
+<!-- Partie pour la recherche -->
 <div class="container">
-	<div class="row">
+    
+<div class="recherche col-md-12">
+    <form [formGroup]="formRecherche" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group ">
+            <input type="text" formControlName="recherche" required >
+        </div>
+
+
+        <button type="submit" class="btn btn-secondary">RECHERCHE</button>
+    </form>
+</div>
+
+
+	<div class="row tableau">
+
 		
-        
-        <div class="col-md-12">
         <h4 class="center">Liste des agents</h4>
-        <div class="table-responsive">
+        
+        <div class="col-md-6 table-responsive">
 
                 
-    <table id="mytable" class="table table-bordered table-striped">
+    <table id="mytable" class="table table-bordered ">
                    
  		<thead>
 			<th>Nom</th>
@@ -22,8 +35,12 @@
     		<tr *ngFor="let agent of agents | async ">
     			<td>{{agent.nom}}</td>
     			<td>{{agent.matricule}}</td>
-    			<td >
-    				<button type="button" class="btn btn-default" (click)="modifierAgent()">Editer</button>
+    			<td>
+
+    				<button type="button" class="btn btn-default" (click)="modifierAgent(agent.id)">Editer</button>
+
+                    <button type="button" class="btn btn-default" (click)="supprimerAgent(agent.id)">Supprimer</button>
+
     			</td>
     		</tr>
 		</tbody>
@@ -31,5 +48,12 @@
 </table>
 
         </div>
-	</div>
+
+</div>
+
+<div>
+<button type="button" class="btn btn-default" (click)="ajoutAgent()">Ajouter un agent</button>
+
+</div>
+
 </div>

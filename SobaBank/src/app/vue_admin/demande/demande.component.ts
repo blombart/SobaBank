@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Demande } from '../test_class/demande';
+
 
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
-import { AgentService} from '../../Service/agent.service';
+import { DemandeService} from '../../Service/demande.service';
+
+import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,25 +17,31 @@ import { AgentService} from '../../Service/agent.service';
   ]
 })
 export class DemandeComponent implements OnInit {
-  agents : Observable<Agent[]>;
 
-	dem : Demande = new Demande("a","b","c", new Date());
-	dem1 : Demande = new Demande("a1","b1","c1", new Date());
-	dem2 : Demande = new Demande("a2","b2","c2", new Date());
-	dem3 : Demande = new Demande("a3","b3","c3", new Date());
-	demandes :  Demande[];
+	demandes :  Observable<DemandeOuvertureCompte[]>;
+  affectation: boolean = false;
 
-  constructor(private service: AgentService) {
+  idDemAffect : number;
+
+  constructor(private demandeService: DemandeService, private _router: Router) {
+
    }
 
   ngOnInit() {
-  	this.demandes= [this.dem, this.dem1, this.dem2, this.dem3];
-    this.agents = this.service.getAgents();
+  	this.demandes= this.demandeService.getDemandesOuverture();
   }
 
-  test(){
-    for(let ag of agents){
-      console.log(ag.nom);
-    }
+
+  //on initialise l'id de la demande a affecter avec l'id de la demande selectionner
+  affecter(i: number){
+    this.idDemAffect = i;
+
+    //On met la valeur a true pour afficher le composant liste agent
+    this.affectation= true;
   }
-}
+
+  resetAffectation(event){
+    this.affectation = event.value;
+  }
+  }
+
