@@ -1,5 +1,3 @@
-<!-- ajouter : une demande d'infos supplémentaires. -->
-
 <!-- <app-navbar-demandes></app-navbar-demandes> -->
 <input [(ngModel)]="searchText" placeholder="Rechercher">
 <!-- <div class="hidden" *ngIf ="chequier"> -->
@@ -17,28 +15,26 @@
                    
                    <!-- <th><input type="checkbox" id="checkall" /></th> -->
                    <th>Identifiant</th>
-                   <th>N° de Compte</th>
-                   <th>Nom</th>
+                   <th>Date de la demande</th>
+                   <th></th>
                     <th>Prénom</th>
                      <th>N°.tel</th>
                      
                    </thead>
     <tbody>
     
-    <tr *ngFor = "let client of clients | filter : searchText">
+    <tr *ngFor = "let chequier of demandeChequier | filter : searchText| async"  >
   <!--   <td><input type="checkbox" class="checkthis" /></td> -->
-    <td>{{client.id}}</td>
-    <td>{{client.numCompte}}</td>
-    <td>{{client.nom}}</td>
+    <td>{{chequier.id}}</td>
+    <td>{{chequier.dateDemande}}</td>
+<!--     <td>{{client.nom}}</td>
     <td>{{client.prenom}}</td>
-    <td>{{client.numTel}}</td>
+    <td>{{client.numTel}}</td> -->
     <td><p data-placement="top" data-toggle="tooltip" title="Accepter"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span>Accepter</button></p></td>
     <td><p data-placement="top" data-toggle="tooltip" title="Refuser"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span>Refuser</button></p></td>
     </tr>
    </tbody>
 </table>
-<!-- </button> -->
 </div>
 </div>
 </div>
-<!-- </div> -->

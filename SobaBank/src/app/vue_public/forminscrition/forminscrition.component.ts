@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from './user';
-import {FicheInfo} from '../../modeles/ficheInfo';
-import {fichesInfos} from '../../modeles/ficheInfo'
-import {FicheInfoService} from '../../Service/ficheInfo.service'
-
+import {User} from '../../modeles/user';
+import { DemandeService} from '../../Service/demande.service';
+import { Observable} from 'rxjs/Observable';
+import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-forminscrition',
@@ -13,40 +13,48 @@ import {FicheInfoService} from '../../Service/ficheInfo.service'
 export class ForminscritionComponent implements OnInit {
 
   utilisateur: User;
+  userForm: FormGroup;
+  demande: DemandeOuvertureCompte;
 
-  //allFiches = fichesInfos;
-
-  fiche = new FicheInfo("","","","");
-
-  ficheService =  new FicheInfoService();
-
-
-
-  constructor() {
-      this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
-
+  constructor(private _fb: FormBuilder,private demandeService:DemandeService) {
    }
 
   ngOnInit() {
-
-this.utilisateur = new User("Hadjaz", "Abderrahmane", "moui@test.com", "0626865421")
-
+    this.createForm();
   }
 
-  ngOnSubmit(){
-    console.log("L'utilisateur est" + this.utilisateur.nom+" " + this.utilisateur.prenom)
-
-
-    this.fiche.nom = this.utilisateur.nom;
-    this.fiche.prenom = this.utilisateur.prenom;
-    this.fiche.email = this.utilisateur.email;
-    this.fiche.numTel = this.utilisateur.numTel;
-
-    this.ficheService.addFicheInfo(this.fiche);
-
-    console.log("Nom fiche info : " + this.fiche.nom);
-
-
+  createForm(){
+    this.userForm = this._fb.group({
+      nom: ['', [Validators.required, Validators.minLength(3)]],
+      prenom: ['', Validators.required],
+      mail: ['',Validators.required],
+      numTel: ['',Validators.required]
+    });
   }
+
+  onSubmit(){
+    //On cree un nouvel utilisateur
+   this.utilisateur = new User(5,
+     this.userForm.controls['nom'].value,
+     this.userForm.controls['prenom'].value,
+     this.userForm.controls['mail'].value,
+     this.userForm.controls['numTel'].value,""
+     )
+
+   this.demande = new DemandeOuvertureCompte(5,
+     new Date(),
+     "demande ouverture compte n°5",
+     false,
+     "Non traitée",
+     false,
+     null,
+     null,
+     null
+
+     )
+   this.demandeService.addDemandeOuverture(this.demande);
+   console.log("demande enregistré");
+  }
+  
 
 }

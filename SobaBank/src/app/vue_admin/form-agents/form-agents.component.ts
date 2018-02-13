@@ -5,9 +5,8 @@ import { Agent } from '../../modeles/agent';
 
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AgentService} from '../../Service/agent.service';
+import { AdminService} from '../../Service/admin.service';
 import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
-import { Demande } from '../../modeles/demandes';
 
 @Component({
   selector: 'app-form-agents',
@@ -18,24 +17,19 @@ export class FormAgentsComponent implements OnInit {
 
 
   //Creation d'un agent null pour pouvoir afficher un formulaire vide
-	 a1 : Agent ;
+	private a1 : Agent ;
+
+  private a2 : Agent;
 
   id: number;
-
-
   //liste des demandes
-  demandes: Demande[];
+  demandes: DemandeOuvertureCompte[];
   afficheDemande: boolean = false;
 
   nouvelAgent: Agent;
   agentForm: FormGroup;
 
-  constructor(private _fb: FormBuilder, private route: ActivatedRoute, private service: AgentService, private router: Router) {
-
-
-//Appelle de la méthode pour creer le formulaire
-  this.createForm();
-  
+  constructor(private _fb: FormBuilder, private route: ActivatedRoute, private adminService: AdminService, private router: Router) {
   }
 
   createForm(){
@@ -56,20 +50,34 @@ export class FormAgentsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
-    if(this.id != 0){
-      this.a1 = this.service.getAgent(this.id);
-      this.demandes = this.a1.demandes;
-      if(this.demandes.length !=0){
-        this.afficherDemande();
-        console.log("dans form agent id demande : " + this.a1.demandes[0].id);
-      }
-    } else{
-      console.log(this.id);
-        this.a1 = new Agent(null,"","","","","","",null,"",[],[]);
-    }  
+
+    //Appelle de la méthode pour creer le formulaire
+  this.createForm();
+  this.initializeValue();
+  
   }
 
-
+  initializeValue(){
+        if(this.id != 0){
+    this.adminService.findById(this.id).subscribe(
+      agent => {
+        this.a1 = agent;
+             this.demandes = this.a1.demandes;
+/*      if(this.demandes.length !=0){
+        this.afficherDemande();
+      }*/
+    this.agentForm.patchValue({
+        nom: this.a1.nom,
+      prenom: this.a1.prenom,
+      email: this.a1.email,
+      mdp: this.a1.mdp,
+      matricule: this.a1.matricule,
+      numTel: this.a1.numTel 
+      });
+      }
+    );
+    }
+  }
 
   onSubmit(){
 
@@ -77,30 +85,38 @@ export class FormAgentsComponent implements OnInit {
     if(this.agentForm.valid){
       //Si on creer un agent on part dans cette condition
       if(this.newAgent()){
-      //on recupere le max des id via la methode
-    let id = this.service.getMaxId() +1;
+      
       //on cree le nouvel agent qu'on ajoute dans le tableau et on retourne sur la page d'accueil
-     this.nouvelAgent = new Agent(id,
-
-       this.a1.nom,
-       this.a1.prenom,
-       this.a1.email,
-       this.a1.mdp,
+     this.nouvelAgent = new Agent(5,
+       this.agentForm.controls['nom'].value,
+        this.agentForm.controls['prenom'].value,
+        this.agentForm.controls['email'].value,
+        this.agentForm.controls['mdp'].value,
        "agent",
-       this.a1.matricule,
+        this.agentForm.controls['matricule'].value,
        new Date(),
-       this.a1.numTel,
+        this.agentForm.controls['numTel'].value,
        []
        ,[]);
-     this.service.addAgent(this.nouvelAgent);
+     this.adminService.saveAgent(this.nouvelAgent).subscribe(
+       res => {console.log("agent ajouter");this.router.navigate(["./admin"]);}
+       );
 
    } 
    // si c'est en edition on part dans cette condition
    else {
-     this.doSomething();
+  this.a1.nom = this.agentForm.controls['nom'].value;
+  this.a1.prenom= this.agentForm.controls['prenom'].value;
+  this.a1.email=this.agentForm.controls['email'].value;
+  this.a1.mdp=this.agentForm.controls['mdp'].value;
+  this.a1.matricule=this.agentForm.controls['matricule'].value;
+  this.a1.numTel=this.agentForm.controls['numTel'].value;
+  this.adminService.updateAgent(this.a1).subscribe(
+    res => {console.log("agent editer");this.router.navigate(["./admin"]);}
+    )
    }
 
-     this.router.navigate(["./admin"]);}
+   }
      
 
   }

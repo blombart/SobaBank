@@ -1,9 +1,9 @@
 export class User  {
 
-	nom:string;
-	prenom:string;
-	email:string;
-	numTel:string
+	nom:String;
+	prenom:String;
+	email:String;
+	numTel:String
 	
 	constructor(name: string, lastname: string, email: string, phoneNumber: string) {
 		this.nom = name;

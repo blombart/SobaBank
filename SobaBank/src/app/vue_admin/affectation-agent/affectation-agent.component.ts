@@ -5,12 +5,11 @@ import { AgentService} from '../../Service/agent.service';
 import { DemandeService} from '../../Service/demande.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
-import {Status} from '../../modeles/demandes';
 
 @Component({
   selector: 'app-affectation-agent',
   templateUrl: './affectation-agent.component.html',
-  styleUrls: ['./affectation-agent.component.css']
+  styleUrls: ['./affectation-agent.component.css'],
 })
 export class AffectationAgentComponent implements OnInit {
 

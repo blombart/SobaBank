@@ -1,7 +1,16 @@
 import {User} from './user';
 import {Agent} from './agent';
+import {Demande} from './demandes'
 import {Compte} from './compte';
+import {agents} from './agent';
+import {comptes} from './compte';
+import {CompteEpargne} from './compte';
+import {epargnes} from './compte';
+import {Notification} from './notification';
+import {notifications} from './notification';
+
 export class Client extends User{
+
 	constructor(
 	id: number,
 	nom: string,
@@ -13,64 +22,56 @@ export class Client extends User{
 	numTel: string,
 	nbEnfants: number,
 	situationMatrimonial:string,
-
 	agent: Agent,
 	comptes: Compte[],
+	public demandes: Demande[],
+	files: File[],
+	isClient: boolean
 	)
+
 	{
-		super(id,nom,prenom,email,mdp,role)
+		super(id,nom,prenom,email,mdp,role);
+
 	}
+	
 }
 
 //TODO creer plusieurs clients
 
-export const clients: Client[] = [
-/*new Client(1,
-	"omar",
-	"ramo",
-	"foo@foo.fr",
-	"azerty",
-	"client",
-	"01 rue de la liberté",
-	"0132659515",
-	3,
-	"marié",
-	//TODO instancier l'agent et le compte
-	null,
-	[null,null]
-	),
-*/
+export const clients: Client[]= [
 
-/*new Client(2,
+    new Client(1,
+	"leg",
 	"seb",
-	"radius",
-	"xoxo@foo.fr",
-	"qwerty",
+	"seb@xxx.fr",
+	"coucou",
 	"client",
-	"02 rue victor hugo",
-	"0243760626",
-	0,
+	"rue lille 59000",
+	"0611121314",
+	2,
 	"pacsé",
-	//TODO instancier l'agent et le compte
-	new Agent(),
-	[new Compte(),
-		new Compte()
-		]
-		),
-*/
-
-/*new Client(3,
-	"durant",
-	"patrick",
-	"abc@xxx.com", 
-	"azerty",
-	"client", 
-	"16 rue de la liberté 59000 Lille", 
-	"0102030405",
-	"1", 
-	"célibataire"), 
-	//TODO instancier l'agent et le compte
 	null,
-	[null,null]),*/
-     
+	[],
+	[],
+	[],
+
+	true
+	),
+
+    new Client(2,
+	"kick",
+	"abde",
+	"abde@xxx.fr",
+	"kikoo",
+	"client",
+	"rue Arras 62000",
+	"0612131415",
+	0,
+	"marié",
+	null,
+	[],
+	[],
+	[],
+	true
+	),
 ]
