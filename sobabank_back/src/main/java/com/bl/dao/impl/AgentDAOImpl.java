@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.bl.dao.IAgentDAO;
 import com.bl.model.Agent;
+import com.bl.model.Client;
 import com.bl.model.DemandeOuvertureCompte;
 
 @Component
@@ -32,6 +33,7 @@ public class AgentDAOImpl implements IAgentDAO{
 	public Agent addAgent(Agent agent) {
 		Long id = agent.getId();
 		agent.setDemandesOuverture(new ArrayList<DemandeOuvertureCompte>());
+		agent.setClients(new ArrayList<Client>());
 		
 		agentsMap.put(id, agent);
 		return agentsMap.get(id);

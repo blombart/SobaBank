@@ -19,7 +19,6 @@ import com.bl.model.Client;
 import com.bl.model.User;
 import com.bl.service.IClientService;
 import com.bl.service.IUserService;
-import com.bl.service.impl.UserServiceImpl;
 
 
 @Path("")

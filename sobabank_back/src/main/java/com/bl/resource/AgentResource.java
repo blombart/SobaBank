@@ -29,7 +29,6 @@ public class AgentResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Client> getAllClients(@PathParam("id") Long idAgent){
 		List<Client> clients = agentService.getAllClient(idAgent);
-		
 		return clients;
 	}
 	
@@ -46,16 +45,16 @@ public class AgentResource {
 	@Path("clients/{id}/documents")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<File> getDocuments(@PathParam("id") Long idClient){
-		//TODO creer le clientservice et changer le return
-		return null;
+		List<File> files = agentService.getDocumentsForClient(idClient);
+		return files;
 	}
 	
 	@GET
 	@Path("/agents/{id}/demandes/chequier")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<DemandeChequier> getAllDemandesChequier(@PathParam("id") Long idAgent){
-		//TODO modifier methode dans interface et implementation de agentService
-		return null;
+		List<DemandeChequier> chequiers = agentService.getAllDemandeChequier(idAgent);
+		return chequiers;
 	}
 	
 	@PUT
@@ -71,8 +70,8 @@ public class AgentResource {
 	@Path("/agents/{id}/demandes/mdp")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<DemandeModifMdp> getAllDemandesMdp(@PathParam("id") Long idAgent){
-		//TODO modifier methode dans interface et implementation de agentService
-		return null;
+		List<DemandeModifMdp> mdps = agentService.getAllDemandeMdp(idAgent);
+		return mdps;
 	}
 	
 	@PUT
@@ -87,9 +86,9 @@ public class AgentResource {
 	@GET
 	@Path("/agents/{id}/demandes/nouveauCompte")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<DemandeModifMdp> getAllDemandesNouveauCompte(@PathParam("id") Long idAgent){
-		//TODO modifier methode dans interface et implementation de agentService
-		return null;
+	public List<DemandeNouveauCompte> getAllDemandesNouveauCompte(@PathParam("id") Long idAgent){
+		List<DemandeNouveauCompte> nouveauxComptes = agentService.getAllDemandeNouveauCompte(idAgent);
+		return nouveauxComptes;
 	}
 	
 	@PUT

@@ -1,0 +1,138 @@
+package com.bl.service.impl;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.bl.dao.IAgentDAO;
+import com.bl.dao.IClientDAO;
+import com.bl.dao.ICompteDAO;
+import com.bl.dao.IDemandeDAO;
+import com.bl.model.Agent;
+import com.bl.model.Client;
+import com.bl.model.Compte;
+import com.bl.model.Demande;
+import com.bl.model.DemandeChequier;
+import com.bl.model.DemandeModifMdp;
+import com.bl.model.DemandeNouveauCompte;
+import com.bl.service.IAgentService;
+
+@Component
+public class AgentServiceImpl implements IAgentService {
+	@Autowired
+	private IAgentDAO agentDAO;
+	@Autowired
+	private IClientDAO clientDAO;
+	@Autowired
+	private IDemandeDAO demandeDAO;
+	@Autowired
+	private ICompteDAO compteDAO;
+	
+	@Override
+	public List<Client> getAllClient(Long id) {
+		Agent ag = agentDAO.getAgentById(id);
+		List<Client> clients = ag.getClients();
+		return clients;
+	}
+	
+	@Override
+	public Client updateClient(Client client) {
+		Client cl = clientDAO.updateClient(client);
+		return cl;
+	}
+
+	@Override
+	public List<File> getDocumentsForClient(Long idClient) {
+		Client cl = clientDAO.GetClientById(idClient);
+		List<File> files = cl.getFiles();
+		return files;
+	}
+
+	@Override
+	public List<DemandeChequier> getAllDemandeChequier(Long idAgent) {
+		Agent ag = agentDAO.getAgentById(idAgent);
+		List<DemandeChequier> demandesChequier = new ArrayList<DemandeChequier>();
+		//on boucle sur tous les clients de l'agent
+		for(Client c: ag.getClients()){
+			//On boucle sur les demandes du client
+			for(Demande d :c.getDemandes()){
+				//Si la demande est de type DemandeChequier
+				if(d instanceof DemandeChequier){
+					//On caste la demande en demandechequier pour l'ajouter dans la liste
+					demandesChequier.add((DemandeChequier)d);
+				}
+			}
+		}
+		
+		return demandesChequier;
+	}
+
+	@Override
+	public List<DemandeModifMdp> getAllDemandeMdp(Long idAgent) {
+		Agent ag = agentDAO.getAgentById(idAgent);
+		List<DemandeModifMdp> demandesMdp = new ArrayList<DemandeModifMdp>();
+		//on boucle sur tous les clients de l'agent
+		for(Client c: ag.getClients()){
+			//On boucle sur les demandes du client
+			for(Demande d :c.getDemandes()){
+				//Si la demande est de type DemandeChequier
+				if(d instanceof DemandeModifMdp){
+					//On caste la demande en demandechequier pour l'ajouter dans la liste
+					demandesMdp.add((DemandeModifMdp)d);
+				}
+			}
+		}
+		
+		return demandesMdp;
+	}
+
+	@Override
+	public List<DemandeNouveauCompte> getAllDemandeNouveauCompte(Long idAgent) {
+		Agent ag = agentDAO.getAgentById(idAgent);
+		List<DemandeNouveauCompte> demandesNouveauCompte = new ArrayList<DemandeNouveauCompte>();
+		//on boucle sur tous les clients de l'agent
+		for(Client c: ag.getClients()){
+			//On boucle sur les demandes du client
+			for(Demande d :c.getDemandes()){
+				//Si la demande est de type DemandeChequier
+				if(d instanceof DemandeNouveauCompte){
+					//On caste la demande en demandechequier pour l'ajouter dans la liste
+					demandesNouveauCompte.add((DemandeNouveauCompte)d);
+				}
+			}
+		}
+		
+		return demandesNouveauCompte;
+	}
+
+	@Override
+	public DemandeChequier updateDemandeChequier(DemandeChequier dem) {
+		DemandeChequier chequier = (DemandeChequier)demandeDAO.updateDemande(dem);
+		//TODO surement implementer une methode pour faire qqch si la demande est validé
+		return chequier;
+	}
+
+	@Override
+	public DemandeModifMdp updateDemandeModifMdp(DemandeModifMdp dem) {
+		DemandeModifMdp mdp = (DemandeModifMdp)demandeDAO.updateDemande(dem);
+		//TODO surement implementer une methode pour generer un mdp si la demande est validé
+		return mdp;
+	}
+
+	@Override
+	public DemandeNouveauCompte updateDemandeNouveauCompte(
+			DemandeNouveauCompte dem) {
+		DemandeNouveauCompte nouveauCompte = (DemandeNouveauCompte)demandeDAO.updateDemande(dem);
+		//ON recupere le compte et on l'ajoute dans la liste des comptes 
+		Compte cp = nouveauCompte.getNewCompte();
+		compteDAO.addCompte(cp);
+		
+		return nouveauCompte;
+	}
+
+	
+
+}
