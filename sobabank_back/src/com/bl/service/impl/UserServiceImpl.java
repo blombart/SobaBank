@@ -2,13 +2,18 @@ package com.bl.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.bl.dao.IUserDAO;
 import com.bl.dao.impl.UserDAOImpl;
 import com.bl.model.User;
 import com.bl.service.IUserService;
 
+@Component
 public class UserServiceImpl implements IUserService{
-	IUserDAO userDao = new UserDAOImpl();
+	@Autowired
+	IUserDAO userDao;
 	
 	public List<User> getAllUsers(){
 		List<User> userList = userDao.getAllUsers();

@@ -16,4 +16,6 @@ public interface IUserService {
 	public User deleteUser(String id);
 	
 	public List<User> deleteAllUser();
+	
+	
 }

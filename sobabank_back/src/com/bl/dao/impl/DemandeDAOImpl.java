@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.bl.dao.IDemandeDAO;
 import com.bl.model.Demande;
 
+@Component
 public class DemandeDAOImpl implements IDemandeDAO{
 	static HashMap<Long, Demande> demandesMap = new HashMap<Long, Demande>();
 	

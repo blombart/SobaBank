@@ -11,16 +11,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.bl.model.Client;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
 import com.bl.service.IAgentService;
-import com.bl.service.impl.AgentServiceImpl;
 
 @Path("")
 public class AgentResource {
-	IAgentService agentService = new AgentServiceImpl();
+	@Autowired
+	IAgentService agentService;
 	
 	@GET
 	@Path("/agents/{id}/clients")

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.bl.dao.IClientDAO;
+import org.springframework.stereotype.Component;
 
+import com.bl.dao.IClientDAO;
 import com.bl.model.Client;
 
+@Component
 public class ClientDAOImpl implements IClientDAO{
 	static HashMap<Long, Client> clientsMap = new HashMap<Long, Client>();
 	

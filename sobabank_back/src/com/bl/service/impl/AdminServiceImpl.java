@@ -3,21 +3,25 @@ package com.bl.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.bl.dao.IAgentDAO;
 import com.bl.dao.IClientDAO;
 import com.bl.dao.IDemandeOuvertureDAO;
-import com.bl.dao.impl.AgentDAOImpl;
-import com.bl.dao.impl.ClientDAOImpl;
-import com.bl.dao.impl.DemandeOuvertureDAOImpl;
 import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAdminService;
 
+@Component
 public class AdminServiceImpl implements IAdminService {
-	private IAgentDAO agentDAO = new AgentDAOImpl();
-	private IDemandeOuvertureDAO demOuvDAO = new DemandeOuvertureDAOImpl();
-	private IClientDAO clientDAO = new ClientDAOImpl();
+	@Autowired
+	private IAgentDAO agentDAO;
+	@Autowired
+	private IDemandeOuvertureDAO demOuvDAO;
+	@Autowired
+	private IClientDAO clientDAO;
 
 	@Override
 	public List<Agent> getAllAgent() {
@@ -116,7 +120,24 @@ public class AdminServiceImpl implements IAdminService {
 		demOuvDAO.updateDemande(dem);
 		
 		return true;
-
 	}
+
+	@Override
+	public DemandeOuvertureCompte createDemande(Long idClient) {
+		//On recupere le client tout juste creer
+		Client client = clientDAO.GetClientById(idClient);
+		//ON creer une nouvelle demande et on set les attributs
+		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+		dem.setClient(client);
+		dem.setDateDemande(new Date());
+		dem.setIsAffected(false);
+		dem.setStatus("NON TRAITEE");
+		//On ajoute la demande dans la liste
+		demOuvDAO.addDemande(dem);
+		
+		return dem;
+	}
+	
+	
 
 }

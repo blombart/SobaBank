@@ -6,10 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 import com.bl.dao.IAgentDAO;
 import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
 
+@Component
 public class AgentDAOImpl implements IAgentDAO{
 	static HashMap<Long, Agent> agentsMap = new HashMap<Long, Agent>();
 	

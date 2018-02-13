@@ -2,11 +2,14 @@ package com.bl.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.bl.model.Client;
 import com.bl.model.Demande;
 import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAgentService;
 
+@Component
 public class AgentServiceImpl implements IAgentService {
 
 	@Override

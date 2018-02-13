@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -12,15 +13,22 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bl.model.Client;
 import com.bl.model.User;
+import com.bl.service.IClientService;
 import com.bl.service.IUserService;
 import com.bl.service.impl.UserServiceImpl;
 
 
-@Path("/users")
+@Path("")
 public class UserResource {
 	
-	IUserService userService = new UserServiceImpl();
+	@Autowired
+	IUserService userService;
+	@Autowired
+	IClientService clientService;
 		
 		@GET
 		@Produces(MediaType.APPLICATION_JSON)
@@ -68,6 +76,23 @@ public class UserResource {
 			return userList;
 		}
 		
+		//Partie utilisé par angular
+		
+		@POST
+		@Path("/clients")
+		@Consumes(MediaType.APPLICATION_JSON)
+		public Long createClient(Client client){
+			Client clientResponse = clientService.createClient(client);
+			return clientResponse.getId();
+		}
+		
+		@POST
+		@Path("/users/auth")
+		@Produces((MediaType.APPLICATION_JSON))
+		public User authentifie(@FormParam("username") String username, @FormParam("pwd") String pwd){
+			//TODO modifier methode dans interface et implementation de agentService
+			return null;
+		}
 	
 		
 		

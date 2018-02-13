@@ -6,9 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 import com.bl.dao.ICompteDAO;
 import com.bl.model.Compte;
 
+@Component
 public class CompteDAOImpl implements ICompteDAO{
 	static HashMap<Long, Compte> comptesMap = new HashMap<Long, Compte>();
 	

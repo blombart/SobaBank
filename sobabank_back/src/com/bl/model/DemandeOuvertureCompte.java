@@ -2,6 +2,8 @@ package com.bl.model;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 public class DemandeOuvertureCompte {
 	private Long id;
 	private Date dateDemande;

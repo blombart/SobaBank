@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.bl.dao.IUserDAO;
 import com.bl.model.User;
 
+@Component
 public class UserDAOImpl implements IUserDAO{
 	static HashMap<String, User> usersMap =  new HashMap<String, User>();
 	static int cpt;
