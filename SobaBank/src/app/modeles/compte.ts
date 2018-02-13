@@ -3,9 +3,7 @@ import {Operation} from './operation';
 
 export class Compte{
 
-
-
-	constructor(
+	constructor(id: number,
 		numCompte: number,
 		dateCreation: Date,
 		solde: number,
@@ -18,7 +16,8 @@ export class Compte{
 }
 
 export class CompteEpargne extends Compte{
-	constructor(numCompte: number,
+	constructor(id:number,
+		numCompte: number,
 		dateCreation: Date,
 		solde: number,
 		rib: String,
@@ -27,7 +26,7 @@ export class CompteEpargne extends Compte{
 		operations: Operation[],
 		tauxInteret: number,
 		montantRemuneration: number){
-		super(numCompte,dateCreation,solde,rib,decouvertAutorise,tauxAgios,operations)
+		super(id,numCompte,dateCreation,solde,rib,decouvertAutorise,tauxAgios,operations)
 	}
 }
 
