@@ -1,16 +1,17 @@
-package com.bl.dao;
+package com.bl.dao.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.bl.dao.IUserDAO;
 import com.bl.model.User;
 
-public class UserDAO {
+public class UserDAOImpl implements IUserDAO{
 	static HashMap<String, User> usersMap =  new HashMap<String, User>();
 	static int cpt;
 	
-	public UserDAO() {
+	public UserDAOImpl() {
 		User user1 = new User(1,"Hadjaz","Abderrahmane","1234","habder@test.com","guest");
 		User user2 = new User(2,"Sta","Omar","1234","omar@test.com","client");
 		User user3 = new User(3,"Legay","Sebastien","1234","sb@test.com","agent");
@@ -69,23 +70,21 @@ public class UserDAO {
 		return userList;
 	}
 
+	@Override
 	public User getUserByName(String name) {
-		// TODO Auto-generated method stub
 		List<User> userList = new ArrayList<User>(usersMap.values());
 		User userTemp = new User();
 		for (User user : userList){
-		if (user.getNom().equals(name)){
+			if (user.getNom().equals(name)){
 					 userTemp = user;
 		}
 		
 		
 	}
 		return userTemp;
+	
 		
-		
-		
+	}
 	
 	
-	
-}
 }

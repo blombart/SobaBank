@@ -1,21 +1,19 @@
-package com.bl.service;
+package com.bl.service.impl;
 
 import java.util.List;
 
+import com.bl.dao.IUserDAO;
 import com.bl.dao.UserDAO;
+import com.bl.dao.impl.UserDAOImpl;
 import com.bl.model.User;
+import com.bl.service.IUserService;
 
-public class UserService {
-	UserDAO userDao = new UserDAO();
+public class UserServiceImpl implements IUserService{
+	IUserDAO userDao = new UserDAOImpl();
 	
 	public List<User> getAllUsers(){
 		List<User> userList = userDao.getAllUsers();
 		return userList;
-	}
-	
-	public User getUserByName(String name){
-		User user = userDao.getUserByName(name);
-		return user;
 	}
 	
 	public User getUserForId(String id){
@@ -41,5 +39,11 @@ public class UserService {
 	public List<User> deleteAllUser(){
 		List<User> userList = userDao.deleteAllUser();
 		return userList;
+	}
+
+	@Override
+	public User getUserByName(String name) {
+		User user = userDao.getUserByName(name);
+		return user;
 	}
 }

@@ -1,7 +1,8 @@
 package com.bl.model;
 
+
 public class User {
-	private long id;
+	private Long id;
 	private String nom;
 	private String prenom;
 	private String mdp;
@@ -9,7 +10,7 @@ public class User {
 	private String role;
 
 	public User() {
-		id= 0;
+		id= 0L;
 	}
 
 	public User(long id, String nom, String prenom, String mdp, String email,
