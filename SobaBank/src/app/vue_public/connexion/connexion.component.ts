@@ -4,6 +4,7 @@ import {SharedService} from '../../service/shared-service'; //Ne pas mettre dans
 import { Http, Response } from "@angular/http";
 import {UserService} from '../../Service/user.service'
 
+
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -13,6 +14,8 @@ import {UserService} from '../../Service/user.service'
 export class ConnexionComponent implements OnInit {
 
    userService = new UserService();
+
+   
 
    nom: string;
    mdp: string;
@@ -28,8 +31,12 @@ export class ConnexionComponent implements OnInit {
 
   onClick(){
 
-    this.role = this.userService.getUserByName(this.nom);
-    this._sharedService.emitChange(this.role);
+    //this.role = this.userService.getUserByName(this.nom);
+    
+
+    //this._sharedService.emitChange(this.role);
+
+    console.log(this.userService.getUserByName(this.nom))
 }
 
 }

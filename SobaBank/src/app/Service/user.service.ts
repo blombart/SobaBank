@@ -13,11 +13,15 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class UserService {
 
-  private apiUrl = "http://localhost:8080/sobabank/admin/";
-private http: Http;
+  private apiUrl = "http://localhost:8080/sobabank/";
+  private http: Http;
+
+
   users = Users;
 
-  constructor() { }
+  constructor() {
+   
+   }
 
 
   findAll(): Observable<User[]> {
@@ -35,16 +39,16 @@ private http: Http;
     }
 
 
-getUserByName(name: String){
-  for (let user of this.users) {
+getUserByName(name: string): Observable<User>{
+  /*for (let user of this.users) {
      if (user.nom == name){
-            console.log(user.email);
+            console.log(user.email);*/
 
-            return user.role;
+            return this.http.get(this.apiUrl +"users/findname/" + name)
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
      }
-}
 
-}
 
 
 addUser(user: User){
