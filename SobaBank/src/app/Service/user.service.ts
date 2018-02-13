@@ -14,14 +14,14 @@ import 'rxjs/add/operator/catch';
 export class UserService {
 
   private apiUrl = "http://localhost:8080/sobabank/admin/";
-
+private http: Http;
   users = Users;
-  
-  constructor(private http: Http) { }
+
+  constructor() { }
 
 
   findAll(): Observable<User[]> {
-    return this.http.get(this.apiUrl + "agents")
+    return this.http.get(this.apiUrl + "users")
       .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }

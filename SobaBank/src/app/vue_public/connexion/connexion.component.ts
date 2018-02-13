@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from '../../service/shared-service'; //Ne pas mettre dans les providers sinon ne fonctionne pas  
 
-
+import { Http, Response } from "@angular/http";
 import {UserService} from '../../Service/user.service'
 
 @Component({
