@@ -99,11 +99,11 @@ public class Compte {
 		this.operations = operations;
 	}
 	
-	private void crediter(float montant){
+	public void crediter(float montant){
 		this.solde += montant;
 	}
 	
-	private void debiter(float montant){
+	public void debiter(float montant){
 		//Si le compte a un decouvert
 		if(decouvertAutorise !=0){
 			//on debite seulement si le solde ne depasse pas le decouvert

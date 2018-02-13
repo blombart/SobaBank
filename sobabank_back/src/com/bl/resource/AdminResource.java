@@ -59,9 +59,10 @@ public class AdminResource {
 	
 	@DELETE
 	@Path("/agents/{id}")
-	public Boolean deleteAgent(@PathParam("id") Long id) {
-		Boolean b = adminService.deleteAgent(id);
-		return b;
+	@Produces(MediaType.APPLICATION_JSON)
+	public Agent deleteAgent(@PathParam("id") Long id) {
+		Agent ag = adminService.deleteAgent(id);
+		return ag;
 	}
 	
 	@POST
@@ -69,7 +70,7 @@ public class AdminResource {
 	public Boolean affecterDemande(@FormParam("idAgent")Long idAgent, @FormParam("idDemande")Long idDemOuv){
 		System.out.println(idAgent+ idDemOuv);
 		Boolean response = adminService.affecterDemande(idAgent, idDemOuv);
-		return true;
+		return response;
 	}
 	
 	@POST

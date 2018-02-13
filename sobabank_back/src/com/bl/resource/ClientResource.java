@@ -15,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bl.model.Agent;
 import com.bl.model.Compte;
+import com.bl.model.DemandeChequier;
+import com.bl.model.DemandeModifMdp;
+import com.bl.model.DemandeNouveauCompte;
 import com.bl.model.Operation;
 import com.bl.service.IClientService;
 
@@ -28,8 +31,8 @@ public class ClientResource {
 	@Path("/clients/{id}/agent")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Agent getAgent(@PathParam("id") Long idClient){
-		//TODO faire le client service
-		return null;
+		Agent ag = clientService.getAgentForClient(idClient);
+		return ag;
 	}
 	
 	@POST
@@ -37,8 +40,8 @@ public class ClientResource {
 	public Boolean virement(@FormParam("idCompteDebit") Long idCompteDebit,
 			@FormParam("rib") String rib, @FormParam("montant") float montant,
 			@FormParam("libelle") String libelle){
-		//TODO faire le client service
-		return null;
+		Boolean b = clientService.virement(idCompteDebit, rib, montant, libelle);
+		return b;
 	}
 	
 	@POST
@@ -46,30 +49,33 @@ public class ClientResource {
 	public Boolean virement(@FormParam("idCompteDebit") Long idCompteDebit,
 			@FormParam("idCompteCredit") Long idCompteCredit, @FormParam("montant") float montant,
 			@FormParam("libelle") String libelle){
-		//TODO faire le client service
-		return null;
+		Boolean b = clientService.virement(idCompteDebit, idCompteCredit, montant, libelle);
+		return b;
 	}
 	
 	@POST
 	@Path("/clients/{id}/demandes/nouveauCompte")
+	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Boolean createDemandeNewCompte(@PathParam("id")Long idClient, Compte compte){
-		//TODO faire le client service
-				return null;
+	public DemandeNouveauCompte createDemandeNewCompte(@PathParam("id")Long idClient, Compte compte){
+		DemandeNouveauCompte dem = clientService.createDemandeNouveauCompteForClient(idClient, compte);
+		return dem;
 	}
 	
 	@POST
 	@Path("/clients/{id}/demandes/chequier")
-	public Boolean createDemandeChequier(@PathParam("id") Long idClient){
-		//TODO faire le client service
-		return null;
+	@Produces(MediaType.APPLICATION_JSON)
+	public DemandeChequier createDemandeChequier(@PathParam("id") Long idClient){
+		DemandeChequier chequier = clientService.createDemandeChequierForClient(idClient);
+		return chequier;
 	}
 	
 	@POST
 	@Path("/clients/{id}/demandes/mdp")
-	public Boolean createDemandeMdp(@PathParam("id") Long idClient){
-		//TODO faire le client service
-		return null;
+	@Produces(MediaType.APPLICATION_JSON)
+	public DemandeModifMdp createDemandeMdp(@PathParam("id") Long idClient){
+		DemandeModifMdp mdp = clientService.createDemandeMdpForClient(idClient);
+		return mdp;
 	}
 	
 	@POST

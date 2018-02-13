@@ -36,16 +36,14 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public Boolean deleteAgent(Long id) {
-		boolean b = false;
+	public Agent deleteAgent(Long id) {
 		Agent _agent = agentDAO.getAgentById(id);
 		if (_agent.getClients().size() == 0) {
 			agentDAO.deleteAgent(id);
-			b= true;
 		} else {
 			System.out.println("Impossible de supprimer l'agent");
 		}
-		return b;
+		return _agent;
 	}
 
 	@Override
