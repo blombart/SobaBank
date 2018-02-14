@@ -63,9 +63,9 @@ export class FormAgentsComponent implements OnInit {
       agent => {
         this.a1 = agent;
              this.demandes = this.a1.demandesOuverture;
-/*      if(this.demandes.length !=0){
+      if(this.demandes.length !=0){
         this.afficherDemande();
-      }*/
+      }
     this.agentForm.patchValue({
         nom: this.a1.nom,
       prenom: this.a1.prenom,

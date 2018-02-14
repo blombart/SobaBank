@@ -13,7 +13,7 @@ export class DemandeOuvertureCompte{
 		public estValide: boolean,
 		public dateAffectation: Date,
 		public client: Client,
-		public agent: Agent,
+		public agent: string,
 		
 		
 		){
