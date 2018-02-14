@@ -20,15 +20,26 @@ export class AffectationAgentComponent implements OnInit {
 	//on envoie le boolean une fois l'affectatin effectué
 	@Output() affected = new EventEmitter()
 
-	agents : Observable<Agent[]>; 
+	agents : Agent[]; 
 	agentSelected: Agent;
 
-  constructor(private agentService: AgentService, private demandeService:DemandeService, private adminService : AdminService) { }
+  constructor(private demandeService:DemandeService, private adminService : AdminService) { }
 
 
   ngOnInit() {
-  	this.agents = this.agentService.getAgents();
+  	this.getAllAgent();
   	console.log("id de la demande" + this.demId);
+  }
+
+  getAllAgent(){
+    this.adminService.findAll().subscribe(
+      agents => {
+        this.agents = agents;
+      },
+      err => {
+        console.log(err);
+      }
+      );
   }
 
   //on recoit l'agent selectionner
@@ -41,7 +52,11 @@ export class AffectationAgentComponent implements OnInit {
   	this.adminService.affecterDemande(this.agentSelected.id, this.demId).subscribe(
       bool => {
         console.log(bool);
-      });
+      },
+      err => {
+        console.log(err);
+      }
+      );
   	this.affected.emit(false);
   }
 }

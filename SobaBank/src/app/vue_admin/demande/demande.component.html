@@ -29,7 +29,7 @@
                    </thead>
     <tbody>
     
-    <tr *ngFor="let dem of demandes | async">
+    <tr *ngFor="let dem of demandes">
     <td>{{dem.dateDemande | date}}</td>
     <td><input type="checkbox" [checked]="dem.estAffecte" (click)="false"></td>
     <td>{{dem.dateAffectation | date}}</td>

@@ -41,19 +41,6 @@ export class ForminscritionComponent implements OnInit {
      this.userForm.controls['numTel'].value,""
      )
 
-   this.demande = new DemandeOuvertureCompte(5,
-     new Date(),
-     "demande ouverture compte n°5",
-     false,
-     "Non traitée",
-     false,
-     null,
-     null,
-     null
-
-     )
-   this.demandeService.addDemandeOuverture(this.demande);
-   console.log("demande enregistré");
   }
   
 

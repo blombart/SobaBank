@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { FinanceComponent } from './vue_public/finance/finance.component';
 import { NavbarComponent } from './vue_public/navbar/navbar.component';
 import { ForminscritionComponent } from './vue_public/forminscrition/forminscrition.component';
-
+import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { provideRoutes} from '@angular/router';
 
 //import des modules des diffentes vue qui contiennent l'import de tous les composant necessaire
@@ -39,7 +39,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     NavbarComponent,
     ForminscritionComponent,
     ConnexionComponent,
-    DeconnexionComponent
+    DeconnexionComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +48,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [SharedService],
+  providers: [SharedService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
