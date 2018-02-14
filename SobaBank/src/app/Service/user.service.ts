@@ -14,12 +14,12 @@ import 'rxjs/add/operator/catch';
 export class UserService {
 
   private apiUrl = "http://localhost:8080/sobabank/";
-  private http: Http;
+  
 
 
   users = Users;
 
-  constructor() {
+  constructor(private http: Http) {
    
    }
 

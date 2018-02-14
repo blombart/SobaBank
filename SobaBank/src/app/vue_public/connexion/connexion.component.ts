@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {SharedService} from '../../service/shared-service'; //Ne pas mettre dans les providers sinon ne fonctionne pas  
+import {SharedService} from '../../Service/shared-service'; //Ne pas mettre dans les providers sinon ne fonctionne pas  
 
 import { Http, Response } from "@angular/http";
-import {UserService} from '../../Service/user.service'
-
+import {UserService} from '../../Service/user.service';
+import {User} from '../../modeles/user';
 
 @Component({
   selector: 'app-connexion',
@@ -13,16 +13,18 @@ import {UserService} from '../../Service/user.service'
 })
 export class ConnexionComponent implements OnInit {
 
-   userService = new UserService();
 
+   http: Http;
    
+
+   user: User;
 
    nom: string;
    mdp: string;
 
    role = "guest";
 
-  constructor(private _sharedService: SharedService) { }
+  constructor(private _sharedService: SharedService, private userService: UserService) { }
 
   ngOnInit() {
 
@@ -30,13 +32,18 @@ export class ConnexionComponent implements OnInit {
 
 
   onClick(){
+        this.userService.getUserByName(this.nom).subscribe(
+          user => {this.user = user; 
+                   console.log(user)
+           this.role = user.role;
 
-    //this.role = this.userService.getUserByName(this.nom);
-    
+           this._sharedService.emitChange(this.role);
 
-    //this._sharedService.emitChange(this.role);
+                    });
 
-    console.log(this.userService.getUserByName(this.nom))
+
+
+
 }
 
 }
