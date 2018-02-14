@@ -28,8 +28,8 @@ export class ClientAccueilComponent implements OnInit {
    //private compteService = new CompteService();
 
 //comptes :Compte; 
-    notifications:Notification[];
-    //notif :Notification;
+    notifications:Notification[]=notifications;
+    //notif = notifications;
       comptes : Compte; 
    client :Client;
     epargnes:CompteEpargne=epargnes;
@@ -44,7 +44,7 @@ export class ClientAccueilComponent implements OnInit {
 
    this.notifications=this.notificationService.getUnreadNotifications();
 
-//this.notif=this.notificationService.getUnreadNotificationsCount();
+//this.notifications=this.notificationService.getUnreadNotificationsCount();
 
 
    this.epargnes=this.compteService.getAllComptesEpargne();

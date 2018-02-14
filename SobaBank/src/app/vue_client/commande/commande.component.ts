@@ -24,7 +24,7 @@ export class CommandeComponent implements OnInit {
 	allDemande :  Observable<DemandeChequier[]>;
 
 demandechequier : DemandeChequier;
-//demande=demandeChequier
+demandes=demandeChequier
    
 comptes: Compte= comptes;
 
@@ -79,7 +79,6 @@ comptes: Compte= comptes;
   	//Comme test on affiche la taille du tableau de demande des clients . doit etre egale à 1 si l'ajout a bien été fait
   	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);
   }
-
 
     selectCompte(compte) {
     console.log("Compte selectionné");
