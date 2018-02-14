@@ -14,23 +14,9 @@ providers: [CompteService]
 export class ListeDemandesComponent implements OnInit {
 
 
-private compteService = new CompteService();
-  // private operationService = new OperationService();
-
-    comptes: Compte= comptes;
-   // operations:Operation= operations;
-
-    //epargnes : CompteEpargne[];
-    
-    client : Client[] = clients;
-  //selectedCompte : Compte;
-
   constructor() { }
 
   ngOnInit() {
-
-
-   this.comptes= this.compteService.getAllComptes();
 
  }
 }

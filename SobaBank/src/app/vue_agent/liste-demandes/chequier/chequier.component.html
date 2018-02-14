@@ -23,7 +23,7 @@
                    </thead>
     <tbody>
     
-    <tr *ngFor = "let chequier of demandeChequier | filter : searchText| async"  >
+    <tr *ngFor = "let chequier of demandeChequier | filter : searchText"  >
   <!--   <td><input type="checkbox" class="checkthis" /></td> -->
     <td>{{chequier.id}}</td>
     <td>{{chequier.dateDemande}}</td>

@@ -13,6 +13,7 @@
                    <th>Identifiant</th>
                    <th>Date de la demande</th>
                    <th>Date de l'affectation</th>
+                   <th>Status</th>
                    <th></th> 
                    </thead>
     <tbody>
@@ -20,8 +21,9 @@
     <tr *ngFor = "let demande of demandesClient"  >
   <!--   <td><input type="checkbox" class="checkthis" /></td> -->
     <td>{{demande.id}}</td>
-    <td>{{demande.dateDemande}}</td>
-    <td>{{demande.dateAffectation}}</td>
+    <td>{{demande.dateDemande | date:'medium'}}</td>
+    <td>{{demande.dateAffectation | date:'medium'}}</td>
+    <td>{{demande.status}}</td>
 
 <!--     <td>{{client.nom}}</td>
     <td>{{client.prenom}}</td>

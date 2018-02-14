@@ -1,32 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Client} from '../../liste-client/client';
 import {DemandeChequier} from '../../../modeles/demandes';
-import {demandeChequier} from '../../../modeles/demandes';
-import {DemandeService} from '../../../Service/demande.service';
-import { Injectable } from '@angular/core';
-import { of } from 'rxjs/observable/of';
-import { Observable } from 'rxjs/Observable';
+import {AgentService} from '../../../Service/agent.service';
+
 
 @Component({
   selector: 'app-chequier',
   templateUrl: './chequier.component.html',
-  styleUrls: ['../../../bootstrap/css/bootstrap.css'],
-  providers: [DemandeService]
+  styleUrls: ['../../../bootstrap/css/bootstrap.css']
 })
 
 export class ChequierComponent implements OnInit {
 
 	//private demandeService = new DemandeService();
 
-	demandeChequier: Observable<DemandeChequier[]> ;
+	demandesChequier: DemandeChequier[] ;
 
-  constructor(private demandeService :DemandeService) { }
+  constructor(private agentservice: AgentService) { }
 
   ngOnInit() {
-
-this.demandeChequier = this.demandeService.getDemandesChequier();
-
-
+  	this.getAllDemandeChequier();
   }
+
+getAllDemandeChequier(){
+	//Pour le moment attribut de l'id rentré en dur, passé par cookie par la suite
+	this.agentservice.getAllDemandesChequier(1).subscribe(
+		demChequier => {
+			this.demandesChequier = demChequier;
+		},
+      err => {
+        console.log(err);
+      }
+      );
+	}
 
 }

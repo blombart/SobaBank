@@ -4,7 +4,7 @@ import { AgentService} from '../../../Service/agent.service';
 @Component({
   selector: 'app-demande-client',
   templateUrl: './demande-client.component.html',
-  styleUrls: ['./demande-client.component.css']
+  styleUrls: ['../../../bootstrap/css/bootstrap.css']
 })
 export class DemandeClientComponent implements OnInit {
 
