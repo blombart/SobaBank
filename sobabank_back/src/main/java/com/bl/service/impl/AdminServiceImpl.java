@@ -48,6 +48,7 @@ public class AdminServiceImpl implements IAdminService {
 
 	@Override
 	public Boolean affecterDemande(Long idAgent, Long idDemOuv) {
+		Boolean b = false;
 		// TODO Auto-generated method stub
 		// On recupere l'agent et la demande a lier
 		Agent agent = agentDAO.getAgentById(idAgent);
@@ -60,13 +61,14 @@ public class AdminServiceImpl implements IAdminService {
 		dem.setAgent(agent);
 
 		// On ajoute la demande a l'agent
-		agent.getDemandesOuverture().add(dem);
+		agent.addDemandeOuvertureCompte(dem);
 
 		// On update agent et demande
 		agentDAO.updateAgent(agent);
 		demOuvDAO.updateDemande(dem);
+		b= true;
 		
-		return true;
+		return b;
 	}
 
 	@Override

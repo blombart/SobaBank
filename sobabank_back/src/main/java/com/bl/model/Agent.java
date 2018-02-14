@@ -69,5 +69,9 @@ public class Agent extends User {
 	public void setDemandesOuverture(List<DemandeOuvertureCompte> demandesOuverture) {
 		this.demandesOuverture = demandesOuverture;
 	}
+	
+	public void addDemandeOuvertureCompte(DemandeOuvertureCompte dem){
+		this.demandesOuverture.add(dem);
+	}
 
 }

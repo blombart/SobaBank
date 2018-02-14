@@ -18,6 +18,7 @@ import com.bl.model.Demande;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
+import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAgentService;
 
 @Component
@@ -131,6 +132,14 @@ public class AgentServiceImpl implements IAgentService {
 		compteDAO.addCompte(cp);
 		
 		return nouveauCompte;
+	}
+
+	@Override
+	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(
+			Long idAgent) {
+		Agent ag = agentDAO.getAgentById(idAgent);
+		List<DemandeOuvertureCompte> dems = ag.getDemandesOuverture();
+		return dems;
 	}
 
 	

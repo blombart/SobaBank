@@ -7,6 +7,7 @@ import com.bl.model.Client;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
+import com.bl.model.DemandeOuvertureCompte;
 
 public interface IAgentService {
 
@@ -27,4 +28,6 @@ public interface IAgentService {
 	public DemandeModifMdp updateDemandeModifMdp(DemandeModifMdp dem);
 	
 	public DemandeNouveauCompte updateDemandeNouveauCompte(DemandeNouveauCompte dem);
+	
+	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(Long idAgent);
  }

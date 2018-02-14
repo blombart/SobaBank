@@ -1,6 +1,7 @@
 package com.bl.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,11 +14,11 @@ import com.bl.model.DemandeOuvertureCompte;
 public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {
 	static HashMap<Long, DemandeOuvertureCompte> demOuvMap = new HashMap<Long, DemandeOuvertureCompte>();
 	
-//	public DemandeOuvertureDAOImpl() {
-//		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
-//		dem.setId(0L);
-//		demOuvMap.put(0L, dem);
-//	}
+	public DemandeOuvertureDAOImpl() {
+		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+		dem.setId(1L); dem.setDateDemande(new Date());dem.setIsAffected(false);
+		demOuvMap.put(dem.getId(), dem);
+	}
 	
 	@Override
 	public List<DemandeOuvertureCompte> getAllDemande() {
@@ -36,7 +37,8 @@ public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {
 	public DemandeOuvertureCompte updateDemande(DemandeOuvertureCompte dem) {
 		Long id = dem.getId();
 		demOuvMap.put(id, dem);
-		return demOuvMap.get(id);
+		DemandeOuvertureCompte _dem = demOuvMap.get(id);
+		return _dem;
 	}
 
 	@Override
