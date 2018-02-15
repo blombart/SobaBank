@@ -1,25 +1,24 @@
-/*import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../modeles/demandeOuvertureCompte';
-import {demandesOuverture} from '../modeles/demandeOuvertureCompte';
 import {Demande} from '../modeles/demandes';
 
 import {DemandeModificationMdp} from '../modeles/demandes';
 import {Compte} from '../modeles/compte';
-import {comptes} from '../modeles/compte';
+
 import {DemandeChequier} from '../modeles/demandes';
 
 
 @Injectable()
 export class DemandeService {
 
-
+/*demandeChequier = demandeChequier;
 demandesOuverture = demandesOuverture;
-
+demandeModificationMdp= demandeModificationMdp*/
 
   constructor() { }
-
+/*
 
 
   getDemandeChequier(id) {
@@ -38,7 +37,7 @@ demandesOuverture = demandesOuverture;
 
  
 
-	getDemandeOuverture(id) {
+  getDemandeOuverture(id) {
     for(let dem of demandesOuverture){
       if(dem.id ===id){
         return dem;
@@ -47,9 +46,12 @@ demandesOuverture = demandesOuverture;
   }
 
 
+
+
+
   getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
-  		return of(demandesOuverture);
-  	}
+      return of(demandesOuverture);
+    }
 
 
   addDemandeOuverture(dem: DemandeOuvertureCompte){
@@ -68,8 +70,7 @@ demandesOuverture = demandesOuverture;
   this.demandeChequier.push(demande);
 
 }  
-
+*/
 
   }
 
-*/
