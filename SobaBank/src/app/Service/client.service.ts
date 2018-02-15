@@ -19,6 +19,12 @@ export class ClientService {
 
 constructor(private http: Http) { }
 
+findAllComptes(idClient: number):Observable<Compte[]>{
+  return this.http.get(this.apiUrl + "clients/" + idClient + "/allComptes")
+    .map((res: Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+}
+
 //On recupere l'ensemble des comptes pour un client
 getAllComptes(idClient: number):Observable<Compte[]>{
   return this.http.get(this.apiUrl + "clients/" + idClient + "/comptes")
