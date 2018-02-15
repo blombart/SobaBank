@@ -107,7 +107,7 @@ public class Compte {
 		//Si le compte a un decouvert
 		if(decouvertAutorise !=0){
 			//on debite seulement si le solde ne depasse pas le decouvert
-			if((this.solde - montant) > decouvertAutorise){
+			if((this.solde - montant) > -decouvertAutorise){
 				this.solde -= montant ;
 			}
 		}else{
