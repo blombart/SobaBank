@@ -46,8 +46,8 @@
 
 		<div class="form-group warn">
 			<label for="clients">Liste des clients</label>
-			<select class="form-control">
-				<option *ngFor="let cli of clients" [value]="cli">{{cli}}
+			<select *ngIf="afficheClient"class="form-control">
+				<option *ngFor="let cli of clients" [value]="cli">{{cli.nom}}
 				</option>
 			</select>
 		</div>

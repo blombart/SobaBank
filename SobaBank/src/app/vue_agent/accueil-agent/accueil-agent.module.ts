@@ -13,6 +13,7 @@ import { DetailsDemandesComponent } from '../../vue_agent/details-demandes/detai
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
 import { AgentService} from '../../Service/agent.service';
+
 import { DemandeClientComponent } from '../../vue_agent/liste-demandes/demande-client/demande-client.component';
 
 
