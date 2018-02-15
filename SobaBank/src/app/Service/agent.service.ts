@@ -89,6 +89,12 @@ return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/demandeOuver
   /*.catch((error:any) => Observable.throw(error.json().error || 'Server error'))*/;
 }
 
+ validDemande(id:number): Observable<DemandeOuvertureCompte>{
+   return this.http.post(this.apiUrl + "demandes/" + id +"/valid",null)
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 //ANCIENNE VERSION EN DUR
 agents = agents;
 
