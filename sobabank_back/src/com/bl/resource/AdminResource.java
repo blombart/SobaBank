@@ -11,24 +11,28 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAdminService;
-import com.bl.service.impl.AdminServiceImpl;
+
 
 @Path("")
 public class AdminResource {
 
-	IAdminService adminService = new AdminServiceImpl();
+	@Autowired
+	IAdminService adminService;
 	
 	@GET
 	@Path("/agents")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Agent> getAllAgents(){
+		System.out.println("methode getAllagent");
 		List<Agent> agents = adminService.getAllAgent();
+		System.out.println("resultat = " + agents.size());
 		return agents;
 	}
 	
@@ -60,17 +64,18 @@ public class AdminResource {
 	
 	@DELETE
 	@Path("/agents/{id}")
-	public Boolean deleteAgent(@PathParam("id") Long id) {
-		Boolean b = adminService.deleteAgent(id);
-		return b;
+	@Produces(MediaType.APPLICATION_JSON)
+	public Agent deleteAgent(@PathParam("id") Long id) {
+		Agent ag = adminService.deleteAgent(id);
+		return ag;
 	}
 	
 	@POST
 	@Path("/affecte")
 	public Boolean affecterDemande(@FormParam("idAgent")Long idAgent, @FormParam("idDemande")Long idDemOuv){
-		System.out.println(idAgent+ idDemOuv);
+		System.out.println("affecte methode. Idagent : " + idAgent +" iddemouv: " + idDemOuv);
 		Boolean response = adminService.affecterDemande(idAgent, idDemOuv);
-		return true;
+		return response;
 	}
 	
 	@POST
@@ -87,6 +92,15 @@ public class AdminResource {
 	public List<DemandeOuvertureCompte> getAllDemandesOuverture(){
 		List<DemandeOuvertureCompte> demandes = adminService.getAllDemandeOuvertureCompte();
 		return demandes;
+	}
+	
+	//Utiliser par la partie public
+	@POST
+	@Path("/demandes/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public DemandeOuvertureCompte createDemande(@PathParam("id") Long idClient){
+		DemandeOuvertureCompte dem = adminService.createDemande(idClient);
+		return dem;
 	}
 	
 	
