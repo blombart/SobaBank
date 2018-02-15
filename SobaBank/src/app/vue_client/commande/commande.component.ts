@@ -6,11 +6,16 @@ import {ClientService} from '../../Service/client.service';
 import { Client} from '../../modeles/client';
 
 
+
+
 @Component({
   selector: 'app-commande',
   templateUrl: './commande.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
+
     providers: [ClientService]
+
+
 })
 export class CommandeComponent implements OnInit {
 
@@ -51,6 +56,7 @@ selectCompte(compte: Compte){
       console.log(err);
         });
   }
+
 
 
 }

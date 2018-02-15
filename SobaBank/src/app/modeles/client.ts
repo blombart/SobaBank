@@ -24,9 +24,7 @@ export class Client extends User{
 	situationMatrimonial:string,
 	agent: Agent,
 	comptes: Compte[],
-
 	public demandes: Demande[],
-
 	files: File[],
 	isClient: boolean
 	)
@@ -56,6 +54,7 @@ export const clients: Client[]= [
 	[],
 	[],
 	[],
+
 	true
 	),
 
