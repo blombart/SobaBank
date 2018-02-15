@@ -4,6 +4,7 @@ import { DemandeService} from '../../Service/demande.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserService} from '../../Service/user.service'
 
 @Component({
   selector: 'app-forminscrition',
@@ -34,7 +35,7 @@ export class ForminscritionComponent implements OnInit {
 
   onSubmit(){
     //On cree un nouvel utilisateur
-   this.utilisateur = new User(5,
+      this.utilisateur = new User(5,
      this.userForm.controls['nom'].value,
      this.userForm.controls['prenom'].value,
      this.userForm.controls['mail'].value,
@@ -54,6 +55,11 @@ export class ForminscritionComponent implements OnInit {
      )
    this.demandeService.addDemandeOuverture(this.demande);
    console.log("demande enregistré");
+  }
+
+
+  createNewUser(){
+    //TODO coder la methode de création du nouveau user
   }
   
 

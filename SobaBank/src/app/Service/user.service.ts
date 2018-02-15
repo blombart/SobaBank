@@ -70,6 +70,9 @@ affecterDemande(idAgent, idDemande): Observable<boolean> {
     
   }
 
+   createNewUser(){
+     //TODO coder la crétion du nouveau user
+   }
 
 
 addUser(user: User){
