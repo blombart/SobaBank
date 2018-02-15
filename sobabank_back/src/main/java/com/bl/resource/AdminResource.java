@@ -94,6 +94,8 @@ public class AdminResource {
 		return demandes;
 	}
 	
+
+	
 	//Utiliser par la partie public
 	@POST
 	@Path("/demandes/{id}")
