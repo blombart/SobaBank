@@ -31,7 +31,33 @@ export class DemandeModificationMdp extends Demande{
 		public estValide: boolean){
 		super(id,dateDemande,libelle,status,estValide)
 	}
+
 }
+
+	export const demandeModificationMdp: DemandeModificationMdp[] = [
+	new DemandeModificationMdp(1,new Date(),
+		"demande chequier",
+		"false",
+		true
+		)
+
+]
+
+export const demandeChequier: DemandeChequier[] = [
+
+	new DemandeChequier(1,new Date(),"demande chequier",
+		"false",
+		true
+		),
+
+	new DemandeChequier(2,new Date(),"demande chequier",
+		"false",
+		true
+		)
+
+	
+]
+
 
 export class DemandeNouveauCompte extends Demande{
 	constructor(public id: number,
@@ -42,7 +68,5 @@ export class DemandeNouveauCompte extends Demande{
 		public newCompte : Compte){
 		super(id,dateDemande,libelle,status,estValide)
 	}
+
 }
-
-
-
