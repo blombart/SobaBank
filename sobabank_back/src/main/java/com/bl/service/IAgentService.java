@@ -30,4 +30,6 @@ public interface IAgentService {
 	public DemandeNouveauCompte updateDemandeNouveauCompte(DemandeNouveauCompte dem);
 	
 	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(Long idAgent);
+	
+	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem);
  }
