@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-/*import {DemandeService} from '../../Service/demande.service';*/
 import {Compte} from '../../modeles/compte';
 import {Demande} from '../../modeles/demandes';
-import { Observable } from 'rxjs/Observable';
 import {DemandeChequier} from '../../modeles/demandes';
-/*import {demandeChequier} from '../../modeles/demandes';*/
-import {CompteService} from '../../Service/compte.service';
-
 import {ClientService} from '../../Service/client.service';
 import { Client} from '../../modeles/client';
 
@@ -18,32 +13,50 @@ import { Client} from '../../modeles/client';
   templateUrl: './commande.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
 
-    providers: [/*DemandeService*/,CompteService]
+    providers: [ClientService]
+
+
 })
 export class CommandeComponent implements OnInit {
 
 
 
-	
-  constructor(private clientService: ClientService, private compteService:CompteService) {
+  comptes: Compte[];
+  compteSelectione: Compte;
+
+  constructor(private clientService: ClientService) {
    }
-//private demandeService: DemandeService
+
  ngOnInit() {
-  	
+this.findAllComptes();
   }
 
-  
-
-/*onSubmit(id: number){
-  
-	this.demandes= this.demandeService.getDemandeModificationMdp();
-  console.log(this.demandes);
-  }*/
-
-  onClick(id: number){
+findAllComptes(){
+  this.clientService.findAllComptes(1).subscribe(
+    cptes => {
+      this.comptes=cptes;
+    },
+    err => {
+      console.log(err);
+    }
+);
 }
 
+selectCompte(compte: Compte){
+  this.compteSelectione = compte;
+}
 
+  onClick(){
 
+     this.clientService.createDemandeChequier(1).subscribe(
+        reponse => {
+          console.log("demande de chequier transmise");
+        },
+        err => {
+      console.log(err);
+        });
   }
 
+
+
+}

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../modeles/user';
 import { Observable} from 'rxjs/Observable';
-import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -13,7 +12,7 @@ export class ForminscritionComponent implements OnInit {
 
   utilisateur: User;
   userForm: FormGroup;
-  demande: DemandeOuvertureCompte;
+  
 
   constructor(private _fb: FormBuilder) {
    }
@@ -39,6 +38,8 @@ export class ForminscritionComponent implements OnInit {
      this.userForm.controls['mail'].value,
      this.userForm.controls['numTel'].value,""
      )
+
+
 
   }
   
