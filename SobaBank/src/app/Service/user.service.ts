@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import {User} from '../modeles/user';
 import {Users} from '../modeles/user';
 
-import { Http, Response } from "@angular/http";
+import { Http, Response, URLSearchParams } from "@angular/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -48,6 +48,27 @@ getUserByName(name: string): Observable<User>{
       .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
      }
+
+  authenticateUser(nom, pwd): Observable<User>{
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('username', nom);
+    urlSearchParams.append('pwd', pwd);
+    return this.http.post(this.apiUrl + "users/auth", urlSearchParams)
+    .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+
+affecterDemande(idAgent, idDemande): Observable<boolean> {
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('idAgent', idAgent);
+    urlSearchParams.append('idDemande', idDemande);
+    console.log("methode affectation");
+    return this.http.post(this.apiUrl + "affecte", urlSearchParams)
+    .map((res: Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    
+  }
 
 
 

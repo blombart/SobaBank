@@ -23,6 +23,8 @@ import { ListeClientComponent } from './vue_agent/liste-client/liste-client.comp
 import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-demandes.component';
 import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-demandes.component';
+
+import {UserService} from './Service/user.service';
 import {SharedService}  from './Service/shared-service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +50,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [SharedService],
+  providers: [SharedService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

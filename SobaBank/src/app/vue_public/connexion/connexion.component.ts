@@ -14,10 +14,10 @@ import {User} from '../../modeles/user';
 export class ConnexionComponent implements OnInit {
 
 
-   http: Http;
+   //http: Http;
    
 
-   user: User;
+  user: User;
 
    nom: string;
    mdp: string;
@@ -28,23 +28,42 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit() {
 
+    this.user = new User(1,"Hadjaz","Abder","abder@mail.fr","1234","guest");
+
   }
 
 
   onClick(){
-        this.userService.getUserByName(this.nom).subscribe(
+
+
+
+       /* this.userService.getUserByName(this.nom).subscribe(
           user => {this.user = user; 
                    console.log(user)
            this.role = user.role;
 
            this._sharedService.emitChange(this.role);
 
-                    });
+                    });*/
+this.user.nom = this.nom;
+this.user.mdp = this.mdp;
+
+this.userService.authenticateUser(this.nom, this.mdp).subscribe(
+          user => {this.user = user; 
+                   console.log(user);
+           this.role = user.role;
+
+           this._sharedService.emitChange(this.role);
 
 
 
-
+});
+console.log(this.user);
 }
 
 }
+
+
+
+
 
