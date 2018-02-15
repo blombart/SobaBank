@@ -9,7 +9,7 @@ import {FormAgentsComponent} from '../../vue_admin/form-agents/form-agents.compo
 import {DemandeComponent} from '../../vue_admin/demande/demande.component';
 import {NavbarAdminComponent} from '../../vue_admin/navbar-admin/navbar-admin.component';
 import {AgentService} from '../../Service/agent.service';
-import {DemandeService} from '../../Service/demande.service';
+
 import { GestionAgentsComponent } from '../../vue_admin/gestion-agents/gestion-agents.component';
 import {AffectationAgentComponent} from '../affectation-agent/affectation-agent.component';
 import {AdminService} from '../../Service/admin.service';
@@ -27,7 +27,7 @@ import {AdminService} from '../../Service/admin.service';
   GestionAgentsComponent,
   AffectationAgentComponent],
 
-  providers: [AgentService, DemandeService,AdminService]
+  providers: [AgentService,AdminService]
 
 })
 export class AdminModule { }

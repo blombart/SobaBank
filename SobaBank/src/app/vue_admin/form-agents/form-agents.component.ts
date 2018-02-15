@@ -62,10 +62,10 @@ export class FormAgentsComponent implements OnInit {
     this.adminService.findById(this.id).subscribe(
       agent => {
         this.a1 = agent;
-             this.demandes = this.a1.demandes;
-/*      if(this.demandes.length !=0){
+             this.demandes = this.a1.demandesOuverture;
+      if(this.demandes.length !=0){
         this.afficherDemande();
-      }*/
+      }
     this.agentForm.patchValue({
         nom: this.a1.nom,
       prenom: this.a1.prenom,
@@ -74,8 +74,11 @@ export class FormAgentsComponent implements OnInit {
       matricule: this.a1.matricule,
       numTel: this.a1.numTel 
       });
+      },
+      err => {
+        console.log(err);
       }
-    );
+      );
     }
   }
 
@@ -87,7 +90,7 @@ export class FormAgentsComponent implements OnInit {
       if(this.newAgent()){
       
       //on cree le nouvel agent qu'on ajoute dans le tableau et on retourne sur la page d'accueil
-     this.nouvelAgent = new Agent(5,
+     this.nouvelAgent = new Agent(0,
        this.agentForm.controls['nom'].value,
         this.agentForm.controls['prenom'].value,
         this.agentForm.controls['email'].value,
@@ -100,7 +103,11 @@ export class FormAgentsComponent implements OnInit {
        ,[]);
      this.adminService.saveAgent(this.nouvelAgent).subscribe(
        res => {console.log("agent ajouter");this.router.navigate(["./admin"]);}
-       );
+       ,
+      err => {
+        console.log(err);
+      }
+      );
 
    } 
    // si c'est en edition on part dans cette condition
@@ -113,7 +120,11 @@ export class FormAgentsComponent implements OnInit {
   this.a1.numTel=this.agentForm.controls['numTel'].value;
   this.adminService.updateAgent(this.a1).subscribe(
     res => {console.log("agent editer");this.router.navigate(["./admin"]);}
-    )
+     ,
+      err => {
+        console.log(err);
+      }
+      );
    }
 
    }

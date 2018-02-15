@@ -37,7 +37,7 @@ demandeModificationMdp= demandeModificationMdp*/
 
  
 
-	getDemandeOuverture(id) {
+  getDemandeOuverture(id) {
     for(let dem of demandesOuverture){
       if(dem.id ===id){
         return dem;
@@ -50,8 +50,8 @@ demandeModificationMdp= demandeModificationMdp*/
 
 
   getDemandesOuverture(): Observable<DemandeOuvertureCompte[]>{
-  		return of(demandesOuverture);
-  	}
+      return of(demandesOuverture);
+    }
 
 
   addDemandeOuverture(dem: DemandeOuvertureCompte){

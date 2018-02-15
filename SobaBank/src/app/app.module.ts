@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { FinanceComponent } from './vue_public/finance/finance.component';
 import { NavbarComponent } from './vue_public/navbar/navbar.component';
 import { ForminscritionComponent } from './vue_public/forminscrition/forminscrition.component';
-
+import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { provideRoutes} from '@angular/router';
 
 //import des modules des diffentes vue qui contiennent l'import de tous les composant necessaire
@@ -23,7 +23,7 @@ import { ListeClientComponent } from './vue_agent/liste-client/liste-client.comp
 import { FilterPipe} from './vue_agent/liste-client/filter-pipe';
 import { NavbarDemandesComponent } from './vue_agent/navbar-demandes/navbar-demandes.component';
 import { DetailsDemandesComponent } from './vue_agent/details-demandes/details-demandes.component';
-import {SharedService}  from './service/shared-service';
+import {SharedService}  from './Service/shared-service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -39,7 +39,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     NavbarComponent,
     ForminscritionComponent,
     ConnexionComponent,
-    DeconnexionComponent
+    DeconnexionComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +48,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [SharedService],
+  providers: [SharedService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -129,7 +129,7 @@ getAgent(idClient):Observable<Agent>{
 //ANCIENNE VERSION EN DUR
 clients = clients;
 
-	getClient(id) {
+  getClient(id) {
     for(let client of clients){
       if(client.id ===id){
         return client;
@@ -138,12 +138,12 @@ clients = clients;
   }
 
   getClients(): Observable<Client[]>{
-  		return of(clients);
-  	}
+      return of(clients);
+    }
 
   addClient(client: Client){
-  		this.clients.push(client);
-  	}
+      this.clients.push(client);
+    }
 
 
   supprimerClient(client: Client){
