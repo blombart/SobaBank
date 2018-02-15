@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MainClientRoutingModule } from './main-client-routing.module';
 import {VirementComponent } from '../../vue_client/virement/virement.component';
 import {CommandeComponent } from '../../vue_client/commande/commande.component';
@@ -19,7 +19,8 @@ import { ClientNotificationsComponent } from '../../vue_client/client-notificati
 @NgModule({
   imports: [
     CommonModule,
-    MainClientRoutingModule
+    MainClientRoutingModule,
+    FormsModule,ReactiveFormsModule 
   ],
   declarations: [NavcliComponent,
   MainClientComponent,
