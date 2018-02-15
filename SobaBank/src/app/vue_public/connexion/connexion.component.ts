@@ -28,7 +28,7 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit() {
 
-    this.user = new User(1,"Hadjaz","Abder","abder@mail.fr","1234","guest");
+    //this.user = new User(1,"Hadjaz","Abder","abder@mail.fr","1234","guest");
 
   }
 
