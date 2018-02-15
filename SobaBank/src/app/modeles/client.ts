@@ -2,12 +2,11 @@ import {User} from './user';
 import {Agent} from './agent';
 import {Demande} from './demandes'
 import {Compte} from './compte';
-import {agents} from './agent';
-import {comptes} from './compte';
+
 import {CompteEpargne} from './compte';
-import {epargnes} from './compte';
+
 import {Notification} from './notification';
-import {notifications} from './notification';
+
 
 export class Client extends User{
 
