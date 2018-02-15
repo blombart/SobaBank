@@ -8,6 +8,7 @@ import {Client} from '../modeles/client';
 import {clients} from '../modeles/client';
 import {Agent} from '../modeles/agent';
 import {Compte} from '../modeles/compte';
+import {CompteEpargne} from '../modeles/compte';
 import {Operation} from '../modeles/operation';
 import {DemandeChequier,DemandeModificationMdp,DemandeNouveauCompte} from '../modeles/demandes'
 
@@ -19,11 +20,14 @@ export class ClientService {
 
 constructor(private http: Http) { }
 
+
+
 findAllComptes(idClient: number):Observable<Compte[]>{
   return this.http.get(this.apiUrl + "clients/" + idClient + "/allComptes")
     .map((res: Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
+
 
 //On recupere l'ensemble des comptes pour un client
 getAllComptes(idClient: number):Observable<Compte[]>{
@@ -35,6 +39,13 @@ getAllComptes(idClient: number):Observable<Compte[]>{
 //On recupere un compte
 getCompte(idCompte: number):Observable<Compte>{
   return this.http.get(this.apiUrl + "comptes/" + idCompte)
+    .map((res: Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+}
+
+//On recupere un compte epargne
+getAllComptesEpargne(idClient: number):Observable<CompteEpargne[]>{
+  return this.http.get(this.apiUrl + "clients/" + idClient + "/comptesEpargne")
     .map((res: Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
@@ -57,6 +68,13 @@ getAllOperationsFiltered(idCompte: number, mois):Observable<Operation[]>{
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
 
+/* getNotifications(idClient: number) :Observable<Operation[]>{
+  return this.http.get(this.apiUrl + "comptes/" + idCompte + "/operations")
+    .map((res: Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+}*/
+
+
 //On creer une demande de mot de passe pour le client
 //TODO pas sure au niveau du null pour le post 
 createDemandeMdp(idClient: number):Observable<DemandeModificationMdp>{
@@ -74,8 +92,8 @@ createDemandeChequier(idClient: number):Observable<DemandeChequier>{
 }
 
 //on cree une demande de nouveau compte pour le client et on lui passe le compte en parametre
-createDemandeNouveauCompte(idClient: number, compte: Compte):Observable<DemandeModificationMdp>{
-  return this.http.post(this.apiUrl + "clients/" + idClient + "/demandes/mdp", compte)
+createDemandeNouveauCompte(idClient: number, compte: Compte):Observable<DemandeNouveauCompte>{
+  return this.http.post(this.apiUrl + "clients/" + idClient + "/demandes/nouveauCompte", compte)
      .map((res: Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
@@ -83,7 +101,7 @@ createDemandeNouveauCompte(idClient: number, compte: Compte):Observable<DemandeM
 virementInterne(idCompteDebit, idCompteCredit, montant,libelle):Observable<Boolean>{
    let urlSearchParams = new URLSearchParams();
   urlSearchParams.append("idCompteDebit", idCompteDebit);
-  urlSearchParams.append("idCompteCrebit", idCompteCredit);
+  urlSearchParams.append("idCompteCredit", idCompteCredit);
   urlSearchParams.append("montant", montant);
   urlSearchParams.append("libelle", libelle);
   return this.http.post(this.apiUrl + "virement/interne",urlSearchParams)
@@ -111,7 +129,7 @@ getAgent(idClient):Observable<Agent>{
 //ANCIENNE VERSION EN DUR
 clients = clients;
 
-	getClient(id) {
+  getClient(id) {
     for(let client of clients){
       if(client.id ===id){
         return client;
@@ -120,12 +138,12 @@ clients = clients;
   }
 
   getClients(): Observable<Client[]>{
-  		return of(clients);
-  	}
+      return of(clients);
+    }
 
   addClient(client: Client){
-  		this.clients.push(client);
-  	}
+      this.clients.push(client);
+    }
 
 
   supprimerClient(client: Client){
