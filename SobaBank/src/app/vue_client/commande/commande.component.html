@@ -3,15 +3,12 @@
       
 
    <form class="form-inline">
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Numero de compte</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
-    <option value="1">Compte Courant</option>
-    <option value="2">Compte Epargne</option>
-    
+  <label class="my-1 mr-2" for="inlineFormCustomSelectPref" >Numero de compte</label>
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" [ngModel]="comptes" (ngModelChange)="selectCompte($event)" [ngModelOptions]="{standalone: true}">
+	<option *ngFor="let cpt of comptes" [ngValue]="cpt">
+		{{cpt.numCompte}}
+	</option>
   </select>
-
- 
 </form>
 
 
@@ -19,10 +16,9 @@
 </div>
 	<div class="col-md-4">
 			
-				<div *ngIf="(selectCompte)" class="card card-plain">
+				<div class="card card-plain">
 				
-
-				 <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick(12)">Confirmer</button>  
+				 <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick()">Confirmer</button>  
 
 				
 			</div>
