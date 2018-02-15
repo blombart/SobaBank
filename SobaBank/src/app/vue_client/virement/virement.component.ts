@@ -6,11 +6,13 @@ import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-virement',
   templateUrl: './virement.component.html',
- styleUrls: ['../../bootstrap/css/bootstrap.css']
+ styleUrls: ['../../bootstrap/css/bootstrap.css'],
+  providers: [ClientService]
 })
 export class VirementComponent implements OnInit {
 
-	comptes: Compte[];
+	comptesCrediter: Compte[];
+	comptesDebiter: Compte[];
 	montant: number;
 	libelle: string;
   compteDebitSelected: Compte;
@@ -35,7 +37,7 @@ export class VirementComponent implements OnInit {
 getAllComptes(){
 	this.clientService.findAllComptes(1).subscribe(
     comptes =>{
-      this.comptes = comptes;
+      this.comptesCrediter = comptes; this.comptesDebiter = comptes;
     },
       err => {
         console.log(err);
@@ -43,10 +45,12 @@ getAllComptes(){
 }
 
 selectCompteDebite(_compteDebitSelected : Compte): void{
+	console.log("id compte debit dans selectCOmptedebit :" + _compteDebitSelected.id);
   this.compteDebitSelected = _compteDebitSelected;
 }
 
 selectCompteCredite(_compteCreditSelected : Compte): void{
+	console.log("id compte crebit dans selectCOmpteCredit :" + _compteCreditSelected.id);
   this.compteCreditSelected = _compteCreditSelected;
 }
 
@@ -56,6 +60,7 @@ selectCompteCredite(_compteCreditSelected : Compte): void{
      this.libelle = this.virementForm.controls['libelle'].value;
      let idDebit: number = this.compteDebitSelected.id;
      let idCredit: number = this.compteCreditSelected.id;
+     console.log("dans onsubmit iddebit: " + idDebit + " idcredit: " + idCredit);
 
      this.clientService.virementInterne(idDebit, idCredit, this.montant,this.libelle).subscribe(
       bool => {
