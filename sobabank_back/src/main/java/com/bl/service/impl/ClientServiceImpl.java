@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 import com.bl.dao.IClientDAO;
 import com.bl.dao.ICompteDAO;
 import com.bl.dao.IDemandeDAO;
-
 import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.Compte;
+import com.bl.model.CompteEpargne;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
@@ -36,13 +36,42 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public List<Compte> getComptesByIdClient(Long idClient) {
-		//on recupere le client
+	public List<Compte> findAllComptes(Long idClient) {
 		Client cl = clientDAO.GetClientById(idClient);
 		
 		//On ajoute les comptes du client dans une liste
 		List<Compte> comptes = cl.getComptes();
 		return comptes;
+	}
+	
+	@Override
+	public List<Compte> getComptesByIdClient(Long idClient) {
+		//on recupere le client
+		Client cl = clientDAO.GetClientById(idClient);
+		
+		//On ajoute les comptes du client dans une liste
+		List<Compte> comptes = new ArrayList<Compte>();
+		for(Compte c : cl.getComptes()){
+			if (!(c instanceof CompteEpargne)){
+				comptes.add(c);
+			}
+		}
+		return comptes;
+	}
+	
+	@Override
+	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient) {
+		//on recupere le client
+				Client cl = clientDAO.GetClientById(idClient);
+				
+				//On ajoute les comptes du client dans une liste
+				List<CompteEpargne> comptesEpargne = new ArrayList<CompteEpargne>();
+				for(Compte c : cl.getComptes()){
+					if (c instanceof CompteEpargne){
+						comptesEpargne.add((CompteEpargne)c);
+					}
+				}
+				return comptesEpargne;
 	}
 
 	@Override
@@ -176,6 +205,10 @@ public class ClientServiceImpl implements IClientService {
 		
 		return ag;
 	}
+
+
+
+
 	
 	
 	

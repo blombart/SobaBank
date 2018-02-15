@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bl.model.Agent;
 import com.bl.model.Compte;
+import com.bl.model.CompteEpargne;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
@@ -107,6 +108,22 @@ public class ClientResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Compte> getAllComptes(@PathParam("id") Long idClient){
 		List<Compte> comptes = clientService.getComptesByIdClient(idClient);
+		return comptes;
+	}
+	
+	@GET
+	@Path("/clients/{id}/comptesEpargne")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<CompteEpargne> getAllComptesEpargne(@PathParam("id") Long idClient){
+		List<CompteEpargne> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
+		return comptesEpargne;
+	}
+	
+	@GET
+	@Path("/clients/{id}/allComptes")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Compte> findAllComptes(@PathParam("id") Long idClient){
+		List<Compte> comptes = clientService.findAllComptes(idClient);
 		return comptes;
 	}
 	

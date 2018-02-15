@@ -5,6 +5,7 @@ import java.util.List;
 import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.Compte;
+import com.bl.model.CompteEpargne;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
@@ -32,4 +33,8 @@ public interface IClientService {
 	public Boolean virement(Long idCompteDebit, String rib, float montant, String libelle);
 	
 	public Agent getAgentForClient(Long idClient);
+
+	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient);
+
+	public List<Compte> findAllComptes(Long idClient);
 }
