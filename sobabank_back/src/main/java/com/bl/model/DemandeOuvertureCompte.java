@@ -76,8 +76,8 @@ public class DemandeOuvertureCompte {
 		return idAgent;
 	}
 
-	public void setAgent(Long agent) {
-		this.idAgent = agent;
+	public void setIdAgent(Long idAgent) {
+		this.idAgent = idAgent;
 	}
 	
 	
