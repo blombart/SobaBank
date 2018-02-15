@@ -16,7 +16,7 @@ import { Client} from '../../modeles/client';
 export class ComptesComponent implements OnInit {
 
 
-	 idCompteSelectionne: number;
+   idCompteSelectionne: number;
 
     comptes: Compte[];
     operations:Operation[];
