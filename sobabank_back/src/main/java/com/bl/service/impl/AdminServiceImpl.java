@@ -58,7 +58,7 @@ public class AdminServiceImpl implements IAdminService {
 		dem.setDateAffectation(new Date());
 		dem.setIsAffected(true);
 		dem.setStatus("NON TRAITEE");
-		dem.setAgent(agent);
+		dem.setAgent(agent.getId());
 
 		// On ajoute la demande a l'agent
 		agent.addDemandeOuvertureCompte(dem);
@@ -102,7 +102,7 @@ public class AdminServiceImpl implements IAdminService {
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
 		Client client = clientDAO.GetClientById(dem.getClient().getId());
 		
-		dem.setAgent(newAgent);
+		dem.setAgent(newAgent.getId());
 
 		//on ajoute la nouvelle demande a l'agent et le client en meme temps
 		newAgent.getDemandesOuverture().add(dem);

@@ -11,7 +11,7 @@ public class DemandeOuvertureCompte {
 	private Boolean isValid;
 	private Date dateAffectation;
 	private Client client;
-	private Agent agent;
+	private Long idAgent;
 	
 	public DemandeOuvertureCompte() {
 	}
@@ -72,12 +72,12 @@ public class DemandeOuvertureCompte {
 		this.client = client;
 	}
 
-	public Agent getAgent() {
-		return agent;
+	public Long getIdAgent() {
+		return idAgent;
 	}
 
-	public void setAgent(Agent agent) {
-		this.agent = agent;
+	public void setAgent(Long agent) {
+		this.idAgent = agent;
 	}
 	
 	

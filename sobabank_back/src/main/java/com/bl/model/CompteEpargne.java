@@ -1,5 +1,8 @@
 package com.bl.model;
 
+import java.util.Date;
+import java.util.List;
+
 
 
 public class CompteEpargne extends Compte {
@@ -12,6 +15,13 @@ public class CompteEpargne extends Compte {
 		this.tauxInteret = 2f;
 	}
 
+	public CompteEpargne(Long id, int numCompte, Date dateCreation,
+			float solde, String rib, float decouvertAutorise, float tauxAgios,
+			List<Operation> operations) {
+		super(id, numCompte, dateCreation, solde, rib, decouvertAutorise, tauxAgios,
+				operations);
+		// TODO Auto-generated constructor stub
+	}
 
 	public float getTauxInteret() {
 		return tauxInteret;

@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,10 +9,21 @@ import org.springframework.stereotype.Component;
 
 import com.bl.dao.IClientDAO;
 import com.bl.model.Client;
+import com.bl.model.Compte;
+import com.bl.model.Demande;
 
 @Component
 public class ClientDAOImpl implements IClientDAO{
 	static HashMap<Long, Client> clientsMap = new HashMap<Long, Client>();
+	
+	public ClientDAOImpl(){
+		Client c1 = new Client("Lille","0321546598",3,"marié",null,null,null,null,true);
+		c1.setId(1); c1.setNom("STA"); c1.setPrenom("Omar"); c1.setMdp("1234"); c1.setRole("client");
+		c1.setComptes(new ArrayList<Compte>()); c1.setDemandes(new ArrayList<Demande>()); c1.setFiles(new ArrayList<File>());
+		
+		createClient(c1);
+		
+	}
 	
 	@Override
 	public List<Client> getAllClients() {
