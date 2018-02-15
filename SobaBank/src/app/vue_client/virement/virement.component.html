@@ -1,11 +1,10 @@
-<div class="wrapper">
-    <form class="form-signin">       
+<div class="wrapper">     
       <h3 class="form-signin-heading">Espace virement</h3> 
 
 <form class="form-inline"><div class="form-group">
     <label for="inputPassword6">Compte à débiter</label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [ngModel]="comptes" (ngModelChange)="selectCompteDebite($event)" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let cpd of comptes" [ngValue]="cpd">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [ngModel]="ComptesDebiter" (ngModelChange)="selectCompteDebite($event)" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let cpd of comptesDebiter" [ngValue]="cpd">
           {{cpd.numCompte}}
         </option>
       </select>
@@ -15,8 +14,8 @@
 
   <form class="form-inline"> <div class="form-group">
     <label for="inputPassword6">Compte à créditer</label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [ngModel]="comptes" (ngModelChange)="selectCompteCredite($event)" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let cpd of comptes" [ngValue]="cpc">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [ngModel]="comptesCrediter" (ngModelChange)="selectCompteCredite($event)" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let cpc of comptesCrediter" [ngValue]="cpc">
           {{cpc.numCompte}}
         </option>
       </select>
@@ -35,4 +34,3 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Effectuer virement</button>   
     </form>
     <div>
-  
