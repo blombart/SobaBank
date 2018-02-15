@@ -8,12 +8,12 @@ import { User } from './user';
 export class DemandeOuvertureCompte{
 	constructor(public id: number,
 		public dateDemande: Date,
-		public estAffecte: boolean,
+		public isAffected: boolean,
 		public status: string,
-		public estValide: boolean,
+		public isValid: boolean,
 		public dateAffectation: Date,
 		public client: Client,
-		public agent: string,
+		public idAgent: number,
 		
 		
 		){
