@@ -41,7 +41,7 @@ constructor() { }
       // return this.notifications.filter(notif => !notif.isRead);
   // }
 
-   getUnreadNotifications() {
+   getNotifications() {
     return this.notifications;
 }
 }

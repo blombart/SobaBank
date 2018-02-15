@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Notification } from '../../modeles/notification';
-import { notifications } from '../../modeles/notification';
 import{ClientService} from '../../Service/client.service';
-import { comptes} from '../../modeles/compte';
 import { Compte} from '../../modeles/compte';
 import { Client } from '../../modeles/client';
-import { clients } from '../../modeles/client';
-import { CompteService} from '../../Service/compte.service';
-import { Observable} from 'rxjs/Observable';
 import{NotificationService} from '../../Service/notification.service';
-import { epargnes} from '../../modeles/compte';
 import { CompteEpargne} from '../../modeles/compte';
 
 
@@ -17,7 +11,7 @@ import { CompteEpargne} from '../../modeles/compte';
   selector: 'app-client-accueil',
   templateUrl: './client-accueil.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers:[ClientService,CompteService, NotificationService]
+  providers:[ClientService]
 
 })
 
@@ -28,28 +22,56 @@ export class ClientAccueilComponent implements OnInit {
    //private compteService = new CompteService();
 
 //comptes :Compte; 
-    notifications:Notification[];
-    //notif :Notification;
-      comptes : Compte; 
-   client :Client;
-    epargnes:CompteEpargne=epargnes;
+   //notifications:Notification[]=notifications;
+    //notif = notifications;
+     comptes: Compte[];
+   
+    epargnes:CompteEpargne[];
+   //client :Client[];
+   
 
 
-  constructor(private clientService: ClientService, private compteService:CompteService, private notificationService: NotificationService) { }
-
+  constructor(private clientService: ClientService) { }
+//private notificationService: NotificationService
   ngOnInit() {
+  this.getAllComptes();
 
+   //this.getNotifications();
 
-   this.comptes= this.compteService.getAllComptes();
+//this.notifications=this.notificationService.getUnreadNotificationsCount();
+this.getAllComptesEpargne();
+}
 
-   this.notifications=this.notificationService.getUnreadNotifications();
+getAllComptes(){
+  this.clientService.getAllComptes(1).subscribe(
+    cptes => {
+      this.comptes=cptes;
+    },
+    err => {
+      console.log(err);
+    }
+);
+}
+  /*getNotifications(){
+  this.notificationService.getUnreadNotifications().suscribe(
+    notif => {
+      this.notifications=notif;
+    },
+    err => {
+      console.log(err);
+    }
+);*/
 
-//this.notif=this.notificationService.getUnreadNotificationsCount();
-
-
-   this.epargnes=this.compteService.getAllComptesEpargne();
-
+  getAllComptesEpargne(){
+  this.clientService.getAllComptesEpargne(1).subscribe(
+    epgnes => {
+      this.epargnes=epgnes;
+    },
+    err => {
+      console.log(err);
+    }
+    );
   }
 
-  
 }
+

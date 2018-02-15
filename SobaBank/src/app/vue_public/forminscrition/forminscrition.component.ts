@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../modeles/user';
-import { DemandeService} from '../../Service/demande.service';
 import { Observable} from 'rxjs/Observable';
-import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -14,9 +12,9 @@ export class ForminscritionComponent implements OnInit {
 
   utilisateur: User;
   userForm: FormGroup;
-  demande: DemandeOuvertureCompte;
+  
 
-  constructor(private _fb: FormBuilder,private demandeService:DemandeService) {
+  constructor(private _fb: FormBuilder) {
    }
 
   ngOnInit() {
@@ -41,19 +39,8 @@ export class ForminscritionComponent implements OnInit {
      this.userForm.controls['numTel'].value,""
      )
 
-   this.demande = new DemandeOuvertureCompte(5,
-     new Date(),
-     "demande ouverture compte n°5",
-     false,
-     "Non traitée",
-     false,
-     null,
-     null,
-     null
 
-     )
-   this.demandeService.addDemandeOuverture(this.demande);
-   console.log("demande enregistré");
+
   }
   
 

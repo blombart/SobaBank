@@ -6,6 +6,7 @@ export class Compte{
 
 
 	constructor(
+		public id:number,
 		numCompte: number,
 		dateCreation: Date,
 		solde: number,
@@ -18,7 +19,8 @@ export class Compte{
 }
 
 export class CompteEpargne extends Compte{
-	constructor(numCompte: number,
+	constructor(public id:number,
+		numCompte: number,
 		dateCreation: Date,
 		solde: number,
 		rib: String,
@@ -27,12 +29,12 @@ export class CompteEpargne extends Compte{
 		operations: Operation[],
 		tauxInteret: number,
 		montantRemuneration: number){
-		super(numCompte,dateCreation,solde,rib,decouvertAutorise,tauxAgios,operations)
+		super(id,numCompte,dateCreation,solde,rib,decouvertAutorise,tauxAgios,operations)
 	}
 }
 
 
-//TODO Creer plusieurs comptes
+/*//TODO Creer plusieurs comptes
 export const comptes : Compte[] = [
 			{numCompte:1,dateCreation: new Date(),solde:506,rib:"sam",decouverteAutorise:20,tauxAgios:10,operations:{montant: 14,
 		date: new Date(),
@@ -69,3 +71,4 @@ export const epargnes : CompteEpargne[] = [
 
 
 			]
+*/
