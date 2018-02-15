@@ -32,7 +32,6 @@ export class ComptesComponent implements OnInit {
     client : Client[] = clients;
   selectedCompte : Compte;
 
-
   constructor() { }
 
   ngOnInit() {

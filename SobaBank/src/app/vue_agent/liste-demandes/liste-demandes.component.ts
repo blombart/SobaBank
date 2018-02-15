@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import{Compte} from'../../modeles/compte';
-import{comptes} from'../../modeles/compte';
 import{clients} from'../../modeles/client';
 import { Client} from '../../modeles/client';
 import { CompteService} from '../../Service/compte.service';

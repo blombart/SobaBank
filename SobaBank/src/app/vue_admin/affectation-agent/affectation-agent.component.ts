@@ -2,7 +2,6 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { AgentService} from '../../Service/agent.service';
-import { DemandeService} from '../../Service/demande.service';
 import { AdminService} from '../../Service/admin.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
@@ -23,7 +22,7 @@ export class AffectationAgentComponent implements OnInit {
 	agents : Agent[]; 
 	agentSelected: Agent;
 
-  constructor(private demandeService:DemandeService, private adminService : AdminService) { }
+  constructor(private adminService : AdminService) { }
 
 
   ngOnInit() {

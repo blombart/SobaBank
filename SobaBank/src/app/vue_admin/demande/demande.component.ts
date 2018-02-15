@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
-import { DemandeService} from '../../Service/demande.service';
 
 import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {Router} from '@angular/router';
@@ -22,7 +21,7 @@ export class DemandeComponent implements OnInit {
 
   idDemAffect : number;
 
-  constructor(private demandeService: DemandeService, private _router: Router, private adminService: AdminService) {
+  constructor(private _router: Router, private adminService: AdminService) {
 
    }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../modeles/user';
-import { DemandeService} from '../../Service/demande.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
@@ -16,7 +15,7 @@ export class ForminscritionComponent implements OnInit {
   userForm: FormGroup;
   demande: DemandeOuvertureCompte;
 
-  constructor(private _fb: FormBuilder,private demandeService:DemandeService) {
+  constructor(private _fb: FormBuilder) {
    }
 
   ngOnInit() {

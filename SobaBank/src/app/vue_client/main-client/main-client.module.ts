@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { MainClientRoutingModule } from './main-client-routing.module';
 import {VirementComponent } from '../../vue_client/virement/virement.component';
@@ -14,12 +15,13 @@ import {MainClientComponent} from './main-client.component';
 import {NavcliComponent} from '../../vue_client/navcli/navcli.component';
 import { ClientAccueilComponent } from '../../vue_client/client-accueil/client-accueil.component';
 import { ClientNotificationsComponent } from '../../vue_client/client-notifications/client-notifications.component';
-
+import {ClientService} from '../../Service/client.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    MainClientRoutingModule
+    MainClientRoutingModule,
+    FormsModule, ReactiveFormsModule
   ],
   declarations: [NavcliComponent,
   MainClientComponent,
@@ -33,6 +35,7 @@ import { ClientNotificationsComponent } from '../../vue_client/client-notificati
     AgentComponent,
     ClientAccueilComponent,
     ClientNotificationsComponent
-    ]
+    ],
+    providers: [ClientService]
 })
 export class MainClientModule { }

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 //import { demandeModificationMdp} from '../../modeles/demandes';
 import { DemandeModificationMdp} from '../../modeles/demandes';
-import { DemandeService} from '../../Service/demande.service';
+/*import { DemandeService} from '../../Service/demande.service';*/
 import { ClientService} from '../../Service/client.service';
-import { demandeModificationMdp} from '../../modeles/demandes';
+/*import { demandeModificationMdp} from '../../modeles/demandes';*/
 
 import { Client} from '../../modeles/client';
 import { clients} from '../../modeles/client';
@@ -15,7 +15,6 @@ import { clients} from '../../modeles/client';
   selector: 'app-mdp',
   templateUrl: './mdp.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers: [DemandeService,ClientService]
 })
 export class MdpComponent implements OnInit {
 
@@ -32,7 +31,7 @@ export class MdpComponent implements OnInit {
 	//on declare une variable de type client
 	client : Client; 
 
-  constructor(private clientService: ClientService, private demandeService:DemandeService) {
+  constructor(private clientService: ClientService) {
    }
 //private demandeService: DemandeService
  ngOnInit() {
@@ -50,10 +49,10 @@ export class MdpComponent implements OnInit {
 
   onClick(id: number){
   
-  //ON initialise le tableau de demande en utilisant le service correspondant
+/*  //ON initialise le tableau de demande en utilisant le service correspondant
   	this.allDemande= this.demandeService.getDemandeModificationMdp();
   	//ON initialise la demande de modification en allant chercher la premiere occurence (position 0) de la demande dans le tableau de demandes
-  	this.demandeMdp = this.allDemande[0];
+  	this.demandeMdp = this.allDemande[0];*/
 
 /*  	//taille du tableau de demandes pour le client doit etre egale a 0
   	console.log("Avant ajout demande, taille tableau : " + this.client.demandes.length);

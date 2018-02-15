@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {DemandeService} from '../../Service/demande.service';
+/*import {DemandeService} from '../../Service/demande.service';*/
 import {Compte} from '../../modeles/compte';
 import {comptes} from '../../modeles/compte';
 import {Demande} from '../../modeles/demandes';
 import { Observable } from 'rxjs/Observable';
 import {DemandeChequier} from '../../modeles/demandes';
-import {demandeChequier} from '../../modeles/demandes';
+/*import {demandeChequier} from '../../modeles/demandes';*/
 import {CompteService} from '../../Service/compte.service';
 
 import {ClientService} from '../../Service/client.service';
@@ -19,7 +19,7 @@ import { clients} from '../../modeles/client';
   templateUrl: './commande.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
 
-    providers: [DemandeService,CompteService, ClientService]
+    providers: [/*DemandeService*/,CompteService]
 })
 export class CommandeComponent implements OnInit {
 
@@ -42,7 +42,7 @@ comptes: Compte= comptes;
 
 
 	
-  constructor(private clientService: ClientService, private compteService:CompteService, private demandeService:DemandeService) {
+  constructor(private clientService: ClientService, private compteService:CompteService) {
    }
 //private demandeService: DemandeService
  ngOnInit() {
@@ -68,7 +68,7 @@ comptes: Compte= comptes;
 
   onClick(id: number){
   
-  //ON initialise le tableau de demande en utilisant le service correspondant
+/*  //ON initialise le tableau de demande en utilisant le service correspondant
   	this.allDemande= this.demandeService.getDemandesChequier();
   	//ON initialise la demande de modification en allant chercher la premiere occurence (position 0) de la demande dans le tableau de demandes
   	this.demandechequier = this.allDemande[0];
@@ -80,7 +80,7 @@ comptes: Compte= comptes;
 
 
   	//Comme test on affiche la taille du tableau de demande des clients . doit etre egale à 1 si l'ajout a bien été fait
-  	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);
+  	console.log("Apres ajout, taille tableau: " + this.client.demandes.length);*/
   }
 
 
