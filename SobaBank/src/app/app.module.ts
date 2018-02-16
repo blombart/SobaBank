@@ -32,6 +32,7 @@ import {DeconnexionComponent} from './deconnexion/deconnexion.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
