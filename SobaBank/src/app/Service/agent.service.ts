@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Agent,agents} from '../modeles/agent';
 import {Client} from '../modeles/client';
 import {DemandeChequier,DemandeModificationMdp,DemandeNouveauCompte} from '../modeles/demandes'
+import {DemandeOuvertureCompte} from '../modeles/demandeOuvertureCompte';
 import { Http, Response, URLSearchParams} from "@angular/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -68,7 +69,7 @@ updateDemandeMdp(demMdp: DemandeModificationMdp):Observable<DemandeModificationM
 }
 
 //On recupere la liste des demandes de nouveau compte pour un agent
-getAllDemandesNouveauCompte(idAgent: number):Observable<DemandeModificationMdp[]>{
+getAllDemandesNouveauCompte(idAgent: number):Observable<DemandeNouveauCompte[]>{
 return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/nouveauCompte")
   .map((res: Response) => res.json())
   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
@@ -76,11 +77,23 @@ return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/nouveauCompt
 
 
 //On edite une demande de nouveau compte (validé ou non)
-updateDemandeNouveauCompte(demNouveauCompte: DemandeNouveauCompte):Observable<DemandeModificationMdp>{
+updateDemandeNouveauCompte(demNouveauCompte: DemandeNouveauCompte):Observable<DemandeNouveauCompte>{
   return this.http.put(this.apiUrl + "demandes/nouveauCompte", demNouveauCompte)
   .map((res: Response) => res.json())
   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
+
+getAllDemandesOuverture(idAgent: number):Observable<DemandeOuvertureCompte[]>{
+return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/demandeOuverture")
+  .map((res: Response) => res.json())
+  /*.catch((error:any) => Observable.throw(error.json().error || 'Server error'))*/;
+}
+
+ validDemande(id:number): Observable<DemandeOuvertureCompte>{
+   return this.http.post(this.apiUrl + "demandes/" + id +"/valid",null)
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
 //ANCIENNE VERSION EN DUR
 agents = agents;

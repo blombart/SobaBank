@@ -11,10 +11,10 @@ import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 })
 export class VirementComponent implements OnInit {
 
-	comptesCrediter: Compte[];
-	comptesDebiter: Compte[];
-	montant: number;
-	libelle: string;
+  comptesCrediter: Compte[];
+  comptesDebiter: Compte[];
+  montant: number;
+  libelle: string;
   compteDebitSelected: Compte;
   compteCreditSelected: Compte;
   virementForm: FormGroup;
@@ -23,7 +23,7 @@ export class VirementComponent implements OnInit {
   constructor(private clientService: ClientService,private _fb: FormBuilder) { }
 
   ngOnInit() {
-  	this.getAllComptes();
+    this.getAllComptes();
     this.createForm();
   }
 
@@ -35,7 +35,7 @@ export class VirementComponent implements OnInit {
   }
 
 getAllComptes(){
-	this.clientService.findAllComptes(1).subscribe(
+  this.clientService.findAllComptes(1).subscribe(
     comptes =>{
       this.comptesCrediter = comptes; this.comptesDebiter = comptes;
     },
@@ -45,12 +45,12 @@ getAllComptes(){
 }
 
 selectCompteDebite(_compteDebitSelected : Compte): void{
-	console.log("id compte debit dans selectCOmptedebit :" + _compteDebitSelected.id);
+  console.log("id compte debit dans selectCOmptedebit :" + _compteDebitSelected.id);
   this.compteDebitSelected = _compteDebitSelected;
 }
 
 selectCompteCredite(_compteCreditSelected : Compte): void{
-	console.log("id compte crebit dans selectCOmpteCredit :" + _compteCreditSelected.id);
+  console.log("id compte crebit dans selectCOmpteCredit :" + _compteCreditSelected.id);
   this.compteCreditSelected = _compteCreditSelected;
 }
 
@@ -70,5 +70,6 @@ selectCompteCredite(_compteCreditSelected : Compte): void{
         console.log(err);
       });
    }
+
 }
 }
