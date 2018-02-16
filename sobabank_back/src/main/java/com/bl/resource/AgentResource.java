@@ -43,14 +43,6 @@ public class AgentResource {
 		return clientResponse;
 	}
 	
-	@POST
-	@Path("/clients")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Long createClient(Client client)
-	{
-		Long idClient = agentService.createClient(client);
-		return idClient;
-	}
 	@GET
 	@Path("clients/{id}/documents")
 	@Produces(MediaType.APPLICATION_JSON)

@@ -66,7 +66,6 @@ public class AdminServiceImpl implements IAdminService {
 		
 		//On ajoute le client a l'agent également (qui est pour le moment un non client)
 		agent.getClients().add(cl);
-		System.out.println(cl.getNom());
 		// On update agent et demande
 		agentDAO.updateAgent(agent);
 		demOuvDAO.updateDemande(dem);
@@ -132,6 +131,7 @@ public class AdminServiceImpl implements IAdminService {
 		Client client = clientDAO.GetClientById(idClient);
 		//ON creer une nouvelle demande et on set les attributs
 		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+		dem.setId(0L);
 		dem.setClient(client);
 		dem.setDateDemande(new Date());
 		dem.setIsAffected(false);

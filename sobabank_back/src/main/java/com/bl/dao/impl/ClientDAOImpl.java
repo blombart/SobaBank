@@ -16,6 +16,18 @@ import com.bl.model.Demande;
 public class ClientDAOImpl implements IClientDAO{
 	static HashMap<Long, Client> clientsMap = new HashMap<Long, Client>();
 	static int cpt;
+	
+//	public ClientDAOImpl(){
+//		Client c1 = new Client("Lille","0321546598",3,"marié",null,null,null,null,true);
+//		c1.setId(1); c1.setNom("STA"); c1.setPrenom("Omar"); c1.setMdp("1234"); c1.setRole("client");
+//		c1.setComptes(new ArrayList<Compte>()); c1.setDemandes(new ArrayList<Demande>()); c1.setFiles(new ArrayList<File>());
+//		
+//		createClient(c1);
+//		
+//	}
+	
+	
+	
 	@Override
 	public List<Client> getAllClients() {
 		List<Client> clients = new ArrayList<Client>(clientsMap.values());
@@ -31,9 +43,11 @@ public class ClientDAOImpl implements IClientDAO{
 		client.setComptes(new ArrayList<Compte>());
 		client.setDemandes(new ArrayList<Demande>());
 		client.setFiles(new ArrayList<File>());
+		System.out.println("nom :" + client.getNom());
 		clientsMap.put(id, client);
 		return clientsMap.get(id);
 	}
+
 
 	@Override
 	public Client updateClient(Client client) {

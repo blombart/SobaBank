@@ -33,5 +33,4 @@ public interface IAgentService {
 	
 	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem);
 
-	public Long createClient(Client client);
  }

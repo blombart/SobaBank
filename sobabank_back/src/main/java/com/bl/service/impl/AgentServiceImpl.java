@@ -158,12 +158,6 @@ public class AgentServiceImpl implements IAgentService {
 		return dem;
 	}
 
-	@Override
-	public Long createClient(Client client) {
-		Client clientResponse = clientDAO.createClient(client);
-		Long idClient = clientResponse.getId();
-		return idClient;
-	}
 
 	
 

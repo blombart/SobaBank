@@ -30,9 +30,9 @@ public class AdminResource {
 	@Path("/agents")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Agent> getAllAgents(){
-		System.out.println("methode getAllagent");
+
 		List<Agent> agents = adminService.getAllAgent();
-		System.out.println("resultat = " + agents.size());
+
 		return agents;
 	}
 	
@@ -73,7 +73,6 @@ public class AdminResource {
 	@POST
 	@Path("/affecte")
 	public Boolean affecterDemande(@FormParam("idAgent")Long idAgent, @FormParam("idDemande")Long idDemOuv){
-		System.out.println("affecte methode. Idagent : " + idAgent +" iddemouv: " + idDemOuv);
 		Boolean response = adminService.affecterDemande(idAgent, idDemOuv);
 		return response;
 	}

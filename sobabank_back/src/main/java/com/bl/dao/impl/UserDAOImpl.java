@@ -24,7 +24,7 @@ public class UserDAOImpl implements IUserDAO{
 		usersMap.put("2", user2);
 		usersMap.put("3", user3);
 		usersMap.put("4", user4);
-		cpt = usersMap.size();
+		
 	}
 	
 	public List<User> getAllUsers(){
@@ -38,6 +38,7 @@ public class UserDAOImpl implements IUserDAO{
 	}
 
 	public User createUser(User user){
+		cpt = usersMap.size();
 		cpt++;
 		long id = user.getId() + (cpt);
 		String newId = String.valueOf(id);
