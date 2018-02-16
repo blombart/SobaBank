@@ -4,50 +4,46 @@ import { Observable } from 'rxjs/Observable';
 import {User} from '../modeles/user';
 import {Users} from '../modeles/user';
 
+import { Http, Response, URLSearchParams } from "@angular/http";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
+
 
 @Injectable()
 export class UserService {
 
-  users = Users;
-  constructor() { }
+  private apiUrl = "http://localhost:8080/sobabank/";
+
+  constructor(private http: Http) {
+   
+   }
 
 
-  getUser(id) {
-    return this.users[id-1];
+  findAll(): Observable<User[]> {
+    return this.http.get(this.apiUrl + "users")
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-    getUsers(): Observable<User[]>{
-      return of(Users);
-    }
-
-
-getUserByName(name: String){
-  for (let user of this.users) {
+getUserByName(name: string): Observable<User>{
+  /*for (let user of this.users) {
      if (user.nom == name){
-            console.log(user.email);
+            console.log(user.email);*/
 
-            return user.role;
+            return this.http.get(this.apiUrl +"users/findname/" + name)
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
      }
-}
 
-}
-
-
-addUser(user: User){
-  this.users.push(user);
-}
-
-removeUserByName(user: User){
-  for (let user of this.users) {
-     if (user.nom == name){
-             
-             //TODO supprimer du tableau
-            
-            return "Utilisateur supprimé";
-     }
-}
-
-}
+  authenticateUser(nom, pwd): Observable<User>{
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('username', nom);
+    urlSearchParams.append('pwd', pwd);
+    return this.http.post(this.apiUrl + "users/auth", urlSearchParams)
+    .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 
 
 }

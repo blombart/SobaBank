@@ -1,42 +1,40 @@
 
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm" novalidate>
 <div class="form-group">
     <label for="nom">Nom</label>
-    <input type="text" class="form-control" id="nom" name="nom">
+    <input type="text" class="form-control" formControlName="nom" id="nom" name="nom">
   </div>
 
   <div class="form-group">
     <label for="prenom">Prenom</label>
-    <input type="text" class="form-control" id="prenom"  name="prenom">
+    <input type="text" class="form-control" formControlName="prenom" id="prenom"  name="prenom">
   </div>
-
-
 
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="mail">
+    <input type="email" class="form-control" formControlName="email" id="email" name="mail">
   </div>
 
 
     <div class="form-group">
     <label for="numtel">Adresse</label>
-    <input type="tel" class="form-control" id="adresse" name="adresse">
+    <input type="tel" class="form-control" formControlName="adresse" id="adresse" name="adresse">
   </div>
 
     <div class="form-group">
     <label for="numtel">Numero Telephone</label>
-    <input type="tel" class="form-control" id="numtel" name="numTel">
+    <input type="tel" class="form-control" formControlName="numTel" id="numtel" name="numTel">
   </div>
 
 
     <div class="form-group">
     <label for="numtel">Nombre d'enfants</label>
-    <input type="tel" class="form-control" id="nbEnfants" name="nbEnfants">
+    <input type="tel" class="form-control" formControlName="nbEnfants" id="nbEnfants" name="nbEnfants">
   </div>
 
       <div class="form-group">
     <label for="numtel">Situation Matrimonial</label>
-    <input type="tel" class="form-control" id="situationMatrimonial" name="situationMatrimonial">
+    <input type="tel" class="form-control" formControlName="situationMatrimonial" id="situationMatrimonial" name="situationMatrimonial">
   </div>
 
    <div class="form-group">

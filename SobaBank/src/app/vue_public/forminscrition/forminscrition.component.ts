@@ -27,7 +27,7 @@ export class ForminscritionComponent implements OnInit {
     this.userForm = this._fb.group({
       nom: ['', [Validators.required, Validators.minLength(3)]],
       prenom: ['', Validators.required],
-      mail: ['',Validators.required],
+      email: ['',Validators.required],
       adresse: ['',Validators.required],
       numTel: ['',Validators.required],
       nbEnfants: ['',Validators.required],
@@ -37,11 +37,12 @@ export class ForminscritionComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log("dans onsubmit forminscrition nom" + this.userForm.controls['nom'].value);
     //On cree un nouvel utilisateur
    this.client = new Client(0,
      this.userForm.controls['nom'].value,
      this.userForm.controls['prenom'].value,
-     this.userForm.controls['mail'].value,
+     this.userForm.controls['email'].value,
      null,
      null,
      this.userForm.controls['adresse'].value,
