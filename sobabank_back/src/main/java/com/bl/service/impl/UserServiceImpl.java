@@ -43,4 +43,11 @@ public class UserServiceImpl implements IUserService{
 		List<User> userList = userDao.deleteAllUser();
 		return userList;
 	}
+	
+	@Override
+	public User authenticateUser(String name, String password) {
+		System.out.println("USer service");
+		System.out.println(name + " " +password);
+		return userDao.authenticateUser(name, password);
+	}
 }
