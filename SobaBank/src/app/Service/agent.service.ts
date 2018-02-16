@@ -32,6 +32,13 @@ updateClient(client :Client):Observable<Client>{
   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
 
+// Méthode pour créer un client
+createClient(client :Client):Observable<number>{
+  return this.http.post(this.apiUrl + "clients", client)
+  .map((res: Response) => res.json())
+  .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+}
+
 //on recupere les documents d'un client
 getDocuments(idClient: number):Observable<File[]>{
   return this.http.get(this.apiUrl + "clients/" + idClient + "/documents")
@@ -95,6 +102,12 @@ return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/demandeOuver
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+createDemande(id: number): Observable<DemandeOuvertureCompte>{
+    return this.http.post(this.apiUrl + "demandes/"+id, null)
+    .map((res: Response) => res.json())
+     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 //ANCIENNE VERSION EN DUR
 agents = agents;
 
@@ -108,12 +121,12 @@ agents = agents;
   }
 
   getAgents(): Observable<Agent[]>{
-  		return of(agents);
-  	}
+      return of(agents);
+    }
 
   addAgent(agent: Agent){
-  		this.agents.push(agent);
-  	}
+      this.agents.push(agent);
+    }
 
 
   supprimerAgent(agent: Agent){
