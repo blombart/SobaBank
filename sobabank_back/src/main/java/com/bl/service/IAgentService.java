@@ -32,4 +32,6 @@ public interface IAgentService {
 	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(Long idAgent);
 	
 	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem);
+
+	public Long createClient(Client client);
  }
