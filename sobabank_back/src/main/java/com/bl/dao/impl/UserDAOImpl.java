@@ -74,4 +74,25 @@ public class UserDAOImpl implements IUserDAO{
 	}
 	
 	
+		@Override
+	public User authenticateUser(String name, String password) {
+		List<User> userList = new ArrayList<User>(usersMap.values());
+		User userTemp = new User();
+		
+		for (User user : userList){
+			
+			if(user.getNom().equals(name) && user.getMdp().equals(password)){
+				userTemp = user;
+			}
+			
+			
+			
+		}
+		
+		return userTemp;
+		
+		
+		
+	}
+	
 }
