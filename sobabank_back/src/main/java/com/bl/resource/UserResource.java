@@ -75,7 +75,7 @@ public class UserResource {
 			return userList;
 		}
 		
-		//Partie utilisÃ© par angular
+		//Partie utilisé par angular
 		
 		@POST
 		@Path("/clients")

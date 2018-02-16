@@ -16,4 +16,6 @@ public interface IUserDAO {
 	public User deleteUser(String id);
 	
 	public List<User> deleteAllUser();
+
+	User authenticateUser(String name, String password);
 }
