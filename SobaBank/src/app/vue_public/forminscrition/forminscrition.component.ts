@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../modeles/user';
+import {Client} from '../../modeles/client';
+import { AgentService} from '../../Service/agent.service';
 import { Observable} from 'rxjs/Observable';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -9,12 +11,12 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['../../bootstrap/css/bootstrap.css']
 })
 export class ForminscritionComponent implements OnInit {
-
-  utilisateur: User;
+  idClient: number;
+  client: Client;
   userForm: FormGroup;
   
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,private agentService: AgentService ) {
    }
 
   ngOnInit() {
@@ -26,19 +28,51 @@ export class ForminscritionComponent implements OnInit {
       nom: ['', [Validators.required, Validators.minLength(3)]],
       prenom: ['', Validators.required],
       mail: ['',Validators.required],
-      numTel: ['',Validators.required]
+      adresse: ['',Validators.required],
+      numTel: ['',Validators.required],
+      nbEnfants: ['',Validators.required],
+      situationMatrimonial: ['',Validators.required]
+      
     });
   }
 
   onSubmit(){
     //On cree un nouvel utilisateur
-   this.utilisateur = new User(5,
+   this.client = new Client(0,
      this.userForm.controls['nom'].value,
      this.userForm.controls['prenom'].value,
      this.userForm.controls['mail'].value,
-     this.userForm.controls['numTel'].value,""
+     null,
+     null,
+     this.userForm.controls['adresse'].value,
+     this.userForm.controls['numTel'].value,
+     this.userForm.controls['nbEnfants'].value,
+     this.userForm.controls['situationMatrimonial'].value,
+     null,
+     null,
+     null,
+     null,
+     false
+     
      )
 
+   this.agentService.createClient(this.client).subscribe(
+     id => {
+       this.idClient = id;
+       this.agentService.createDemande(this.idClient).subscribe(
+     id => {
+       console.log("Demande créée");
+     },
+           err => {
+        console.log(err);
+      }
+      );
+
+     },
+           err => {
+        console.log(err);
+      }
+      );
 
 
   }
