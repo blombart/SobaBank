@@ -16,7 +16,7 @@ import {DemandeChequier,DemandeModificationMdp,DemandeNouveauCompte} from '../mo
 @Injectable()
 export class ClientService {
 //NOUVELLE VERSION QUI UTILISE LES WEB SERVICES DEPUIS LE BACK
-  private apiUrl = "http://localhost:8080/sobabank/client/";
+  private apiUrl = "http://localhost:8080/SpringAngularStartProject/";
 
 constructor(private http: Http) { }
 

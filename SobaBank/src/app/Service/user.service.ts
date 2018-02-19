@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class UserService {
 
-  private apiUrl = "http://localhost:8080/sobabank/user/";
+  private apiUrl = "http://localhost:8080/SpringAngularStartProject/";
 
   constructor(private http: Http) {
    
