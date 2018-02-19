@@ -17,7 +17,7 @@ constructor(
 	public numTel: string,
 
 	public clients: Client[],
-	public demandes: DemandeOuvertureCompte[])
+	public demandesOuverture: DemandeOuvertureCompte[])
 {
 		super(id,nom,prenom,email,mdp,role);
 

@@ -1,6 +1,6 @@
 
 <select [ngModel]="agents" (ngModelChange)="selectAgent($event)">
-	<option *ngFor="let ag of agents | async" [ngValue]="ag">
+	<option *ngFor="let ag of agents" [ngValue]="ag">
 		{{ag.nom}}
 	</option>
 </select>

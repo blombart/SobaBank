@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../modeles/user';
-import { DemandeService} from '../../Service/demande.service';
+import { AdminService} from '../../Service/admin.service';
 import { Observable} from 'rxjs/Observable';
-import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {UserService} from '../../Service/user.service'
 
 @Component({
   selector: 'app-forminscrition',
@@ -13,11 +10,10 @@ import {UserService} from '../../Service/user.service'
 })
 export class ForminscritionComponent implements OnInit {
 
-  utilisateur: User;
   userForm: FormGroup;
-  demande: DemandeOuvertureCompte;
+  
 
-  constructor(private _fb: FormBuilder,private demandeService:DemandeService) {
+  constructor(private _fb: FormBuilder,private adminService: AdminService ) {
    }
 
   ngOnInit() {
@@ -28,38 +24,29 @@ export class ForminscritionComponent implements OnInit {
     this.userForm = this._fb.group({
       nom: ['', [Validators.required, Validators.minLength(3)]],
       prenom: ['', Validators.required],
-      mail: ['',Validators.required],
-      numTel: ['',Validators.required]
+      email: ['',Validators.required],
+      adresse: ['',Validators.required],
+      numTel: ['',Validators.required],
+      nbEnfants: ['',Validators.required],
+      situationMatrimonial: ['',Validators.required]
+      
     });
   }
 
   onSubmit(){
-    //On cree un nouvel utilisateur
-      this.utilisateur = new User(5,
-     this.userForm.controls['nom'].value,
+   this.adminService.inscription(this.userForm.controls['nom'].value,
      this.userForm.controls['prenom'].value,
-     this.userForm.controls['mail'].value,
-     this.userForm.controls['numTel'].value,""
-     )
+     this.userForm.controls['email'].value,
+     this.userForm.controls['adresse'].value,
+     this.userForm.controls['numTel'].value,
+      this.userForm.controls['nbEnfants'].value,
+      this.userForm.controls['situationMatrimonial'].value).subscribe(
+      bool => {console.log(bool)},
+           err => {
+        console.log(err);
+      }
+      );
 
-   this.demande = new DemandeOuvertureCompte(5,
-     new Date(),
-     "demande ouverture compte n°5",
-     false,
-     "Non traitée",
-     false,
-     null,
-     null,
-     null
-
-     )
-   this.demandeService.addDemandeOuverture(this.demande);
-   console.log("demande enregistré");
-  }
-
-
-  createNewUser(){
-    //TODO coder la methode de création du nouveau user
   }
   
 

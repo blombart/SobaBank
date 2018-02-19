@@ -14,10 +14,6 @@ import 'rxjs/add/operator/catch';
 export class UserService {
 
   private apiUrl = "http://localhost:8080/sobabank/";
-  
-
-
-  users = Users;
 
   constructor(private http: Http) {
    
@@ -29,15 +25,6 @@ export class UserService {
       .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
-
-  getUser(id) {
-    return this.users[id-1];
-  }
-
-    getUsers(): Observable<User[]>{
-      return of(Users);
-    }
-
 
 getUserByName(name: string): Observable<User>{
   /*for (let user of this.users) {
@@ -57,39 +44,6 @@ getUserByName(name: string): Observable<User>{
     .map((res: Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
-
-
-affecterDemande(idAgent, idDemande): Observable<boolean> {
-    let urlSearchParams = new URLSearchParams();
-    urlSearchParams.append('idAgent', idAgent);
-    urlSearchParams.append('idDemande', idDemande);
-    console.log("methode affectation");
-    return this.http.post(this.apiUrl + "affecte", urlSearchParams)
-    .map((res: Response) => res.json())
-    .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-    
-  }
-
-   createNewUser(){
-     //TODO coder la crétion du nouveau user
-   }
-
-
-addUser(user: User){
-  this.users.push(user);
-}
-
-removeUserByName(user: User){
-  for (let user of this.users) {
-     if (user.nom == name){
-             
-             //TODO supprimer du tableau
-            
-            return "Utilisateur supprimé";
-     }
-}
-
-}
 
 
 }

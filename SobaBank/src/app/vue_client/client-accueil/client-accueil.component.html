@@ -39,7 +39,10 @@
 <div class="list-group">
  
   <a  class="list-group-item list-group-item-action"> <table class="table table-hover ">
-                               
+                               <thead>
+                                 <th>Type de Compte</th>
+                                 <th>Solde</th>
+                               </thead>
                                 <tbody>
                                     <tr [routerLink]="['../comptes']" *ngFor="let compte of comptes" >
                                         <td>Compte Courant{{compte.numCompte}}</td><td>{{ compte.solde }}</td>

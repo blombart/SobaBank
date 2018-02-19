@@ -4,11 +4,10 @@ import { Observable } from 'rxjs/Observable';
 
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
-import { DemandeService} from '../../Service/demande.service';
 
 import { DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 import {Router} from '@angular/router';
-/*import {AdminService} from '../../Service/admin.service';*/
+import {AdminService} from '../../Service/admin.service';
 
 @Component({
   selector: 'app-demande',
@@ -17,19 +16,30 @@ import {Router} from '@angular/router';
 })
 export class DemandeComponent implements OnInit {
 
-	demandes :  Observable<DemandeOuvertureCompte[]>;
+	demandes :  DemandeOuvertureCompte[];
   affectation: boolean = false;
 
   idDemAffect : number;
 
-  constructor(private demandeService: DemandeService, private _router: Router, /*private adminService: AdminService*/) {
+  constructor(private _router: Router, private adminService: AdminService) {
 
    }
 
   ngOnInit() {
-  	this.demandes= this.demandeService.getDemandesOuverture();
+  	this.getAllDemandesOuverture();
   }
 
+
+  getAllDemandesOuverture(){
+    this.adminService.getAllDemandesOuverture().subscribe(
+      dems => {
+        this.demandes = dems;
+      },
+      err => {
+        console.log(err);
+      }
+      );
+  }
 
   //on initialise l'id de la demande a affecter avec l'id de la demande selectionner
   affecter(i: number){

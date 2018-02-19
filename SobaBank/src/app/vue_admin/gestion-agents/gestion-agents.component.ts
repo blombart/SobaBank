@@ -5,9 +5,8 @@ import 'rxjs/add/operator/map';
 import {Router} from '@angular/router';
 
 import { Validators, FormControl, FormGroup} from '@angular/forms';
-
+import { CookieService} from 'angular2-cookie/core';
 import { Agent } from '../../modeles/agent';
-import { AgentService} from '../../Service/agent.service';
 import {AdminService} from '../../Service/admin.service';
 
 @Component({
@@ -26,11 +25,12 @@ export class GestionAgentsComponent implements OnInit {
 
 	searchText: string;
 
-  constructor(private agentService: AgentService, private _router: Router, private adminService: AdminService) { }
+  constructor(private _router: Router, private adminService: AdminService,private cookieService: CookieService) { }
 
 
   ngOnInit() {
   	
+    console.log(this.cookieService.get("id"));
     this.getAllAgents();
 
     this.formRecherche = new FormGroup({

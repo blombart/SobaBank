@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {SharedService} from '../../Service/shared-service'; //Ne pas mettre dans les providers sinon ne fonctionne pas  
-
+import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 import { Http, Response } from "@angular/http";
 import {UserService} from '../../Service/user.service';
+import { CookieService} from 'angular2-cookie/core';
 import {User} from '../../modeles/user';
 
 @Component({
@@ -13,53 +14,37 @@ import {User} from '../../modeles/user';
 })
 export class ConnexionComponent implements OnInit {
 
-
-   //http: Http;
-   
-
   user: User;
+  userForm: FormGroup;
+  role = "guest";
+  idUser : number;
 
-   nom: string;
-   mdp: string;
+  
 
-   role = "guest";
-
-  constructor(private _sharedService: SharedService, private userService: UserService) { }
+  constructor(private _fb: FormBuilder,private _sharedService: SharedService, private userService: UserService, private cookieService: CookieService) { }
 
   ngOnInit() {
-
-    //this.user = new User(1,"Hadjaz","Abder","abder@mail.fr","1234","guest");
-
+    this.userForm = this._fb.group({
+      nom: ['', [Validators.required, Validators.minLength(3)]],
+      mdp: ['', Validators.required]
+    });
   }
 
 
-  onClick(){
+  onSubmit(){
+   this.userService.authenticateUser(this.userForm.controls['nom'].value, this.userForm.controls['mdp'].value).subscribe(
+              user => {this.user = user; 
 
+                       console.log(user);
+               this.role = user.role;
+               this.idUser = user.id;
+               this._sharedService.emitChange(this.role);
+               this.cookieService.put("id", this.idUser.toString());
+    });
 
-
-       /* this.userService.getUserByName(this.nom).subscribe(
-          user => {this.user = user; 
-                   console.log(user)
-           this.role = user.role;
-
-           this._sharedService.emitChange(this.role);
-
-                    });*/
-this.user.nom = this.nom;
-this.user.mdp = this.mdp;
-
-this.userService.authenticateUser(this.nom, this.mdp).subscribe(
-          user => {this.user = user; 
-                   console.log(user);
-           this.role = user.role;
-
-           this._sharedService.emitChange(this.role);
-
-
-
-});
-console.log(this.user);
 }
+
+
 
 }
 
