@@ -8,11 +8,6 @@ import { Client} from './client';
 })
 export class ClientComponent implements OnInit {
 
-
-
-
-    clients = [new Client('LILLE','0630451325','5','marié')  ,   new Client('Paris','0123456789','3','célibataire')];
-
   constructor() { }
 
   ngOnInit() {

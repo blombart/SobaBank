@@ -14,7 +14,7 @@ import { Observable } from "rxjs/Observable";
 export class AgentService {
 
   //Nouvelle version qui appelle le web service depuis le back
-  private apiUrl = "http://localhost:8080/sobabank/";
+  private apiUrl = "http://localhost:8080/sobabank/agent/";
 
 constructor(private http: Http) { }
 

@@ -1,27 +1,28 @@
-  import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit} from '@angular/core';
 import { Agent} from '../../modeles/agent';
-import { AgentService} from '../../Service/agent.service';
+import { ClientService} from '../../Service/client.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers: [AgentService]
+  providers: [ClientService]
 })
 export class AgentComponent implements OnInit {
 
 
-agents :  Observable<Agent[]>;
+	ag: Agent;
 	
 
 
-  constructor(private agentService : AgentService){}
+  constructor(private clientService : ClientService){}
 
   ngOnInit() {
-
- this.agents= this.agentService.getAgents();
+  	this.clientService.getAgent(1).subscribe(
+  		agent => {this.ag = agent;});
 }
+
 
 
 
