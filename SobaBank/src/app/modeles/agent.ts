@@ -24,7 +24,6 @@ constructor(
 	}
 }
 
-
 export const agents : Agent[] = [
 	new Agent(1,
 		"allon",

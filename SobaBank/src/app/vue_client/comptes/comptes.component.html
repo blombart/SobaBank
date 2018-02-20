@@ -29,9 +29,9 @@
   
 
   <!--TABLEAU D'OPERATIONS (SI UN COMPTE EST SELECTIONNÉ)-->
-  <div *ngIf="(selectedCompte)" class="card card-plain">
+  <div *ngIf="(CompteSelectionne)" class="card card-plain">
     <div class="header">
-      <h4 class="title">Compte N° {{ selectedCompte.numCompte }}</h4>
+      <h4 class="title">Compte N° {{ CompteSelectionne.id}}</h4>
       <p class="category"> </p>
     </div>
     <div class="content table-responsive table-full-width">

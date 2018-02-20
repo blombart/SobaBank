@@ -96,7 +96,7 @@ return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/demandeOuver
   }
 
 //ANCIENNE VERSION EN DUR
-agents = agents;
+/*agents = agents;
 
 
   getAgentById(id) {
@@ -149,6 +149,6 @@ agents = agents;
     
     return finalIndex;
   }
-
+*/
   }
 

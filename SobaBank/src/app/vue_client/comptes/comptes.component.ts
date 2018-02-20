@@ -16,16 +16,17 @@ import { Client} from '../../modeles/client';
 export class ComptesComponent implements OnInit {
 
 
-   idCompteSelectionne: number;
+   CompteSelectionne: Compte;
 
     comptes: Compte[];
     operations:Operation[];
     epargnes:CompteEpargne[];
+    
 
     //epargnes : CompteEpargne[];
     
    
-  selectedCompte : Compte;
+  //selectedCompte : Compte;
 
 
   constructor(private clientService:ClientService) { }
@@ -38,6 +39,7 @@ export class ComptesComponent implements OnInit {
 
    this.getAllComptesEpargne();
 
+   //this.getAllOperations();
 
   }
 
@@ -63,8 +65,8 @@ getAllComptes(){
 
 }
   getAllOperations(){
-    console.log("dans getoperation id: " + this.idCompteSelectionne);
-this.clientService.getAllOperations(this.idCompteSelectionne).subscribe(
+    console.log("dans getoperation id: " + this.CompteSelectionne.id);
+this.clientService.getAllOperations(this.CompteSelectionne.id).subscribe(
     op => {
       this.operations=op;
     },
@@ -76,8 +78,8 @@ this.clientService.getAllOperations(this.idCompteSelectionne).subscribe(
 
    selectCompte(compte :Compte) {
 
-    this.idCompteSelectionne=compte.id;
-    console.log(this.idCompteSelectionne);
+    this.CompteSelectionne=compte;
+    console.log(this.CompteSelectionne);
         this.getAllOperations();
 
   }
