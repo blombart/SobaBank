@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IDemandeOuvertureDAO;
@@ -15,7 +16,7 @@ import com.bl.model.Compte;
 import com.bl.model.Demande;
 import com.bl.model.DemandeOuvertureCompte;
 
-@Component
+@Repository("demandeOuvertureDao")
 public class DemandeOuvertureDAOImpl extends AbstractDao<Long, DemandeOuvertureCompte> implements IDemandeOuvertureDAO {
 //	static HashMap<Long, DemandeOuvertureCompte> demOuvMap = new HashMap<Long, DemandeOuvertureCompte>();
 //	static int cpt;

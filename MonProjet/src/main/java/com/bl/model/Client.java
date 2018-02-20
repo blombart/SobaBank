@@ -1,17 +1,46 @@
 package com.bl.model;
 
+
 import java.io.File;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+
+import javax.persistence.DiscriminatorValue;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "client")
+@DiscriminatorValue("Client")
 public class Client extends User {
+	@Column
 	private String adresse;
+	@Column
 	private String numTel;
+	@Column
 	private int nbEnfants;
+	@Column
 	private String situationMatrimonial;
-	private Agent monAgent;
+	
+	
+//	private Long idMonAgent;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Compte>comptes;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Demande> demandes;
+	
+	@Transient
 	private List<File> files;
+	
 	private Boolean isClient;
 	
 
@@ -38,14 +67,14 @@ public class Client extends User {
 
 
 
-	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial, Agent monAgent,
+	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial, Long idMonAgent,
 			List<Compte> comptes, List<Demande> demandes, List<File> files, Boolean isClient) {
 		super();
 		this.adresse = adresse;
 		this.numTel = numTel;
 		this.nbEnfants = nbEnfants;
 		this.situationMatrimonial = situationMatrimonial;
-		this.monAgent = monAgent;
+//		this.idMonAgent = idMonAgent;
 		this.comptes = comptes;
 		this.demandes = demandes;
 		this.files = files;
@@ -84,13 +113,13 @@ public class Client extends User {
 		this.situationMatrimonial = situationMatrimonial;
 	}
 
-	public Agent getMonAgent() {
-		return monAgent;
-	}
-
-	public void setMonAgent(Agent monAgent) {
-		this.monAgent = monAgent;
-	}
+//	public Long getMonAgent() {
+//		return idMonAgent;
+//	}
+//
+//	public void setMonAgent(Long idMonAgent) {
+//		this.idMonAgent = idMonAgent;
+//	}
 
 	public List<Compte> getComptes() {
 		return comptes;

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.ICompteDAO;
@@ -15,7 +16,7 @@ import com.bl.model.Compte;
 import com.bl.model.CompteEpargne;
 import com.bl.model.Operation;
 
-@Component
+@Repository("compteDao")
 public class CompteDAOImpl extends AbstractDao<Long, Compte> implements ICompteDAO{
 //	static HashMap<Long, Compte> comptesMap = new HashMap<Long, Compte>();
 //	

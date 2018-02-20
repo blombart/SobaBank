@@ -3,15 +3,38 @@ package com.bl.model;
 import java.util.Date;
 
 
+import javax.persistence.Column;
+
+import javax.persistence.Entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+
+@Entity
 public class DemandeOuvertureCompte {
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column
 	private Date dateDemande;
+	
 	private Boolean isAffected;
+	
 	private String Status;
+	
 	private Boolean isValid;
+	
+	@Column
 	private Date dateAffectation;
+
+	@OneToOne
 	private Client client;
-	private Long idAgent;
+	
+	
+//	private Long idAgent;
 	
 	public DemandeOuvertureCompte() {
 	}
@@ -72,14 +95,14 @@ public class DemandeOuvertureCompte {
 		this.client = client;
 	}
 
-	public Long getIdAgent() {
-		return idAgent;
-	}
-
-	public void setIdAgent(Long idAgent) {
-		this.idAgent = idAgent;
-	}
-	
+//	public Long getIdAgent() {
+//		return idAgent;
+//	}
+//
+//	public void setIdAgent(Long idAgent) {
+//		this.idAgent = idAgent;
+//	}
+//	
 	
 
 

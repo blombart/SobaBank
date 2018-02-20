@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IClientDAO;
@@ -13,7 +14,7 @@ import com.bl.model.Client;
 import com.bl.model.Compte;
 import com.bl.model.Demande;
 
-@Component
+@Repository("clientDao")
 public class ClientDAOImpl extends AbstractDao< Long, Client> implements IClientDAO{
 //	static HashMap<Long, Client> clientsMap = new HashMap<Long, Client>();
 //	static int cpt;

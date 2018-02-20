@@ -3,14 +3,43 @@ package com.bl.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "compte")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name="type_compte")
 public class Compte {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column
 	private int numCompte;
+	@Column
 	private Date dateCreation;
+	@Column
 	private float solde;
+	@Column
 	private String rib;
+	@Column
 	private float decouvertAutorise;
+	@Column
 	private float tauxAgios;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Operation> operations;
 	
 	public Compte(){
@@ -19,7 +48,7 @@ public class Compte {
 	}
 	
 
-
+	
 	public Compte(Long id, int numCompte, Date dateCreation, float solde, String rib, float decouvertAutorise,
 			float tauxAgios, List<Operation> operations) {
 		super();

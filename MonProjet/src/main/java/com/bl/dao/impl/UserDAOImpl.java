@@ -5,12 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IUserDAO;
 import com.bl.model.User;
 
-@Component
+@Repository("userDAO")
 public class UserDAOImpl extends AbstractDao<Long, User> implements IUserDAO{
 //	static HashMap<String, User> usersMap =  new HashMap<String, User>();
 //	static int cpt;

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IAgentDAO;
@@ -14,7 +15,7 @@ import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.DemandeOuvertureCompte;
 
-@Component
+@Repository("agentDao")
 public class AgentDAOImpl extends AbstractDao<Long, Agent> implements IAgentDAO{
 //	static HashMap<Long, Agent> agentsMap = new HashMap<Long, Agent>();
 //	static int cpt;

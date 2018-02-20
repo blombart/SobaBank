@@ -5,12 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IOperationDAO;
 import com.bl.model.Operation;
 
-@Component
+@Repository("operationDao")
 public class OperationDAOImpl extends AbstractDao<Long, Operation> implements
 		IOperationDAO {
 	// static HashMap<Long, Operation> operationsMap = new HashMap<Long,

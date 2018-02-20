@@ -2,14 +2,18 @@ package com.bl.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bl.dao.IUserDAO;
 import com.bl.model.User;
 import com.bl.service.IUserService;
 
-@Component
+@Service("userService")
+@Transactional
 public class UserServiceImpl implements IUserService{
 	@Autowired
 	IUserDAO userDao;
