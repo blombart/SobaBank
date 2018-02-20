@@ -141,6 +141,27 @@ public class AdminServiceImpl implements IAdminService {
 		
 		return dem;
 	}
+	
+	@Override
+	public Boolean inscriptionClient(String nom, String prenom, String email,
+			String adresse, String numTel, int nbEnfants,
+			String situationMatrimonial) {
+		//on creer le nouveau client 
+		Client client = new Client(adresse, numTel, nbEnfants, situationMatrimonial, null, null, null, null, false);
+		client.setNom(nom);client.setPrenom(prenom);client.setEmail(email);
+		clientDAO.createClient(client);
+		System.out.println("client creer");
+		//On creer une nouvelle demande auquel on affecte le client tout juste creer
+		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+		dem.setId(0L);
+		dem.setClient(client);
+		dem.setDateDemande(new Date());
+		dem.setIsAffected(false);
+		dem.setStatus("NON TRAITEE");
+		//On ajoute la demande dans la liste
+		demOuvDAO.addDemande(dem);
+		return true;
+	}
 
 
 	

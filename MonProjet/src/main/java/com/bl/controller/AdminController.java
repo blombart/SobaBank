@@ -2,6 +2,7 @@ package com.bl.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,6 +78,18 @@ public class AdminController {
 	public DemandeOuvertureCompte createDemande(@PathVariable("id") Long idClient){
 		DemandeOuvertureCompte dem = adminService.createDemande(idClient);
 		return dem;
+	}
+	
+	@RequestMapping(value ="/inscription",method = RequestMethod.POST)
+	public Boolean inscriptionClient(@RequestParam("nom") String nom,
+			@RequestParam("prenom") String prenom,
+			@RequestParam("email") String email,
+			@RequestParam("adresse") String adresse,
+			@RequestParam("numTel") String numTel,
+			@RequestParam("nbEnfants") int nbEnfants,
+			@RequestParam("situationMatrimonial") String situationMatrimonial){
+		Boolean response = adminService.inscriptionClient(nom,prenom,email,adresse,numTel,nbEnfants,situationMatrimonial);
+		return response;
 	}
 	
 }
