@@ -19,7 +19,7 @@ public class UserServiceImpl implements IUserService{
 		return userList;
 	}
 	
-	public User getUserForId(String id){
+	public User getUserForId(Long id){
 		User user = userDao.getUserForId(id);
 		return user;
 	}
@@ -34,14 +34,9 @@ public class UserServiceImpl implements IUserService{
 		return userResponse;
 	}
 	
-	public User deleteUser(String id){
+	public User deleteUser(Long id){
 		User userResponse = userDao.deleteUser(id);
 		return userResponse;
-	}
-	
-	public List<User> deleteAllUser(){
-		List<User> userList = userDao.deleteAllUser();
-		return userList;
 	}
 	
 	@Override

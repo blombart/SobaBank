@@ -6,24 +6,42 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.bl.dao.AbstractDao;
 import com.bl.dao.IOperationDAO;
 import com.bl.model.Operation;
 
 @Component
-public class OperationDAOImpl implements IOperationDAO{
-	static HashMap<Long, Operation> operationsMap = new HashMap<Long, Operation>();
-	
+public class OperationDAOImpl extends AbstractDao<Long, Operation> implements
+		IOperationDAO {
+	// static HashMap<Long, Operation> operationsMap = new HashMap<Long,
+	// Operation>();
+	//
+	// @Override
+	// public List<Operation> getAllOperation() {
+	// List<Operation> operations = new
+	// ArrayList<Operation>(operationsMap.values());
+	// return operations;
+	// }
+	//
+	// @Override
+	// public Operation addOperation(Operation ope) {
+	// Long id = ope.getId();
+	// operationsMap.put(id, ope);
+	// return operationsMap.get(id);
+	// }
+
 	@Override
 	public List<Operation> getAllOperation() {
-		List<Operation> operations = new ArrayList<Operation>(operationsMap.values());
+		@SuppressWarnings("unchecked")
+		List<Operation> operations = getEntityManager().createQuery(
+				"select op from Operation op").getResultList();
 		return operations;
 	}
 
 	@Override
 	public Operation addOperation(Operation ope) {
-		Long id = ope.getId();
-		operationsMap.put(id, ope);
-		return operationsMap.get(id);
+		persist(ope);
+		return getByReference(ope.getId());
 	}
 
 }

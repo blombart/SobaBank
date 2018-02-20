@@ -38,5 +38,9 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	protected void delete(T entity) {
 		entityManager.remove(entity);
 	}
+	
+	protected T getByReference(PK key){
+		return (T) entityManager.getReference(persistentClass, key);
+	}
 
 }
