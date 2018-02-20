@@ -34,7 +34,6 @@ export class GestionAgentsComponent implements OnInit {
 
   ngOnInit() {
   	
-    console.log(this.cookieService.get("id"));
     this.getAllAgents();
 
     this.formRecherche = new FormGroup({

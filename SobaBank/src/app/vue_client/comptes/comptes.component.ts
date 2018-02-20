@@ -5,7 +5,7 @@ import { CompteEpargne} from '../../modeles/compte';
 import { ClientService} from '../../Service/client.service';
 import { OperationService} from '../../Service/operation.service';
 import { Client} from '../../modeles/client';
-
+import { CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-comptes',
@@ -17,7 +17,7 @@ export class ComptesComponent implements OnInit {
 
 
    idCompteSelectionne: number;
-
+   id:number;
     comptes: Compte[];
     operations:Operation[];
     epargnes:CompteEpargne[];
@@ -28,11 +28,11 @@ export class ComptesComponent implements OnInit {
   selectedCompte : Compte;
 
 
-  constructor(private clientService:ClientService) { }
+  constructor(private clientService:ClientService, private cookieService: CookieService) { }
 
   ngOnInit() {
 
-
+  this.id = Number(this.cookieService.get("id"));
    this.getAllComptes();
 
 
@@ -42,7 +42,7 @@ export class ComptesComponent implements OnInit {
   }
 
 getAllComptes(){
-  this.clientService.getAllComptes(1).subscribe(
+  this.clientService.getAllComptes(this.id).subscribe(
     cptes => {
       this.comptes=cptes;
     },
@@ -52,7 +52,7 @@ getAllComptes(){
 );
 }
  getAllComptesEpargne(){
-  this.clientService.getAllComptesEpargne(1).subscribe(
+  this.clientService.getAllComptesEpargne(this.id).subscribe(
     epgnes => {
       this.epargnes=epgnes;
     },
