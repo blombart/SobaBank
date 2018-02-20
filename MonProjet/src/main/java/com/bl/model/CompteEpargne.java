@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "CompteEpargne")
 @DiscriminatorValue("CompteEpargne")
 public class CompteEpargne extends Compte {
 	@Column

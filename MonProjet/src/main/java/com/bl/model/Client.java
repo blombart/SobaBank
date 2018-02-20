@@ -17,7 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "client")
 @DiscriminatorValue("Client")
 public class Client extends User {
 	@Column
@@ -67,14 +66,13 @@ public class Client extends User {
 
 
 
-	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial, Long idMonAgent,
+	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial,
 			List<Compte> comptes, List<Demande> demandes, List<File> files, Boolean isClient) {
 		super();
 		this.adresse = adresse;
 		this.numTel = numTel;
 		this.nbEnfants = nbEnfants;
 		this.situationMatrimonial = situationMatrimonial;
-//		this.idMonAgent = idMonAgent;
 		this.comptes = comptes;
 		this.demandes = demandes;
 		this.files = files;

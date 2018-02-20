@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
-@Table(name = "agent")
 @DiscriminatorValue("Agent")
 public class Agent extends User {
 	@Column

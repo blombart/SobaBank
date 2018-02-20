@@ -1,19 +1,13 @@
 package com.bl.dao.impl;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IDemandeOuvertureDAO;
-import com.bl.model.Client;
-import com.bl.model.Compte;
-import com.bl.model.Demande;
+
 import com.bl.model.DemandeOuvertureCompte;
 
 @Repository("demandeOuvertureDao")
@@ -64,7 +58,7 @@ public class DemandeOuvertureDAOImpl extends AbstractDao<Long, DemandeOuvertureC
 	@Override
 	public List<DemandeOuvertureCompte> getAllDemande() {
 		@SuppressWarnings("unchecked")
-		List<DemandeOuvertureCompte> demOuv = getEntityManager().createQuery("select dem from DemandeOuvertureCompte").getResultList();
+		List<DemandeOuvertureCompte> demOuv = getEntityManager().createQuery("select dem from DemandeOuvertureCompte dem").getResultList();
 		return demOuv;
 	}
 

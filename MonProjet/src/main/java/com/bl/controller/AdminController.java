@@ -74,11 +74,11 @@ public class AdminController {
 		return demandes;
 	}
 	
-	@RequestMapping(value ="/demandes/{id}",method = RequestMethod.POST)
-	public DemandeOuvertureCompte createDemande(@PathVariable("id") Long idClient){
-		DemandeOuvertureCompte dem = adminService.createDemande(idClient);
-		return dem;
-	}
+//	@RequestMapping(value ="/demandes/{id}",method = RequestMethod.POST)
+//	public DemandeOuvertureCompte createDemande(@PathVariable("id") Long idClient){
+//		DemandeOuvertureCompte dem = adminService.createDemande(idClient);
+//		return dem;
+//	}
 	
 	@RequestMapping(value ="/inscription",method = RequestMethod.POST)
 	public Boolean inscriptionClient(@RequestParam("nom") String nom,

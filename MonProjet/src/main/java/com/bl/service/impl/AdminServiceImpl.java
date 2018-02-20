@@ -59,6 +59,7 @@ public class AdminServiceImpl implements IAdminService {
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDemOuv);
 		Client cl = dem.getClient();
 		
+		
 		// On edite la demande
 		dem.setDateAffectation(new Date());
 		dem.setIsAffected(true);
@@ -68,8 +69,9 @@ public class AdminServiceImpl implements IAdminService {
 		// On ajoute la demande a l'agent
 		agent.addDemandeOuvertureCompte(dem);
 		
-		//On ajoute le client a l'agent �galement (qui est pour le moment un non client)
-		agent.getClients().add(cl);
+//		//On ajoute le client a l'agent �galement (qui est pour le moment un non client)
+//		agent.getClients().add(cl);
+		
 		// On update agent et demande
 		agentDAO.updateAgent(agent);
 		demOuvDAO.updateDemande(dem);
@@ -129,36 +131,37 @@ public class AdminServiceImpl implements IAdminService {
 		return true;
 	}
 
-	@Override
-	public DemandeOuvertureCompte createDemande(Long idClient) {
-		//On recupere le client tout juste creer
-		Client client = clientDAO.GetClientById(idClient);
-		//ON creer une nouvelle demande et on set les attributs
-		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
-		dem.setId(0L);
-		dem.setClient(client);
-		dem.setDateDemande(new Date());
-		dem.setIsAffected(false);
-		dem.setStatus("NON TRAITEE");
-		//On ajoute la demande dans la liste
-		demOuvDAO.addDemande(dem);
-		
-		return dem;
-	}
-	
+//	@Override
+//	public DemandeOuvertureCompte createDemande(Long idClient) {
+//		//On recupere le client tout juste creer
+//		Client client = clientDAO.GetClientById(idClient);
+//		//ON creer une nouvelle demande et on set les attributs
+//		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+//		dem.setId(0L);
+//		dem.setClient(client);
+//		dem.setDateDemande(new Date());
+//		dem.setIsAffected(false);
+//		dem.setStatus("NON TRAITEE");
+//		//On ajoute la demande dans la liste
+//		demOuvDAO.addDemande(dem);
+//		
+//		return dem;
+//	}
+//	
 	@Override
 	public Boolean inscriptionClient(String nom, String prenom, String email,
 			String adresse, String numTel, int nbEnfants,
 			String situationMatrimonial) {
 		//on creer le nouveau client 
-		Client client = new Client(adresse, numTel, nbEnfants, situationMatrimonial, null, null, null, null, false);
+		Client client = new Client(adresse, numTel, nbEnfants, situationMatrimonial, null, null, null, false);
 		client.setNom(nom);client.setPrenom(prenom);client.setEmail(email);
-		clientDAO.createClient(client);
-		System.out.println("client creer");
+		
+		Client client_dem = clientDAO.createClient(client);
+		
+		
 		//On creer une nouvelle demande auquel on affecte le client tout juste creer
 		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
-		dem.setId(0L);
-		dem.setClient(client);
+		dem.setClient(client_dem);
 		dem.setDateDemande(new Date());
 		dem.setIsAffected(false);
 		dem.setStatus("NON TRAITEE");

@@ -24,7 +24,7 @@ public interface IAdminService {
 	
 	public Boolean modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
 	
-	public DemandeOuvertureCompte createDemande(Long idClient);
+//	public DemandeOuvertureCompte createDemande(Long idClient);
 	
 	public Boolean inscriptionClient(String nom, String prenom, String email,
 			String adresse, String numTel, int nbEnfants,

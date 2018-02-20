@@ -127,9 +127,10 @@ public class UserDAOImpl extends AbstractDao<Long, User> implements IUserDAO{
 	
 		@Override
 	public User authenticateUser(String name, String password) {
-		User user = (User)getEntityManager().createQuery("select u from user where u.nom=? AND u.mdp=?")
+		User user = (User)getEntityManager().createQuery("select u from User u where u.nom=? AND u.mdp=?")
 				.setParameter(1, name)
-				.setParameter(2, password);
+				.setParameter(2, password).getSingleResult();
+				
 		return user;
 	}
 	
