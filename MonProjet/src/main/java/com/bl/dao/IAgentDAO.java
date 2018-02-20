@@ -16,4 +16,6 @@ public interface IAgentDAO {
 	public Agent getAgentById(Long id);
 	
 	public Agent getAgentByMatricule(String matricule);
+	
+	Agent getAgentByDem(Long id);
 }

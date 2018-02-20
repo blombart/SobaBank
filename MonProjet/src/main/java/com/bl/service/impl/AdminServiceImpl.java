@@ -57,7 +57,7 @@ public class AdminServiceImpl implements IAdminService {
 		// On recupere l'agent et la demande a lier
 		Agent agent = agentDAO.getAgentById(idAgent);
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDemOuv);
-		Client cl = dem.getClient();
+//		Client cl = dem.getClient();
 		
 		
 		// On edite la demande

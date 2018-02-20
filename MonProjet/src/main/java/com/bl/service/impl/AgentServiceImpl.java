@@ -156,8 +156,11 @@ public class AgentServiceImpl implements IAgentService {
 		
 		dem.setIsValid(true);
 		dem.setStatus("TRAITEE");
-		
 		cl.setIsClient(true);
+		cl.setRole("client");
+		cl.generateMdp();
+		Agent ag = agentDAO.getAgentByDem(idDem);
+		ag.getClients().add(cl);
 		
 		return dem;
 	}

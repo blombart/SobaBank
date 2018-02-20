@@ -135,6 +135,16 @@ public class Client extends User {
 		this.demandes = demandes;
 	}
 
+	public void generateMdp() {
+		String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		String mdp ="";
+		for(int i=0;i <8;i++) {
+			int num = (int) (Math.random()*chars.length());
+			System.out.println(num);
+			mdp += chars.charAt(num);
+		}
+		this.setMdp(mdp);
+	}
 	
 	
 	
