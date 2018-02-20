@@ -9,7 +9,7 @@ import {DemandeOuvertureCompte} from '../modeles/demandeOuvertureCompte';
 
 @Injectable()
 export class AdminService {
-	private apiUrl = "http://localhost:8080/sobabank/";
+	private apiUrl = "http://localhost:8080/SpringAngularStartProject/";
 
   constructor(private http: Http) { }
 
