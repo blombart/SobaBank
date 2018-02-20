@@ -2,15 +2,32 @@ package com.bl.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
+@Entity
+@DiscriminatorValue("Demande ouverture de compte")
 public class DemandeOuvertureCompte {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column
 	private Date dateDemande;
+	@Transient
 	private Boolean isAffected;
+	
 	private String Status;
+	@Transient
 	private Boolean isValid;
+	@Column
 	private Date dateAffectation;
+	
 	private Client client;
+	
 	private Long idAgent;
 	
 	public DemandeOuvertureCompte() {

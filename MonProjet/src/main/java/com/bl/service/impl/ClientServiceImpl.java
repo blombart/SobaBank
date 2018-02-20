@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.bl.dao.IAgentDAO;
 import com.bl.dao.IClientDAO;
 import com.bl.dao.ICompteDAO;
 import com.bl.dao.IDemandeDAO;
@@ -28,6 +29,8 @@ public class ClientServiceImpl implements IClientService {
 	private ICompteDAO compteDAO;
 	@Autowired
 	private IDemandeDAO DemandeDAO;
+	@Autowired
+	private IAgentDAO agentDAO;
 
 	@Override
 	public Client createClient(Client client) {
@@ -201,7 +204,7 @@ public class ClientServiceImpl implements IClientService {
 	@Override
 	public Agent getAgentForClient(Long idClient) {
 		Client cl = clientDAO.GetClientById(idClient);
-		Agent ag = cl.getMonAgent();
+		Agent ag = agentDAO.getAgentById(cl.getMonAgent());
 		
 		return ag;
 	}

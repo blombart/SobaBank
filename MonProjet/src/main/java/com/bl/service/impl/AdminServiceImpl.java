@@ -115,7 +115,7 @@ public class AdminServiceImpl implements IAdminService {
 		oldAgent.getDemandesOuverture().remove(dem);
 		oldAgent.getClients().remove(dem.getClient());
 		
-		client.setMonAgent(newAgent);
+		client.setMonAgent(newAgent.getId());
 		
 		agentDAO.updateAgent(oldAgent);
 		agentDAO.updateAgent(newAgent);
