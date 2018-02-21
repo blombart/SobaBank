@@ -16,7 +16,7 @@ export class AgentComponent implements OnInit {
   compteForm: FormGroup;
   id:number;
 
-  constructor(private clientService : ClientService,private _fb: FormBuilder,, private cookieService: CookieService){}
+  constructor(private clientService : ClientService,private _fb: FormBuilder, private cookieService: CookieService){}
 
   ngOnInit() {
      this.id = Number(this.cookieService.get("id"));
@@ -31,8 +31,12 @@ createForm(){
   }
 
 onSubmit(){
-  //TODO modifier la demande de nouveau compte et envoyer un type de compte et le solde en param plutot qu'un objet compte 
-  this.clientService.createDemandeNouveauCompte(this.id,);
+  let type: string = this.compteForm.controls['compteSelected'].value;
+  let solde : number = this.compteForm.controls['solde'].value;
+  this.clientService.createDemandeNouveauCompte(this.id,type,solde).subscribe(
+    dem => {
+      console.log("demande creer");
+    })
 }
 
 

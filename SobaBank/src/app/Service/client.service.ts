@@ -92,8 +92,11 @@ createDemandeChequier(idClient: number):Observable<DemandeChequier>{
 }
 
 //on cree une demande de nouveau compte pour le client et on lui passe le compte en parametre
-createDemandeNouveauCompte(idClient: number, compte: Compte):Observable<DemandeNouveauCompte>{
-  return this.http.post(this.apiUrl + "clients/" + idClient + "/demandes/nouveauCompte", compte)
+createDemandeNouveauCompte(idClient: number, type, solde):Observable<DemandeNouveauCompte>{
+  let urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("type", type);
+  urlSearchParams.append("solde", solde);
+  return this.http.post(this.apiUrl + "clients/" + idClient + "/createCompte", urlSearchParams)
      .map((res: Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
