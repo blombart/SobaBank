@@ -1,0 +1,32 @@
+<div class="card" style="width: 40rem;">
+
+<div class="wrapper">
+	<div class="col-md-8">
+      
+
+
+   <form class="form-inline"><div class="form-group">
+  <label for="inputPassword6"> Numero de compte</label>
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" [ngModel]="comptes" (ngModelChange)="selectCompte($event)" [ngModelOptions]="{standalone: true}">
+  <option value *ngFor="let cpt of comptes" [ngValue]="cpt">
+		Compte N¨{{cpt.numCompte}}
+	</option>
+  </select></div>
+</form>
+
+
+
+</div>
+	<div class="col-md-8">
+			
+				<div class="card card-plain">
+				
+				 <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onClick()">Confirmer</button>  
+
+				
+			</div>
+		</div>
+
+  <div id="nav-placeholder">
+
+</div></div>
