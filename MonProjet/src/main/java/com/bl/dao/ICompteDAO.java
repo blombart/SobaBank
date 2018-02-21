@@ -3,7 +3,6 @@ package com.bl.dao;
 import java.util.List;
 
 import com.bl.model.Compte;
-import com.bl.model.CompteEpargne;
 
 public interface ICompteDAO {
 	public List<Compte> getAllComptes();

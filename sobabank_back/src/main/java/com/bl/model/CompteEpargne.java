@@ -15,8 +15,6 @@ public class CompteEpargne extends Compte {
 		this.tauxInteret = 2f;
 	}
 
-	
-
 	public CompteEpargne(Long id, int numCompte, Date dateCreation,
 			float solde, String rib, float decouvertAutorise, float tauxAgios,
 			List<Operation> operations) {
@@ -24,8 +22,6 @@ public class CompteEpargne extends Compte {
 				operations);
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public float getTauxInteret() {
 		return tauxInteret;

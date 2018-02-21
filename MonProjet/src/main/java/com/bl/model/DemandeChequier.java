@@ -8,9 +8,6 @@ import javax.persistence.Entity;
 @DiscriminatorValue("chequier")
 public class DemandeChequier extends Demande {
 
-	
-	
-	
 	public DemandeChequier() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -35,8 +35,6 @@ public class CompteDAOImpl implements ICompteDAO{
 		addCompte(c3);
 	}
 	
-	
-	
 	@Override
 	public List<Compte> getAllComptes() {
 		List<Compte> comptes = new ArrayList<Compte>(comptesMap.values());
@@ -59,7 +57,6 @@ public class CompteDAOImpl implements ICompteDAO{
 
 	@Override
 	public Compte getCompteByID(Long id) {
-		System.out.println("dans dao id du compte : " + id);
 		Compte compte = comptesMap.get(id);
 		return compte;
 	}

@@ -10,7 +10,7 @@ public class Agent extends User {
 	private String numTel;
 	private List<Client> clients = new ArrayList<Client>();
 	private List<DemandeOuvertureCompte> demandesOuverture = new ArrayList<DemandeOuvertureCompte>();
-
+	
 	public Agent() {
 		super();
 	}
@@ -18,7 +18,6 @@ public class Agent extends User {
 	public Agent(Date dateDebutContrat) {
 		super();
 		this.dateDebutContrat = dateDebutContrat;
-		generateMatricule();
 	}
 
 	public String getMatricule() {
@@ -32,9 +31,10 @@ public class Agent extends User {
 	public void generateMatricule() {
 		long idAgent = super.getId();
 		if(idAgent<10){
-			this.matricule = "A00" + idAgent;
+			setMatricule("A00" + idAgent);
+			System.out.println("generate mat");
 		} else if (idAgent>10 & idAgent<100){
-			this.matricule = "A0" + idAgent;
+			setMatricule("A0" + idAgent);
 		}
 	}
 
@@ -68,6 +68,10 @@ public class Agent extends User {
 
 	public void setDemandesOuverture(List<DemandeOuvertureCompte> demandesOuverture) {
 		this.demandesOuverture = demandesOuverture;
+	}
+	
+	public void addDemandeOuvertureCompte(DemandeOuvertureCompte dem){
+		this.demandesOuverture.add(dem);
 	}
 
 }

@@ -48,25 +48,30 @@ public class AdminServiceImpl implements IAdminService {
 
 	@Override
 	public Boolean affecterDemande(Long idAgent, Long idDemOuv) {
+		Boolean b = false;
 		// TODO Auto-generated method stub
 		// On recupere l'agent et la demande a lier
 		Agent agent = agentDAO.getAgentById(idAgent);
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDemOuv);
-
+		Client cl = dem.getClient();
+		
 		// On edite la demande
 		dem.setDateAffectation(new Date());
 		dem.setIsAffected(true);
 		dem.setStatus("NON TRAITEE");
-		dem.setAgent(agent);
+		dem.setIdAgent(idAgent);
 
 		// On ajoute la demande a l'agent
-		agent.getDemandesOuverture().add(dem);
-
+		agent.addDemandeOuvertureCompte(dem);
+		
+		//On ajoute le client a l'agent également (qui est pour le moment un non client)
+		agent.getClients().add(cl);
 		// On update agent et demande
 		agentDAO.updateAgent(agent);
 		demOuvDAO.updateDemande(dem);
+		b= true;
 		
-		return true;
+		return b;
 	}
 
 	@Override
@@ -100,7 +105,7 @@ public class AdminServiceImpl implements IAdminService {
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
 		Client client = clientDAO.GetClientById(dem.getClient().getId());
 		
-		dem.setAgent(newAgent);
+		dem.setIdAgent(idNewAgent);
 
 		//on ajoute la nouvelle demande a l'agent et le client en meme temps
 		newAgent.getDemandesOuverture().add(dem);
@@ -126,6 +131,7 @@ public class AdminServiceImpl implements IAdminService {
 		Client client = clientDAO.GetClientById(idClient);
 		//ON creer une nouvelle demande et on set les attributs
 		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+		dem.setId(0L);
 		dem.setClient(client);
 		dem.setDateDemande(new Date());
 		dem.setIsAffected(false);
@@ -135,6 +141,8 @@ public class AdminServiceImpl implements IAdminService {
 		
 		return dem;
 	}
+
+
 	
 	
 

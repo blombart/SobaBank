@@ -26,7 +26,6 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 	}
 
 	public void save(User user) {
-		
 		persist(user);
 	}
 

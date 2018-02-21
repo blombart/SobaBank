@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -91,8 +92,6 @@ public class AgentDAOImpl extends AbstractDao<Long, Agent> implements IAgentDAO{
 
 	@Override
 	public Agent addAgent(Agent agent) {
-		agent.setMdp("1234");
-		agent.setRole("agent");
 		persist(agent);
 		return getByReference(agent.getId());
 	}
@@ -120,6 +119,13 @@ public class AgentDAOImpl extends AbstractDao<Long, Agent> implements IAgentDAO{
 		Agent agent = (Agent) getEntityManager().createQuery("select ag from Agent ag where ag.matricule=?")
 				.setParameter(1, matricule);
 		return agent;
+	}
+	
+	public Agent getAgentByDem(Long id) {
+		BigInteger idAgentB = (BigInteger) getEntityManager().createNativeQuery("select a.user_id from user_demandeouverturecompte a where a.demandesOuverture_id=?")
+				.setParameter(1, id).getSingleResult();
+		Long idAgent = idAgentB.longValue();
+		return getByKey(idAgent);
 	}
 
 

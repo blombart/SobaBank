@@ -21,21 +21,31 @@ public class DemandeOuvertureCompte {
 	@Column
 	private Date dateDemande;
 	
+	@Column
 	private Boolean isAffected;
 	
+	@Column
 	private String Status;
 	
+	@Column
 	private Boolean isValid;
 	
 	@Column
 	private Date dateAffectation;
 
-	@OneToOne
-	private Client client;
+	
+	public Long getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
+	}
+
+	private Long idClient;
 	
 	
-//	private Long idAgent;
-	
+
 	public DemandeOuvertureCompte() {
 	}
 
@@ -87,24 +97,7 @@ public class DemandeOuvertureCompte {
 		this.dateAffectation = dateAffectation;
 	}
 
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
-//	public Long getIdAgent() {
-//		return idAgent;
-//	}
-//
-//	public void setIdAgent(Long idAgent) {
-//		this.idAgent = idAgent;
-//	}
-//	
 	
-
 
 
 }

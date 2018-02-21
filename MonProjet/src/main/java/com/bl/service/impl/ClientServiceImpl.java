@@ -67,21 +67,18 @@ public class ClientServiceImpl implements IClientService {
 	}
 	
 	@Override
-	public List<Compte> getComptesEpargneByIdClient(Long idClient) {
+	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient) {
 		//on recupere le client
-				//Client cl = clientDAO.GetClientById(idClient);
+				Client cl = clientDAO.GetClientById(idClient);
 				
 				//On ajoute les comptes du client dans une liste
-				List<Compte> comptes = compteDAO.getComptesEpargneByIdClient(idClient);
-//				for(Compte c : cl.getComptes()){
-//					if (c instanceof CompteEpargne){
-//						comptesEpargne.add((CompteEpargne)c);
-//					}
-//				}
-				
-				//Voir clientDaoImpl et creer la methode
-				
-				return comptes;
+				List<CompteEpargne> comptesEpargne = new ArrayList<CompteEpargne>();
+				for(Compte c : cl.getComptes()){
+					if (c instanceof CompteEpargne){
+						comptesEpargne.add((CompteEpargne)c);
+					}
+				}
+				return comptesEpargne;
 	}
 
 	@Override
@@ -157,6 +154,7 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
+	//TODO MODIFIER CETTE DEMANDE 
 	public DemandeNouveauCompte createDemandeNouveauCompteForClient(
 			Long idClient, Compte compte) {
 			Client cl = clientDAO.GetClientById(idClient);
@@ -215,6 +213,30 @@ public class ClientServiceImpl implements IClientService {
 //		
 //		return ag;
 		return null;
+	}
+
+	@Override
+	public DemandeNouveauCompte createDemandeNouveauCompte(Long idClient, String type,
+			float solde) {
+		Client cl = clientDAO.GetClientById(idClient);
+		DemandeNouveauCompte dem = new DemandeNouveauCompte();
+		
+		if(type.equals("cc")){
+			System.out.println("compte courant");
+			Compte c = new Compte();
+			c.setSolde(solde);
+			
+			dem.setNewCompte(c);
+			cl.getComptes().add(c);
+			cl.getDemandes().add(dem);
+		}else {
+			System.out.println("compte epargne");
+			CompteEpargne c = new CompteEpargne();
+			c.setSolde(solde);
+			dem.setNewCompte(c);
+			cl.getDemandes().add(dem);
+		}
+		return dem;
 	}
 
 

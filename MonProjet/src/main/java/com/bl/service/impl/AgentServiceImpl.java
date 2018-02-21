@@ -64,8 +64,16 @@ public class AgentServiceImpl implements IAgentService {
 		Agent ag = agentDAO.getAgentById(idAgent);
 		List<DemandeChequier> demandesChequier = new ArrayList<DemandeChequier>();
 		//on boucle sur tous les clients de l'agent
-		demandesChequier = demandeDAO.getAllDemandesChequierByIdAgent(idAgent);
-		
+		for(Client c: ag.getClients()){
+			//On boucle sur les demandes du client
+			for(Demande d :c.getDemandes()){
+				//Si la demande est de type DemandeChequier
+				if(d instanceof DemandeChequier){
+					//On caste la demande en demandechequier pour l'ajouter dans la liste
+					demandesChequier.add((DemandeChequier)d);
+				}
+			}
+		}
 		return demandesChequier;
 	}
 
@@ -89,22 +97,8 @@ public class AgentServiceImpl implements IAgentService {
 	}
 
 	@Override
-	public List<Demande> getAllDemandeNouveauCompte(Long idAgent) {
-		Agent ag = agentDAO.getAgentById(idAgent);
-		List<Demande> demandesNouveauCompte = new ArrayList<Demande>();
-		//on boucle sur tous les clients de l'agent
-//		for(Client c: ag.getClients()){
-//			//On boucle sur les demandes du client
-//			for(Demande d :c.getDemandes()){
-//				//Si la demande est de type DemandeChequier
-//				if(d instanceof DemandeNouveauCompte){
-//					//On caste la demande en demandechequier pour l'ajouter dans la liste
-//					demandesNouveauCompte.add((DemandeNouveauCompte)d);
-//				}
-//			}
-//		}
-		
-		demandesNouveauCompte = demandeDAO.getAllDemande();
+	public List<DemandeNouveauCompte> getAllDemandeNouveauCompte(Long idAgent) {
+		List<DemandeNouveauCompte> demandesNouveauCompte = demandeDAO.getDemandeByIdAgent(idAgent);
 		
 		return demandesNouveauCompte;
 	}
@@ -145,14 +139,18 @@ public class AgentServiceImpl implements IAgentService {
 	@Override
 	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem) {
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
-		Client cl = dem.getClient();
-		
-		cl.setMdp("1234");
+		Client cl = clientDAO.GetClientById(dem.getIdClient());
 		
 		dem.setIsValid(true);
 		dem.setStatus("TRAITEE");
-		
 		cl.setIsClient(true);
+		cl.setRole("client");
+		cl.generateMdp();
+		
+		Agent ag = agentDAO.getAgentByDem(idDem);
+		ag.getClients().add(cl);
+		agentDAO.updateAgent(ag);
+		
 		
 		return dem;
 	}

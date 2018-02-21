@@ -26,14 +26,11 @@ public class Agent extends User {
 	private String numTel;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JsonProperty(access = Access.WRITE_ONLY)
 	private List<Client> clients = new ArrayList<Client>();
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<DemandeOuvertureCompte> demandesOuverture = new ArrayList<DemandeOuvertureCompte>();
 	
-	
-
 	public Agent() {
 		super();
 	}

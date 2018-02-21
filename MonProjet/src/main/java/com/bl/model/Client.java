@@ -28,9 +28,6 @@ public class Client extends User {
 	@Column
 	private String situationMatrimonial;
 	
-	
-//	private Long idMonAgent;
-	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Compte>comptes;
 	
@@ -40,6 +37,7 @@ public class Client extends User {
 	@Transient
 	private List<File> files;
 	
+	@Column
 	private Boolean isClient;
 	
 
@@ -66,14 +64,13 @@ public class Client extends User {
 
 
 
-	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial, Long idMonAgent,
+	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial,
 			List<Compte> comptes, List<Demande> demandes, List<File> files, Boolean isClient) {
 		super();
 		this.adresse = adresse;
 		this.numTel = numTel;
 		this.nbEnfants = nbEnfants;
 		this.situationMatrimonial = situationMatrimonial;
-//		this.idMonAgent = idMonAgent;
 		this.comptes = comptes;
 		this.demandes = demandes;
 		this.files = files;
@@ -136,6 +133,16 @@ public class Client extends User {
 		this.demandes = demandes;
 	}
 
+	public void generateMdp() {
+		String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		String mdp ="";
+		for(int i=0;i <8;i++) {
+			int num = (int) (Math.random()*chars.length());
+			System.out.println(num);
+			mdp += chars.charAt(num);
+		}
+		this.setMdp(mdp);
+	}
 	
 	
 	

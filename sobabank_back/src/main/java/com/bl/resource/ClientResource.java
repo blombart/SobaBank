@@ -87,7 +87,7 @@ public class ClientResource {
 		return opes;
 	}
 	
-	@GET
+	@POST
 	@Path("comptes/{id}/operations")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Operation> getAllOperations(@PathParam("id") Long idCompte){

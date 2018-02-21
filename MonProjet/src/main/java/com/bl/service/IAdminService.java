@@ -2,7 +2,6 @@ package com.bl.service;
 
 import java.util.List;
 
-import com.bl.model.Admin;
 import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
 
@@ -25,12 +24,11 @@ public interface IAdminService {
 	
 	public Boolean modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
 	
-	public DemandeOuvertureCompte createDemande(Long idClient);
+//	public DemandeOuvertureCompte createDemande(Long idClient);
 	
 	public Boolean inscriptionClient(String nom, String prenom, String email,
 			String adresse, String numTel, int nbEnfants,
 			String situationMatrimonial);
-	
 
 
 }

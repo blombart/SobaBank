@@ -79,8 +79,6 @@ public class ClientDAOImpl extends AbstractDao< Long, Client> implements IClient
 
 	@Override
 	public Client createClient(Client client) {
-		client.setMdp("1234");
-		client.setRole("client");
 		persist(client);
 		return getByReference(client.getId());
 	}

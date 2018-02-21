@@ -1,14 +1,12 @@
 package com.bl.model;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
 @Entity
-@DiscriminatorValue("Demande new compte")
+@DiscriminatorValue("nouveauCompte")
 public class DemandeNouveauCompte extends Demande {
 	
 	@OneToOne

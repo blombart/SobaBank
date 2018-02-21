@@ -119,6 +119,7 @@ public class ClientServiceImpl implements IClientService {
 		clientDAO.updateClient(cl);
 		//On edite la demande
 		DemandeDAO.updateDemande(mdp);
+		
 		return mdp;
 		
 		
@@ -170,13 +171,10 @@ public class ClientServiceImpl implements IClientService {
 			float montant, String libelle) {
 		Compte compteDebit = compteDAO.getCompteByID(idCompteDebit);
 		Compte compteCredit = compteDAO.getCompteByID(idCompteCredit);
-		System.out.println("solde comptedebit avant virement: " + compteDebit.getSolde());
-		System.out.println("solde comptecredit avant virement: " + compteCredit.getSolde());
+		
 		compteDebit.debiter(montant);
 		compteCredit.crediter(montant);
 		
-		System.out.println("solde comptedebit apres virement: " + compteDebit.getSolde());
-		System.out.println("solde comptecredit apres virement: " + compteCredit.getSolde());
 		compteDAO.updateCompte(compteDebit);
 		compteDAO.updateCompte(compteCredit);
 		//TODO gerer l'ajout d'operation

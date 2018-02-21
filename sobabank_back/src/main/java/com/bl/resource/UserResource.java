@@ -85,16 +85,20 @@ public class UserResource {
 			return clientResponse.getId();
 		}
 		
-		@POST
-		@Path("/users/auth")
-		@Produces((MediaType.APPLICATION_JSON))
-		public User authentifie(@FormParam("username") String username, @FormParam("pwd") String pwd){
-			//TODO modifier methode dans interface et implementation de agentService
-			return null;
-		}
 	
 		
-		
+		@POST
+		@Path("/users/auth")
+		@Produces(MediaType.APPLICATION_JSON)
+		public User authenticateUser(@FormParam("username") String username, @FormParam("pwd") String pwd){
+			System.out.println("TEST");
+			System.out.println(username +"   " + pwd);
+			
+			User userResponse = userService.authenticateUser(username,  pwd);
+			
+			System.out.println(userResponse.getEmail());
+			return userResponse;
+		}
 		
 		
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,6 +18,7 @@ import com.bl.model.Client;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
+import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAgentService;
 
 @Path("")
@@ -99,4 +101,21 @@ public class AgentResource {
 		//TODO creer methode dans interface et implementation de agentService
 		return null;
 	}
+	
+	@GET
+	@Path("/agents/{id}/demandes/demandeOuverture")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<DemandeOuvertureCompte> getAllDemandeOuverture(@PathParam("id") Long idAgent){
+		List<DemandeOuvertureCompte> dems = agentService.getAllDemandeOuvertureCompte(idAgent);
+		return dems;
+	}
+	
+	@POST
+	@Path("/demandes/{id}/valid")
+	@Produces(MediaType.APPLICATION_JSON)
+	public DemandeOuvertureCompte validDemandeOuvertureCompte(@PathParam("id") Long idDem){
+		DemandeOuvertureCompte demResponse = agentService.validDemandeOuvertureCompte(idDem);
+		return demResponse;
+	}
+
 }

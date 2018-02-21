@@ -1,10 +1,8 @@
 package com.bl.dao.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
@@ -12,7 +10,11 @@ import com.bl.dao.IDemandeDAO;
 import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.Demande;
+
+import com.bl.model.DemandeNouveauCompte;
+import com.bl.model.DemandeOuvertureCompte;
 import com.bl.model.DemandeChequier;
+
 
 @Repository("demandeDao")
 public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDemandeDAO{
@@ -82,15 +84,6 @@ public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDeman
 	@Override
 	public List<DemandeChequier> getAllDemandesChequierByIdAgent(Long idAgent) {
 		
-//		List<DemandeChequier> demandes = getEntityManager().createNativeQuery("select demande.type_demande, demande.id, demande.dateDemande, demande.libelle, demande.status, demande.newCompte_id from Demande "
-//				+ "join user_demande on demande.id = user_demande.demandes_id "
-//				+ "join user on user.id = user_demande.user_id "
-//				+ "join user_user on user.id = user_user.agents_id "
-//				+ "where user_user.agents_id = ?1").setParameter("1", idAgent).getResultList();
-		
-//		Agent agent = (Agent) getEntityManager().createQuery("select c from DemandeChequier c ").getSingleResult();
-//		
-//		ArrayList<Client> clients = new ArrayList<Client>();
 		
 		@SuppressWarnings("unchecked")
 		List<Object> results = getEntityManager().createNativeQuery("select dem.id from demande dem where dem.id in "
@@ -105,5 +98,19 @@ public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDeman
 		return chequiers;
 	}	
 	
+	public List<DemandeNouveauCompte> getDemandeByIdAgent(Long idAgent){
+		@SuppressWarnings("unchecked")
+				List<Object> results = getEntityManager().createNativeQuery("select dem.id from demande dem where dem.id in "
+						+ "( select demandes_id from user_demande where user_id in (select clients_id from user_user where user_id =? )) "
+						+ "and type_demande= 'nouveauCompte' ").setParameter(1, idAgent).getResultList();
+				List<DemandeNouveauCompte> comptes = new ArrayList<DemandeNouveauCompte>();
+				for(Object o : results){
+					DemandeNouveauCompte compte = (DemandeNouveauCompte)getByKey(Long.parseLong(o.toString()));
+					comptes.add(compte);
+		 		}
+				
+				return comptes;
+		
+	}
 
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IUserDAO;
-import com.bl.model.Agent;
 import com.bl.model.User;
 
 @Repository("userDAO")
@@ -111,7 +110,6 @@ public class UserDAOImpl extends AbstractDao<Long, User> implements IUserDAO{
 	}
 
 	public User createUser(User user){
-		user.setMdp("1234");
 		persist(user);
 		return getByKey(user.getId());
 	}
@@ -132,8 +130,7 @@ public class UserDAOImpl extends AbstractDao<Long, User> implements IUserDAO{
 		User user = (User)getEntityManager().createQuery("select u from User u where u.nom=? AND u.mdp=?")
 				.setParameter(1, name)
 				.setParameter(2, password).getSingleResult();
-		
-		
+				
 		return user;
 	}
 	

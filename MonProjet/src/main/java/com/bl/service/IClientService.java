@@ -34,7 +34,10 @@ public interface IClientService {
 	
 	public Agent getAgentForClient(Long idClient);
 
-	public List<Compte> getComptesEpargneByIdClient(Long idClient);
+	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient);
 
 	public List<Compte> findAllComptes(Long idClient);
+
+	public DemandeNouveauCompte createDemandeNouveauCompte(Long idClient, String type,
+			float solde);
 }

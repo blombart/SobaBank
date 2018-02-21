@@ -1,6 +1,5 @@
 package com.bl.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +47,7 @@ public class ClientController {
 	
 	@RequestMapping(value ="/clients/{id}/demandes/nouveauCompte",method = RequestMethod.POST)
 	public DemandeNouveauCompte createDemandeNewCompte(@PathVariable("id")Long idClient, Compte compte){
-		
-//		compte = new Compte();
-//		compte.setDateCreation(new Date());
 		DemandeNouveauCompte dem = clientService.createDemandeNouveauCompteForClient(idClient, compte);
-		
 		return dem;
 	}
 	
@@ -74,7 +69,7 @@ public class ClientController {
 		return opes;
 	}
 	
-	@RequestMapping(value ="comptes/{id}/operations",method = RequestMethod.GET)
+	@RequestMapping(value ="comptes/{id}/operations",method = RequestMethod.POST)
 	public List<Operation> getAllOperations(@PathVariable("id") Long idCompte){
 		List<Operation> opes = clientService.getOperationsByCompte(idCompte);
 		return opes;
@@ -93,8 +88,8 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value ="/clients/{id}/comptesEpargne",method = RequestMethod.GET)
-	public List<Compte> getAllComptesEpargne(@PathVariable("id") Long idClient){
-		List<Compte> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
+	public List<CompteEpargne> getAllComptesEpargne(@PathVariable("id") Long idClient){
+		List<CompteEpargne> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
 		return comptesEpargne;
 	}
 
@@ -102,6 +97,12 @@ public class ClientController {
 	public List<Compte> findAllComptes(@PathVariable("id") Long idClient){
 		List<Compte> comptes = clientService.findAllComptes(idClient);
 		return comptes;
+	}
+	
+	@RequestMapping(value="/clients/{id}/createCompte",method = RequestMethod.POST)
+	public DemandeNouveauCompte createCompte(@PathVariable("id") Long idClient, @RequestParam("type") String type, @RequestParam("solde") float solde){
+		DemandeNouveauCompte dem = clientService.createDemandeNouveauCompte(idClient,type, solde);
+		return dem;
 	}
 	
 

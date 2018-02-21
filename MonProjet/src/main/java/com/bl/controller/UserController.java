@@ -21,17 +21,9 @@ public class UserController {
 	
 	@RequestMapping(value ="/users/auth",method = RequestMethod.POST)
 	public User authenticateUser(@RequestParam("username") String username, @RequestParam("pwd") String pwd){
-		System.out.println("TEST");
-		System.out.println(username +"   " + pwd);
-		
 		User userResponse = userService.authenticateUser(username,  pwd);
 		
 		System.out.println(userResponse.getEmail());
 		return userResponse;
 	}
-	
-	
-	
-	
-	
 }

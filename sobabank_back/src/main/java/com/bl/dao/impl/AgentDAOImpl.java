@@ -16,7 +16,7 @@ import com.bl.model.DemandeOuvertureCompte;
 @Component
 public class AgentDAOImpl implements IAgentDAO{
 	static HashMap<Long, Agent> agentsMap = new HashMap<Long, Agent>();
-	
+	static int cpt;
 //	public AgentDAOImpl() {
 //		Agent agent = new Agent();
 //		agent.setId(0L);
@@ -31,19 +31,26 @@ public class AgentDAOImpl implements IAgentDAO{
 
 	@Override
 	public Agent addAgent(Agent agent) {
-		Long id = agent.getId();
+		cpt = agentsMap.size();
+		cpt++;
+		long id = agent.getId() + (cpt);
+		agent.setId(id);
+		agent.generateMatricule();
 		agent.setDemandesOuverture(new ArrayList<DemandeOuvertureCompte>());
 		agent.setClients(new ArrayList<Client>());
 		
 		agentsMap.put(id, agent);
-		return agentsMap.get(id);
+		Agent _agent = agentsMap.get(id);
+		return _agent;
 	}
 
 	@Override
 	public Agent updateAgent(Agent agent) {
 		Long id = agent.getId();
+		System.out.println("id de l'agent editer dao:" + id);
 		agentsMap.put(id, agent);
-		return agentsMap.get(id);
+		Agent _agent = agentsMap.get(id);
+		return _agent;
 	}
 
 	@Override

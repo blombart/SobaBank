@@ -15,12 +15,10 @@ import javax.persistence.Table;
 @DiscriminatorValue("Administrateur")
 public class Admin extends User {
 	
-	
 	public Admin(){
 		super();
 	}
 	
-
 	
 	
 	
