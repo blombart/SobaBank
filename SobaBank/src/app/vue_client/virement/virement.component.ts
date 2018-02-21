@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Compte} from '../../modeles/compte';
 import { ClientService} from '../../Service/client.service';
 import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
+import { CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-virement',
@@ -18,11 +19,13 @@ export class VirementComponent implements OnInit {
   compteDebitSelected: Compte;
   compteCreditSelected: Compte;
   virementForm: FormGroup;
+  id:number;
 
 
-  constructor(private clientService: ClientService,private _fb: FormBuilder) { }
+  constructor(private clientService: ClientService,private _fb: FormBuilder, private cookieService: CookieService) { }
 
   ngOnInit() {
+    this.id = Number(this.cookieService.get("id"));
     this.getAllComptes();
     this.createForm();
   }
@@ -35,7 +38,7 @@ export class VirementComponent implements OnInit {
   }
 
 getAllComptes(){
-  this.clientService.findAllComptes(1).subscribe(
+  this.clientService.findAllComptes(this.id).subscribe(
     comptes =>{
       this.comptesCrediter = comptes; this.comptesDebiter = comptes;
     },

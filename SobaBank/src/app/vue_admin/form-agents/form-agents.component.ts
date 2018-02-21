@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 
 import { Agent } from '../../modeles/agent';
-
+import {Client} from '../../modeles/client';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AdminService} from '../../Service/admin.service';
@@ -24,7 +24,10 @@ export class FormAgentsComponent implements OnInit {
   id: number;
   //liste des demandes
   demandes: DemandeOuvertureCompte[];
+  clients: Client[];
+
   afficheDemande: boolean = false;
+  afficheClient: boolean=false;
 
   nouvelAgent: Agent;
   agentForm: FormGroup;
@@ -38,7 +41,7 @@ export class FormAgentsComponent implements OnInit {
       prenom: ['', Validators.required],
       email: ['',Validators.required],
       mdp: ['', Validators.required],
-      matricule: ['', Validators.required],
+      matricule: [''],
       numTel: ['',Validators.required]
     });
   }
@@ -62,9 +65,13 @@ export class FormAgentsComponent implements OnInit {
     this.adminService.findById(this.id).subscribe(
       agent => {
         this.a1 = agent;
-             this.demandes = this.a1.demandesOuverture;
+        this.demandes = this.a1.demandesOuverture;
+        this.clients = this.a1.clients;
       if(this.demandes.length !=0){
         this.afficherDemande();
+      }
+       if(this.clients.length !=0){
+        this.afficherClient();
       }
     this.agentForm.patchValue({
         nom: this.a1.nom,
@@ -157,6 +164,9 @@ export class FormAgentsComponent implements OnInit {
     this.afficheDemande = true;
   }
 
+ afficherClient(){
+    this.afficheClient = true;
+  }
 }
 
 

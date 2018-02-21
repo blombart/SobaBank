@@ -25,4 +25,6 @@ public interface IAdminService {
 	public Boolean modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
 	
 	public DemandeOuvertureCompte createDemande(Long idClient);
+
+
 }

@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -8,17 +9,25 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.bl.dao.IDemandeOuvertureDAO;
+import com.bl.model.Client;
+import com.bl.model.Compte;
+import com.bl.model.Demande;
 import com.bl.model.DemandeOuvertureCompte;
 
 @Component
 public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {
 	static HashMap<Long, DemandeOuvertureCompte> demOuvMap = new HashMap<Long, DemandeOuvertureCompte>();
-	
-	public DemandeOuvertureDAOImpl() {
-		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
-		dem.setId(1L); dem.setDateDemande(new Date());dem.setIsAffected(false);
-		demOuvMap.put(dem.getId(), dem);
-	}
+	static int cpt;
+//	public DemandeOuvertureDAOImpl() {
+//		Client c1 = new Client("Lille","0321546598",3,"marié",null,null,null,null,true);
+//		c1.setId(1); c1.setNom("dupont"); c1.setPrenom("toto"); c1.setMdp("azerty"); c1.setRole("client"); c1.setIsClient(false);
+//		c1.setComptes(new ArrayList<Compte>()); c1.setDemandes(new ArrayList<Demande>()); c1.setFiles(new ArrayList<File>());
+//		
+//		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
+//		dem.setId(1L); dem.setDateDemande(new Date());dem.setIsAffected(false);
+//		dem.setClient(c1);dem.setIdAgent(null);
+//		demOuvMap.put(dem.getId(), dem);
+//	}
 	
 	@Override
 	public List<DemandeOuvertureCompte> getAllDemande() {
@@ -28,7 +37,10 @@ public class DemandeOuvertureDAOImpl implements IDemandeOuvertureDAO {
 
 	@Override
 	public DemandeOuvertureCompte addDemande(DemandeOuvertureCompte dem) {
-		Long id = dem.getId();
+		cpt = demOuvMap.size();
+		cpt++;
+		long id = dem.getId() + (cpt);
+		dem.setId(id);
 		demOuvMap.put(id, dem);
 		return demOuvMap.get(id);
 	}

@@ -1,4 +1,4 @@
-import {User} from './user';
+ import {User} from './user';
 import {Client} from './client';
 import {DemandeOuvertureCompte} from './demandeOuvertureCompte';
 

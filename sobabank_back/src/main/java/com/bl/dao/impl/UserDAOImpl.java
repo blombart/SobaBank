@@ -24,7 +24,7 @@ public class UserDAOImpl implements IUserDAO{
 		usersMap.put("2", user2);
 		usersMap.put("3", user3);
 		usersMap.put("4", user4);
-		cpt = usersMap.size();
+		
 	}
 	
 	public List<User> getAllUsers(){
@@ -38,6 +38,7 @@ public class UserDAOImpl implements IUserDAO{
 	}
 
 	public User createUser(User user){
+		cpt = usersMap.size();
 		cpt++;
 		long id = user.getId() + (cpt);
 		String newId = String.valueOf(id);
@@ -73,5 +74,26 @@ public class UserDAOImpl implements IUserDAO{
 		return userList;
 	}
 	
+	
+		@Override
+	public User authenticateUser(String name, String password) {
+		List<User> userList = new ArrayList<User>(usersMap.values());
+		User userTemp = new User();
+		
+		for (User user : userList){
+			
+			if(user.getNom().equals(name) && user.getMdp().equals(password)){
+				userTemp = user;
+			}
+			
+			
+			
+		}
+		
+		return userTemp;
+		
+		
+		
+	}
 	
 }

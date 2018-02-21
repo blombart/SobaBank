@@ -11,6 +11,7 @@ import com.bl.dao.IAgentDAO;
 import com.bl.dao.IClientDAO;
 import com.bl.dao.ICompteDAO;
 import com.bl.dao.IDemandeDAO;
+import com.bl.dao.IDemandeOuvertureDAO;
 import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.Compte;
@@ -31,6 +32,8 @@ public class AgentServiceImpl implements IAgentService {
 	private IDemandeDAO demandeDAO;
 	@Autowired
 	private ICompteDAO compteDAO;
+	@Autowired
+	private IDemandeOuvertureDAO demOuvDAO;
 	
 	@Override
 	public List<Client> getAllClient(Long id) {
@@ -141,6 +144,20 @@ public class AgentServiceImpl implements IAgentService {
 		List<DemandeOuvertureCompte> dems = ag.getDemandesOuverture();
 		return dems;
 	}
+	
+	@Override
+	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem) {
+		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
+		Client cl = dem.getClient();
+		
+		dem.setIsValid(true);
+		dem.setStatus("TRAITEE");
+		
+		cl.setIsClient(true);
+		
+		return dem;
+	}
+
 
 	
 

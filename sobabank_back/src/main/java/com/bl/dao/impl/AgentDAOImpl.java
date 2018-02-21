@@ -35,7 +35,7 @@ public class AgentDAOImpl implements IAgentDAO{
 		cpt++;
 		long id = agent.getId() + (cpt);
 		agent.setId(id);
-//	ancienne facon d'avoir id	Long id = agent.getId();
+		agent.generateMatricule();
 		agent.setDemandesOuverture(new ArrayList<DemandeOuvertureCompte>());
 		agent.setClients(new ArrayList<Client>());
 		

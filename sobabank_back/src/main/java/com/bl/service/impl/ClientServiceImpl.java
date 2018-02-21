@@ -48,7 +48,7 @@ public class ClientServiceImpl implements IClientService {
 	public List<Compte> getComptesByIdClient(Long idClient) {
 		//on recupere le client
 		Client cl = clientDAO.GetClientById(idClient);
-		
+		cl.setComptes(compteDAO.getAllComptes());
 		//On ajoute les comptes du client dans une liste
 		List<Compte> comptes = new ArrayList<Compte>();
 		for(Compte c : cl.getComptes()){

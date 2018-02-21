@@ -14,7 +14,7 @@ import { Observable } from "rxjs/Observable";
 export class AgentService {
 
   //Nouvelle version qui appelle le web service depuis le back
-  private apiUrl = "http://localhost:8080/sobabank/";
+  private apiUrl = "http://localhost:8080/SpringAngularStartProject/";
 
 constructor(private http: Http) { }
 
@@ -89,6 +89,18 @@ return this.http.get(this.apiUrl + "agents/" + idAgent + "/demandes/demandeOuver
   /*.catch((error:any) => Observable.throw(error.json().error || 'Server error'))*/;
 }
 
+ validDemande(id:number): Observable<DemandeOuvertureCompte>{
+   return this.http.post(this.apiUrl + "demandes/" + id +"/valid",null)
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+createDemande(id: number): Observable<DemandeOuvertureCompte>{
+    return this.http.post(this.apiUrl + "demandes/"+id, null)
+    .map((res: Response) => res.json())
+     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 //ANCIENNE VERSION EN DUR
 agents = agents;
 
@@ -102,12 +114,12 @@ agents = agents;
   }
 
   getAgents(): Observable<Agent[]>{
-  		return of(agents);
-  	}
+      return of(agents);
+    }
 
   addAgent(agent: Agent){
-  		this.agents.push(agent);
-  	}
+      this.agents.push(agent);
+    }
 
 
   supprimerAgent(agent: Agent){
