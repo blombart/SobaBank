@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bl.dao.IAgentDAO;
 import com.bl.dao.IClientDAO;
@@ -21,14 +24,15 @@ import com.bl.model.DemandeNouveauCompte;
 import com.bl.model.Operation;
 import com.bl.service.IClientService;
 
-@Component
+@Service("clientService")
+@Transactional
 public class ClientServiceImpl implements IClientService {
 	@Autowired
 	private IClientDAO clientDAO;
 	@Autowired
 	private ICompteDAO compteDAO;
 	@Autowired
-	private IDemandeDAO DemandeDAO;
+	private IDemandeDAO demandeDAO;
 	@Autowired
 	private IAgentDAO agentDAO;
 
@@ -63,18 +67,21 @@ public class ClientServiceImpl implements IClientService {
 	}
 	
 	@Override
-	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient) {
+	public List<Compte> getComptesEpargneByIdClient(Long idClient) {
 		//on recupere le client
-				Client cl = clientDAO.GetClientById(idClient);
+				//Client cl = clientDAO.GetClientById(idClient);
 				
 				//On ajoute les comptes du client dans une liste
-				List<CompteEpargne> comptesEpargne = new ArrayList<CompteEpargne>();
-				for(Compte c : cl.getComptes()){
-					if (c instanceof CompteEpargne){
-						comptesEpargne.add((CompteEpargne)c);
-					}
-				}
-				return comptesEpargne;
+				List<Compte> comptes = compteDAO.getComptesEpargneByIdClient(idClient);
+//				for(Compte c : cl.getComptes()){
+//					if (c instanceof CompteEpargne){
+//						comptesEpargne.add((CompteEpargne)c);
+//					}
+//				}
+				
+				//Voir clientDaoImpl et creer la methode
+				
+				return comptes;
 	}
 
 	@Override
@@ -121,7 +128,7 @@ public class ClientServiceImpl implements IClientService {
 		//on edite le client dans la liste
 		clientDAO.updateClient(cl);
 		//On edite la demande
-		DemandeDAO.updateDemande(mdp);
+		demandeDAO.updateDemande(mdp);
 		
 		return mdp;
 		
@@ -144,7 +151,7 @@ public class ClientServiceImpl implements IClientService {
 				//on edite le client dans la liste
 				clientDAO.updateClient(cl);
 				//On edite la demande
-				DemandeDAO.updateDemande(chequier);
+				demandeDAO.updateDemande(chequier);
 				
 				return chequier;
 	}
@@ -164,7 +171,7 @@ public class ClientServiceImpl implements IClientService {
 			//on edite le client dans la liste
 			clientDAO.updateClient(cl);
 			//On edite la demande
-			DemandeDAO.updateDemande(dem);
+			demandeDAO.updateDemande(dem);
 			
 			return dem;
 	}
@@ -203,10 +210,11 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public Agent getAgentForClient(Long idClient) {
-		Client cl = clientDAO.GetClientById(idClient);
-		Agent ag = agentDAO.getAgentById(cl.getMonAgent());
-		
-		return ag;
+//		Client cl = clientDAO.GetClientById(idClient);
+//		Agent ag = agentDAO.getAgentById(cl.getMonAgent());
+//		
+//		return ag;
+		return null;
 	}
 
 

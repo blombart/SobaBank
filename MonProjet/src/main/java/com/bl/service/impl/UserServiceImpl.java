@@ -2,14 +2,18 @@ package com.bl.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bl.dao.IUserDAO;
 import com.bl.model.User;
 import com.bl.service.IUserService;
 
-@Component
+@Service("userService")
+@Transactional
 public class UserServiceImpl implements IUserService{
 	@Autowired
 	IUserDAO userDao;
@@ -19,7 +23,7 @@ public class UserServiceImpl implements IUserService{
 		return userList;
 	}
 	
-	public User getUserForId(String id){
+	public User getUserForId(Long id){
 		User user = userDao.getUserForId(id);
 		return user;
 	}
@@ -34,14 +38,9 @@ public class UserServiceImpl implements IUserService{
 		return userResponse;
 	}
 	
-	public User deleteUser(String id){
+	public User deleteUser(Long id){
 		User userResponse = userDao.deleteUser(id);
 		return userResponse;
-	}
-	
-	public List<User> deleteAllUser(){
-		List<User> userList = userDao.deleteAllUser();
-		return userList;
 	}
 	
 	@Override

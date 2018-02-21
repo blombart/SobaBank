@@ -3,6 +3,7 @@ package com.bl.dao;
 import java.util.List;
 
 import com.bl.model.Compte;
+import com.bl.model.CompteEpargne;
 
 public interface ICompteDAO {
 	public List<Compte> getAllComptes();
@@ -14,5 +15,7 @@ public interface ICompteDAO {
 	public Compte getCompteByID(Long id);
 	
 	public Compte getCompteByRIB(String rib);
+	
+	public List<Compte> getComptesEpargneByIdClient(Long idClient);
 	
 }

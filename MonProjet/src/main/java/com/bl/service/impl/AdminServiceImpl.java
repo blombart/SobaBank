@@ -3,18 +3,23 @@ package com.bl.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bl.dao.IAgentDAO;
 import com.bl.dao.IClientDAO;
 import com.bl.dao.IDemandeOuvertureDAO;
+import com.bl.model.Admin;
 import com.bl.model.Agent;
 import com.bl.model.Client;
 import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAdminService;
 
-@Component
+@Service("adminService")
+@Transactional
 public class AdminServiceImpl implements IAdminService {
 	@Autowired
 	private IAgentDAO agentDAO;
@@ -59,7 +64,7 @@ public class AdminServiceImpl implements IAdminService {
 		dem.setDateAffectation(new Date());
 		dem.setIsAffected(true);
 		dem.setStatus("NON TRAITEE");
-		dem.setIdAgent(idAgent);
+//		dem.setIdAgent(idAgent);
 
 		// On ajoute la demande a l'agent
 		agent.addDemandeOuvertureCompte(dem);
@@ -105,7 +110,7 @@ public class AdminServiceImpl implements IAdminService {
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
 		Client client = clientDAO.GetClientById(dem.getClient().getId());
 		
-		dem.setIdAgent(idNewAgent);
+//		dem.setIdAgent(idNewAgent);
 
 		//on ajoute la nouvelle demande a l'agent et le client en meme temps
 		newAgent.getDemandesOuverture().add(dem);
@@ -115,7 +120,7 @@ public class AdminServiceImpl implements IAdminService {
 		oldAgent.getDemandesOuverture().remove(dem);
 		oldAgent.getClients().remove(dem.getClient());
 		
-		client.setMonAgent(newAgent.getId());
+//		client.setMonAgent(newAgent.getId());
 		
 		agentDAO.updateAgent(oldAgent);
 		agentDAO.updateAgent(newAgent);
@@ -153,7 +158,7 @@ public class AdminServiceImpl implements IAdminService {
 		System.out.println("client creer");
 		//On creer une nouvelle demande auquel on affecte le client tout juste creer
 		DemandeOuvertureCompte dem = new DemandeOuvertureCompte();
-		dem.setId(0L);
+		//dem.setId(0L);
 		dem.setClient(client);
 		dem.setDateDemande(new Date());
 		dem.setIsAffected(false);
@@ -164,7 +169,6 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 
-	
 	
 
 }

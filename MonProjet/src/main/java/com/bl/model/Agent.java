@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,8 +16,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
-@Table(name = "agent")
-@DiscriminatorColumn
 @DiscriminatorValue("Agent")
 public class Agent extends User {
 	@Column
@@ -53,7 +50,7 @@ public class Agent extends User {
 	}
 
 	public void generateMatricule() {
-		long idAgent = super.getId();
+		long idAgent = super.getId() ;
 		if(idAgent<10){
 			setMatricule("A00" + idAgent);
 			System.out.println("generate mat");

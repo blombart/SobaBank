@@ -4,8 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bl.dao.IAgentDAO;
 import com.bl.dao.IClientDAO;
@@ -22,7 +25,8 @@ import com.bl.model.DemandeNouveauCompte;
 import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAgentService;
 
-@Component
+@Service("agentService")
+@Transactional
 public class AgentServiceImpl implements IAgentService {
 	@Autowired
 	private IAgentDAO agentDAO;
@@ -115,14 +119,14 @@ public class AgentServiceImpl implements IAgentService {
 	@Override
 	public DemandeChequier updateDemandeChequier(DemandeChequier dem) {
 		DemandeChequier chequier = (DemandeChequier)demandeDAO.updateDemande(dem);
-		//TODO surement implementer une methode pour faire qqch si la demande est validé
+		//TODO surement implementer une methode pour faire qqch si la demande est validï¿½
 		return chequier;
 	}
 
 	@Override
 	public DemandeModifMdp updateDemandeModifMdp(DemandeModifMdp dem) {
 		DemandeModifMdp mdp = (DemandeModifMdp)demandeDAO.updateDemande(dem);
-		//TODO surement implementer une methode pour generer un mdp si la demande est validé
+		//TODO surement implementer une methode pour generer un mdp si la demande est validï¿½
 		return mdp;
 	}
 
@@ -149,6 +153,8 @@ public class AgentServiceImpl implements IAgentService {
 	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem) {
 		DemandeOuvertureCompte dem = demOuvDAO.getDemandeById(idDem);
 		Client cl = dem.getClient();
+		
+		cl.setMdp("1234");
 		
 		dem.setIsValid(true);
 		dem.setStatus("TRAITEE");

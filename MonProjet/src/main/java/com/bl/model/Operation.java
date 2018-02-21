@@ -2,7 +2,20 @@ package com.bl.model;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Operation")
 public class Operation {
+	@Id
+	@GeneratedValue
 	private Long id;
 	private float montant;
 	private Date date;

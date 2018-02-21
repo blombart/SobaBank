@@ -88,8 +88,8 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value ="/clients/{id}/comptesEpargne",method = RequestMethod.GET)
-	public List<CompteEpargne> getAllComptesEpargne(@PathVariable("id") Long idClient){
-		List<CompteEpargne> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
+	public List<Compte> getAllComptesEpargne(@PathVariable("id") Long idClient){
+		List<Compte> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
 		return comptesEpargne;
 	}
 

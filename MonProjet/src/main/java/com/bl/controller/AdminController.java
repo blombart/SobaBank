@@ -3,6 +3,7 @@ package com.bl.controller;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bl.model.Admin;
 import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
 import com.bl.service.IAdminService;
@@ -91,5 +93,5 @@ public class AdminController {
 		Boolean response = adminService.inscriptionClient(nom,prenom,email,adresse,numTel,nbEnfants,situationMatrimonial);
 		return response;
 	}
-	
+
 }

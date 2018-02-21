@@ -29,4 +29,9 @@ public class UserController {
 		System.out.println(userResponse.getEmail());
 		return userResponse;
 	}
+	
+	
+	
+	
+	
 }

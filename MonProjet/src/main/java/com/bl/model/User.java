@@ -2,6 +2,7 @@ package com.bl.model;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,9 +13,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("User")
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name="type")
 public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
