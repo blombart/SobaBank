@@ -1,5 +1,6 @@
 package com.bl.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,11 @@ public class ClientController {
 	
 	@RequestMapping(value ="/clients/{id}/demandes/nouveauCompte",method = RequestMethod.POST)
 	public DemandeNouveauCompte createDemandeNewCompte(@PathVariable("id")Long idClient, Compte compte){
+		
+//		compte = new Compte();
+//		compte.setDateCreation(new Date());
 		DemandeNouveauCompte dem = clientService.createDemandeNouveauCompteForClient(idClient, compte);
+		
 		return dem;
 	}
 	
@@ -69,7 +74,7 @@ public class ClientController {
 		return opes;
 	}
 	
-	@RequestMapping(value ="comptes/{id}/operations",method = RequestMethod.POST)
+	@RequestMapping(value ="comptes/{id}/operations",method = RequestMethod.GET)
 	public List<Operation> getAllOperations(@PathVariable("id") Long idCompte){
 		List<Operation> opes = clientService.getOperationsByCompte(idCompte);
 		return opes;

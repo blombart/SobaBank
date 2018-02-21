@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bl.model.Client;
+import com.bl.model.Demande;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeModifMdp;
 import com.bl.model.DemandeNouveauCompte;
@@ -44,6 +45,8 @@ public class AgentController {
 	@RequestMapping(value ="/agents/{id}/demandes/chequier",method = RequestMethod.GET)
 	public List<DemandeChequier> getAllDemandesChequier(@PathVariable("id") Long idAgent){
 		List<DemandeChequier> chequiers = agentService.getAllDemandeChequier(idAgent);
+		
+		
 		return chequiers;
 	}
 	
@@ -67,14 +70,17 @@ public class AgentController {
 	}
 	
 	@RequestMapping(value ="/agents/{id}/demandes/nouveauCompte",method = RequestMethod.GET)
-	public List<DemandeNouveauCompte> getAllDemandesNouveauCompte(@PathVariable("id") Long idAgent){
-		List<DemandeNouveauCompte> nouveauxComptes = agentService.getAllDemandeNouveauCompte(idAgent);
+	public List<Demande> getAllDemandesNouveauCompte(@PathVariable("id") Long idAgent){
+		List<Demande> nouveauxComptes = agentService.getAllDemandeNouveauCompte(idAgent);
 		return nouveauxComptes;
 	}
 	
 	@RequestMapping(value ="/demandes/nouveauCompte",method = RequestMethod.PUT)
 	public @ResponseBody DemandeChequier updateDemandeNouveauCompte(@RequestBody DemandeNouveauCompte demNouv) {
 		//TODO creer methode dans interface et implementation de agentService
+		
+		
+		
 		return null;
 	}
 	

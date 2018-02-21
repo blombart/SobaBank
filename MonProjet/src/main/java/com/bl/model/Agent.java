@@ -32,6 +32,8 @@ public class Agent extends User {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<DemandeOuvertureCompte> demandesOuverture = new ArrayList<DemandeOuvertureCompte>();
 	
+	
+
 	public Agent() {
 		super();
 	}
