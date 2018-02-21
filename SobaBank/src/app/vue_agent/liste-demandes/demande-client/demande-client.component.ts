@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DemandeOuvertureCompte} from '../../../modeles/demandeOuvertureCompte';
 import { AgentService} from '../../../Service/agent.service';
 import { CookieService} from 'angular2-cookie/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-demande-client',
@@ -13,7 +14,7 @@ export class DemandeClientComponent implements OnInit {
 	demandesClient: DemandeOuvertureCompte[];
   id:number;
 
-  constructor(private agentService: AgentService, private cookieService: CookieService) { }
+  constructor(private agentService: AgentService, private cookieService: CookieService,private _router: Router) { }
 
   ngOnInit() {
     this.id = Number(this.cookieService.get("id"));
@@ -30,7 +31,8 @@ export class DemandeClientComponent implements OnInit {
 
   valider(idDemande : number){
       this.agentService.validDemande(idDemande).subscribe(
-        demande=> {console.log("demande validé")},
+        demande=> {console.log("demande validé");
+       this._router.navigate(["./agent/listeDemandes/demandeClient"]);},
       err => {
         console.log(err);
       }); 

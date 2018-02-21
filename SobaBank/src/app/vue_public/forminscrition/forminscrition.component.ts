@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService} from '../../Service/admin.service';
 import { Observable} from 'rxjs/Observable';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forminscrition',
@@ -13,7 +14,7 @@ export class ForminscritionComponent implements OnInit {
   userForm: FormGroup;
   
 
-  constructor(private _fb: FormBuilder,private adminService: AdminService ) {
+  constructor(private _fb: FormBuilder,private adminService: AdminService,private _router: Router ) {
    }
 
   ngOnInit() {
@@ -41,7 +42,9 @@ export class ForminscritionComponent implements OnInit {
      this.userForm.controls['numTel'].value,
       this.userForm.controls['nbEnfants'].value,
       this.userForm.controls['situationMatrimonial'].value).subscribe(
-      bool => {console.log(bool)},
+      bool => {console.log(bool) ;
+         this._router.navigate(["./finance"]);
+      },
            err => {
         console.log(err);
       }
