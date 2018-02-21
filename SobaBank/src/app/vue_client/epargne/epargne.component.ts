@@ -1,24 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import {epargnes} from '../../modeles/compte';
+
 import { CompteEpargne} from '../../modeles/compte';
-import { CompteService} from '../../Service/compte.service';
+import { ClientService} from '../../Service/client.service';
 
 @Component({
   selector: 'app-epargne',
   templateUrl: './epargne.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers:[CompteService]
+  providers:[ClientService]
 })
 export class EpargneComponent implements OnInit {
 
   
-    epargnes:CompteEpargne=epargnes;
+    epargnes:CompteEpargne[];
 
-  constructor(private compteService:CompteService) { }
+  constructor(private clientService:ClientService) { }
 
   ngOnInit() {
   
-   this.epargnes=this.compteService.getAllComptesEpargne();
+   this.getAllComptesEpargne();
 
+}
+
+
+  getAllComptesEpargne(){
+  this.clientService.getAllComptesEpargne(1).subscribe(
+    epgnes => {
+      this.epargnes=epgnes;
+    },
+    err => {
+      console.log(err);
+    }
+    );
+  
 }
 }

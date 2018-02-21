@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Notification } from '../../modeles/notification';
-import { notifications } from '../../modeles/notification';
 import{ClientService} from '../../Service/client.service';
-import { comptes} from '../../modeles/compte';
 import { Compte} from '../../modeles/compte';
 import { Client } from '../../modeles/client';
-import { clients } from '../../modeles/client';
-import { CompteService} from '../../Service/compte.service';
-import { Observable} from 'rxjs/Observable';
 import{NotificationService} from '../../Service/notification.service';
-import { epargnes} from '../../modeles/compte';
 import { CompteEpargne} from '../../modeles/compte';
+import { CookieService} from 'angular2-cookie/core';
 
 
 @Component({
   selector: 'app-client-accueil',
   templateUrl: './client-accueil.component.html',
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
-  providers:[ClientService,CompteService, NotificationService]
+  providers:[ClientService]
 
 })
 
@@ -25,31 +20,57 @@ import { CompteEpargne} from '../../modeles/compte';
 export class ClientAccueilComponent implements OnInit {
 	
 
-   //private compteService = new CompteService();
 
-//comptes :Compte; 
-    notifications:Notification[];
-    //notif :Notification;
-      comptes : Compte; 
-   client :Client;
-    epargnes:CompteEpargne=epargnes;
+     comptes: Compte[];
+    epargnes:CompteEpargne[];
+    id: number
+
+   
 
 
-  constructor(private clientService: ClientService, private compteService:CompteService, private notificationService: NotificationService) { }
-
+  constructor(private clientService: ClientService, private cookieService: CookieService) { }
+//private notificationService: NotificationService
   ngOnInit() {
+    this.id = Number(this.cookieService.get("id"));
 
+  this.getAllComptes();
 
-   this.comptes= this.compteService.getAllComptes();
+   //this.getNotifications();
 
-   this.notifications=this.notificationService.getUnreadNotifications();
+//this.notifications=this.notificationService.getUnreadNotificationsCount();
+this.getAllComptesEpargne();
+}
 
-//this.notif=this.notificationService.getUnreadNotificationsCount();
+getAllComptes(){
+  this.clientService.getAllComptes(this.id).subscribe(
+    cptes => {
+      this.comptes=cptes;
+    },
+    err => {
+      console.log(err);
+    }
+);
+}
+  /*getNotifications(){
+  this.notificationService.getUnreadNotifications().suscribe(
+    notif => {
+      this.notifications=notif;
+    },
+    err => {
+      console.log(err);
+    }
+);*/
 
-
-   this.epargnes=this.compteService.getAllComptesEpargne();
-
+  getAllComptesEpargne(){
+  this.clientService.getAllComptesEpargne(this.id).subscribe(
+    epgnes => {
+      this.epargnes=epgnes;
+    },
+    err => {
+      console.log(err);
+    }
+    );
   }
 
-  
 }
+

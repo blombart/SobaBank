@@ -2,7 +2,7 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { agents } from '../../modeles/agent';
 import { Agent } from '../../modeles/agent';
 import { AgentService} from '../../Service/agent.service';
-import { DemandeService} from '../../Service/demande.service';
+import { AdminService} from '../../Service/admin.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
 
@@ -19,15 +19,26 @@ export class AffectationAgentComponent implements OnInit {
 	//on envoie le boolean une fois l'affectatin effectué
 	@Output() affected = new EventEmitter()
 
-	agents : Observable<Agent[]>; 
+	agents : Agent[]; 
 	agentSelected: Agent;
 
-  constructor(private agentService: AgentService, private demandeService:DemandeService) { }
+  constructor(private adminService : AdminService) { }
 
 
   ngOnInit() {
-  	this.agents = this.agentService.getAgents();
+  	this.getAllAgent();
   	console.log("id de la demande" + this.demId);
+  }
+
+  getAllAgent(){
+    this.adminService.findAll().subscribe(
+      agents => {
+        this.agents = agents;
+      },
+      err => {
+        console.log(err);
+      }
+      );
   }
 
   //on recoit l'agent selectionner
@@ -37,13 +48,14 @@ export class AffectationAgentComponent implements OnInit {
   
   //on recherche la demande correspondant a l'id et on affecte la demande a l'agent
   onClick(){
-  	let dem : DemandeOuvertureCompte = this.demandeService.getDemandeOuverture(this.demId);
-  	dem.agent = this.agentSelected;
-  	dem.estAffecte = true;
-  	dem.dateAffectation = new Date();
-  	dem.status = "En Cours";
+  	this.adminService.affecterDemande(this.agentSelected.id, this.demId).subscribe(
+      bool => {
+        console.log(bool);
+      },
+      err => {
+        console.log(err);
+      }
+      );
   	this.affected.emit(false);
-  	this.agentSelected.demandes.push(dem);
-  	console.log("dans composant affectation : " + this.agentSelected.nom +" id demande : " + this.agentSelected.demandes[0]);
   }
 }

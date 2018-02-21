@@ -1,42 +1,39 @@
-<div class="wrapper">
-    <form class="form-signin">       
+<div class="card" style="width: 40rem;">
+
+<div class="wrapper">     
       <h3 class="form-signin-heading">Espace virement</h3> 
 
 <form class="form-inline"><div class="form-group">
     <label for="inputPassword6">Compte à débiter</label>
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
- <option selected>Open this select menu</option>
-    <option value="1">compte courant</option>
-   
-    <option value="2">compte Epargne</option>
-       
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [ngModel]="ComptesDebiter" (ngModelChange)="selectCompteDebite($event)" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let cpd of comptesDebiter" [ngValue]="cpd">
+          {{cpd.numCompte}}
+        </option>
       </select>
+
+
   </div></form>
 
   <form class="form-inline"> <div class="form-group">
     <label for="inputPassword6">Compte à créditer</label>
-   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-      <option selected>Open this select menu</option>
-    <option value="1">compte courant</option>
-   
-    <option value="2">compte Epargne</option>
-       
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [ngModel]="comptesCrediter" (ngModelChange)="selectCompteCredite($event)" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let cpc of comptesCrediter" [ngValue]="cpc">
+          {{cpc.numCompte}}
+        </option>
       </select>
   </div>
    </form>
 
 
 <div class="col-md-4">
-<form class="form-signin">            
+<form [formGroup]="virementForm" (ngSubmit)="onSubmit()" novalidate>           
   <label for="inputPassword6">Montant</label>   
-      <input type="text" class="form-control" name="username" placeholder="montant" required="" autofocus="" /> <br/>
+      <input type="text" class="form-control" name="montant" formControlName="montant" placeholder="montant"/> <br/>
       <label for="inputPassword6">Libelle</label>   
-       <input type="text" class="form-control" name="username"  placeholder="Libelle" required="" autofocus="" />  
+       <input type="text" class="form-control" name="libelle" formControlName="libelle" placeholder="Libelle"/>  
        <br/> <br/>
-
-
      
       <button class="btn btn-lg btn-primary btn-block" type="submit">Effectuer virement</button>   
     </form>
     <div>
-  
+    </div>

@@ -4,14 +4,14 @@ import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 
 import {Demande} from '../modeles/demandes';
-import {demandeModificationMdp} from '../modeles/demandes';
+/*import {demandeModificationMdp} from '../modeles/demandes';*/
 import {DemandeModificationMdp} from '../modeles/demandes';
 
 import {Compte} from '../modeles/compte';
-import {comptes} from '../modeles/compte';
+
 
 import {DemandeChequier} from '../modeles/demandes';
-import {demandeChequier} from '../modeles/demandes';
+/*import {demandeChequier} from '../modeles/demandes';*/
 
 import {Client} from '../modeles/client';
 import {clients} from '../modeles/client';
@@ -41,7 +41,7 @@ constructor() { }
       // return this.notifications.filter(notif => !notif.isRead);
   // }
 
-   getUnreadNotifications() {
+   getNotifications() {
     return this.notifications;
 }
 }

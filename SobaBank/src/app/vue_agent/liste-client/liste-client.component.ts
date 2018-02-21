@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Client} from './client';
-
+import { Client} from '../../modeles/client';
+import { AgentService} from '../../Service/agent.service';
+import { CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-liste-client',
@@ -9,11 +10,22 @@ import { Client} from './client';
 })
 export class ListeClientComponent implements OnInit {
 
+	private clients: Client[];
+  id:number
 
-
-  constructor() { }
+  constructor(private agentService: AgentService, private cookieService: CookieService) { }
 
   ngOnInit() {
+    this.id = Number(this.cookieService.get("id"));
+  	this.getAllClients();
+  }
+
+  getAllClients(){
+  	//Pour le moment attribut de l'id rentré en dur, passé par cookie par la suite
+  	this.agentService.getAllClients(this.id).subscribe(
+  		clients => {
+  			this.clients = clients;
+  		})
   }
 
 }

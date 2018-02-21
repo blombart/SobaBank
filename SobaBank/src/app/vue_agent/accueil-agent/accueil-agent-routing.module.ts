@@ -8,8 +8,8 @@ import {DetailsDemandesComponent} from '../../vue_agent/details-demandes/details
 
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
-
-
+import { DemandeClientComponent} from '../../vue_agent/liste-demandes/demande-client/demande-client.component';
+import { MdpComponent} from '../../vue_agent/liste-demandes/mdp/mdp.component';
 
 const routes: Routes = [
 {
@@ -24,7 +24,9 @@ const routes: Routes = [
        component: ListeDemandesComponent,
        children: [
                 {path: 'newCompte', component: NewCompteComponent, pathMatch: 'full'},
-                {path: 'chequier', component: ChequierComponent, pathMatch: 'full'}
+                {path: 'chequier', component: ChequierComponent, pathMatch: 'full'},
+                {path: 'demandeClient', component: DemandeClientComponent, pathMatch: 'full'},
+                {path: 'mdp', component: MdpComponent, pathMatch: 'full'}
      ]},
 
      {path: 'listeClient', component: ListeClientComponent, pathMatch: 'full'},

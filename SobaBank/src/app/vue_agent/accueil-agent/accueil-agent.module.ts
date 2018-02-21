@@ -12,9 +12,10 @@ import { NavbarDemandesComponent } from '../../vue_agent/navbar-demandes/navbar-
 import { DetailsDemandesComponent } from '../../vue_agent/details-demandes/details-demandes.component';
 import { ChequierComponent } from '../../vue_agent/liste-demandes/chequier/chequier.component';
 import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/new-compte.component';
+import { AgentService} from '../../Service/agent.service';
 
-
-
+import { DemandeClientComponent } from '../../vue_agent/liste-demandes/demande-client/demande-client.component';
+import { MdpComponent } from '../../vue_agent/liste-demandes/mdp/mdp.component';
 
 @NgModule({
   imports: [
@@ -28,14 +29,14 @@ import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/ne
     ListeClientComponent,
     FilterPipe,
     NavbarDemandesComponent,
-
-
+    DemandeClientComponent,
+    MdpComponent,
     DetailsDemandesComponent,
     ChequierComponent,
     NewCompteComponent],
 
 
-  providers: []
+  providers: [AgentService]
 
 })
 export class AccueilAgentModule { }

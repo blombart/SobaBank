@@ -3,12 +3,10 @@
 <!-- <div class="hidden" *ngIf ="chequier"> -->
 
   <div class="row">
-    
-        
         <div class="col-md-12">
         <div class="table-responsive">
 
-<!--               <button (click) = "toggleShow()"> -->
+
               <table id="mytable" class="table table-bordred table-striped">
                    
                    <thead>
@@ -17,13 +15,12 @@
                    <th>Identifiant</th>
                    <th>Date de la demande</th>
                    <th></th>
-                    <th>Prénom</th>
-                     <th>N°.tel</th>
+                    <th></th>
                      
                    </thead>
     <tbody>
     
-    <tr *ngFor = "let chequier of demandeChequier | filter : searchText| async"  >
+    <tr *ngFor = "let chequier of demandeChequier | filter : searchText"  >
   <!--   <td><input type="checkbox" class="checkthis" /></td> -->
     <td>{{chequier.id}}</td>
     <td>{{chequier.dateDemande}}</td>

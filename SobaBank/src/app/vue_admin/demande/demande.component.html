@@ -29,11 +29,11 @@
                    </thead>
     <tbody>
     
-    <tr *ngFor="let dem of demandes | async">
+    <tr *ngFor="let dem of demandes">
     <td>{{dem.dateDemande | date}}</td>
-    <td><input type="checkbox" [checked]="dem.estAffecte" (click)="false"></td>
+    <td><input type="checkbox" [checked]="dem.isAffected" (click)="false"></td>
     <td>{{dem.dateAffectation | date}}</td>
-    <td><p *ngIf="dem.agent">{{dem.agent.nom}}</p></td>
+    <td>{{dem.idAgent}}</td>
     <td>{{dem.status}}</td>
     <td>{{dem.ficheInfo}}</td>
     <td><button class="btn btn-primary btn-sm" (click)="affecter(dem.id)" >Affecter</button></td>

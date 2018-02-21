@@ -2,11 +2,8 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import {Compte} from '../modeles/compte';
-import {comptes} from '../modeles/compte';
-import {epargnes} from '../modeles/compte';
 import {CompteEpargne} from '../modeles/compte';
 import {Operation} from '../modeles/operation';
-import {operations} from '../modeles/operation';
 import {OperationService} from '../Service/operation.service'
 
 @Injectable()
@@ -17,14 +14,14 @@ export class CompteService {
 
 
   //operationService = new OperationService();
-    comptes = comptes;
-    epargnes = epargnes;
+    //comptes = comptes;
+    //epargnes = epargnes;
 
     
 
   constructor() { }
 
-  getCompte(numCompte) {
+  /*getCompte(numCompte) {
     return this.comptes[numCompte];
   }
 
@@ -42,7 +39,7 @@ export class CompteService {
 
   return this.epargnes;
     
-  }
+  }*/
 
 
 }

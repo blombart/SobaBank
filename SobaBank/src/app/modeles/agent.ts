@@ -1,4 +1,4 @@
-import {User} from './user';
+ import {User} from './user';
 import {Client} from './client';
 import {DemandeOuvertureCompte} from './demandeOuvertureCompte';
 
@@ -17,7 +17,7 @@ constructor(
 	public numTel: string,
 
 	public clients: Client[],
-	public demandes: DemandeOuvertureCompte[])
+	public demandesOuverture: DemandeOuvertureCompte[])
 {
 		super(id,nom,prenom,email,mdp,role);
 

@@ -3,8 +3,8 @@
 <!--TABLEAU DE COMPTES-->
   <div class="card">
     <div class="header">
-      <h4 class="title">Mes comptes</h4>
-      <p class="category">Compte Courant</p>
+     <h4 class="title list-group-item active" >Mes comptes</h4>
+      <p class="title list-group-item" >Compte Courant</p>
     </div>
     <div class="content table-responsive table-full-width">
       <table class="table table-hover ">
@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let compte of comptes" (click)="selectCompte(compte)">
-             <td>{{compte.numCompte}}</td>
+    <td>{{compte.numCompte}}</td>
     <td>{{compte.dateCreation| date:"dd/MM/yy hh:mm"}}</td>
     <td>{{compte.solde}}</td>
     <td>{{compte.rib}}</td>
@@ -29,11 +29,12 @@
   
 
   <!--TABLEAU D'OPERATIONS (SI UN COMPTE EST SELECTIONNÉ)-->
-  <div *ngIf="(selectedCompte)" class="card card-plain">
+  <div *ngIf="(CompteSelectionne)" class="card card-plain">
     <div class="header">
-      <h4 class="title">Compte N° {{ selectedCompte.numCompte }}</h4>
+      <h4 class="title">Compte N° {{ CompteSelectionne.id}}</h4>
       <p class="category"> </p>
     </div>
+    
     <div class="content table-responsive table-full-width">
       <table class="table table-hover">
         <thead>
@@ -53,11 +54,3 @@
 
 
   </div>
-
-
-
-
-
-
-
-

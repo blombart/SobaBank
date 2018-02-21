@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Directive } from '@angular/core';
 import {User} from './modeles/user';
 import {NavbarComponent} from './vue_public/navbar/navbar.component'
-import {SharedService}  from './service/shared-service'
+import {SharedService}  from './Service/shared-service'
 
 
 
@@ -38,6 +38,6 @@ this.role= "guest"
 
 
 ngOnInit(){
-
+  
 }
 }
