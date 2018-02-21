@@ -32,13 +32,6 @@ updateClient(client :Client):Observable<Client>{
   .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 }
 
-/*// Méthode pour créer un client
-createClient(client :Client):Observable<number>{
-  return this.http.post(this.apiUrl + "clients", client)
-  .map((res: Response) => res.json())
-  .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-}*/
-
 //on recupere les documents d'un client
 getDocuments(idClient: number):Observable<File[]>{
   return this.http.get(this.apiUrl + "clients/" + idClient + "/documents")

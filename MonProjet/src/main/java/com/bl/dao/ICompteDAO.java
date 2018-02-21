@@ -15,4 +15,6 @@ public interface ICompteDAO {
 	
 	public Compte getCompteByRIB(String rib);
 	
+	public List<Compte> getComptesEpargneByIdClient(Long idClient);
+	
 }
