@@ -3,6 +3,7 @@ package com.bl.dao;
 import java.util.List;
 
 import com.bl.model.Demande;
+import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeNouveauCompte;
 
 public interface IDemandeDAO {
@@ -17,5 +18,7 @@ public interface IDemandeDAO {
 	public Demande getDemandeById(Long id);
 	
 	List<DemandeNouveauCompte> getDemandeByIdAgent(Long idAgent);
+
+	List<DemandeChequier> getAllDemandesChequierByIdAgent(Long idAgent);
 	
 }

@@ -7,9 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IDemandeDAO;
+import com.bl.model.Agent;
+import com.bl.model.Client;
 import com.bl.model.Demande;
+
 import com.bl.model.DemandeNouveauCompte;
 import com.bl.model.DemandeOuvertureCompte;
+import com.bl.model.DemandeChequier;
+
 
 @Repository("demandeDao")
 public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDemandeDAO{
@@ -74,6 +79,23 @@ public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDeman
 	public Demande getDemandeById(Long id) {
 		Demande demande =getByKey(id);
 		return demande;
+	}
+
+	@Override
+	public List<DemandeChequier> getAllDemandesChequierByIdAgent(Long idAgent) {
+		
+		
+		@SuppressWarnings("unchecked")
+		List<Object> results = getEntityManager().createNativeQuery("select dem.id from demande dem where dem.id in "
+				+ "( select demandes_id from user_demande where user_id in (select clients_id from user_user where user_id =? )) "
+				+ "and type_demande= 'chequier' ").setParameter(1, idAgent).getResultList();
+		List<DemandeChequier> chequiers = new ArrayList<DemandeChequier>();
+		for(Object o : results){
+			DemandeChequier cheque = (DemandeChequier)getByKey(Long.parseLong(o.toString()));
+			chequiers.add(cheque);
+ 		}
+		
+		return chequiers;
 	}	
 	
 	public List<DemandeNouveauCompte> getDemandeByIdAgent(Long idAgent){
