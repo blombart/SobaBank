@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.ICompteDAO;
+import com.bl.model.Client;
 import com.bl.model.Compte;
 import com.bl.model.CompteEpargne;
 import com.bl.model.Operation;
@@ -110,5 +111,14 @@ public class CompteDAOImpl extends AbstractDao<Long, Compte> implements ICompteD
 		Compte compte = (Compte) getEntityManager().createQuery("select cpt from Compte cpt where cpt.rib=?")
 				.setParameter(1, rib);
 		return compte;
+	}
+	
+	public List<Compte> getComptesEpargneByIdClient(Long idClient){
+		
+		 Client client =(Client) getEntityManager().createQuery("select client from Client client where client.id=?")
+					.setParameter(1, idClient).getSingleResult();
+		 List<Compte> listeComptes = client.getComptes();
+		 
+		return listeComptes;
 	}
 }
