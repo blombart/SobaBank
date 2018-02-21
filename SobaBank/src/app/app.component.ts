@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Directive } from '@angular/core';
 import {User} from './modeles/user';
 import {NavbarComponent} from './vue_public/navbar/navbar.component'
 import {SharedService}  from './Service/shared-service'
-import { CookieService} from 'angular2-cookie/core';
+
 
 
 @Component({
@@ -19,7 +19,7 @@ export class AppComponent  implements OnInit{
     //utilisateur = new User("Abder", "Hadjaz","moi@gog.com","0554123211", "guest");
     role: "guest";
 
-constructor(private _sharedService: SharedService, private cookieService: CookieService){
+constructor(private _sharedService: SharedService){
 //this.utilisateur = new User("Abder", "Hadjaz","moi@gog.com","0554123211", "client");
 
 
@@ -38,6 +38,6 @@ this.role= "guest"
 
 
 ngOnInit(){
-  this.cookieService.put("id", "1");
+  
 }
 }

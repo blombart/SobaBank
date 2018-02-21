@@ -1,8 +1,9 @@
-  import { Component, OnInit } from '@angular/core';
-import { ClientService} from '../../Service/client.service';
-//import { Client} from '../../modeles/client';
+  import { Component, OnInit} from '@angular/core';
 import { Agent} from '../../modeles/agent';
-
+import { ClientService} from '../../Service/client.service';
+import { Observable } from 'rxjs/Observable';
+import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
+import { CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-agent',
@@ -10,29 +11,29 @@ import { Agent} from '../../modeles/agent';
   styleUrls: ['../../bootstrap/css/bootstrap.css'],
   providers: [ClientService]
 })
-
 export class AgentComponent implements OnInit {
 
+  compteForm: FormGroup;
+  id:number;
 
-agent: Agent;
-	
-  constructor(private clientService : ClientService){
-  }
+  constructor(private clientService : ClientService,private _fb: FormBuilder,, private cookieService: CookieService){}
 
   ngOnInit() {
-	this.getAgent();
+     this.id = Number(this.cookieService.get("id"));
+    this.createForm();
+}
+
+createForm(){
+    this.compteForm = this._fb.group({
+      solde: ['', [Validators.required]],
+      compteSelected: ['']
+    });
+  }
+
+onSubmit(){
+  //TODO modifier la demande de nouveau compte et envoyer un type de compte et le solde en param plutot qu'un objet compte 
+  this.clientService.createDemandeNouveauCompte(this.id,);
 }
 
 
-getAgent(){
-  this.clientService.getAgent(1).subscribe(
-    agt => {
-      this.agent = agt;
-
-    },
-    err => {
-      console.log(err);
-    }
-    );
-}
 }

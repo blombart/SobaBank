@@ -61,5 +61,19 @@ export class AdminService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  inscription(nom,prenom,email,adresse,numTel,nbEnfants,situationMatrimonial):Observable<boolean>{
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('nom', nom);
+    urlSearchParams.append('prenom', prenom);
+    urlSearchParams.append('email', email);
+    urlSearchParams.append('adresse', adresse);
+    urlSearchParams.append('numTel', numTel);
+    urlSearchParams.append('nbEnfants', nbEnfants);
+    urlSearchParams.append('situationMatrimonial', situationMatrimonial);
+    return this.http.post(this.apiUrl + "inscription",urlSearchParams)
+    .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 
   }

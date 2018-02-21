@@ -15,7 +15,7 @@ import { NewCompteComponent } from '../../vue_agent/liste-demandes/new-compte/ne
 import { AgentService} from '../../Service/agent.service';
 
 import { DemandeClientComponent } from '../../vue_agent/liste-demandes/demande-client/demande-client.component';
-
+import { MdpComponent } from '../../vue_agent/liste-demandes/mdp/mdp.component';
 
 @NgModule({
   imports: [
@@ -30,7 +30,7 @@ import { DemandeClientComponent } from '../../vue_agent/liste-demandes/demande-c
     FilterPipe,
     NavbarDemandesComponent,
     DemandeClientComponent,
-
+    MdpComponent,
     DetailsDemandesComponent,
     ChequierComponent,
     NewCompteComponent],

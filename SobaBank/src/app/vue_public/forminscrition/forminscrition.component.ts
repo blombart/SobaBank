@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../modeles/user';
+import { AdminService} from '../../Service/admin.service';
 import { Observable} from 'rxjs/Observable';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -10,11 +10,10 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ForminscritionComponent implements OnInit {
 
-  utilisateur: User;
   userForm: FormGroup;
   
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,private adminService: AdminService ) {
    }
 
   ngOnInit() {
@@ -25,21 +24,28 @@ export class ForminscritionComponent implements OnInit {
     this.userForm = this._fb.group({
       nom: ['', [Validators.required, Validators.minLength(3)]],
       prenom: ['', Validators.required],
-      mail: ['',Validators.required],
-      numTel: ['',Validators.required]
+      email: ['',Validators.required],
+      adresse: ['',Validators.required],
+      numTel: ['',Validators.required],
+      nbEnfants: ['',Validators.required],
+      situationMatrimonial: ['',Validators.required]
+      
     });
   }
 
   onSubmit(){
-    //On cree un nouvel utilisateur
-   this.utilisateur = new User(5,
-     this.userForm.controls['nom'].value,
+   this.adminService.inscription(this.userForm.controls['nom'].value,
      this.userForm.controls['prenom'].value,
-     this.userForm.controls['mail'].value,
-     this.userForm.controls['numTel'].value,""
-     )
-
-
+     this.userForm.controls['email'].value,
+     this.userForm.controls['adresse'].value,
+     this.userForm.controls['numTel'].value,
+      this.userForm.controls['nbEnfants'].value,
+      this.userForm.controls['situationMatrimonial'].value).subscribe(
+      bool => {console.log(bool)},
+           err => {
+        console.log(err);
+      }
+      );
 
   }
   

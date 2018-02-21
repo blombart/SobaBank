@@ -4,7 +4,7 @@ import {Demande} from '../../modeles/demandes';
 import {DemandeChequier} from '../../modeles/demandes';
 import {ClientService} from '../../Service/client.service';
 import { Client} from '../../modeles/client';
-
+import { CookieService} from 'angular2-cookie/core';
 
 
 
@@ -23,16 +23,18 @@ export class CommandeComponent implements OnInit {
 
   comptes: Compte[];
   compteSelectione: Compte;
+  id: number
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService, private cookieService: CookieService) {
    }
 
  ngOnInit() {
+   this.id = Number(this.cookieService.get("id"));
 this.findAllComptes();
   }
 
 findAllComptes(){
-  this.clientService.findAllComptes(1).subscribe(
+  this.clientService.findAllComptes(this.id).subscribe(
     cptes => {
       this.comptes=cptes;
     },
@@ -48,7 +50,7 @@ selectCompte(compte: Compte){
 
   onClick(){
 
-     this.clientService.createDemandeChequier(1).subscribe(
+     this.clientService.createDemandeChequier(this.id).subscribe(
         reponse => {
           console.log("demande de chequier transmise");
         },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client} from '../../liste-client/client';
 import { AgentService} from '../../../Service/agent.service';
 import {DemandeNouveauCompte} from '../../../modeles/demandes';
+import { CookieService} from 'angular2-cookie/core';
 @Component({
   selector: 'app-new-compte',
   templateUrl: './new-compte.component.html',
@@ -10,15 +11,16 @@ import {DemandeNouveauCompte} from '../../../modeles/demandes';
 export class NewCompteComponent implements OnInit {
 
 	demandesNouveauCompte : DemandeNouveauCompte[]
-  constructor(private agentservice: AgentService) { }
+    id:number;
+  constructor(private agentservice: AgentService, private cookieService: CookieService) { }
 
-  ngOnInit() {
+  ngOnInit() { this.id = Number(this.cookieService.get("id"));
   	this.getAllDemandeNouveauCompte()
   }
 
   getAllDemandeNouveauCompte(){
   	//Pour le moment attribut de l'id rentré en dur, passé par cookie par la suite
-  	this.agentservice.getAllDemandesNouveauCompte(1).subscribe(
+  	this.agentservice.getAllDemandesNouveauCompte(this.id).subscribe(
   		demNew => {
   			this.demandesNouveauCompte = demNew;
   		},err => {

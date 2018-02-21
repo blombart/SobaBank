@@ -5,6 +5,7 @@ import { Compte} from '../../modeles/compte';
 import { Client } from '../../modeles/client';
 import{NotificationService} from '../../Service/notification.service';
 import { CompteEpargne} from '../../modeles/compte';
+import { CookieService} from 'angular2-cookie/core';
 
 
 @Component({
@@ -19,21 +20,19 @@ import { CompteEpargne} from '../../modeles/compte';
 export class ClientAccueilComponent implements OnInit {
 	
 
-   //private compteService = new CompteService();
 
-//comptes :Compte; 
-   //notifications:Notification[]=notifications;
-    //notif = notifications;
      comptes: Compte[];
-   
     epargnes:CompteEpargne[];
-   //client :Client[];
+    id: number
+
    
 
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService, private cookieService: CookieService) { }
 //private notificationService: NotificationService
   ngOnInit() {
+    this.id = Number(this.cookieService.get("id"));
+
   this.getAllComptes();
 
    //this.getNotifications();
@@ -43,7 +42,7 @@ this.getAllComptesEpargne();
 }
 
 getAllComptes(){
-  this.clientService.getAllComptes(1).subscribe(
+  this.clientService.getAllComptes(this.id).subscribe(
     cptes => {
       this.comptes=cptes;
     },
@@ -63,7 +62,7 @@ getAllComptes(){
 );*/
 
   getAllComptesEpargne(){
-  this.clientService.getAllComptesEpargne(1).subscribe(
+  this.clientService.getAllComptesEpargne(this.id).subscribe(
     epgnes => {
       this.epargnes=epgnes;
     },

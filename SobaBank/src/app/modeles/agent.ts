@@ -1,4 +1,4 @@
-import {User} from './user';
+ import {User} from './user';
 import {Client} from './client';
 import {DemandeOuvertureCompte} from './demandeOuvertureCompte';
 
@@ -23,6 +23,7 @@ constructor(
 
 	}
 }
+
 
 export const agents : Agent[] = [
 	new Agent(1,

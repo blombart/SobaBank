@@ -41,7 +41,7 @@ export class FormAgentsComponent implements OnInit {
       prenom: ['', Validators.required],
       email: ['',Validators.required],
       mdp: ['', Validators.required],
-      matricule: ['', Validators.required],
+      matricule: [''],
       numTel: ['',Validators.required]
     });
   }

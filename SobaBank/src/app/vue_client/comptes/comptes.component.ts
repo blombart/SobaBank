@@ -5,7 +5,7 @@ import { CompteEpargne} from '../../modeles/compte';
 import { ClientService} from '../../Service/client.service';
 import { OperationService} from '../../Service/operation.service';
 import { Client} from '../../modeles/client';
-
+import { CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-comptes',
@@ -16,35 +16,33 @@ import { Client} from '../../modeles/client';
 export class ComptesComponent implements OnInit {
 
 
-   CompteSelectionne: Compte;
-
+   idCompteSelectionne: number;
+   id:number;
     comptes: Compte[];
     operations:Operation[];
     epargnes:CompteEpargne[];
-    
 
     //epargnes : CompteEpargne[];
     
    
-  //selectedCompte : Compte;
+  selectedCompte : Compte;
 
 
-  constructor(private clientService:ClientService) { }
+  constructor(private clientService:ClientService, private cookieService: CookieService) { }
 
   ngOnInit() {
 
-
+  this.id = Number(this.cookieService.get("id"));
    this.getAllComptes();
 
 
    this.getAllComptesEpargne();
 
-   //this.getAllOperations();
 
   }
 
 getAllComptes(){
-  this.clientService.getAllComptes(1).subscribe(
+  this.clientService.getAllComptes(this.id).subscribe(
     cptes => {
       this.comptes=cptes;
     },
@@ -54,7 +52,7 @@ getAllComptes(){
 );
 }
  getAllComptesEpargne(){
-  this.clientService.getAllComptesEpargne(1).subscribe(
+  this.clientService.getAllComptesEpargne(this.id).subscribe(
     epgnes => {
       this.epargnes=epgnes;
     },
@@ -65,8 +63,8 @@ getAllComptes(){
 
 }
   getAllOperations(){
-    console.log("dans getoperation id: " + this.CompteSelectionne.id);
-this.clientService.getAllOperations(this.CompteSelectionne.id).subscribe(
+    console.log("dans getoperation id: " + this.idCompteSelectionne);
+this.clientService.getAllOperations(this.idCompteSelectionne).subscribe(
     op => {
       this.operations=op;
     },
@@ -78,8 +76,8 @@ this.clientService.getAllOperations(this.CompteSelectionne.id).subscribe(
 
    selectCompte(compte :Compte) {
 
-    this.CompteSelectionne=compte;
-    console.log(this.CompteSelectionne);
+    this.idCompteSelectionne=compte.id;
+    console.log(this.idCompteSelectionne);
         this.getAllOperations();
 
   }
