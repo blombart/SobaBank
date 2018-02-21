@@ -23,6 +23,7 @@ import javax.persistence.Table;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name="type_compte")
 public class Compte {
+	
 	@Id
 	@GeneratedValue
 	private Long id;

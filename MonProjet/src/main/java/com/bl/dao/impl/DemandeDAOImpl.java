@@ -1,15 +1,15 @@
 package com.bl.dao.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IDemandeDAO;
 import com.bl.model.Demande;
+import com.bl.model.DemandeNouveauCompte;
+import com.bl.model.DemandeOuvertureCompte;
 
 @Repository("demandeDao")
 public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDemandeDAO{
@@ -76,5 +76,19 @@ public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDeman
 		return demande;
 	}	
 	
+	public List<DemandeNouveauCompte> getDemandeByIdAgent(Long idAgent){
+		@SuppressWarnings("unchecked")
+				List<Object> results = getEntityManager().createNativeQuery("select dem.id from demande dem where dem.id in "
+						+ "( select demandes_id from user_demande where user_id in (select clients_id from user_user where user_id =? )) "
+						+ "and type_demande= 'nouveauCompte' ").setParameter(1, idAgent).getResultList();
+				List<DemandeNouveauCompte> comptes = new ArrayList<DemandeNouveauCompte>();
+				for(Object o : results){
+					DemandeNouveauCompte compte = (DemandeNouveauCompte)getByKey(Long.parseLong(o.toString()));
+					comptes.add(compte);
+		 		}
+				
+				return comptes;
+		
+	}
 
 }

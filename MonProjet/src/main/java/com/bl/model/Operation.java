@@ -2,6 +2,7 @@ package com.bl.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -17,8 +18,11 @@ public class Operation {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column
 	private float montant;
+	@Column
 	private Date date;
+	@Column
 	private String libelle;
 	
 	public Operation(){

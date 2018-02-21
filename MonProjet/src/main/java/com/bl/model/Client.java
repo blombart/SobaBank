@@ -28,9 +28,6 @@ public class Client extends User {
 	@Column
 	private String situationMatrimonial;
 	
-	
-//	private Long idMonAgent;
-	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Compte>comptes;
 	
@@ -40,6 +37,7 @@ public class Client extends User {
 	@Transient
 	private List<File> files;
 	
+	@Column
 	private Boolean isClient;
 	
 

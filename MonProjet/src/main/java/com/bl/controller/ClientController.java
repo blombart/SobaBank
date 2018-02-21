@@ -99,5 +99,11 @@ public class ClientController {
 		return comptes;
 	}
 	
+	@RequestMapping(value="/clients/{id}/createCompte",method = RequestMethod.POST)
+	public DemandeNouveauCompte createCompte(@PathVariable("id") Long idClient, @RequestParam("type") String type, @RequestParam("solde") float solde){
+		DemandeNouveauCompte dem = clientService.createDemandeNouveauCompte(idClient,type, solde);
+		return dem;
+	}
+	
 
 }

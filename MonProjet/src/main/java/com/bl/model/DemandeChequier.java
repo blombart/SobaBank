@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 
 
 @Entity
-@DiscriminatorValue("Demande de chéquier")
+@DiscriminatorValue("chequier")
 public class DemandeChequier extends Demande {
 
 	public DemandeChequier() {

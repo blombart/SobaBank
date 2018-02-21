@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Demande de MDP")
+@DiscriminatorValue("mdp")
 public class DemandeModifMdp extends Demande {
 
 	public DemandeModifMdp() {

@@ -215,6 +215,30 @@ public class ClientServiceImpl implements IClientService {
 		return null;
 	}
 
+	@Override
+	public DemandeNouveauCompte createDemandeNouveauCompte(Long idClient, String type,
+			float solde) {
+		Client cl = clientDAO.GetClientById(idClient);
+		DemandeNouveauCompte dem = new DemandeNouveauCompte();
+		
+		if(type.equals("cc")){
+			System.out.println("compte courant");
+			Compte c = new Compte();
+			c.setSolde(solde);
+			
+			dem.setNewCompte(c);
+			cl.getComptes().add(c);
+			cl.getDemandes().add(dem);
+		}else {
+			System.out.println("compte epargne");
+			CompteEpargne c = new CompteEpargne();
+			c.setSolde(solde);
+			dem.setNewCompte(c);
+			cl.getDemandes().add(dem);
+		}
+		return dem;
+	}
+
 
 
 
