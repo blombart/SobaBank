@@ -11,7 +11,9 @@ import { CookieService} from 'angular2-cookie/core';
 @Component({
   selector: 'app-client-accueil',
   templateUrl: './client-accueil.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css'],
+  styleUrls: ['../../bootstrap/css/bootstrap.css', './client-accueil.component.css'],
+
+
   providers:[ClientService]
 
 })

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input, Output, Directive } from '@angular/core';
+import { Component, OnInit, Input, Output, Directive, ViewEncapsulation } from '@angular/core';
 import {Item} from './item';
 import {User} from '../forminscrition/user';
 import {AppComponent} from '../../app.component';
@@ -11,11 +11,16 @@ import {SharedService}  from '../../Service/shared-service';  //Ne pas mettre da
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['../../bootstrap/css/bootstrap.css']
+  styleUrls: ['./navbar.component.css','../../bootstrap/css/bootstrap.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class NavbarComponent implements OnInit {
+  isIn = false;   // store state
+    toggleState() { // click handler
+        let bool = this.isIn;
+        this.isIn = bool === false ? true : false;
 
-
+      }
 
     //@Input() role: any;
      role = "guest";
