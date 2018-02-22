@@ -1,7 +1,7 @@
 package com.bl.controller;
 
 import java.io.File;
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +24,8 @@ public class AgentController {
 	IAgentService agentService;
 	
 	@RequestMapping(value ="/agents/{id}/clients",method = RequestMethod.GET)
-	public List<Client> getAllClients(@PathVariable("id") Long idAgent){
-		List<Client> clients = agentService.getAllClient(idAgent);
+	public Set<Client> getAllClients(@PathVariable("id") Long idAgent){
+		Set<Client> clients = agentService.getAllClient(idAgent);
 		return clients;
 	}
 	
@@ -36,14 +36,14 @@ public class AgentController {
 	}
 	
 	@RequestMapping(value ="clients/{id}/documents",method = RequestMethod.GET)
-	public List<File> getDocuments(@PathVariable("id") Long idClient){
-		List<File> files = agentService.getDocumentsForClient(idClient);
+	public Set<File> getDocuments(@PathVariable("id") Long idClient){
+		Set<File> files = agentService.getDocumentsForClient(idClient);
 		return files;
 	}
 	
 	@RequestMapping(value ="/agents/{id}/demandes/chequier",method = RequestMethod.GET)
-	public List<DemandeChequier> getAllDemandesChequier(@PathVariable("id") Long idAgent){
-		List<DemandeChequier> chequiers = agentService.getAllDemandeChequier(idAgent);
+	public Set<DemandeChequier> getAllDemandesChequier(@PathVariable("id") Long idAgent){
+		Set<DemandeChequier> chequiers = agentService.getAllDemandeChequier(idAgent);
 		return chequiers;
 	}
 	
@@ -55,8 +55,8 @@ public class AgentController {
 	
 	
 	@RequestMapping(value ="/agents/{id}/demandes/mdp",method = RequestMethod.GET)
-	public List<DemandeModifMdp> getAllDemandesMdp(@PathVariable("id") Long idAgent){
-		List<DemandeModifMdp> mdps = agentService.getAllDemandeMdp(idAgent);
+	public Set<DemandeModifMdp> getAllDemandesMdp(@PathVariable("id") Long idAgent){
+		Set<DemandeModifMdp> mdps = agentService.getAllDemandeMdp(idAgent);
 		return mdps;
 	}
 	
@@ -67,8 +67,8 @@ public class AgentController {
 	}
 	
 	@RequestMapping(value ="/agents/{id}/demandes/nouveauCompte",method = RequestMethod.GET)
-	public List<DemandeNouveauCompte> getAllDemandesNouveauCompte(@PathVariable("id") Long idAgent){
-		List<DemandeNouveauCompte> nouveauxComptes = agentService.getAllDemandeNouveauCompte(idAgent);
+	public Set<DemandeNouveauCompte> getAllDemandesNouveauCompte(@PathVariable("id") Long idAgent){
+		Set<DemandeNouveauCompte> nouveauxComptes = agentService.getAllDemandeNouveauCompte(idAgent);
 		return nouveauxComptes;
 	}
 	
@@ -80,8 +80,8 @@ public class AgentController {
 	
 	
 	@RequestMapping(value ="/agents/{id}/demandes/demandeOuverture",method = RequestMethod.GET)
-	public List<DemandeOuvertureCompte> getAllDemandeOuverture(@PathVariable("id") Long idAgent){
-		List<DemandeOuvertureCompte> dems = agentService.getAllDemandeOuvertureCompte(idAgent);
+	public Set<DemandeOuvertureCompte> getAllDemandeOuverture(@PathVariable("id") Long idAgent){
+		Set<DemandeOuvertureCompte> dems = agentService.getAllDemandeOuvertureCompte(idAgent);
 		return dems;
 	}
 	

@@ -2,12 +2,13 @@ package com.bl.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bl.dao.IAgentDAO;
@@ -43,21 +44,21 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public List<Compte> findAllComptes(Long idClient) {
+	public Set<Compte> findAllComptes(Long idClient) {
 		Client cl = clientDAO.GetClientById(idClient);
 		
 		//On ajoute les comptes du client dans une liste
-		List<Compte> comptes = cl.getComptes();
+		Set<Compte> comptes = cl.getComptes();
 		return comptes;
 	}
 	
 	@Override
-	public List<Compte> getComptesByIdClient(Long idClient) {
+	public Set<Compte> getComptesByIdClient(Long idClient) {
 		//on recupere le client
 		Client cl = clientDAO.GetClientById(idClient);
 		cl.setComptes(compteDAO.getAllComptes());
 		//On ajoute les comptes du client dans une liste
-		List<Compte> comptes = new ArrayList<Compte>();
+		Set<Compte> comptes = new HashSet<Compte>();
 		for(Compte c : cl.getComptes()){
 			if (!(c instanceof CompteEpargne)){
 				comptes.add(c);
@@ -67,12 +68,12 @@ public class ClientServiceImpl implements IClientService {
 	}
 	
 	@Override
-	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient) {
+	public Set<CompteEpargne> getComptesEpargneByIdClient(Long idClient) {
 		//on recupere le client
 				Client cl = clientDAO.GetClientById(idClient);
 				
 				//On ajoute les comptes du client dans une liste
-				List<CompteEpargne> comptesEpargne = new ArrayList<CompteEpargne>();
+				Set<CompteEpargne> comptesEpargne = new HashSet<CompteEpargne>();
 				for(Compte c : cl.getComptes()){
 					if (c instanceof CompteEpargne){
 						comptesEpargne.add((CompteEpargne)c);
@@ -82,9 +83,9 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	@Override
-	public List<Operation> getOperationsByCompte(Long idCompte) {
+	public Set<Operation> getOperationsByCompte(Long idCompte) {
 		Compte cp = compteDAO.getCompteByID(idCompte);
-		List<Operation> operations = cp.getOperations();
+		Set<Operation> operations = cp.getOperations();
 		return operations;
 	}
 
@@ -96,10 +97,10 @@ public class ClientServiceImpl implements IClientService {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public List<Operation> getOperationFilteredByCompte(Long idCompte, int mois) {
+	public Set<Operation> getOperationFilteredByCompte(Long idCompte, int mois) {
 		Compte cp = compteDAO.getCompteByID(idCompte);
-		List<Operation> opes = cp.getOperations();
-		List<Operation> opesFiltered = new ArrayList<Operation>();
+		Set<Operation> opes = cp.getOperations();
+		Set<Operation> opesFiltered = new HashSet<Operation>();
 		for(Operation ope : opes){
 			if(ope.getDate().getMonth() == mois){
 				opesFiltered.add(ope);
@@ -180,8 +181,14 @@ public class ClientServiceImpl implements IClientService {
 		Compte compteDebit = compteDAO.getCompteByID(idCompteDebit);
 		Compte compteCredit = compteDAO.getCompteByID(idCompteCredit);
 		
-		compteDebit.debiter(montant);
-		compteCredit.crediter(montant);
+		try {
+			compteDebit.debiter(montant);
+			compteCredit.crediter(montant);
+		} catch (Exception e) {
+			e.getMessage();
+			return false;
+		}
+		
 		
 		compteDAO.updateCompte(compteDebit);
 		compteDAO.updateCompte(compteCredit);
@@ -197,8 +204,15 @@ public class ClientServiceImpl implements IClientService {
 		Compte compteDebit = compteDAO.getCompteByID(idCompteDebit);
 		Compte compteCredit = compteDAO.getCompteByRIB(rib);
 		
-		compteDebit.debiter(montant);
-		compteCredit.crediter(montant);
+		try {
+			compteDebit.debiter(montant);
+			compteCredit.crediter(montant);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.getMessage();
+			return false;
+		}
+
 		
 		compteDAO.updateCompte(compteDebit);
 		compteDAO.updateCompte(compteCredit);

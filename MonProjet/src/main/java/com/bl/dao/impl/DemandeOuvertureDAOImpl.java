@@ -1,13 +1,12 @@
 package com.bl.dao.impl;
 
-import java.util.List;
-
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IDemandeOuvertureDAO;
-
 import com.bl.model.DemandeOuvertureCompte;
 
 @Repository("demandeOuvertureDao")
@@ -56,9 +55,9 @@ public class DemandeOuvertureDAOImpl extends AbstractDao<Long, DemandeOuvertureC
 //	}
 
 	@Override
-	public List<DemandeOuvertureCompte> getAllDemande() {
+	public Set<DemandeOuvertureCompte> getAllDemande() {
 		@SuppressWarnings("unchecked")
-		List<DemandeOuvertureCompte> demOuv = getEntityManager().createQuery("select dem from DemandeOuvertureCompte dem").getResultList();
+		Set<DemandeOuvertureCompte> demOuv = new HashSet<DemandeOuvertureCompte>(getEntityManager().createQuery("select dem from DemandeOuvertureCompte dem").getResultList());
 		return demOuv;
 	}
 

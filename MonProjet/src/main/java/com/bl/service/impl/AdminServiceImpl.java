@@ -2,11 +2,11 @@ package com.bl.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bl.dao.IAgentDAO;
@@ -28,8 +28,8 @@ public class AdminServiceImpl implements IAdminService {
 	private IClientDAO clientDAO;
 
 	@Override
-	public List<Agent> getAllAgent() {
-		List<Agent> agents = agentDAO.getAllAgents();
+	public Set<Agent> getAllAgent() {
+		Set<Agent> agents = agentDAO.getAllAgents();
 		return agents;
 	}
 
@@ -97,8 +97,8 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte() {
-		List<DemandeOuvertureCompte> demandes = demOuvDAO.getAllDemande();
+	public Set<DemandeOuvertureCompte> getAllDemandeOuvertureCompte() {
+		Set<DemandeOuvertureCompte> demandes = demOuvDAO.getAllDemande();
 		return demandes;
 	}
 

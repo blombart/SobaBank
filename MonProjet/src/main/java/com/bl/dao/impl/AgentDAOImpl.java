@@ -3,6 +3,7 @@ package com.bl.dao.impl;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -84,9 +85,9 @@ public class AgentDAOImpl extends AbstractDao<Long, Agent> implements IAgentDAO{
 //		return agent;
 //	}
 	@Override
-	public List<Agent> getAllAgents() {
+	public Set<Agent> getAllAgents() {
 		@SuppressWarnings("unchecked")
-		List<Agent> agents = getEntityManager().createQuery("select ag from Agent ag").getResultList();
+		Set<Agent> agents = new HashSet<Agent>(getEntityManager().createQuery("select ag from Agent ag").getResultList());
 		return agents;
 	}
 

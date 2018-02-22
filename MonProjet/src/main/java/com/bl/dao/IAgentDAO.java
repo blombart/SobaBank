@@ -1,11 +1,11 @@
 package com.bl.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import com.bl.model.Agent;
 
 public interface IAgentDAO {
-	public List<Agent> getAllAgents();
+	public Set<Agent> getAllAgents();
 	
 	public Agent addAgent(Agent agent);
 	

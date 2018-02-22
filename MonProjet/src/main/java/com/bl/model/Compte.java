@@ -1,7 +1,7 @@
 package com.bl.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -41,7 +41,7 @@ public class Compte {
 	private float tauxAgios;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Operation> operations;
+	private Set<Operation> operations;
 	
 	public Compte(){
 		this.decouvertAutorise = 0f;
@@ -51,7 +51,7 @@ public class Compte {
 
 	
 	public Compte(Long id, int numCompte, Date dateCreation, float solde, String rib, float decouvertAutorise,
-			float tauxAgios, List<Operation> operations) {
+			float tauxAgios, Set<Operation> operations) {
 		super();
 		this.id = id;
 		this.numCompte = numCompte;
@@ -121,11 +121,11 @@ public class Compte {
 		this.tauxAgios = tauxAgios;
 	}
 
-	public List<Operation> getOperations() {
+	public Set<Operation> getOperations() {
 		return operations;
 	}
 
-	public void setOperations(List<Operation> operations) {
+	public void setOperations(Set<Operation> operations) {
 		this.operations = operations;
 	}
 	
@@ -133,16 +133,20 @@ public class Compte {
 		this.solde += montant;
 	}
 	
-	public void debiter(float montant){
+	public void debiter(float montant) throws Exception {
 		//Si le compte a un decouvert
 		if(decouvertAutorise !=0){
 			//on debite seulement si le solde ne depasse pas le decouvert
 			if((this.solde - montant) > -decouvertAutorise){
 				this.solde -= montant ;
+			} else {
+				throw new Exception("solde insuffisant");
 			}
 		}else{
 			if((this.solde - montant) >=0){
 				this.solde -= montant ;
+			} else {
+				throw new Exception("solde insuffisant");
 			}
 		}
 	}

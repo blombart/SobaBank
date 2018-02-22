@@ -2,12 +2,13 @@ package com.bl.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bl.dao.IAgentDAO;
@@ -40,9 +41,9 @@ public class AgentServiceImpl implements IAgentService {
 	private IDemandeOuvertureDAO demOuvDAO;
 	
 	@Override
-	public List<Client> getAllClient(Long id) {
+	public Set<Client> getAllClient(Long id) {
 		Agent ag = agentDAO.getAgentById(id);
-		List<Client> clients = ag.getClients();
+		Set<Client> clients = ag.getClients();
 		return clients;
 	}
 	
@@ -53,34 +54,22 @@ public class AgentServiceImpl implements IAgentService {
 	}
 
 	@Override
-	public List<File> getDocumentsForClient(Long idClient) {
+	public Set<File> getDocumentsForClient(Long idClient) {
 		Client cl = clientDAO.GetClientById(idClient);
-		List<File> files = cl.getFiles();
+		Set<File> files = cl.getFiles();
 		return files;
 	}
 
 	@Override
-	public List<DemandeChequier> getAllDemandeChequier(Long idAgent) {
-		Agent ag = agentDAO.getAgentById(idAgent);
-		List<DemandeChequier> demandesChequier = new ArrayList<DemandeChequier>();
-		//on boucle sur tous les clients de l'agent
-		for(Client c: ag.getClients()){
-			//On boucle sur les demandes du client
-			for(Demande d :c.getDemandes()){
-				//Si la demande est de type DemandeChequier
-				if(d instanceof DemandeChequier){
-					//On caste la demande en demandechequier pour l'ajouter dans la liste
-					demandesChequier.add((DemandeChequier)d);
-				}
-			}
-		}
+	public Set<DemandeChequier> getAllDemandeChequier(Long idAgent) {
+		Set<DemandeChequier> demandesChequier = demandeDAO.getAllDemandesChequierByIdAgent(idAgent);
 		return demandesChequier;
 	}
 
 	@Override
-	public List<DemandeModifMdp> getAllDemandeMdp(Long idAgent) {
+	public Set<DemandeModifMdp> getAllDemandeMdp(Long idAgent) {
 		Agent ag = agentDAO.getAgentById(idAgent);
-		List<DemandeModifMdp> demandesMdp = new ArrayList<DemandeModifMdp>();
+		Set<DemandeModifMdp> demandesMdp = new HashSet<DemandeModifMdp>();
 		//on boucle sur tous les clients de l'agent
 		for(Client c: ag.getClients()){
 			//On boucle sur les demandes du client
@@ -97,8 +86,8 @@ public class AgentServiceImpl implements IAgentService {
 	}
 
 	@Override
-	public List<DemandeNouveauCompte> getAllDemandeNouveauCompte(Long idAgent) {
-		List<DemandeNouveauCompte> demandesNouveauCompte = demandeDAO.getDemandeByIdAgent(idAgent);
+	public Set<DemandeNouveauCompte> getAllDemandeNouveauCompte(Long idAgent) {
+		Set<DemandeNouveauCompte> demandesNouveauCompte = demandeDAO.getDemandeByIdAgent(idAgent);
 		
 		return demandesNouveauCompte;
 	}
@@ -129,10 +118,10 @@ public class AgentServiceImpl implements IAgentService {
 	}
 
 	@Override
-	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(
+	public Set<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(
 			Long idAgent) {
 		Agent ag = agentDAO.getAgentById(idAgent);
-		List<DemandeOuvertureCompte> dems = ag.getDemandesOuverture();
+		Set<DemandeOuvertureCompte> dems = ag.getDemandesOuverture();
 		return dems;
 	}
 	
