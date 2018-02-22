@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.stereotype.Repository;
@@ -97,7 +98,7 @@ public class UserDAOImpl extends AbstractDao<Long, User> implements IUserDAO{
 	
 	public Set<User> getAllUsers(){
 		@SuppressWarnings("unchecked")
-		Set<User> userList = (Set<User>) getEntityManager().createQuery("select u from User u").getResultList();
+		Set<User> userList = new HashSet<User>(getEntityManager().createQuery("select u from User u").getResultList());
 		return userList;
 	}
 	

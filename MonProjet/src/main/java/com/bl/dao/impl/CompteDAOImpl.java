@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.stereotype.Repository;
@@ -76,7 +77,7 @@ public class CompteDAOImpl extends AbstractDao<Long, Compte> implements ICompteD
 	@Override
 	public Set<Compte> getAllComptes() {
 		@SuppressWarnings("unchecked")
-		Set<Compte> comptes = (Set<Compte>) getEntityManager().createQuery("select cpt from Compte cpt").getResultList();
+		Set<Compte> comptes = new HashSet<Compte>(getEntityManager().createQuery("select cpt from Compte cpt").getResultList());
 		return comptes;
 	}
 

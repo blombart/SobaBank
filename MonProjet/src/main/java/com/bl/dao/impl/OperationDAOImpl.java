@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.stereotype.Repository;
@@ -31,8 +32,8 @@ public class OperationDAOImpl extends AbstractDao<Long, Operation> implements
 	@Override
 	public Set<Operation> getAllOperation() {
 		@SuppressWarnings("unchecked")
-		Set<Operation> operations = (Set<Operation>) getEntityManager().createQuery(
-				"select op from Operation op").getResultList();
+		Set<Operation> operations = new HashSet<Operation>(getEntityManager().createQuery(
+				"select op from Operation op").getResultList());
 		return operations;
 	}
 

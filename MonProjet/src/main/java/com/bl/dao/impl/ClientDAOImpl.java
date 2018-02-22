@@ -1,5 +1,6 @@
 package com.bl.dao.impl;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.stereotype.Repository;
@@ -67,7 +68,7 @@ public class ClientDAOImpl extends AbstractDao< Long, Client> implements IClient
 	@Override
 	public Set<Client> getAllClients() {
 		@SuppressWarnings("unchecked")
-		Set<Client> clients = (Set<Client>) getEntityManager().createQuery("select c from client c").getResultList();
+		Set<Client> clients = new HashSet<Client>(getEntityManager().createQuery("select c from client c").getResultList());
 		return clients;
 	}
 

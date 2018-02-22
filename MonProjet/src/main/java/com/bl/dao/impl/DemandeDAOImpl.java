@@ -51,7 +51,7 @@ public class DemandeDAOImpl extends AbstractDao<Long, Demande> implements IDeman
 	@Override
 	public Set<Demande> getAllDemande() {
 		@SuppressWarnings("unchecked")
-		Set<Demande> demandes = (Set<Demande>) getEntityManager().createQuery("select dem from Demande dem").getResultList();
+		Set<Demande> demandes = new HashSet<Demande>(getEntityManager().createQuery("select dem from Demande dem").getResultList());
 		return demandes;
 	}
 
