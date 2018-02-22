@@ -1,13 +1,13 @@
 package com.bl.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import com.bl.model.Demande;
 import com.bl.model.DemandeChequier;
 import com.bl.model.DemandeNouveauCompte;
 
 public interface IDemandeDAO {
-	public List<Demande> getAllDemande();
+	public Set<Demande> getAllDemande();
 	
 	public Demande addDemande(Demande dem);
 	
@@ -17,8 +17,8 @@ public interface IDemandeDAO {
 	
 	public Demande getDemandeById(Long id);
 	
-	List<DemandeNouveauCompte> getDemandeByIdAgent(Long idAgent);
+	Set<DemandeNouveauCompte> getDemandeByIdAgent(Long idAgent);
 
-	List<DemandeChequier> getAllDemandesChequierByIdAgent(Long idAgent);
+	Set<DemandeChequier> getAllDemandesChequierByIdAgent(Long idAgent);
 	
 }

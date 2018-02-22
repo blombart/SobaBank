@@ -1,12 +1,11 @@
 package com.bl.dao;
 
-import java.util.List;
-
+import java.util.Set;
 
 import com.bl.model.DemandeOuvertureCompte;
 
 public interface IDemandeOuvertureDAO {
-	public List<DemandeOuvertureCompte> getAllDemande();
+	public Set<DemandeOuvertureCompte> getAllDemande();
 	
 	public DemandeOuvertureCompte addDemande(DemandeOuvertureCompte dem);
 	

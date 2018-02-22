@@ -1,11 +1,11 @@
 package com.bl.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import com.bl.model.Client;
 
 public interface IClientDAO {
-	public List<Client> getAllClients();
+	public Set<Client> getAllClients();
 	
 	public Client createClient(Client client);
 	

@@ -84,9 +84,9 @@ public class AgentDAOImpl extends AbstractDao<Long, Agent> implements IAgentDAO{
 //		return agent;
 //	}
 	@Override
-	public List<Agent> getAllAgents() {
+	public Set<Agent> getAllAgents() {
 		@SuppressWarnings("unchecked")
-		List<Agent> agents = getEntityManager().createQuery("select ag from Agent ag").getResultList();
+		Set<Agent> agents = (Set<Agent>) getEntityManager().createQuery("select ag from Agent ag").getResultList();
 		return agents;
 	}
 

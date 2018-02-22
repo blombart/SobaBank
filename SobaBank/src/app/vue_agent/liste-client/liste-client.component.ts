@@ -21,6 +21,7 @@ export class ListeClientComponent implements OnInit {
   }
 
   getAllClients(){
+    console.log("appelle de la méthode getAllclients");
   	//Pour le moment attribut de l'id rentré en dur, passé par cookie par la suite
   	this.agentService.getAllClients(this.id).subscribe(
   		clients => {

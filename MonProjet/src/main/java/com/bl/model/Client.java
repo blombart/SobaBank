@@ -2,7 +2,7 @@ package com.bl.model;
 
 
 import java.io.File;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,23 +29,23 @@ public class Client extends User {
 	private String situationMatrimonial;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Compte>comptes;
+	private Set<Compte>comptes;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Demande> demandes;
+	private Set<Demande> demandes;
 	
 	@Transient
-	private List<File> files;
+	private Set<File> files;
 	
 	@Column
 	private Boolean isClient;
 	
 
-	public List<File> getFiles() {
+	public Set<File> getFiles() {
 		return files;
 	}
 
-	public void setFiles(List<File> files) {
+	public void setFiles(Set<File> files) {
 		this.files = files;
 	}
 
@@ -65,7 +65,7 @@ public class Client extends User {
 
 
 	public Client(String adresse, String numTel, int nbEnfants, String situationMatrimonial,
-			List<Compte> comptes, List<Demande> demandes, List<File> files, Boolean isClient) {
+			Set<Compte> comptes, Set<Demande> demandes, Set<File> files, Boolean isClient) {
 		super();
 		this.adresse = adresse;
 		this.numTel = numTel;
@@ -117,19 +117,19 @@ public class Client extends User {
 //		this.idMonAgent = idMonAgent;
 //	}
 
-	public List<Compte> getComptes() {
+	public Set<Compte> getComptes() {
 		return comptes;
 	}
 
-	public void setComptes(List<Compte> comptes) {
+	public void setComptes(Set<Compte> comptes) {
 		this.comptes = comptes;
 	}
 
-	public List<Demande> getDemandes() {
+	public Set<Demande> getDemandes() {
 		return demandes;
 	}
 
-	public void setDemandes(List<Demande> demandes) {
+	public void setDemandes(Set<Demande> demandes) {
 		this.demandes = demandes;
 	}
 

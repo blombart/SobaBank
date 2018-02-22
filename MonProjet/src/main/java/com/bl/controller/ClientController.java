@@ -1,6 +1,6 @@
 package com.bl.controller;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,14 +64,14 @@ public class ClientController {
 	}
 
 	@RequestMapping(value ="/comptes/{id}/operations/filter",method = RequestMethod.POST)
-	public List<Operation> getOperationsFiltered(@PathVariable("id") Long idCompte, @RequestParam("mois") int mois){
-		List<Operation> opes = clientService.getOperationFilteredByCompte(idCompte, mois);
+	public Set<Operation> getOperationsFiltered(@PathVariable("id") Long idCompte, @RequestParam("mois") int mois){
+		Set<Operation> opes = clientService.getOperationFilteredByCompte(idCompte, mois);
 		return opes;
 	}
 	
 	@RequestMapping(value ="comptes/{id}/operations",method = RequestMethod.POST)
-	public List<Operation> getAllOperations(@PathVariable("id") Long idCompte){
-		List<Operation> opes = clientService.getOperationsByCompte(idCompte);
+	public Set<Operation> getAllOperations(@PathVariable("id") Long idCompte){
+		Set<Operation> opes = clientService.getOperationsByCompte(idCompte);
 		return opes;
 	}
 
@@ -82,20 +82,20 @@ public class ClientController {
 	}
 
 	@RequestMapping(value ="/clients/{id}/comptes",method = RequestMethod.GET)
-	public List<Compte> getAllComptes(@PathVariable("id") Long idClient){
-		List<Compte> comptes = clientService.getComptesByIdClient(idClient);
+	public Set<Compte> getAllComptes(@PathVariable("id") Long idClient){
+		Set<Compte> comptes = clientService.getComptesByIdClient(idClient);
 		return comptes;
 	}
 	
 	@RequestMapping(value ="/clients/{id}/comptesEpargne",method = RequestMethod.GET)
-	public List<CompteEpargne> getAllComptesEpargne(@PathVariable("id") Long idClient){
-		List<CompteEpargne> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
+	public Set<CompteEpargne> getAllComptesEpargne(@PathVariable("id") Long idClient){
+		Set<CompteEpargne> comptesEpargne = clientService.getComptesEpargneByIdClient(idClient);
 		return comptesEpargne;
 	}
 
 	@RequestMapping(value ="/clients/{id}/allComptes",method = RequestMethod.GET)
-	public List<Compte> findAllComptes(@PathVariable("id") Long idClient){
-		List<Compte> comptes = clientService.findAllComptes(idClient);
+	public Set<Compte> findAllComptes(@PathVariable("id") Long idClient){
+		Set<Compte> comptes = clientService.findAllComptes(idClient);
 		return comptes;
 	}
 	

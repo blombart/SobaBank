@@ -1,18 +1,12 @@
 package com.bl.dao.impl;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Set;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.IClientDAO;
 import com.bl.model.Client;
-import com.bl.model.Compte;
-import com.bl.model.Demande;
 
 @Repository("clientDao")
 public class ClientDAOImpl extends AbstractDao< Long, Client> implements IClientDAO{
@@ -71,9 +65,9 @@ public class ClientDAOImpl extends AbstractDao< Long, Client> implements IClient
 //	}
 	
 	@Override
-	public List<Client> getAllClients() {
+	public Set<Client> getAllClients() {
 		@SuppressWarnings("unchecked")
-		List<Client> clients = getEntityManager().createQuery("select c from client c").getResultList();
+		Set<Client> clients = (Set<Client>) getEntityManager().createQuery("select c from client c").getResultList();
 		return clients;
 	}
 

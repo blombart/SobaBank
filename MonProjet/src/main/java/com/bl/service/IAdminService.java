@@ -1,12 +1,13 @@
 package com.bl.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.bl.model.Agent;
 import com.bl.model.DemandeOuvertureCompte;
 
 public interface IAdminService {
-	public List<Agent> getAllAgent();
+	public Set<Agent> getAllAgent();
 	
 	public Agent addAgent(Agent agent);
 	
@@ -20,7 +21,7 @@ public interface IAdminService {
 	
 	public Agent getAgentByMatricule(String matricule);
 	
-	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte();
+	public Set<DemandeOuvertureCompte> getAllDemandeOuvertureCompte();
 	
 	public Boolean modifierAffectation(Long idNewAgent, Long idOldAgent, Long idDem);
 	

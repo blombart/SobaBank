@@ -1,7 +1,7 @@
 package com.bl.service;
 
 import java.io.File;
-import java.util.List;
+import java.util.Set;
 
 import com.bl.model.Client;
 import com.bl.model.DemandeChequier;
@@ -11,17 +11,17 @@ import com.bl.model.DemandeOuvertureCompte;
 
 public interface IAgentService {
 
-	public List<Client> getAllClient(Long id);
+	public Set<Client> getAllClient(Long id);
 	
 	public Client updateClient(Client client);
 	
-	public List<File> getDocumentsForClient(Long idClient);
+	public Set<File> getDocumentsForClient(Long idClient);
 	
-	public List<DemandeChequier> getAllDemandeChequier(Long idAgent);
+	public Set<DemandeChequier> getAllDemandeChequier(Long idAgent);
 	
-	public List<DemandeModifMdp> getAllDemandeMdp(Long idAgent);
+	public Set<DemandeModifMdp> getAllDemandeMdp(Long idAgent);
 	
-	public List<DemandeNouveauCompte> getAllDemandeNouveauCompte(Long idAgent);
+	public Set<DemandeNouveauCompte> getAllDemandeNouveauCompte(Long idAgent);
 	
 	public DemandeChequier updateDemandeChequier(DemandeChequier dem);
 	
@@ -29,7 +29,7 @@ public interface IAgentService {
 	
 	public DemandeNouveauCompte updateDemandeNouveauCompte(DemandeNouveauCompte dem);
 	
-	public List<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(Long idAgent);
+	public Set<DemandeOuvertureCompte> getAllDemandeOuvertureCompte(Long idAgent);
 	
 	public DemandeOuvertureCompte validDemandeOuvertureCompte(Long idDem);
 

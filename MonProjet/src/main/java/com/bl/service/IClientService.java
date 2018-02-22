@@ -1,6 +1,6 @@
 package com.bl.service;
 
-import java.util.List;
+import java.util.Set;
 
 import com.bl.model.Agent;
 import com.bl.model.Client;
@@ -14,13 +14,13 @@ import com.bl.model.Operation;
 public interface IClientService {
 	public Client createClient(Client client);
 	
-	public List<Compte> getComptesByIdClient(Long idClient);
+	public Set<Compte> getComptesByIdClient(Long idClient);
 	
-	public List<Operation> getOperationsByCompte(Long idCompte);
+	public Set<Operation> getOperationsByCompte(Long idCompte);
 	
 	public Compte getCompte(Long idCompte);
 	
-	public List<Operation> getOperationFilteredByCompte(Long idCompte, int mois);
+	public Set<Operation> getOperationFilteredByCompte(Long idCompte, int mois);
 	
 	public DemandeModifMdp createDemandeMdpForClient(Long idClient);
 	
@@ -34,9 +34,9 @@ public interface IClientService {
 	
 	public Agent getAgentForClient(Long idClient);
 
-	public List<CompteEpargne> getComptesEpargneByIdClient(Long idClient);
+	public Set<CompteEpargne> getComptesEpargneByIdClient(Long idClient);
 
-	public List<Compte> findAllComptes(Long idClient);
+	public Set<Compte> findAllComptes(Long idClient);
 
 	public DemandeNouveauCompte createDemandeNouveauCompte(Long idClient, String type,
 			float solde);

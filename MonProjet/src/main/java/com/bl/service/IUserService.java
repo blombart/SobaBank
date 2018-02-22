@@ -1,11 +1,12 @@
 package com.bl.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.bl.model.User;
 
 public interface IUserService {
-	public List<User> getAllUsers();
+	public Set<User> getAllUsers();
 	
 	public User getUserForId(Long id);
 	

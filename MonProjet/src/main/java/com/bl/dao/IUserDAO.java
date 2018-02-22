@@ -1,11 +1,11 @@
 package com.bl.dao;
 
-import java.util.List;
+import java.util.Set;
 
 import com.bl.model.User;
 
 public interface IUserDAO {
-	public List<User> getAllUsers();
+	public Set<User> getAllUsers();
 	
 	public User getUserForId(Long id);
 

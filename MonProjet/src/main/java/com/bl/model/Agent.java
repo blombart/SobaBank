@@ -2,7 +2,8 @@ package com.bl.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,13 +25,13 @@ public class Agent extends User {
 	private Date dateDebutContrat;
 	@Column
 	private String numTel;
-	
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Client> clients = new ArrayList<Client>();
-	
+	private Set<Client> clients = new HashSet<Client>();
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<DemandeOuvertureCompte> demandesOuverture = new ArrayList<DemandeOuvertureCompte>();
-	
+	private Set<DemandeOuvertureCompte> demandesOuverture = new HashSet<DemandeOuvertureCompte>();
+
 	public Agent() {
 		super();
 	}
@@ -43,17 +44,17 @@ public class Agent extends User {
 	public String getMatricule() {
 		return matricule;
 	}
-	
-	public void setMatricule(String matricule){
+
+	public void setMatricule(String matricule) {
 		this.matricule = matricule;
 	}
 
 	public void generateMatricule() {
-		long idAgent = super.getId() ;
-		if(idAgent<10){
+		long idAgent = super.getId();
+		if (idAgent < 10) {
 			setMatricule("A00" + idAgent);
 			System.out.println("generate mat");
-		} else if (idAgent>10 & idAgent<100){
+		} else if (idAgent > 10 & idAgent < 100) {
 			setMatricule("A0" + idAgent);
 		}
 	}
@@ -74,23 +75,24 @@ public class Agent extends User {
 		this.numTel = numTel;
 	}
 
-	public List<Client> getClients() {
+	public Set<Client> getClients() {
 		return clients;
 	}
 
-	public void setClients(List<Client> clients) {
+	public void setClients(Set<Client> clients) {
 		this.clients = clients;
 	}
 
-	public List<DemandeOuvertureCompte> getDemandesOuverture() {
+	public Set<DemandeOuvertureCompte> getDemandesOuverture() {
 		return demandesOuverture;
 	}
 
-	public void setDemandesOuverture(List<DemandeOuvertureCompte> demandesOuverture) {
+	public void setDemandesOuverture(
+			Set<DemandeOuvertureCompte> demandesOuverture) {
 		this.demandesOuverture = demandesOuverture;
 	}
-	
-	public void addDemandeOuvertureCompte(DemandeOuvertureCompte dem){
+
+	public void addDemandeOuvertureCompte(DemandeOuvertureCompte dem) {
 		this.demandesOuverture.add(dem);
 	}
 

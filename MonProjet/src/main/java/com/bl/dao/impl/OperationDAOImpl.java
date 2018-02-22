@@ -1,10 +1,7 @@
 package com.bl.dao.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Set;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
@@ -32,9 +29,9 @@ public class OperationDAOImpl extends AbstractDao<Long, Operation> implements
 	// }
 
 	@Override
-	public List<Operation> getAllOperation() {
+	public Set<Operation> getAllOperation() {
 		@SuppressWarnings("unchecked")
-		List<Operation> operations = getEntityManager().createQuery(
+		Set<Operation> operations = (Set<Operation>) getEntityManager().createQuery(
 				"select op from Operation op").getResultList();
 		return operations;
 	}

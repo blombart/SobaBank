@@ -1,6 +1,6 @@
 package com.bl.controller;
 
-import java.util.List;
+import java.util.Set;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +23,8 @@ public class AdminController {
 	IAdminService adminService;
 	
 	@RequestMapping(value ="/agents",method = RequestMethod.GET)
-	public List<Agent> getAllAgents(){
-		List<Agent> agents = adminService.getAllAgent();
+	public Set<Agent> getAllAgents(){
+		Set<Agent> agents = adminService.getAllAgent();
 		return agents;
 	}
 	
@@ -69,8 +69,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value ="/demandes",method = RequestMethod.GET)
-	public List<DemandeOuvertureCompte> getAllDemandesOuverture(){
-		List<DemandeOuvertureCompte> demandes = adminService.getAllDemandeOuvertureCompte();
+	public Set<DemandeOuvertureCompte> getAllDemandesOuverture(){
+		Set<DemandeOuvertureCompte> demandes = adminService.getAllDemandeOuvertureCompte();
 		return demandes;
 	}
 	

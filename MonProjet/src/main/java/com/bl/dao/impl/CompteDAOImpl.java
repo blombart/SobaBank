@@ -1,21 +1,13 @@
 package com.bl.dao.impl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.bl.dao.AbstractDao;
 import com.bl.dao.ICompteDAO;
 import com.bl.model.Client;
 import com.bl.model.Compte;
-import com.bl.model.CompteEpargne;
-import com.bl.model.Operation;
 
 @Repository("compteDao")
 public class CompteDAOImpl extends AbstractDao<Long, Compte> implements ICompteDAO{
@@ -82,9 +74,9 @@ public class CompteDAOImpl extends AbstractDao<Long, Compte> implements ICompteD
 //	}
 	
 	@Override
-	public List<Compte> getAllComptes() {
+	public Set<Compte> getAllComptes() {
 		@SuppressWarnings("unchecked")
-		List<Compte> comptes = getEntityManager().createQuery("select cpt from Compte cpt").getResultList();
+		Set<Compte> comptes = (Set<Compte>) getEntityManager().createQuery("select cpt from Compte cpt").getResultList();
 		return comptes;
 	}
 
@@ -113,11 +105,11 @@ public class CompteDAOImpl extends AbstractDao<Long, Compte> implements ICompteD
 		return compte;
 	}
 	
-	public List<Compte> getComptesEpargneByIdClient(Long idClient){
+	public Set<Compte> getComptesEpargneByIdClient(Long idClient){
 		
 		 Client client =(Client) getEntityManager().createQuery("select client from Client client where client.id=?")
 					.setParameter(1, idClient).getSingleResult();
-		 List<Compte> listeComptes = client.getComptes();
+		 Set<Compte> listeComptes = client.getComptes();
 		 
 		return listeComptes;
 	}
