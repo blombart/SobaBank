@@ -62,19 +62,7 @@ public class AgentServiceImpl implements IAgentService {
 
 	@Override
 	public Set<DemandeChequier> getAllDemandeChequier(Long idAgent) {
-		Agent ag = agentDAO.getAgentById(idAgent);
-		Set<DemandeChequier> demandesChequier = new HashSet<DemandeChequier>();
-		//on boucle sur tous les clients de l'agent
-		for(Client c: ag.getClients()){
-			//On boucle sur les demandes du client
-			for(Demande d :c.getDemandes()){
-				//Si la demande est de type DemandeChequier
-				if(d instanceof DemandeChequier){
-					//On caste la demande en demandechequier pour l'ajouter dans la liste
-					demandesChequier.add((DemandeChequier)d);
-				}
-			}
-		}
+		Set<DemandeChequier> demandesChequier = demandeDAO.getAllDemandesChequierByIdAgent(idAgent);
 		return demandesChequier;
 	}
 
