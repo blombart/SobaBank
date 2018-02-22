@@ -1,24 +1,24 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon">
 
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div>
+
+  <button class="navbar-toggler collapsed navbar-toggler-right" type="button" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleState()">
+    <span class="navbar-toggler-icon">
 
 
     </span>
   </button>
-  <a class="navbar-brand" href="#">Menu</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+</div>
+<a class="navbar-brand" href="#" [ngStyle]="{'color': 'white'}">Menu</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'collapse': isIn }">
     <ul class="navbar-nav mr-auto">
-
-      <li class="nav-item">
-
+      
 
 
-<li class="nav-item" *ngFor="let item of items">
 
-
-<a class="nav-link" [routerLink]="[item.name]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{item.linkName}}</a>
+<li class="nav-item" *ngFor="let item of items" >
+<a class= "nav-link" [ngStyle]="{'color': 'white'}" [routerLink]="[item.name]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{item.linkName}}</a>
 
 
     </li>
@@ -27,7 +27,7 @@
     </ul>
 
     <p>{{role}}</p>
-  </div>
 
+    
+</div>
 </nav>
-

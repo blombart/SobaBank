@@ -27,6 +27,7 @@ export class AffectationAgentComponent implements OnInit {
 
   ngOnInit() {
   	this.getAllAgent();
+  	console.log("id de la demande" + this.demId);
   }
 
   getAllAgent(){

@@ -1,19 +1,19 @@
-import { Component, OnInit, Input, Directive } from '@angular/core';
+import { Component, OnInit, Input, Directive} from '@angular/core';
 import {User} from './modeles/user';
-import {NavbarComponent} from './vue_public/navbar/navbar.component'
-import {SharedService}  from './Service/shared-service'
+import {NavbarComponent} from './vue_public/navbar/navbar.component';
+import {SharedService}  from './Service/shared-service';
 
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./bootstrap/css/bootstrap.css'],
+  styleUrls: ['./app.component.css','./bootstrap/css/bootstrap.css']
 
 })
 
 export class AppComponent  implements OnInit{
-    title = 'SOBA Bank.';
+    title = 'SOBA Bank';
 
     //@Input()
     //utilisateur = new User("Abder", "Hadjaz","moi@gog.com","0554123211", "guest");
