@@ -3,6 +3,7 @@ import { Compte} from '../../modeles/compte';
 import { ClientService} from '../../Service/client.service';
 import { FormBuilder,Validators, FormGroup, FormControl} from '@angular/forms';
 import { CookieService} from 'angular2-cookie/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-virement',
@@ -20,9 +21,9 @@ export class VirementComponent implements OnInit {
   compteCreditSelected: Compte;
   virementForm: FormGroup;
   id:number;
+ 
 
-
-  constructor(private clientService: ClientService,private _fb: FormBuilder, private cookieService: CookieService) { }
+  constructor(private clientService: ClientService,private _fb: FormBuilder, private cookieService: CookieService,private _router: Router) { }
 
   ngOnInit() {
     this.id = Number(this.cookieService.get("id"));
@@ -68,6 +69,7 @@ selectCompteCredite(_compteCreditSelected : Compte): void{
      this.clientService.virementInterne(idDebit, idCredit, this.montant,this.libelle).subscribe(
       bool => {
         console.log(bool);
+        this._router.navigate(["./client/client-accueil"]);
       },
       err => {
         console.log(err);

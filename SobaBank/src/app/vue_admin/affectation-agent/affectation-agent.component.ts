@@ -5,6 +5,7 @@ import { AgentService} from '../../Service/agent.service';
 import { AdminService} from '../../Service/admin.service';
 import { Observable} from 'rxjs/Observable';
 import {DemandeOuvertureCompte} from '../../modeles/demandeOuvertureCompte';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-affectation-agent',
@@ -22,7 +23,7 @@ export class AffectationAgentComponent implements OnInit {
 	agents : Agent[]; 
 	agentSelected: Agent;
 
-  constructor(private adminService : AdminService) { }
+  constructor(private adminService : AdminService,private _router: Router) { }
 
 
   ngOnInit() {
@@ -51,6 +52,7 @@ export class AffectationAgentComponent implements OnInit {
   	this.adminService.affecterDemande(this.agentSelected.id, this.demId).subscribe(
       bool => {
         console.log(bool);
+        this._router.navigate(["./admin"]);
       },
       err => {
         console.log(err);
